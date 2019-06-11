@@ -1,0 +1,38 @@
+.PicaFooter {
+	position: relative;
+	width: 100%;
+	height: 18.333vh;
+	background-color: white;
+	text-align: left;
+}
+
+.FooterColumn {
+	width: 12%;
+	height: 100%;
+	padding-top: 24px;
+}
+
+.FooterColumnLarge {
+	width: 20%;
+	height: 100%;
+	padding-top: 24px;
+}
+
+.PicaFooter p {
+	font-size: 16px;
+	margin-bottom: 0px;
+}
+
+.PicaFooter img {
+	width: 60%;
+	padding-left: 10%;
+}
+
+.PicaFooter a {
+	color: inherit;
+}
+
+.PicaFooter i {
+	font-size: 16px;
+	padding-right: 10px;
+}

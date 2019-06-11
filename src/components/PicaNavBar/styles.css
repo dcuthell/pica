@@ -1,0 +1,107 @@
+.PicaNavBar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
+
+.mainMenu {
+	height: 100%;
+	width: 240px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	background-color: #fff100;
+}
+
+#menuLogo {
+	max-height: 100%;
+	max-width: 100%;
+}
+
+.mainMenu a, .mainMenu a:hover, .mainMenu p {
+	color: inherit;
+	margin: 0;
+}
+
+.menuOptions {
+	line-height: 1.25;
+	position: absolute;
+	bottom: 10px;
+	left: 10px;
+	text-align: left;
+}
+
+.menuOptions i {
+	padding-right: 12px;
+	padding-bottom: 12px;
+}
+
+.mobileBar {
+	background-color: #fff100;
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 40px;
+	width: 100%;
+	z-index: 2;
+}
+
+#mobileLogo {
+	max-width: 100%;
+	max-height: 36px;
+	position: absolute;
+	left: 10px;
+	top: 2px;
+}
+
+#menuIcon {
+	max-width: 100%;
+	max-height: 20px;
+	position: absolute;
+	right: 16px;
+	top: 10px;
+}
+
+.mobileMenu, .mobileMenuOpen {
+	height: -webkit-calc(100% - 40px); /* google, safari */
+	height: -moz-calc(100% - 40px); /* firefox */
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	margin-top: 40px;
+	background-color: #fff100;
+	z-index: 1;
+	text-align: left;
+}
+
+.mobileMenu {
+	-webkit-transform: translateY(-100%);
+	-ms-transform: translateY(-100%);
+			transform: translateY(-100%);
+	transition: transform 500ms linear;
+}
+
+.mobileMenuOpen {
+	-webkit-transform: translateY(0%);
+	-ms-transform: translateY(0%);
+			transform: translateY(0%);
+	transition: transform 500ms ease-out;
+}
+
+.mobileMenuOptions {
+	position: absolute;
+	left: 20px;
+	bottom: 10px;
+	font-size: 5rem;
+}
+
+.mobileMenuOptions a {
+	color: inherit;
+}
+
+.mobileMenuOptions a:hover {
+	color: inherit;
+}
