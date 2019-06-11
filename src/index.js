@@ -4,6 +4,9 @@ import { BrowserRouter } from 'react-router-dom'
 import { ApolloProvider } from 'react-apollo'
 import ApolloClient from 'apollo-boost'
 
+import 'bootstrap/dist/css/bootstrap.css'
+import '@fortawesome/fontawesome-free/css/all.min.css'
+
 import * as serviceWorker from './serviceWorker';
 import './index.css'
 import App from './App'
