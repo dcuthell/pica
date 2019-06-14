@@ -1,0 +1,2802 @@
+@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700,400italic|Montserrat:400,700,400italic,700italic|Roboto);
+
+@font-face {
+  font-family: 'MabryPro';
+  src: url('//system.spektrix.com/pica/resources/MabryPro-Medium.ttf') format('truetype');
+}
+
+address,article,big,blockquote,body,button,canvas,caption,cite,dd,div,dl,dt,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,hr,input,label,li,nav,ol,optgroup,option,p,section,select,small,span,table,tbody,td,textarea,tfoot,th,thead,time,tr,ul { margin: 0; border: none; outline: none; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; }
+
+.SeatingArea {
+    width: 100%;
+  height: auto;
+}
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #F8F8F8;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #D3D3D3;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #B9B9B9;
+}
+
+.frameContent {
+  width: 80%;
+  height: auto;
+  margin: auto;
+}
+
+#picalogo {
+  padding-left: 9%;
+  max-width: 200px;
+}
+
+.SpektrixPage {
+  padding: 0px 10px 30px 10px;
+}
+
+.SpektrixFooter {
+  max-width: 176px;
+  background-color: #f8f8f8
+}
+
+.spx-main-container {
+  padding: 0px 10px 0px 10px;
+}
+
+.OptionalMessage {
+  display: none;
+}
+
+button, .ButtonStyle {
+    line-height: 1;
+	background: white;
+
+	color: black;
+	text-align: center;
+	font-weight: normal;
+	display: inline-block;
+	width: auto;
+	padding: 5px 10px;
+	border: none;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	box-shadow:  0 0 2px 0 rgba(0, 0, 0, 0.8);
+	-moz-box-shadow:  0 0 2px 0 rgba(0, 0, 0, 0.8);
+	-webkit-box-shadow:  0 0 2px 0 rgba(0, 0, 0, 0.8);
+	text-transform: uppercase;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+button:hover, .ButtonStyle:hover {
+    cursor: pointer;
+    background-color: #fff100;
+}
+html {
+    overflow-x: hidden
+}
+body {
+    background-color: #f8f8f8;
+    font-family: 'MabryPro', 'Roboto', 'Montserrat', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #000;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+}
+a {
+    color: black;
+    text-decoration: none;
+    outline: 0;
+    line-height: normal;
+    font-weight: 400
+}
+a:hover,
+a:focus,
+a:active {
+    text-decoration: underline;
+}
+p {
+    margin: 0 0 20px 0;
+    padding: 0
+}
+
+p.Message {
+	font-style: italic;
+}
+
+h1 {
+    font-family: 'MabryPro', 'Roboto', 'Libre Baskerville', 'Montserrat', Helvetica, sans-serif;
+    font-size: 30px;
+    margin: 0 0 10px 0;
+    font-weight: 300;
+}
+
+.ChooseSeatsHeading h1 {
+	font-size: 24px;
+}
+
+h2 {
+	font-family: 'MabryPro', 'Roboto', 'Montserrat', 'Helvetica Neue Condensed', Helvetica Condensed, Arial Narrow, sans-serif;
+	font-size: 24px;
+	margin: 0 0 10px 0;
+	font-weight: 300;
+}
+
+  h1 .EventName {
+    background: url(https://www.ccocincinnati.org/wp-content/uploads/line.png) left repeat-x;
+	text-align: center;
+	margin-bottom: 30px;
+  }
+
+h1.EditTicketsHeading {
+	margin: 0;
+}
+
+h1.EditTicketsHeading .EventName {
+	background: none;
+	font-size: 24px;
+}
+
+h2.EditTicketsHeading {
+	font-size: 14px;
+}
+
+h2.EditTicketsHeading .EventName {
+	font-size: 14px;
+	font-family: 'MabryPro', 'Roboto', 'Montserrat', Helvetica, sans-serif;
+}
+
+  h1 .Separator {
+    display: none;
+  }
+
+  h1 .InstanceTime {
+    display: block;
+    font-size: 14px;
+	  font-family: 'MabryPro', 'Roboto', 'Montserrat', Helvetica, sans-serif;
+    font-weight: 300;
+  }
+
+  .SupplementaryEventDiv {
+    margin-top: 25px;
+  }
+
+  .Event_Dates.Event_Detail {
+    display: block;
+    margin-bottom: 20px;
+
+  }
+
+  /* Book more and save */
+
+  .Event_Description.Event_Detail {
+    line-height: 1.8em;
+
+  }
+
+  .Events .Event_Dates.Event_Detail {
+    margin-top: 0px;
+      color: #888;
+      font-size: 15px;
+      display: block;
+  }
+
+  span.Dates_Heading {
+    display: block;
+
+    margin-bottom: 6px;
+  }
+
+  /* Register Form */
+
+  h2.YourDetailsHeading {
+    margin-bottom: 5px;
+  }
+
+  p.YourDetailsMessage {
+    margin-bottom: 25px;
+  }
+
+  .Progress ol {
+    padding-left: 22px;
+  }
+
+  .Progress ol li {
+    padding: 3px 0;
+  }
+
+  .Progress .Current {
+    color: #000;
+    font-weight: 500;
+  }
+  }
+
+  form .Container select {
+    width: 100%;
+    height: 42px;
+    font-size: 16px;
+  }
+
+  form .Container.PromoCode {
+    max-width: none;
+    margin-top: 10px;
+    margin-bottom: 0;
+  }
+
+  form .Container.PromoCode > label {
+	  margin-bottom: 0;
+  }
+
+  /* Checkout Payment */
+
+  .Container.Start_Date,
+  .Container.Issue_Number {
+    display: none;
+  }
+
+  #foxform .ErrorMessage:empty {
+    display: none;
+  }
+
+  .PaymentOptions .Buttons {
+    margin-bottom: -4px;
+  }
+
+  .PaymentOptions .Buttons .Button {
+    display: block;
+  }
+
+  /* Fixed Series */
+
+
+  .FixedSeriesOptions .ChoosePricing > h2,
+  .FixedSeriesWizard .ChooseNumberOfTickets > h2 {
+    display: none;
+  }
+
+  .FixedSeriesOptions .ChoosePricing:before,
+  .FixedSeriesWizard .ChooseNumberOfTickets:before {
+      content: "Select Subscription Type";
+      font-size: 30px;
+      color: #000;
+      font-weight: 600;
+      margin-bottom: 20px;
+      display: block;
+  }
+
+    .FixedSeriesWizard .ChooseNumberOfTickets:before {
+      content: "Select Number of Subscriptions";
+    }
+
+  .ChooseNumberOfTickets {
+    margin-top: 20px;
+  }
+
+  .FixedSeriesOptions .QuantityButtons > input {
+    font-size: 28px;
+    padding: 0;
+    width: 36px;
+  }
+
+  .FixedSeriesOptions .ChooseNumberOfTickets .TicketTypesTable td.QuantityButtons {
+    padding-left: 8px;
+  }
+
+  .FixedSeriesOptions .ChoosePricing .ChoosePricingButtons td {
+    padding-bottom: 10px;
+  }
+
+    .FixedSeriesOptions .ChoosePricing .ChoosePricingButtons td label {
+      padding-left: 8px;
+      vertical-align: -2px;
+    }
+
+  /*.FixedSeriesOptions .ChoosePricing > h2:after {
+      content: "Select Subscription Type";
+      visibility: visible;
+      font-size: 30px;
+      margin-left: -8px;
+  }*/
+
+  .FixedSeriesOptions .ChoosePricing .ChoosePricingButtons {
+    padding-left: 2px;
+  }
+
+  .FixedSeriesOptions .FixedSeriesAvailableDates .FixedSeriesDatesSection .HeaderSection {
+    font-weight: 600;
+    color: #000;
+    font-size: 19px;
+    padding-bottom: 12px;
+  }
+
+  .FixedSeriesOptions .FixedSeriesAvailableDates .FixedSeriesDatesSection .HeaderSection > span {
+    padding-left: 6px;
+    vertical-align: -2px;
+  }
+
+    .FixedSeriesOptions .FixedSeriesAvailableDates .EventInstanceDates {
+      padding-left: 30px;
+      padding-bottom: 10px;
+    }
+
+    .FixedSeriesAvailableDates .FixedSeriesDatesSection .EventInstanceDates:before {
+      content: "-";
+      padding-right: 10px;
+    }
+
+  .FixedSeriesOptions .FixedSeriesAvailableDates span.SubscriptionGroupEventName {
+
+  }
+
+    .FixedSeriesOptions .FixedSeriesAvailableDates span.SubscriptionGroupEventInstanceDate {
+        color: #888;
+        display: block;
+        padding-left: 20px;
+        font-size: 16px;
+        padding-top: 3px;
+    }
+
+
+
+  .FixedSeriesWizard > .Exclamation {
+      border: 2px solid #ce0505;
+      padding: 12px 12px 0 12px;
+      margin-bottom: 30px;
+      font-weight: bold;
+      font-style: italic;
+    }
+
+  /* Preferences */
+
+  .PreferenceContainer .Container {
+    margin-bottom: 15px;
+  }
+
+  .PreferenceContainer .Container .Input_Checkbox {
+    float: none;
+  }
+
+  .PreferenceContainer .Container .Input_Checkbox input {
+    margin-top: 3px;
+  }
+
+  .PreferenceContainer .Container .Input_Checkbox label {
+    margin-left: 20px;
+  }
+
+  .PreferenceContainer .GeneralPreferences {
+    margin: 20px 0;
+  }
+
+  /* My Account Page */
+
+h1.MyAccountHeading {
+	background: url(https://www.ccocincinnati.org/wp-content/uploads/line.png) left repeat-x;
+	text-align: center;
+	margin-bottom: 0;
+}
+
+h1.MyAccountHeading span {
+	display: inline-block;
+	width: auto;
+	background: #fff;
+	padding: 0 20px;
+}
+
+  .MyAccount h2 {
+  font-family: 'MabryPro', 'Roboto', 'Montserrat', 'Helvetica Neue Condensed', Helvetica Condensed, Arial Narrow, sans-serif;
+	font-size: 24px;
+	margin: 0 0 10px 0;
+	font-weight: 300;
+  }
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 300;
+    color: #000;
+    text-transform: none;
+    letter-spacing: normal;
+    line-height: normal;
+    margin: 0 0 16px 0;
+    padding: 0
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+  font-size: 20px;
+}
+h4 {
+  font-size: 16px;
+}
+h5 {
+  font-size: 14px;
+}
+h6 {
+  font-size: 14px;
+}
+
+/* Ticket Choose Seats */
+
+.Details {
+  margin-top: 35px;
+}
+
+/* Event Details */
+
+.EventDetails {
+  font-size: 14px;
+}
+
+.EventDetails .DateAndTime {
+}
+
+.Event.AreaAndVenueDetails {
+  font-size: 14px;
+}
+
+.InstanceCalendar {
+  padding: 15px 55px 15px 10px;
+}
+
+  .DropDownCalendar {
+    right: 11px;
+  }
+
+  .DropDownCalendar .DropDownSection {
+    right: -12px;
+    border-color: #ccc;
+  }
+
+  .DropDownCalendar .DropDownSection .TitleArea .CalendarTitleSpan {
+    font-size: 14px;
+      color: #000;
+      font-weight: 600;
+  }
+
+  .DropDownCalendar .DropDownSection .PrevArrow {
+    padding-left: 6px;
+  }
+
+  .DropDownCalendar .DropDownSection .NextArrow {
+    padding-right: 6px;
+  }
+
+  #ctl00_ContentPlaceHolder_WikiTextMessage {
+    color: black;
+  }
+
+.SeatingSelector {
+  margin-top: 30px;
+}
+
+.NumberRequireExtraEvents {
+    margin-bottom: 35px;
+    font-size: 20px;
+}
+
+/*.Membership .Period,
+#ctl00_ContentPlaceHolder_LoginForRenewalMessage{
+  display: none;
+ }*/
+
+.Membership {
+    margin-bottom: 35px;
+}
+
+label,
+input,
+li {
+    line-height: normal
+}
+form .Container {
+    clear: left;
+    margin: 0 0 22px;
+    position: relative;
+    width: 100%;
+    max-width: 460px;
+}
+form .Container label {
+    display: block;
+    font-weight: 300;
+    font-size: 90%;
+    width: auto;
+    font-size: 14px;
+    color: #000;
+    margin-bottom: 20px;
+}
+form .Container label.right {
+    position: absolute;
+    color: black;
+    float: none;
+    font-weight: 400;
+    left: auto;
+    right: 0;
+    top: 0px;
+    font-size: 14px;
+}
+input{
+  outline: none;
+}
+input[type='text'], input[type='number'], input[type='email'], select, form .Container input {
+    margin: 0;
+    padding: 10px;
+    width: auto;
+    font-size: 14px;
+    border-radius: 0;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 460px;
+    outline: none;
+}
+  form .Container input[type="submit"] {
+    line-height: 1;
+	background: #686B74;
+
+	color: #fff;
+	text-align: center;
+	font-weight: normal;
+	display: inline-block;
+	width: auto;
+	padding: 10px 30px;
+	border: none;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	box-shadow:  0 0 2px 0 rgba(0, 0, 0, 0.8);
+	-moz-box-shadow:  0 0 2px 0 rgba(0, 0, 0, 0.8);
+	-webkit-box-shadow:  0 0 2px 0 rgba(0, 0, 0, 0.8);
+	text-transform: uppercase;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+  }
+
+  form .Container input[type="submit"].RedeemGiftButton {
+    margin-top: 20px;
+  }
+
+  form .Container input:focus {
+    background: #eee;
+  }
+
+  /* Alternative Buttons */
+
+  form .Container.PromoCode input[type="submit"],
+  body .MyAccount .ChangePassword {
+    display: inline-block;
+    width: auto;
+  }
+
+  /*form .Container.PromoCode input[type="submit"],*/
+  .Buttons .Button.RefreshButton,
+  body .MyAccount a.ChangePassword {
+    background: white;
+  }
+
+    /*form .Container.PromoCode input[type="submit"]:hover,
+    form .Container.PromoCode input[type="submit"]:focus,*/
+    .Buttons .Button.RefreshButton:hover,
+    .Buttons .Button.RefreshButton:focus,
+    body .MyAccount a.ChangePassword:hover,
+    body .MyAccount a.ChangePassword:focus {
+      background: #fff100;
+    }
+
+
+
+.Container.TicketType .Price {
+  padding-left: 8px;
+  font-size: 17px;
+}
+form .Container .Input_Checkbox {
+    display: block;
+    float: left;
+    margin: 0 0 3px;
+    width: 100%
+}
+form .Container .Input_Checkbox input {
+    float: left;
+    width: auto;
+}
+form .Container .Input_Checkbox label {
+    font-weight: 400;
+    margin: 0 0 0 7px;
+    width: auto
+}
+form .Container input#ctl00_ContentPlaceHolder_AccountDetailsEditor1_DateOfBirth_YearBox {
+    width: 60px
+}
+form .Container #ctl00_ContentPlaceHolder_EventsRepeater_ctl00_TicketTypesRepeater_ctl01_TicketNumber {
+  width: 40px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+input.Button,
+button.Button {
+    line-height: 1;
+	background: white;
+
+	color: black;
+	text-align: center;
+	font-weight: normal;
+	display: inline-block;
+	width: auto;
+	padding: 10px 30px;
+	border: none;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	box-shadow:  0 0 2px 0 rgba(0, 0, 0, 0.8);
+	-moz-box-shadow:  0 0 2px 0 rgba(0, 0, 0, 0.8);
+	-webkit-box-shadow:  0 0 2px 0 rgba(0, 0, 0, 0.8);
+	text-transform: uppercase;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+input.Button:hover,
+button.Button:hover {
+    text-decoration: none;
+	background: #fff100;
+
+	cursor: pointer;
+}
+  input.Button:hover:focus,
+  button.Button:focus {
+    text-decoration: none;
+	background: #fff100;
+
+  }
+input.Button::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+    margin: 0
+}
+.SeatingArea.Unreserved {
+    width: auto;
+    height: auto;
+    text-align: center
+}
+.LoginLogout .LoginForm {
+    width: 460px
+}
+.LoginLogout .LoginForm .Container {
+    width: 100%;
+}
+.LoginLogout .LoginForm .Container.EmailAddress input,
+.LoginLogout .LoginForm .Container.Password input {
+    width: 100%;
+    padding: 10px;
+}
+.LoginLogout .LoginForm .Container.Password {
+    margin-bottom: 0
+}
+.OptionalMessage {
+  margin: 0;
+}
+
+.LoginLogout .LoginForm .Container label {
+    text-align: right;
+    margin: 0 10px 0 0;
+    margin-bottom: 15px;
+    text-align: left;
+}
+  .LoginLogout .LoginForm .Container label.right {
+    left: auto;
+    right: 1px;
+    margin-right: 0;
+    font-size: 14px;
+    text-align: right;
+  }
+
+.LoginLogout .Buttons {
+    margin: 0 0 20px 0;
+    padding: 0;
+    position: relative;
+    text-align: left;
+    width: 460px;
+    margin-top: 25px;
+}
+.LoginLogout .Buttons input {
+    margin: 0;
+    left: 100%;
+    bottom: 0
+}
+.LoginLogout .Account_Link {
+    display: block;
+    margin: 5px 0 0;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+.ChangePassword p.ErrorMessage {
+    min-height: 8px
+}
+/*.ChangePassword .Container label {
+
+}
+.ChangePassword .Container label.left {
+
+}
+.ChangePassword .Container .ValidationError,
+.ChangePassword .Container .Comment {
+
+}*/
+.ChangePassword #Buttons {
+    text-align: left
+}
+.ChangePassword #Buttons .Button {
+    margin-right: 0
+}
+body .MyAccount {
+    position: relative
+}
+body .MyAccount .Logout {
+    position: absolute;
+    right: 10px;
+}
+body .MyAccount .DetailsEditor .Container label.left {
+    margin-top: 2px;
+    padding-right: 10px
+}
+body .MyAccount .DetailsEditor .Container label.right {
+    text-align: right;
+}
+body .MyAccount .Address a {
+    background-color: #dadada;
+    border: 0 solid transparent;
+    border-radius: 0;
+    color: #363636;
+    padding: 5px 10px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-right: 4px;
+    margin-left: 0;
+    width: auto;
+    font-size: 100%;
+    font-weight: 600;
+    text-transform: none;
+    text-decoration: none;
+    margin: 0 0 4px 0;
+    width: auto;
+    font-size: 13px;
+    display: inline-block;
+    border-radius: 2px;
+}
+body .MyAccount .Address a:hover {
+    cursor: pointer;
+    background-color: white;
+    color: black;
+}
+body .MyAccount .Addresses .Address span {
+    display: block;
+    padding-bottom: 6px;
+    font-size: 16px;
+}
+  body .MyAccount .Addresses .Address span.Account_Detail {
+    font-weight: 600;
+    color: #000;
+    font-size: 14px;
+  }
+
+body .MyAccount .NewAddress,
+body .MyAccount .ChangePassword {
+    line-height: 1;
+	background: white;
+
+	color: black;
+	text-align: center;
+	font-weight: normal;
+	display: inline-block;
+	width: auto;
+	padding: 11px 30px 9px 30px;
+	border: none;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	box-shadow:  0 0 2px 0 rgba(0, 0, 0, 0.8);
+	-moz-box-shadow:  0 0 2px 0 rgba(0, 0, 0, 0.8);
+	-webkit-box-shadow:  0 0 2px 0 rgba(0, 0, 0, 0.8);
+	text-transform: uppercase;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+body .MyAccount .NewAddress:hover,
+body .MyAccount .ChangePassword:hover {
+    text-decoration: none;
+	background: #fff100;
+
+	cursor: pointer;
+}
+body .MyAccount .Buttons {
+    display: inline-block
+}
+body .MyAccount .SaveDetailsButton {
+	font-size: 14px;
+	line-height: 1;
+	font-weight: 300;
+}
+body .MyAccount .Preferences {
+    margin-bottom: 20px
+}
+body .MyAccount .Preferences .Container {
+    margin: 0
+}
+body .MyAccount .Preferences .Container .Input_Checkbox {
+    float: none;
+    display: inline-block;
+    height: 24px
+}
+body .MyAccount .Preferences .Container .Input_Checkbox input {
+    float: none;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0;
+    margin: 0;
+    height: 24px
+}
+body .MyAccount .Preferences .Container .Input_Checkbox label {
+    float: none;
+    display: inline-block;
+    line-height: 24px;
+    height: 24px;
+    vertical-align: middle
+}
+body .MyAccount .Options {
+    margin: 0 0 20px;
+    width: 100%;
+    display: block;
+    overflow: hidden;
+}
+body .MyAccount .Options ul {
+    display: block;
+    float: left;
+    margin: 0;
+    padding: 2px 0 0 0;
+    background-color: transparent;
+    list-style-type: none
+}
+body .MyAccount .Options ul li {
+    display: block;
+    float: left;
+    margin: 4px 0 0 0;
+}
+
+body .MyAccount .Options ul li a {
+    display: block;
+
+    background-color: #efefef;
+    border-radius: 0;
+    padding: 5px 20px;
+    font-weight: 300;
+    font-size: 14px;
+    text-transform: none;
+    text-decoration: none;
+    font-family: 'MabryPro', 'Roboto', 'Montserrat', Helvetica, Arial;
+    margin-right: 4px;
+}
+  body .MyAccount .Options ul li:first-child a {
+  }
+  body .MyAccount .Options ul li:last-child a {
+    border: 0;
+  }
+body .MyAccount .Options ul li a:hover {
+    background-color: #fff100
+}
+body .MyAccount .Options ul li a.Selected {
+    background-color: #fff100
+}
+body .MyAccount .Options ul li a.Selected:hover {
+    background-color: #fff100
+}
+.Checkout {
+    display: inline-block
+}
+.Checkout .Progress {
+    float: left;
+    margin: 0 0 12px 0;
+    min-height: 40px
+}
+.Checkout .Progress ol {
+    float: left;
+    margin: 0;
+    padding: 0
+}
+.Checkout .Progress ul {
+    float: left;
+    margin: 0;
+    padding: 0
+}
+.Checkout .Progress li {
+    float: left;
+    list-style: none;
+    margin: 4px 0 0 0
+}
+.Checkout .Progress li span {
+    float: left;
+    text-align: center;
+    padding: 0;
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-color: #77cbff;
+    color: #fff;
+    padding: 0;
+    margin-right: 4px
+}
+.Checkout .Progress li span span {
+    margin: 0;
+    padding: 20px 16px 4px 16px;
+    font-weight: 700;
+    text-transform: none;
+    display: block;
+
+    background-color: #efefef;
+    border-radius: 0;
+    padding: 15px 22px;
+    font-weight: 600;
+    font-size: 16px;
+    text-transform: none;
+    text-decoration: none;
+    font-family: 'MabryPro', 'Roboto', 'Montserrat', Helvetica, Arial;
+}
+.Checkout .Progress li a span {
+    cursor: pointer;
+    background-color: #111;
+    color: rgba(255, 255, 255, 0.79);
+    text-decoration: none
+}
+.Checkout .Progress li a span:hover {
+    background-color: #111;
+    text-decoration: none
+}
+.Checkout .Progress li a span:hover span {
+    color: #fff;
+}
+.Checkout .Progress li span.Current {
+    background-color: white;
+}
+.Checkout .Progress li span.Current span {
+    background-color: white;
+    color: black
+}
+.Checkout .Progress li span.Current span b {
+    font-weight: 600;
+}
+.Checkout .Progress li span.Current:hover {
+    background-color: #000
+}
+.Checkout .Progress li span.Current:hover span {
+    color: #fff
+}
+.Checkout .Progress li a span.Current span:hover {
+    background-color: checkoutProgressCurrentHoverColour
+}
+  #ctl00_ContentPlaceHolder_BillingViewControl_MyCards_CardAddressPickerControl_StoreCardDetailsDiv {
+    font-size: 14px;
+  }
+    #ctl00_ContentPlaceHolder_BillingViewControl_MyCards_CardAddressPickerControl_StoreCardDetailsDiv label {
+      margin-left: 4px;
+    }
+.Checkout .Progress li span.Final {
+    float: left;
+    margin-right: 0
+}
+.Checkout .Progress li span.Final span {
+    background-image: none
+}
+.Checkout .PaymentOptions label {
+    text-align: right
+}
+.Checkout .PaymentOptions .Container input {
+    margin-left: 8px
+}
+.Checkout .PaymentOptions .Container select {
+    margin-left: 8px
+}
+.Checkout .PaymentOptions .Container span.Comment {
+    margin-left: 128px
+}
+.Checkout .PaymentOptions .Container span.ValidationError {
+    margin-left: 128px;
+    padding-top: 6px
+}
+.Checkout .Button {
+    margin-bottom: 10px
+}
+.Checkout input.Button {
+    /*font-size: 14px;
+    padding: 7px 12px;*/
+}
+.Checkout .SummaryView .Buttons {
+    border-top: 0;
+    margin: 0;
+    padding: 0;
+    text-align: left
+}
+.Checkout .Buttons {
+    width: 100%;
+    text-align: right;
+    border-top: 1px solid #e3e3e3;
+    padding-top: 25px;
+    margin-top: 25px;
+    clear: both
+}
+.Checkout .Buttons input.Button {
+    margin: 0
+}
+.Checkout .Buttons input.ContinueButton {
+    font-size: 16px
+}
+.EventsCalendar table {
+    table-layout: fixed;
+    width: 100%
+}
+.EventsCalendar td.Date {
+    width: 14%;
+    vertical-align: top;
+    border-left: 1px solid #c0c0c0;
+    border-bottom: 1px solid #c0c0c0;
+    padding: 0 4px
+}
+.EventsCalendar td.Date>div {
+    min-height: 50px
+}
+.EventsCalendar td.Date:first-child {
+    border-left: 0;
+    vertical-align: top
+}
+.EventsCalendar td.Date .Instance {
+    padding-bottom: 8px;
+    line-height: 14px
+}
+.EventsCalendar td.Date .Instance .Name {
+    padding-bottom: 4px
+}
+.EventsCalendar td.Date .Instance .Name a {
+    color: #fff
+}
+.EventsCalendar td.Date .Instance .Name a:hover {
+    color: #ccc
+}
+.EventsCalendar td.Date .Instance .Thumbnail {
+    padding-bottom: 6px
+}
+.EventsCalendar td.Date .Instance .Description {
+    padding-bottom: 6px
+}
+.EventsCalendar td.Date .Instance .MoreInfo {
+    font-size: 9px;
+    font-style: italic;
+    line-height: 11px
+}
+.EventsCalendar td.Date .Instance .MoreInfo:hover {
+}
+.EventsCalendar td.Date .CalendarDate {
+    font-size: 11px;
+    line-height: 18px;
+    padding-bottom: 4px;
+    font-weight: 700
+}
+.EventsList .WhatsOnHeading {
+    display: none
+}
+.EventsList .MonthList.Options,
+.EventsCalendar .MonthList.Options {
+    display: block;
+    float: left
+}
+.EventsCalendar .MonthList,
+.EventsList .MonthList {
+    background-color: transparent;
+    margin: 0 0 12px 0;
+    padding: 0
+}
+.EventsCalendar .MonthList li a:hover {
+    background-color: #111
+}
+.EventsList .WhatsOnHeading {
+    display: block
+}
+.EventsList .MonthList li,
+.EventsCalendar .MonthList li {
+    display: block;
+    float: left;
+    vertical-align: middle;
+    text-align: center;
+    margin: 0 20px 0 0;
+	padding: 0;
+}
+.EventsList .MonthList li a,
+.EventsCalendar .MonthList li a {
+    display: block;
+    border-radius: 0;
+    text-transform: none;
+    vertical-align: middle;
+    color: black;
+    text-decoration: none;
+}
+.MonthList.LinkList {
+	list-style: none;
+	margin-bottom: 20px;
+	font-size: 0px;
+}
+.MonthList.LinkList  li {
+	display: inline-block;
+	font-size: 14px;
+	line-height: 1;
+	margin: 0 20px 0 0;
+	padding: 0;
+}
+.EventsList .SearchDescription {
+    clear: both;
+    border-bottom: 1px solid #a8abb0;
+    display: block;
+    padding: 0 0 5px 0;
+    margin-bottom: 20px;
+	font-style: italic;
+}
+.EventsList .Events {
+    clear: both
+}
+.EventsList .Event {
+    border-bottom: 1px solid #c0c0c0;
+    margin-bottom: 8px
+}
+.EventsList .Event .Event_Image {
+    display: inline-block;
+    padding: 0;
+    width: 86px;
+    vertical-align: top;
+    margin: 0 6px 0 0
+}
+.EventsList .Event .Event_Image img {
+    max-width: 86px
+}
+* html .EventsList .Event .Event_Image {
+    display: inline
+}
+.EventsList .Event .Event_Text {
+    display: inline-block;
+    padding-bottom: 8px;
+    width: 77%;
+    vertical-align: middle;
+    margin: 0
+}
+* html .EventsList .Event .Event_Text {
+    display: inline
+}
+.EventsList .Event .Event_Text .Event_Detail {
+    display: block
+}
+.EventsList .Event .Event_Text .Event_Name {
+    display: block;
+    margin-bottom: 14px;
+    font-size: 130%
+}
+.EventsList .Event .Event_Text .Event_Description {
+    margin-bottom: 14px
+}
+.EventsList .Event .Event_Text .Event_Dates {
+    color: #222222;
+    display: block;
+    margin-bottom: 14px
+}
+.EventsList .Event .Event_Text .Event_Dates .Dates_Heading {
+    display: none
+}
+.EventsList .Search {
+    display: none
+}
+.EventDates {
+    margin-top: 0;
+    vertical-align: middle
+}
+select.EventDatesList {
+    margin-right: 10px
+}
+.Checkout .DeliveryView {
+    clear: left;
+    padding: 5px 0 10px
+}
+  .DeliveryOptions {
+    margin-bottom: 20px;
+  }
+
+  .DeliveryOptions > div {
+    margin-bottom: 8px;
+    overflow: hidden;
+  }
+
+  .DeliveryOptions div input {
+    float: left;
+    margin-top: 6px;
+    margin-right: 8px;
+  }
+
+body .EditAddress .AddressEdit {
+    margin-bottom: 28px
+}
+p.AddressEditInstructions {
+  margin-bottom: 25px;
+}
+body .EditAddress .AddressEdit .Container label {
+    text-align: left;
+    width: auto;
+    display: inline-block;
+}
+body .EditAddress .AddressEdit .Container label.left {
+    margin-right: 8px
+}
+body .EditAddress .AddressEdit .Container .Comment,
+body .EditAddress .AddressEdit .Container .ValidationError {
+    margin-left: 12px
+}
+body .EditAddress .AddressOptions .Option .Checkbox {
+    display: block;
+    margin-bottom: 8px
+}
+body .EditAddress .AddressOptions .Option .Checkbox label {
+    margin: 0 0 0 8px;
+    padding: 0;
+    vertical-align: middle;
+    font-size: 14px;
+}
+body .EditAddress .AddressOptions .Option .Checkbox input {
+    margin: 0;
+    padding: 0;
+    vertical-align: middle
+}
+body .EditAddress .Buttons {
+    margin-top: 16px
+}
+body .EditAddress .Addresses {
+    margin-bottom: 20px
+}
+body .EditAddress .Addresses .AddressOption {
+    margin-bottom: 4px
+}
+body .Buttons {
+    margin-right: -4px
+}
+body .Buttons a {
+    text-decoration: none
+}
+body .EventDetails {
+    width: 100%;
+    margin-bottom: 0;
+    position: relative;
+}
+/*  body .EventDetails:before {
+    content: "";
+    position: absolute;
+    background: #ab9678;
+    height: 3px;
+    width: 20px;
+    bottom: 0;
+    left: 0;
+  }*/
+body .EventDetails .DetailsContainer {
+    margin-bottom: 20px
+}
+body .Basket2 {
+    width: 100%;
+	position: relative;
+	padding-bottom: 100px;
+}
+body .Basket2 .Items {
+    margin: 0;
+    position: relative
+}
+body .Basket2 .Header {
+    display: block;
+    height: 18px;
+    color: #000;
+    font-style: none;
+    padding-bottom: 24px;
+}
+body .Basket2 .Header .Commission {
+    display: none
+}
+body .Basket2 .Header .Saving {
+    position: absolute;
+    right: 28%
+}
+body .Basket2 .Header .Quantity {
+    position: absolute;
+    right: 14%
+}
+body .Basket2 .Header .Total {
+    position: absolute;
+    right: 0
+}
+body .Basket2 dt.Header {
+    line-height: 1.5;
+  border-bottom: 1px solid #e3e3e3;
+}
+body .Basket2 dd.Header {
+    position: absolute;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    right: 0;
+    top: 0
+}
+body .Basket2 dd.Header ul {
+    margin: 0!important;
+    padding: 0;
+    list-style-type: none;
+    display: block;
+}
+body .Basket2 dd.Header span {
+    line-height: 1.5;
+}
+body .Basket2 .PromoItems {
+    list-style: circle inside;
+    margin-top: 10px;
+    padding-left: 0;
+    margin-left: 0
+}
+body .Basket2 .PromoItems li {
+    list-style-type: none;
+    vertical-align: middle;
+    text-align: left;
+}
+body .Basket2 .PromoItems .AddButton {
+    margin-left: 20px
+}
+body .Basket2 .PromoItems .AddButton .Button {
+    margin-left: 20px
+}
+body .Basket2 dd.Promo {
+    border-bottom: 1px solid #e3e3e3;
+    margin: 0;
+    padding-bottom: 15px
+}
+body .Basket2 dt.Promo {
+    margin: 0;
+    padding-top: 15px;
+    font-size: 15px;
+}
+body .Basket2 .GrandTotal span {
+  font-size: 21px;
+  font-weight: 600;
+  font-size: 21px;
+}
+body .Basket2 .GrandTotal span.Value {
+    color: #000;
+    font-size: 24px;
+}
+body .Basket2 input.Button {
+    font-size: 11px;
+    margin: 7px 0 4px 6px
+}
+body .Basket2 .Saving {
+    color: black;
+    font-weight: 700
+}
+body .Basket2 .Item .Breakdown .Commission {
+    right: 0;
+    position: absolute;
+    top: -8px;
+    text-align: right;
+    width: 100px
+}
+body .Basket2 .Item .Saving {
+    position: relative;
+    top: 0
+}
+body .Basket2 dt.Item {
+    clear: both;
+    margin: 15px 0 0
+}
+  body .Basket2 dt.Item.Membership,
+  body .Basket2 dt.Item.Donation {
+    font-weight: 600;
+    color: #000;
+  }
+body .Basket2 dt.Item span {
+    display: inline-block;
+    font-weight: 600;
+    width: 60%
+}
+body .Basket2 dd.Item {
+    position: relative;
+    display: block;
+    border-bottom: 1px solid #e3e3e3;
+    margin: 0;
+    padding: 6px 0 6px;
+}
+body .Basket2 dd.Item .Quantity .Label,
+body .Basket2 dd.Item .Total .Label,
+body .Basket2 dd.Item .Saving .Label {
+    display: none
+}
+body .Basket2 dd.Item .Quantity {
+    right: 14%;
+    position: absolute;
+    text-align: right;
+    top: -27px;
+    width: 100px;
+    z-index: 1;
+    font-weight: 600;
+    color: #000;
+    font-size: 18px;
+}
+body .Basket2 dd.Item .Quantity input[type="text"] {
+    width: 50px;
+    margin: -5px -10px 0 0
+}
+body .Basket2 dd.Item .Saving {
+    right: 10px;
+    position: absolute;
+    text-align: right;
+    top: -27px;
+    width: 100px;
+    right: 28%;
+    font-weight: 600;
+    color: #000;
+    font-size: 18px;
+}
+body .Basket2 dd.Item .Total {
+    right: 0;
+    position: absolute;
+    top: -27px;
+    text-align: right;
+    width: 100px;
+    font-weight: 600;
+    color: #000;
+    font-size: 18px;
+}
+body .Basket2 dd.Item .Details {
+    color: #000;
+    margin: 0;
+}
+
+  body .Basket2 dd.Item .Details .InstanceTicketsSummary {
+    display: block;
+        margin-top: 5px;
+        font-weight: 600;
+  }
+body .Basket2 dd.Item .ViewDetails {
+    font-size: 14px;
+    font-weight: 400;
+    margin: 17px 0 5px
+}
+body .Basket2 dd.Item .Buttons {
+    bottom: 1px;
+    position: absolute;
+    right: 0;
+    text-align: right;
+    width: auto
+}
+body .Basket2 dd.Item .Buttons .Button {
+     line-height: 1;
+	background: white;
+
+	color: black;
+	text-align: center;
+	font-weight: normal;
+	display: inline-block;
+	width: auto;
+	padding: 5px 30px;
+	border: none;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	box-shadow:  0 0 2px 0 rgba(0, 0, 0, 0.8);
+	-moz-box-shadow:  0 0 2px 0 rgba(0, 0, 0, 0.8);
+	-webkit-box-shadow:  0 0 2px 0 rgba(0, 0, 0, 0.8);
+	text-transform: uppercase;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+body .Basket2 dd.Item .Buttons .Button:hover {
+    cursor: pointer;
+    background-color: #fff100;
+}
+body .Basket2 dt.Fee {
+    padding-top: 10px;
+    float: left
+}
+body .Basket2 dd.Fee {
+    padding-top: 10px;
+    margin: 0;
+    float: right
+}
+body .Basket2 dd.Fee ul {
+    margin: 0;
+    padding: 0
+}
+body .Basket2 dd.Fee .Commission {
+    position: relative;
+    text-align: right;
+    width: 100px;
+    line-height: 1.5
+}
+body .Basket2 dd.Fee .Commission .Label {
+    visibility: hidden
+}
+body .Basket2 .OptionalMessage {
+    min-height: 20px;
+	margin: 0;
+	position: absolute;
+	bottom: 30px;
+	width: 100%;
+}
+body .Basket2 .Buttons {
+    clear: both;
+    text-align: right;
+	position: absolute;
+	bottom: 0;
+	line-height: 1;
+	margin: 0;
+	padding: 0;
+}
+body .Basket2 .Buttons a {
+    margin-left: 6px;
+     line-height: 1;
+	background: white;
+
+	color: black;
+	text-align: center;
+	font-weight: normal;
+	display: inline-block;
+	width: auto;
+	padding: 5px 30px;
+	border: none;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	box-shadow:  0 0 2px 0 rgba(0, 0, 0, 0.8);
+	-moz-box-shadow:  0 0 2px 0 rgba(0, 0, 0, 0.8);
+	-webkit-box-shadow:  0 0 2px 0 rgba(0, 0, 0, 0.8);
+	text-transform: uppercase;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+body .Basket2 .Buttons a:hover {
+    cursor: pointer;
+    background-color: #fff100;
+}
+
+  body .Basket2 .Buttons a.CheckoutLink {
+  }
+
+body .Basket2 .Breakdown li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: relative
+}
+body .Basket2 .Footer {
+    clear: both
+}
+body .Basket2 .Footer .Breakdown {
+    position: relative
+}
+body .Basket2 .Footer .Breakdown li {
+    padding: 6px 0 0 0
+}
+body .Basket2 .Footer .Breakdown li span:first-child {
+    font-weight: 400;
+    padding-right: 5px
+}
+
+body .Basket2 .Footer .Breakdown .Commission {
+    font-size: 12px;
+    line-height: 14px;
+    margin-top: 0;
+    position: relative;
+    padding-top: 6px;
+    display: block
+}
+body .Basket2 .Footer .Breakdown .Saving {
+    display: block;
+    font-size: 12px;
+    line-height: 14px;
+    margin-top: 0;
+    position: relative;
+    padding-top: 6px
+}
+body .Basket2 dt.Footer {
+    visibility: hidden;
+    font-size: 18px;
+    font-weight: 700;
+    margin-right: 87px;
+    padding: 7px 0;
+    position: relative;
+    text-align: right;
+    margin: 10px 0 0 0;
+    right: 112px;
+    bottom: 0
+}
+body .Basket2 dd.Footer {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0;
+    left: 120px;
+    bottom: 0;
+    text-align: right
+}
+body .Basket2 dd.Footer .Breakdown {
+    line-height: 4px;
+    margin: 0;
+    position: relative;
+    bottom: 0
+}
+body .Basket2 #ctl00_ContentPlaceHolder_WhatsOnLink {
+    background-color: white;
+    color: black;
+    font-family: 'MabryPro', 'Roboto', 'Montserrat', Helvetica, Arial, sans-serif
+}
+body .Basket2 #ctl00_ContentPlaceHolder_WhatsOnLink:hover {
+    background-color: #fff100
+}
+.ChooseSeats .Button {
+    margin-top: 20px
+}
+body .Checkout .AddressList {
+    list-style-type: none;
+    padding-left: 26px
+}
+body .Checkout .AddressList li {
+    list-style-type: none;
+    margin-bottom: 1em;
+    margin-top: -14px
+}
+h2.BillingHeading,
+h2.SummaryHeading,
+h2.PaymentHeading,
+h2.DeliveryHeading,
+h2.MerchandiseDeliveryHeading {
+    clear: both;
+    display: block;
+    margin-top: .5em;
+    margin-bottom: 12px
+}
+body h2.PaymentHeading,
+h2.DeliveryHeading {
+    margin-top: .5em
+}
+body .Confirmation .EventName {
+    font-size: 1.3em;
+    display: inline-block;
+    margin-top: 18px
+}
+.Confirmation .TicketsSection td {
+    min-width: 120px
+}
+body .Confirmation table {
+    margin: 1em .5em;
+    width: 400px
+}
+body .SpektrixPage table {
+    border-collapse: collapse;
+    width: 100%;
+}
+body .SpektrixPage table tr {
+}
+body .SpektrixPage table th {
+    text-align: left;
+    border-bottom: 1px solid #e3e3e3;
+  padding: 15px 6px 15px 0px;
+    line-height: 1.4em;
+    color: #000;
+    font-weight: 600;
+}
+  body .SpektrixPage table th.Delete {
+    text-align: center;
+  }
+body .SpektrixPage table td {
+  padding: 15px 6px 15px 0px;
+    border-bottom: 1px solid #e3e3e3;
+}
+body .SpektrixPage th.PriceBand {
+    text-align: left;
+    border: 0
+}
+td Select {
+  width: 100%;
+    max-width: 300px;
+    height: 30px;
+    font-size: 14px;
+}
+body .SpektrixPage table.PriceListTable td.PriceBand {
+    text-align: left;
+    font-weight: 600;
+    padding: 0;
+}
+body .SpektrixPage table.PriceListTable td.PriceBand span {
+    display: inline-block
+}
+body .SpektrixPage table.PriceListTable td.PriceBand div {
+    margin: -6px 6px 0 0;
+    padding: 0;
+    vertical-align: middle
+}
+body .SpektrixPage td.PriceBand img {
+    margin-right: 4px;
+    margin-top: 2px;
+    position: relative;
+    top: 1px
+}
+body .SpektrixPage table.PriceListTable th.TicketType {
+    text-align: center;
+}
+body .SpektrixPage table.PriceListTable {
+    margin: auto;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+body .SpektrixPage table.PriceListTable td.Price {
+    vertical-align: middle;
+    text-align: center
+}
+body .SpektrixPage table.PriceListTable td {
+    vertical-align: middle;
+    text-align: center;
+    min-width: 68px;
+    background-color: #fff;
+    border: 1px solid #e3e3e3;
+    border-left: 0;
+    border-right: 0;
+    padding: 17px 6px 17px 0px;
+}
+body .SpektrixPage table.PriceListTable th {
+    vertical-align: middle;
+    text-align: center;
+    min-width: 68px;
+    background-color: #fff;
+    border: 0;
+    text-align: center;
+    max-width: 170px;
+    line-height: 1.4em;
+    border-bottom: 1px solid #e3e3e3;
+    padding: 0px 6px 15px 0px;;
+}
+body .PostalDetailsView .AddressList li input,
+body .BillingView .AddressList li input {
+    display: inline;
+    left: -26px;
+    position: relative;
+    top: 22px;
+
+}
+body .PostalDetailsView .AddressList li input.EditButton,
+body .BillingView .AddressList li input.EditButton {
+    display: block;
+    float: none;
+    left: -3px;
+    margin-top: 6px;
+    top: 0;
+    font-size: 13px;
+    margin-top: 6px;
+    padding: 6px 13px;
+    background: #00abe8;
+}
+body .PostalDetailsView .AddressList li label,
+body .BillingView .AddressList li label {
+    display: block;
+    line-height: 1.76em;
+    font-size: 16px;
+}
+  .Checkout .BillingView .AddressPicker {
+    margin-top: 10px;
+  }
+body .Checkout .SummarySection h3 {
+    border-bottom: 1px solid #e3e3e3;
+    margin-bottom: 6px;
+    margin-top: 26px;
+    font-size: 15px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+  body .Checkout .SummarySection .Buttons input,
+  .SummaryView .Buttons input {
+    font-size: 14px;
+    padding: 5px 10px
+  }
+body .Checkout .SummarySection h3.Tickets {
+    margin-top: 10px
+}
+label[for=ctl00_ContentPlaceHolder_ConfirmPassword] {
+    margin-bottom: 10px;
+    clear: both
+}
+label[htmlFor=ctl00_ContentPlaceHolder_ConfirmPassword] {
+    margin-bottom: 10px;
+    clear: both
+}
+.SavedMessage span {
+    list-style: none outside none;
+    margin: .5em;
+    padding: 1em;
+    background-color: #59bb73;
+    color: #fff;
+    display: block;
+        margin: 0;
+        border-radius: 2px;
+}
+* html #ctl00_ContentPlaceHolder_ItemsUpdate .Item .Breakdown li {
+    top: -20px!important
+}
+*+html #ctl00_ContentPlaceHolder_ItemsUpdate .Item .Breakdown li {
+    top: -20px!important
+}
+body .EditTickets th.Area {
+    width: 220px
+}
+body .EditTickets td.Delete {
+    text-align: center
+}
+body .EditTickets .Buttons {
+    text-align: right;
+    width: 100%;
+    margin-top: 20px
+}
+.Ticket_Types_Selection {
+    display: block
+}
+.Ticket_Types_Selection .TicketType {
+    display: block;
+    clear: both
+}
+.Ticket_Types_Selection .TicketType label {
+    margin-right: 6px;
+    display: inline-block;
+    float: none
+}
+form .Ticket_Types_Selection .Container label {
+    width: 80px;
+    text-align: right;
+    margin-right: 10px
+}
+form .Ticket_Types_Selection .Container input {
+    width: 40px;
+}
+body .PostalDetailsView .AddAddressesButton,
+body .BillingView .AddAddressesButton {
+    margin-right: 4px;
+    font-size: 14px;
+    padding: 8px 16px;
+}
+
+/* Savings */
+
+/* Savings New */
+
+.SpektrixPage.Basket2 #ctl00_ContentPlaceHolder_RelatedOffersControl_LoginForDiscounts {
+    display: none;
+}
+
+.SpektrixPage.Basket2 #ctl00_ContentPlaceHolder_RelatedOffersControl_Container:before {
+    content: "If you are a subscriber, you are eligible for discounts on additional single tickets for performances. Log in and these will be applied to your order automatically.";
+    margin-top: 12px;
+    display: block;
+}
+
+body div.Savings {
+    padding-left: 20px;
+    padding: 16px 20px 18px;
+    background: #fafafa;
+	position: absolute;
+	bottom: 12px;
+}
+body div.Savings h2 {
+    margin-top: 0;
+	font-size: 18px;
+}
+body div.Savings label {
+    font-weight: 400;
+    width: 140px;
+    line-height: 16px;
+    margin-bottom: 8px;
+    width: auto;
+}
+body div.Savings input.Button {
+    font-size: 14px;
+    padding: 5px 10px;
+    display: block;
+}
+
+body div.Savings input.Input_Text {
+    margin: 0;
+    max-width: 260px;
+}
+
+.Savings ul {
+	list-style: none;
+}
+.Savings h1, h1.BasketHeading {
+	font-size: 24px;
+}
+.SummaryView .EventList {
+    line-height: 12px;
+    margin-top: 17px;
+    margin-bottom: 20px;
+}
+.SummaryView .EventList .Event_Summary {
+    font-weight: 600;
+
+}
+.SummaryView .EventList .Ticket_Summary {
+    font-style: italic;
+    text-indent: 10px;
+    font-size: 15px;
+}
+.SummaryView .MerchandiseList {
+    line-height: 12px
+}
+.SummaryView .MerchandiseList .MerchandiseItem_Summary {
+    font-style: italic;
+    text-indent: 10px
+}
+.SummaryView .DonationsList {
+    line-height: 12px
+}
+.SummaryView .DonationsList .Fund_Name {
+    font-weight: 700
+}
+.SummaryView .MembershipsList {
+    line-height: 12px
+}
+.SummaryView .MembershipsList .Membership_Name {
+    font-style: italic;
+    text-indent: 10px
+}
+.SummaryView .BillingAddress .Billing_Address {
+    font-weight: 600;
+
+}
+.SummaryView .DonationsList .Money {
+    font-style: italic;
+    text-indent: 10px
+}
+.SummaryView .Summary td {
+    min-width: 130px;
+    height: 30px;
+    font-weight: 600;
+    color: #363636;
+    font-size: 20px;
+}
+  #ctl00_ContentPlaceHolder_SummaryViewControl_CostsSummaryControl_SummaryTable tr:last-child td {
+      border-bottom: none;
+      padding-bottom: 0;
+  }
+
+.SummaryView .Summary td:first-child {
+    text-align: right
+}
+.SummaryView .Summary table {
+    margin-bottom: 10px;
+    margin-top: -10px;
+}
+body .Basket2 .Savings:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0
+}
+* html body .Basket2 .Savings {
+    zoom: 1;
+    display: block
+}
+:first-child+html body .Basket2 .Savings {
+    zoom: 1
+}
+.SourceCodePage div {
+    display: inline
+}
+.SourceCodePage .Buttons {
+    display: block;
+    margin-top: 12px
+}
+.SourceCodePage select {
+    display: inline;
+    margin-left: 21px
+}
+.SourceCodePage input {
+    display: inline;
+    margin-left: 21px
+}
+.SourceCodePage .Buttons input {
+    margin-left: 0;
+    margin-right: 12px
+}
+.Confirmation h2 {
+    padding-bottom: 8px
+}
+.Checkout .PaymentView input.Button {
+    margin-left: 4px;
+    margin-bottom: 0;
+}
+  .RedeemVoucher input.Button {
+    font-size: 14px;
+    padding: 5px 10px;
+  }
+  .RedeemVoucher input[type="text"]{
+    font-size: 16px;
+      padding: 8px 8px 9px 8px;
+      border-radius: 2px;
+      margin-top: 1px;
+      border: 1px solid #dddddd;
+      width: 200px;
+  }
+.Checkout .PaymentView .PaymentHeading {
+    margin-top: 47px;
+    display: block;
+    text-align: left
+}
+.Confirmation .BookMoreTicketsLink {
+    background-color: white;
+    border: medium none;
+    color: black;
+    padding: 3px 10px;
+
+    margin: 12px 0 4px 0;
+    font-size: 13px;
+    display: inline-block
+}
+.BookMoreTicketsLink:hover {
+    background-color: #504F4F
+}
+.Confirmation .SectionTotal {
+    font-weight: 700
+}
+.Confirmation .SummarySection table {
+    font-weight: 700
+}
+.Confirmation .SummarySection td:first-child {
+    text-align: right;
+    padding-right: 12px
+}
+.Merchandise .MerchandiseRow {
+    clear: both
+}
+.Merchandise .MerchandiseRow .Merchandise {
+    float: left;
+    margin-bottom: 2em;
+    margin-right: 2em;
+    width: 400px;
+    position: relative
+}
+* html .Merchandise .MerchandiseRow .Merchandise {
+    width: 390px;
+    margin-bottom: 0
+}
+.Merchandise .MerchandiseRow .Merchandise .WikiText {
+    padding-left: 130px
+}
+.Merchandise .MerchandiseRow .Merchandise .Details {
+    padding-left: 130px
+}
+.Merchandise .MerchandiseRow .Merchandise img {
+    width: 120px;
+    position: absolute;
+    left: 0;
+    top: 0
+}
+.Merchandise .MerchandiseRow .Merchandise span br {
+    display: none
+}
+.Merchandise .MerchandiseRow .Merchandise .Footer {
+    margin-top: .5em
+}
+.Merchandise .MerchandiseRow .Merchandise h1 {
+    border-bottom: 0 none;
+    font-size: 16px;
+    margin-bottom: .25em
+}
+.Merchandise .MerchandiseRow .Merchandise h2 {
+    border-bottom: 0 none;
+    font-size: 12px;
+    margin-bottom: .25em;
+    margin-top: 0
+}
+.Merchandise .MerchandiseRow .Merchandise .Footer .Label,
+.Merchandise .MerchandiseRow .Merchandise .Footer .Value {
+    font-size: 1.1em;
+    font-weight: 700
+}
+.Merchandise .MerchandiseRow .Merchandise .Footer .Button {
+    margin-left: 8px;
+    position: relative;
+    top: -1px;
+    top: 6px
+}
+* html .Merchandise .MerchandiseRow .Merchandise .Footer .Button {
+    top: 6px;
+    padding: 1px 4px
+}
+*+html .Merchandise .MerchandiseRow .Merchandise .Footer .Button {
+    top: 6px
+}
+*+html .Merchandise .MerchandiseRow .Merchandise {
+    margin-bottom: 0
+}
+.Memberships .WikiText .BoldText {
+    font-weight: 700
+}
+.Memberships .WikiText .ItalicText {
+    font-style: italic
+}
+.ChooseSeats .ErrorMessage {
+    color: red;
+    font-weight: 700
+}
+.PaymentView .ValidationError {
+    color: red
+}
+.PaymentView .ErrorMessage {
+    color: red
+}
+.Container {
+    margin-bottom: 18px
+}
+.Comment {
+    display: block;
+    color: #888;
+    padding-top: 2px;
+    width: 100%;
+    margin-top: 8px;
+    font-size: 12px;
+}
+.ValidationError br {
+    display: none
+}
+.ValidationError {
+    margin-left: 0;
+    position: relative;
+    display: block;
+    font-size: 15px;
+    margin-top: 10px;
+}
+div.ChooseSeats div.Buttons {
+    text-align: center
+}
+div.ChooseSeats div.Buttons input {
+    margin: 20px 4px;
+    padding: 5px 30px;
+}
+.Buttons {
+    margin: 0 0 12px 12px
+}
+.PricesContainer {
+    width: 100%
+}
+.PricesHeading {
+    text-align: center;
+    margin: 25px 0 25px 0;
+    border: 0
+}
+.SeatingAreaOptionalInstructions {
+    width: 600px
+}
+.SpektrixFooter {
+    margin-right: 20px;
+    margin-bottom: 20px
+}
+body .SpektrixPage .View {
+    clear: both
+}
+.Donations div {
+    float: left;
+    width: 100%
+}
+.Donations .GiftAid {
+    margin-top: 12px
+}
+.Donations .FundContainer {
+    margin: 0
+}
+.Donations .DonationAmount {
+    margin: 0
+}
+.Donations .DonationAmount label {
+    float: none;
+    text-align: right;
+    margin-right: 8px;
+    display: inline-block;
+    text-align: left;
+}
+.Donations .DonationAmount input {
+    vertical-align: middle;
+    padding: 10px;
+}
+.Donations .GiftAid {
+    float: left;
+    width: 100%
+}
+.Donations input {
+    margin-left: 0;
+    padding: 10px;
+}
+.Donations .Buttons {
+    clear: both;
+    width: 100%;
+    display: block;
+    margin-top: 12px;
+    float: left;
+    text-align: right
+}
+  form .AddGiftVoucher .Container label {
+    position: relative;
+    margin-top: 10px;
+    width: 100%;
+  }
+  form .AddGiftVoucher #ctl00_ContentPlaceHolder_DateToSendDatePicker_DayDropDown {
+    width: 54px;
+  }
+  form .AddGiftVoucher #ctl00_ContentPlaceHolder_DateToSendDatePicker_MonthDropDown {
+    width: 130px;
+  }
+  form .AddGiftVoucher #ctl00_ContentPlaceHolder_DateToSendDatePicker_YearBox {
+    width: 80px !important;
+    text-align: center;
+  }
+  .RedeemVoucherInformation {
+    margin-bottom: 15px;
+  }
+.AddGiftVoucher .DateToSend input {
+    width: 5em
+}
+.AddGiftVoucher .From,
+.AddGiftVoucher .SendTo,
+.AddGiftVoucher .Message {
+    margin: 0;
+    position: relative;
+    vertical-align: top
+}
+.AddGiftVoucher .To,
+.AddGiftVoucher .Amount,
+.AddGiftVoucher .DateToSend {
+    margin: 0
+}
+.AddGiftVoucher .From,
+.AddGiftVoucher .SendTo,
+.AddGiftVoucher .To,
+.AddGiftVoucher .Amount,
+.AddGiftVoucher .DateToSend {
+    padding-bottom: 1em
+}
+.AddGiftVoucher .From label.right {
+    left: 4px;
+    top: 5px
+}
+.AddGiftVoucher .To input[type="text"],
+.AddGiftVoucher .From input[type="text"] {
+    width: 100%;
+}
+.AddGiftVoucher .SendTo .left,
+.AddGiftVoucher .From .left,
+.AddGiftVoucher .Message .left {
+    font-weight: 600;
+    position: relative;
+    display: block;
+    width: 100%;
+
+    margin-bottom: 12px;
+}
+.AddGiftVoucher input[type="text"] {
+    margin-top: 2px
+}
+.AddGiftVoucher .Message textarea {
+    margin-top: 2px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    height: 100px;
+    font-size: 16px;
+    padding: 11px;
+    outline: none;
+}
+.AddGiftVoucher .SendTo input[type="radio"] {
+    clear: left;
+    float: left;
+    margin: 0 6px 0 0;
+    width: auto;
+    padding: 0;
+    display: block;
+    height: 22px;
+    margin-left: 1px;
+    margin-bottom: 7px;
+}
+.AddGiftVoucher .Container .MoneyTextBox {
+    width: 184px
+}
+.AddGiftVoucher .SendTo input[type="text"] {
+    margin-left: 0;
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+}
+.AddGiftVoucher .SendTo .ValidationError,
+.AddGiftVoucher .From .ValidationError {
+    margin-left: 0
+}
+.AddGiftVoucher .ValidationError {
+    margin-top: 2px;
+    margin-left: 100px
+}
+.AddGiftVoucher .VoucherExpiryText,
+.AddGiftVoucher .AddAnotherVoucherText {
+    margin-top: 4px;
+    line-height: 14px;
+    width: 184px
+}
+.AddGiftVoucher .AddAnotherVoucherText {
+    margin-bottom: 1em
+}
+.AddGiftVoucher .SendTo label {
+    float: none;
+    display: block;
+    font-weight: 400;
+    position: relative;
+    width: auto;
+    line-height: 22px;
+    margin-bottom: 4px
+}
+.AddGiftVoucher .Buttons {
+    margin-top: 26px;
+    margin-right: 0;
+    border-top: 1px solid #c0c0c0;
+    padding-top: 4px;
+    text-align: right
+}
+.AddGiftVoucher .Buttons input {
+    margin-right: 0
+}
+.AddGiftVoucher .Comment {
+    font-size: 15px;
+    line-height: 1.3em;
+    margin-left: 0;
+    width: 100%;
+    margin-top: 10px;
+}
+body .AddGiftVoucher .SendTo:after {
+    clear: both;
+    content: " ";
+    display: block;
+    font-size: 0;
+    height: 0;
+    visibility: hidden
+}
+* html body .AddGiftVoucher .SendTo {
+    display: block
+}
+.NewAccount .Postcode input.Button,
+.EditAddress .Postcode input.Button {
+     line-height: 1;
+	background: #686B74;
+
+	color: #fff;
+	text-align: center;
+	font-weight: normal;
+	display: inline-block;
+	width: auto;
+	padding: 5px 10px;
+	border: none;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	box-shadow:  0 0 2px 0 rgba(0, 0, 0, 0.8);
+	-moz-box-shadow:  0 0 2px 0 rgba(0, 0, 0, 0.8);
+	-webkit-box-shadow:  0 0 2px 0 rgba(0, 0, 0, 0.8);
+	text-transform: uppercase;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+.NewAccount .Postcode input.Button:hover,
+.EditAddress .Postcode input.Button:hover {
+    cursor: pointer;
+    background-color: white;
+}
+.ForgotPassword .Container.Email {
+    margin-top: 20px
+}
+.ForgotPassword .Container label {
+    width: 150px;
+    margin-right: 10px;
+    text-align: right
+}
+/* This beautiful CSS-File has been crafted with LESS (lesscss.org) and compiled by simpLESS (wearekiss.com/simpless) */
+
+/* Multibuy Styling */
+
+/* Setting out grid */
+
+/* This part sets out the grid and the structural outline of the cards */
+
+.OffersDiv .Events {
+    align-content: flex-start;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    -ms-flex-line-pack: start;
+    margin-top: 20px;
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+.Multibuypage .Event {
+    margin-bottom: 20px;
+    width: 25%;
+    box-sizing: border-box;
+    padding: 0 10px;
+}
+
+.EventRow {
+  border: 1px solid #eee;
+}
+
+/* Cosmetics */
+
+/* The event description is exposed on this page but as they can be quite long, it would be better hide them with this kind of layout. */
+
+.Multibuypage .Event_Description {
+    display: none;
+}
+
+/* Event Image */
+
+/* Prefer setting images to fixed size - this will prevent issues with our iframe resize script */
+
+.Multibuypage .Event_Image > img {
+    border: 0;
+    display: block;
+    height: 293px;
+    vertical-align: middle;
+    width: 100%;
+}
+
+
+/* Event Details */
+
+/* Handles the structure of the all the elements below the image in each card */
+
+.Multibuypage .Event_Text {
+    border-top: 1px solid #ddd;
+    min-height: 89px;
+    padding: 16px;
+}
+
+.Multibuypage .Event_Name {
+    display: block;
+    margin-bottom: 3px;
+    line-height: 1.6em;
+    font-size: 16px;
+}
+
+.Multibuypage .Event_Dates.Event_Detail {
+    display: block;
+}
+
+.Multibuypage .More_Info.Event_Detail {
+    display: block;
+}
+
+
+/* Buttons */
+
+/* These are the "More information" links within the panel.
+Semantically they are not buttons but contextually styling them this way works well. */
+
+.Multibuypage .More_Info.Event_Detail {
+    border: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    color: #fff;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 0;
+    padding: 10px 0;
+    text-align: center;
+    vertical-align: middle;
+    width: 100%;
+}
+
+.Multibuypage .More_Info.Event_Detail:hover {
+    color: #fff;
+}
+
+/* This is the continue to basket button */
+
+.Multibuypage .Button.DeclineButton {
+    float: right;
+    margin-bottom: 30px;
+}
+
+/* Responsive Styling */
+
+/* Higher resolution PC's, Laptops and TV */
+
+/*@media (min-width: 1200px) {
+   .Multibuypage .Event {
+        margin-right: 30px;
+        width: 270px;
+    }
+
+   .Multibuypage .Event_Text {
+        min-height: 74px;
+    }
+
+    .Multibuypage .Event_Image > img {
+        height: 359px;
+    }
+}*/
+
+/* Error message */
+
+.ErrorMessage {
+  color: #e43030;
+    margin-bottom: 20px;
+    font-size: 17px;
+}
+
+/* Lower resolution devices - low end tablets */
+
+@media (max-width: 979px) and (min-width: 768px) {
+    .Multibuypage .Event {
+        width: 33.333%;
+    }
+}
+
+/* Mobile styling - Fully stacked and centered */
+
+@media (max-width: 767px) {
+  .frameContent {
+    width: 100%;
+    padding-bottom: 150px;
+  }
+
+  #picalogo {
+    padding: 0px;
+  }
+  .Multibuypage .Event {
+    width: 50%;
+    margin-bottom: 64px;
+  }
+  .LoginLogout .LoginForm {
+    width: 100%;
+  }
+  form .Container {
+    max-width: none;
+  }
+  form .Container input {
+    max-width: none;
+    padding: 10px;
+  }
+  .LoginLogout .Buttons {
+  }
+  .LoginLogout .Buttons input {
+    font-size: 22px;
+    padding: 5px 10px;
+  }
+
+  .LoginLogout .LoginForm .Container label,
+  body .MyAccount .DetailsEditor .Container label.left,
+  form .Container label {
+    font-size: 14px;
+  }
+
+  .LoginLogout .Account_Link {
+    font-size: 17px;
+  }
+  h1 {
+    font-size: 30px;
+  }
+  input.Button,
+  body .MyAccount .NewAddress, body .MyAccount .ChangePassword {
+    padding: 5px 10px;
+  }
+  body .MyAccount .Options ul li a {
+    padding: 15px 11px;
+  }
+
+	body .Basket2 {
+		padding-bottom: 250px;
+	}
+
+	body .Basket2 dt.Footer {
+		display: none;
+	}
+
+	body .Basket2 .Savings {
+		width: 100%;
+	}
+}
+
+@media (max-width: 640px) {
+  body .MyAccount .Options ul li {
+    width: 50%;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+  }
+}
+
+@media (max-width: 480px) {
+  .OffersDiv .Events {
+    margin-left: 0;
+    margin-right: 0;
+  }
+   .Multibuypage .Event {
+        width: 100%;
+        padding: 0;
+        margin-bottom: 64px;
+    }
+    body .SpektrixPage table.PriceListTable td {
+      font-size: 16px;
+    }
+    h1 .EventName,
+    h1 {
+    }
+    h2 {
+      font-size: 24px;
+    }
+    .MyAccount h2 {
+    }
+    body .EditTickets th.Area {
+      width: auto;
+    }
+    body .SpektrixPage table th {
+      font-size: 16px;
+    }
+    body .SpektrixPage table td {
+      font-size: 15px;
+    }
+    body .Basket2 dt.Item span {
+      font-size: 16px;
+    }
+    body .Basket2 dd.Item .Details {
+      font-size: 16px;
+    }
+    body .Basket2 .OptionalMessage {
+      margin: 0;
+		position: absolute;
+		bottom: 64px;
+		width: 100%;
+    }
+    body .Basket2 dd.Item .Details {
+      margin-top: 4px;
+    }
+    body .Basket2 .Header {
+      font-size: 17px;
+    }
+    body .Basket2 dd.Item .Quantity {
+      padding-right: 8px;
+    }
+
+    /* Login Logout */
+
+    body .MyAccount .Options ul li {
+      width: 100%;
+    }
+
+    body .MyAccount .Options ul li a {
+      font-size: 14px;
+    }
+
+    body .MyAccount .Logout {
+      top: 0;
+      padding: 14px 18px;
+      position: relative;
+    }
+
+    /* Promo Code */
+
+    body div.Savings input.Button {
+      width: 100%;
+      margin-left: 0;
+    }
+
+    body div.Savings input.Input_Text {
+      max-width: 100%;
+      margin-bottom: 4px;
+    }
+
+
+}
+
+#ctl00_ContentPlaceHolder_ctl05_ChooseEvents {
+    display: none;
+}
+
+/* Wiki Text */
+
+.WikiText h1 {
+    margin-bottom: 10px;
+}
+
+.Membership .Details {
+  margin-top: 25px;
+}
+
+.Membership .Details ul {
+  margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.Membership .Details li {
+  margin: 0;
+	padding: 0;
+}
+
+  .Membership .Money {
+    font-weight: 600;
+    color: #000;
+  }
+
+/* DOnations */
+
+.FundContainer h3 {
+  font-size: 24px;
+}
+
+/* Memberships */
+
+.SpektrixPage.Memberships #ctl00_ContentPlaceHolder_HeaderWikiText {
+  display: none;
+}
+
+/* Merchandise */
+
+.SpektrixPage.Merchandise .Header {
+    display: none;
+}
+
+.spx-field-container {
+	margin: 0 0 20px 0;
+}
+
+h2.spx-heading-headline {
+	font-size: 18px;
+}
+
+h3.spx-heading-sub-headline {
+	font-size: 14px;
+	font-weight: 600;
+}
+ul.spx-sublist-summary {
+	list-style: none;
+	margin: 0 0 10px 15px;
+}
+.spx-subsection-summary-container {
+	margin: 0 0 20px 0;
+}
+.spx-section-container {
+	border-bottom: 1px solid #ddd;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+}
+.spx-section-container__checkout--start-checkout {
+	margin-bottom: 40px;
+	border-bottom: none;
+}
