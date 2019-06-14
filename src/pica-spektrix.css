@@ -1322,7 +1322,7 @@ body .Basket2 .Header .Saving {
 }
 body .Basket2 .Header .Quantity {
     position: absolute;
-    right: 14%
+    right: 60px;
 }
 body .Basket2 .Header .Total {
     position: absolute;
@@ -2688,7 +2688,7 @@ Semantically they are not buttons but contextually styling them this way works w
       font-size: 17px;
     }
     body .Basket2 dd.Item .Quantity {
-      padding-right: 8px;
+      padding-right: 30px;
     }
 
     /* Login Logout */
