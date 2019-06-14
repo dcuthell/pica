@@ -39,6 +39,7 @@ address,article,big,blockquote,body,button,canvas,caption,cite,dd,div,dl,dt,fiel
   width: 80%;
   height: auto;
   margin: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 #picalogo {
@@ -1550,8 +1551,8 @@ body .Basket2 .Buttons {
 	padding: 0;
 }
 body .Basket2 .Buttons a {
-    margin-left: 6px;
-     line-height: 1;
+  margin: 6px;
+  line-height: 1;
 	background: white;
 
 	color: black;
@@ -2236,7 +2237,8 @@ body .SpektrixPage .View {
     display: block;
     margin-top: 12px;
     float: left;
-    text-align: right
+    text-align: right;
+    padding: 20px;
 }
   form .AddGiftVoucher .Container label {
     position: relative;

@@ -1,0 +1,12 @@
+.PicaButton {
+	width: 80%;
+	margin: auto;
+	background-color: inherit;
+	color: inherit;
+	border: 1px black solid;
+}
+
+.PicaButton a {
+	color:inherit;
+	text-decoration: none;
+}

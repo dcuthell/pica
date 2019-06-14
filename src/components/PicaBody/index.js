@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Switch, Route } from 'react-router-dom'
 import styles from './styles.css'
 
-import NotFound from '../NotFound'
+import NotFound from '../../routes/NotFound'
 
 class PicaBody extends Component {
   render() {

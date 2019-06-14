@@ -1,6 +1,8 @@
 import React from 'react'
 import { Container, Col, Row } from 'reactstrap'
-import { PicaCarousel } from 'grailsoft-modules'
+import PicaCarousel from '../../components/PicaCarousel'
+import PicaCarouselCard from '../../components/PicaCarouselCard'
+import PicaButton from '../../components/PicaButton'
 import leftArrow from '../../img/LeftArrow.png'
 import rightArrow from '../../img/RightArrow.png'
 import collage from '../../img/collage.png'
@@ -12,27 +14,69 @@ export default function Home (props) {
       <Row style={{margin: '0px'}}>
         <Col xl='12' style={{height: '100vh', padding: '0px'}}>
           <div style={{height: '100%', backgroundColor: '#F8F8F8'}}>
-            <PicaCarousel leftArrow={leftArrow} rightArrow={rightArrow} />
+            <PicaCarousel leftArrow={leftArrow} rightArrow={rightArrow}>
+              <PicaCarouselCard
+                index={0}
+                style={{backgroundColor: '#B0C170'}}
+              />
+              <PicaCarouselCard
+                index={1}
+                style={{backgroundColor: '#FFC2EB'}}
+              />
+              <PicaCarouselCard
+                index={2}
+                style={{backgroundColor: '#0DAE5D'}}
+              />
+              <PicaCarouselCard
+                index={3}
+                style={{backgroundColor: '#8EA9D5'}}
+              />
+              <PicaCarouselCard
+                index={4}
+                style={{backgroundColor: '#D8BFD8'}}
+              />
+              <PicaCarouselCard
+                index={5}
+                style={{backgroundColor: '#FF5928'}}
+              />
+              <PicaCarouselCard
+                index={6}
+                style={{backgroundColor: '#8A69D4'}}
+              />
+              <PicaCarouselCard
+                index={7}
+                style={{backgroundColor: '#587CFF'}}
+              />
+              <PicaCarouselCard
+                index={8}
+                style={{backgroundColor: '#D7A200'}}
+              />
+            </PicaCarousel>
           </div>
         </Col>
-        <Col xl='12' style={{height: '100vh', padding: '0px', backgroundColor: 'white'}}>
+        <Col xl='12' style={{padding: '0px', backgroundColor: 'white'}}>
           <h1>Visit</h1>
-          <h4>We're open to the public Wednesday through Friday, 12-6pm</h4>
+          <h4>We're open to the public Tuesday through Friday, 11am-6pm</h4>
           <img src={collage} style={{width: '80%'}} alt='collage' />
           <h4>We've moved! Stop by and check</h4>
           <h4>out our new permanent location</h4>
         </Col>
-        <Col xl='12' style={{height: '70vh', padding: '0px', backgroundColor: '#ECDDBB'}}>
+        <Col xl='12' style={{minHeight: '0vh', padding: '0px', backgroundColor: '#ECDDBB'}}>
           <img src={ben} alt='ben' />
           <h3>Like what you see? Help us grow our archive of</h3>
-          <h3>contemporary art by becoming a donor!</h3>
-          <div style={{border: '1px solid black', width: '50%', margin: 'auto'}}>
-            <h4>Donate</h4>
-          </div>
+          <h3 style={{paddingBottom: '60px'}}>contemporary art by becoming a donor!</h3>
+          <PicaButton style={{position: 'absolute', bottom: '10px', left: '20%', width: '60%'}}>
+            <a href='https://system.spektrix.com/pica/website/Donations.aspx?resize=true'><p style={{margin: '4px 0px 4px 0px'}}>DONATE</p></a>
+          </PicaButton>
         </Col>
-        <Col xl='12' style={{height: '100vh', padding: '0px', backgroundColor: '#FFFBF3'}}>
+        <Col xl='12' style={{padding: '0px', backgroundColor: '#FFFBF3'}}>
           <h1>Mission</h1>
-          <i className='fas fa-user' />
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <p>
+            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+          </p>
         </Col>
       </Row>
     </Container>
