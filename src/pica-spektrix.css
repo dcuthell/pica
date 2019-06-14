@@ -538,7 +538,7 @@ form .Container label.right {
 input{
   outline: none;
 }
-input[type='text'], input[type='number'], input[type='email'], select, form .Container input {
+input[type='text'], input[type='number'], input[type='email'], input[type='password'] select, form .Container input {
     margin: 0;
     padding: 10px;
     width: auto;
@@ -1482,9 +1482,6 @@ body .Basket2 dd.Item .ViewDetails {
     margin: 17px 0 5px
 }
 body .Basket2 dd.Item .Buttons {
-    bottom: 1px;
-    position: absolute;
-    right: 0;
     text-align: right;
     width: auto
 }
@@ -1899,7 +1896,7 @@ body div.Savings {
     padding: 16px 20px 18px;
     background: #fafafa;
 	position: absolute;
-	bottom: 12px;
+	bottom: 60px;
 }
 body div.Savings h2 {
     margin-top: 0;
