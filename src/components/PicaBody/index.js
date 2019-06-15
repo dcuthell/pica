@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Switch, Route } from 'react-router-dom'
-import styles from './styles.css'
+import styles from './styles.module.css'
 
 import NotFound from '../../routes/NotFound'
 

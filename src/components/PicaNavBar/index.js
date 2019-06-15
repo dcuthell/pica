@@ -2,7 +2,11 @@ import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { Container, Button, Row, Col } from 'reactstrap'
-import styles from './styles.css'
+import styles from './styles.module.css'
+
+import logo from '../../img/PicaLogo.png'
+import mobileLogo from '../../img/MobileLogo.png'
+
 
 class PicaNavBar extends Component {
   constructor(props) {
@@ -61,10 +65,10 @@ class PicaNavBar extends Component {
 
   render() {
     return (
-      <div className={styles.PicaNavBar}>
+      <div className={styles.PicaNavBarr}>
         <div className={styles.mainMenu} style={{display: ((window.innerWidth >= 767) ? 'block' : 'none')}}>
           <NavLink to='/'>
-            <img src={this.props.logo} alt='logo' id={styles.menuLogo} />
+            <img src={logo} alt='logo' id={styles.menuLogo} />
           </NavLink>
           <div className={styles.menuOptions}>
             <NavLink onClick={this.closeNav} to='/cart'><i className='fas fa-shopping-basket' /></NavLink>
@@ -79,7 +83,7 @@ class PicaNavBar extends Component {
         <div className={styles.mobileNav} style={{display: ((window.innerWidth < 767) ? 'block' : 'none')}}>
           <div className={styles.mobileBar} style={{zIndex: '2'}}>
             <NavLink onClick={this.closeNav} to='/'>
-              <img src={this.props.mobileLogo} alt='mobilelogo' id={styles.mobileLogo} />
+              <img src={mobileLogo} alt='mobilelogo' id={styles.mobileLogo} />
             </NavLink>
             <img onClick={this.toggleNav} src={this.state.isOpen ? this.props.cross : this.props.hamburger} alt='menuicon' id={styles.menuIcon} />
           </div>

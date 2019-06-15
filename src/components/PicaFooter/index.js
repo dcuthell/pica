@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { Container, Button, Row, Col } from 'reactstrap'
-import styles from './styles.css'
+import styles from './styles.module.css'
 
 class PicaFooter extends Component {
   render() {
