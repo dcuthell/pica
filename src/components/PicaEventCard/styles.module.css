@@ -1,0 +1,85 @@
+.PicaEventCard {
+	height: 20%;
+	width: 100%;
+	position: relative;
+	background-color: inherit;
+}
+
+.header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: inherit;
+	z-index: 3;
+}
+
+.content {
+	position: absolute;
+	background-color: inherit;
+	top: 0;
+	left: 0;
+	height: 400%;
+	width: 100%;
+	z-index: 1;
+}
+
+.cardImage {
+	width: 50%;
+	height: 80%;
+	background-color: red;
+	position: absolute;
+	left: 5%;
+	top: 5%;
+}
+.cardContent {
+	width: 30%;
+	height: 80%;
+	background-color: blue;
+	position: absolute;
+	right: 5%;
+	top: 5%;
+}
+
+.headerUp {
+	-webkit-transform: translateY(0%);
+	-ms-transform: translateY(0%);
+			transform: translateY(0%);
+	transition: transform 500ms linear;
+}
+
+.headerDown {
+	-webkit-transform: translateY(400%);
+	-ms-transform: translateY(400%);
+			transform: translateY(400%);
+	transition: transform 500ms linear;
+}
+
+.contentClosedUp {
+	-webkit-transform: translateY(-75%);
+	-ms-transform: translateY(-75%);
+			transform: translateY(-75%);
+	transition: transform 500ms linear 250ms;
+}
+
+.contentClosedDown {
+	-webkit-transform: translateY(125%);
+	-ms-transform: translateY(125%);
+			transform: translateY(125%);
+	transition: transform 500ms linear 250ms;
+	visibility: hidden;
+}
+
+.contentOpen {
+	-webkit-transform: translateY(25%);
+	-ms-transform: translateY(25%);
+			transform: translateY(25%);
+	transition: transform 500ms linear;
+	z-index: 2;
+}
+
+.hidden {
+	opacity: 0;
+	transition: transform 1000ms ease-in;
+}

@@ -1,0 +1,12 @@
+.TBABanner {
+	width: 80%;
+	margin: auto;
+	background-color: inherit;
+	color: inherit;
+	border: 1px black solid;
+}
+
+.TBABanner a {
+	color:inherit;
+	text-decoration: none;
+}
