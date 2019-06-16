@@ -4,7 +4,6 @@ import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 import { TBAArtistBlock, PicaButton, TBASprocket } from 'grailsoft-modules'
 
-import katja from '../../img/katja.jpg'
 import TBALogo from '../../img/tba18_t-rhythm.svg'
 import rightArrow from '../../img/RightArrow.png'
 

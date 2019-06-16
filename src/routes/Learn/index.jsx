@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, Col, Row } from 'reactstrap'
 
-import fancy from '../../img/fancy.gif'
+import fancy from '../../img/collage.png'
 
 export default function Learn (props) {
   return (
