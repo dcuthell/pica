@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Container, Row, Col, Jumbotron } from 'reactstrap'
 import './styles.css'
 

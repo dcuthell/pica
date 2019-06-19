@@ -36,7 +36,7 @@ class PicaFooter extends Component {
   componentWillUnmount() {
     window.removeEventListener('resize', this.updateDimensions.bind(this))
   }
-  
+
   render() {
     return (
       <div>
@@ -69,21 +69,21 @@ class PicaFooter extends Component {
               </div>
               <div className={styles.FooterColumn}>
                 <p>
-                  <a href='http://www.pica.org/leadership'>Leadership</a>
+                  <a href='https://www.pica.org/leadership'>Leadership</a>
                 </p>
                 <p>
-                  <a href='http://www.pica.org/jobs'>Jobs</a>
+                  <a href='https://www.pica.org/jobs'>Jobs</a>
                 </p>
                 <p>
-                  <a href='http://www.pica.org/newsletter'>Newsletter</a>
+                  <a href='https://www.pica.org/newsletter'>Newsletter</a>
                 </p>
               </div>
               <div className={styles.FooterColumn}>
                 <p>
-                  <a href='http://www.pica.org/press'>Press</a>
+                  <a href='https://www.pica.org/press'>Press</a>
                 </p>
                 <p>
-                  <a href='http://www.pica.org/latest'>Latest</a>
+                  <a href='https://www.pica.org/latest'>Latest</a>
                 </p>
                 <div className={styles.socialIcons}>
                   <a href='https://twitter.com/P_I_C_A' target='_blank' rel='noreferrer noopener'><i className='fab fa-twitter' /></a>
@@ -93,10 +93,10 @@ class PicaFooter extends Component {
               </div>
               <div className={styles.FooterColumn}>
                 <p>
-                  <a href='http://www.pica.org/resource-room'>Resource Room</a>
+                  <a href='https://www.pica.org/resource-room'>Resource Room</a>
                 </p>
                 <p>
-                  <a href='http://www.pica.org/merchandise'>Merchandise</a>
+                  <a href='https://www.pica.org/merchandise'>Merchandise</a>
                 </p>
               </div>
             </div>
@@ -107,30 +107,30 @@ class PicaFooter extends Component {
             <div className={styles.PicaFooterMobile + ' d-flex flex-wrap'}>
               <div style={{width: '50%'}}>
                 <p>
-                  <a href='http://www.pica.org/leadership'>Leadership</a>
+                  <a href='https://www.pica.org/leadership'>Leadership</a>
                 </p>
                 <p>
-                  <a href='http://www.pica.org/jobs'>Jobs</a>
+                  <a href='https://www.pica.org/jobs'>Jobs</a>
                 </p>
                 <p>
-                  <a href='http://www.pica.org/newsletter'>Newsletter</a>
+                  <a href='https://www.pica.org/newsletter'>Newsletter</a>
                 </p>
                 <p>
-                  <a href='http://www.pica.org/press'>Press</a>
+                  <a href='https://www.pica.org/press'>Press</a>
                 </p>
               </div>
               <div style={{width: '50%'}}>
                 <p>
-                  <a href='http://www.pica.org/latest'>Latest</a>
+                  <a href='https://www.pica.org/latest'>Latest</a>
                 </p>
                 <p>
-                  <a href='http://www.pica.org/resource-room'>Resource Room</a>
+                  <a href='https://www.pica.org/resource-room'>Resource Room</a>
                 </p>
                 <p>
-                  <a href='http://www.pica.org/merchandise'>Merchandise</a>
+                  <a href='https://www.pica.org/merchandise'>Merchandise</a>
                 </p>
                 <p>
-                  <a href='http://www.pica.org/'>Home</a>
+                  <a href='https://www.pica.org/'>Home</a>
                 </p>
               </div>
               <hr style={{width: '90%', margin: 'auto'}} />
