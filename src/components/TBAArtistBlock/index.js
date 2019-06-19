@@ -127,7 +127,7 @@ class TBAArtistBlock extends Component {
           <div className='d-flex align-items-center' style={{textAlign: 'center', height: '300px', width: '300px', border: '2px solid white', margin: 'auto'}}>
             <img src={this.props.galleryItems[0].media.handle ? 'https://media.graphcms.com/' + this.props.galleryItems[0].media.handle : 'https://www.retirebeforedad.com/wp-content/uploads/2016/07/Banana-Stand-500x372.jpg'}
               alt='thumbnail'
-              style={{margin: 'auto', width: '100%', height: '100%', zIndex: 1}} />
+              style={{margin: 'auto', maxWidth: '100%', maxHeight: '100%', zIndex: 1}} />
           </div>
           <div style={{width: '300px', margin: 'auto'}}>
             <h4 style={{margin: '0px'}}>{(this.props.artistName !== 'No Linked Artist') ? this.props.artistName : ''}</h4>
@@ -139,7 +139,7 @@ class TBAArtistBlock extends Component {
           <div className='d-flex align-items-center' style={{textAlign: 'center', height: '135px', width: '135px', border: '2px solid white', margin: 'auto'}}>
             <img src={this.props.galleryItems[0].media.handle ? 'https://media.graphcms.com/' + this.props.galleryItems[0].media.handle : 'https://www.retirebeforedad.com/wp-content/uploads/2016/07/Banana-Stand-500x372.jpg'}
               alt='thumbnail'
-              style={{margin: 'auto', width: '100%', height: '100%', zIndex: 1}} />
+              style={{margin: 'auto', maxWidth: '100%', maxHeight: '100%', zIndex: 1}} />
           </div>
           <div style={{width: '135px', margin: 'auto', backgroundColor: 'black', color: 'white'}}>
             <h3 style={{margin: '0px'}}>{(this.props.artistName !== 'No Linked Artist') ? this.props.artistName : ''}</h3>

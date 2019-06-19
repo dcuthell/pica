@@ -4,6 +4,7 @@ import { Switch, Route } from 'react-router-dom'
 import styles from './styles.module.css'
 
 import NotFound from '../../routes/NotFound'
+import PicaFooter from '../PicaFooter'
 
 class PicaBody extends Component {
   render() {
@@ -13,6 +14,7 @@ class PicaBody extends Component {
           { this.props.children }
           <Route component={NotFound} />
         </Switch>
+        <PicaFooter />
       </div>
     )
   }

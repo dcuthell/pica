@@ -3,7 +3,6 @@ import { Route } from 'react-router-dom'
 
 import PicaNavBar from './components/PicaNavBar'
 import PicaBody from './components/PicaBody'
-import PicaFooter from './components/PicaFooter'
 
 import Home from './routes/Home'
 import Events from './routes/Events'
@@ -38,7 +37,6 @@ function App() {
         <Route exact path='/membership' component={Membership} />
         <Route path='/tickets/:webeventid' component={Tickets} />
       </PicaBody>
-      <PicaFooter />
     </div>
   );
 }

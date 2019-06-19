@@ -6,6 +6,14 @@
 	text-align: left;
 }
 
+.PicaFooterMobile {
+	position: relative;
+	width: 100%;
+	min-height: 18.333vh;
+	background-color: white;
+	text-align: left;
+}
+
 .FooterColumn {
 	width: 12%;
 	height: 100%;
@@ -18,9 +26,16 @@
 	padding-top: 24px;
 }
 
-.PicaFooter p {
-	font-size: 16px;
+.PicaFooter p, .PicaFooterMobile p, .socialIcons {
+	font-size: .9rem;
 	margin-bottom: 0px;
+	padding-left: 10%;
+}
+
+.PicaFooterMobile p {
+	font-size: 1.5rem;
+	margin-bottom: 0px;
+	padding-left: 10%;
 }
 
 .PicaFooter img {
@@ -28,11 +43,24 @@
 	padding-left: 10%;
 }
 
-.PicaFooter a {
+.PicaFooter a, .PicaFooterMobile a {
 	color: inherit;
 }
 
 .PicaFooter i {
-	font-size: 16px;
-	padding-right: 10px;
+	font-size: .9rem;
+	padding-right: 3px;
+}
+
+.PicaFooterMobile i {
+	font-size: 1.5rem;
+	padding-right: 3px;
+}
+
+.PicaFooter a:hover, .PicaFooterMobile a:hover {
+	color: inherit;
+}
+
+.d-flex {
+	display: inherit!important;
 }
