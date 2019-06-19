@@ -8,7 +8,7 @@ import NotFound from '../../routes/NotFound'
 class PicaBody extends Component {
   render() {
     return (
-      <div className={styles.RouterContent}>
+      <div className={styles.PicaBody}>
         <Switch>
           { this.props.children }
           <Route component={NotFound} />

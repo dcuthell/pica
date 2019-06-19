@@ -1,6 +1,7 @@
 import React from 'react'
 import { Container, Col, Row, Jumbotron } from 'reactstrap'
-import { PicaEventDeck, PicaEventCard } from 'grailsoft-modules'
+import PicaEventDeck from '../../components/PicaEventDeck'
+import PicaEventCard from '../../components/PicaEventCard'
 
 export default function Events (props) {
   return (

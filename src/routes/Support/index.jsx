@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, Col, Row } from 'reactstrap'
-import { PicaButton } from 'grailsoft-modules'
+import PicaButton from '../../components/PicaButton'
 import members from '../../img/memberspic.png'
 import ben from '../../img/ben-01.png'
 import volunteer from '../../img/volunteerpic.png'

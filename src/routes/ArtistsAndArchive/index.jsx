@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, Col, Row } from 'reactstrap'
-import { TBAArtistBlock } from 'grailsoft-modules'
+import TBAArtistBlock from '../../components/TBAArtistBlock'
 
 export default function ArtistsAndArchive (props) {
   return (
