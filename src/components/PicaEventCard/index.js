@@ -24,7 +24,6 @@ class PicaEventCard extends Component {
   }
 
   render() {
-    const zIndex = this.props.cardTotal - this.props.index
     console.log(this.props.isOpen)
     if (this.props.blocker) {
       return (

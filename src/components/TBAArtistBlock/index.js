@@ -69,11 +69,11 @@ class TBAArtistBlock extends Component {
   renderIFrame() {
     if (this.props.YouTubeId) {
       return (
-        <iframe id='player' type='text/html' width='100%' height='320px' allowFullScreen src={'//www.youtube.com/embed/' + this.props.YouTubeId} style={{frameBorder: '0'}} />
+        <iframe id='player' type='text/html' title='YouTubeIFrame' width='100%' height='320px' allowFullScreen src={'//www.youtube.com/embed/' + this.props.YouTubeId} style={{frameBorder: '0'}} />
       )
     } else if (this.props.VimeoId) {
       return (
-        <iframe id='player' type='text/html' width='100%' height='360px' allowFullScreen src={'//player.vimeo.com/video/' + this.props.VimeoId} style={{frameBorder: '0'}} />
+        <iframe id='player' type='text/html' title='VimeoIFrame'width='100%' height='360px' allowFullScreen src={'//player.vimeo.com/video/' + this.props.VimeoId} style={{frameBorder: '0'}} />
       )
     } else {
       return (

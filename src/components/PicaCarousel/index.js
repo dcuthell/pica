@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styles from './styles.module.css'
 
-import PicaCarouselCard from '../PicaCarouselCard'
-
 class PicaCarousel extends Component {
   constructor(props) {
     super(props)
@@ -33,7 +31,7 @@ class PicaCarousel extends Component {
   }
 
   clickLeft(e) {
-    const newIndex = ((this.state.activeIndex === 0) ? this.state.activeIndex : (this.state.activeIndex -= 1))
+    const newIndex = ((this.state.activeIndex === 0) ? this.state.activeIndex : (this.state.activeIndex - 1))
     this.setState({
       activeIndex: newIndex,
       swipe: 'left'
@@ -41,7 +39,7 @@ class PicaCarousel extends Component {
   }
 
   clickRight(e) {
-    const newIndex = ((this.state.activeIndex === (this.state.cardTotal - 1)) ? this.state.activeIndex : (this.state.activeIndex += 1))
+    const newIndex = ((this.state.activeIndex === (this.state.cardTotal - 1)) ? this.state.activeIndex : (this.state.activeIndex + 1))
     this.setState({
       activeIndex: newIndex,
       swipe: 'right'
@@ -50,7 +48,7 @@ class PicaCarousel extends Component {
 
   setSwipe() {
     if (this.state.oldX > this.state.newX) {
-      const newIndex = ((this.state.activeIndex === (this.state.cardTotal - 1)) ? this.state.activeIndex : (this.state.activeIndex += 1))
+      const newIndex = ((this.state.activeIndex === (this.state.cardTotal - 1)) ? this.state.activeIndex : (this.state.activeIndex + 1))
       if ((this.state.oldX - this.state.newX) > 100) {
         this.setState({
           activeIndex: newIndex,
@@ -59,7 +57,7 @@ class PicaCarousel extends Component {
       }
     }
     if (this.state.oldX < this.state.newX) {
-      const newIndex = ((this.state.activeIndex === 0) ? this.state.activeIndex : (this.state.activeIndex -= 1))
+      const newIndex = ((this.state.activeIndex === 0) ? this.state.activeIndex : (this.state.activeIndex - 1))
       if ((this.state.newX - this.state.oldX) > 100) {
         this.setState({
           activeIndex: newIndex,
