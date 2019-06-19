@@ -3,7 +3,6 @@
 	top: 0;
 	left: 0;
 	z-index: 1;
-	background-color: blue;
 }
 
 .mainMenu {
@@ -66,8 +65,7 @@
 }
 
 .mobileMenu, .mobileMenuOpen {
-	height: -webkit-calc(100% - 40px); /* google, safari */
-	height: -moz-calc(100% - 40px); /* firefox */
+	height: calc(100% - 40px);
 	width: 100%;
 	position: fixed;
 	top: 0;
@@ -79,16 +77,12 @@
 }
 
 .mobileMenu {
-	-webkit-transform: translateY(-100%);
-	-ms-transform: translateY(-100%);
-			transform: translateY(-100%);
+	transform: translateY(-100%);
 	transition: transform 500ms linear;
 }
 
 .mobileMenuOpen {
-	-webkit-transform: translateY(0%);
-	-ms-transform: translateY(0%);
-			transform: translateY(0%);
+	transform: translateY(0%);
 	transition: transform 500ms ease-out;
 }
 
@@ -96,7 +90,8 @@
 	position: absolute;
 	left: 20px;
 	bottom: 10px;
-	font-size: 5rem;
+	font-size: 4rem;
+	line-height: 3.5rem;
 }
 
 .mobileMenuOptions a {

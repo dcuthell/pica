@@ -6,6 +6,8 @@ import styles from './styles.module.css'
 
 import logo from '../../img/PicaLogo.png'
 import mobileLogo from '../../img/MobileLogo.png'
+import hamburger from '../../img/hamburger.png'
+import cross from '../../img/cross.png'
 
 
 class PicaNavBar extends Component {
@@ -65,7 +67,7 @@ class PicaNavBar extends Component {
 
   render() {
     return (
-      <div className={styles.PicaNavBarr}>
+      <div className={styles.PicaNavBar}>
         <div className={styles.mainMenu} style={{display: ((window.innerWidth >= 767) ? 'block' : 'none')}}>
           <NavLink to='/'>
             <img src={logo} alt='logo' id={styles.menuLogo} />
@@ -73,6 +75,7 @@ class PicaNavBar extends Component {
           <div className={styles.menuOptions}>
             <NavLink onClick={this.closeNav} to='/cart'><i className='fas fa-shopping-basket' /></NavLink>
             <NavLink onClick={this.closeNav} to='/account'><i className='fas fa-user' /></NavLink>
+            <NavLink to='/TBA'><p>TBA Festival</p></NavLink>
             <NavLink to='/events'><p>Events</p></NavLink>
             <NavLink to='/artistsandarchive'><p>Artists & Archive</p></NavLink>
             <NavLink to='/learn'><p>Learn</p></NavLink>
@@ -85,10 +88,13 @@ class PicaNavBar extends Component {
             <NavLink onClick={this.closeNav} to='/'>
               <img src={mobileLogo} alt='mobilelogo' id={styles.mobileLogo} />
             </NavLink>
-            <img onClick={this.toggleNav} src={this.state.isOpen ? this.props.cross : this.props.hamburger} alt='menuicon' id={styles.menuIcon} />
+            <img onClick={this.toggleNav} src={this.state.isOpen ? cross : hamburger} alt='menuicon' id={styles.menuIcon} />
           </div>
           <div className={this.state.isOpen ? styles.mobileMenuOpen : styles.mobileMenu} style={{zIndex: '1'}}>
             <div className={styles.mobileMenuOptions}>
+              <NavLink onClick={this.closeNav} to='/cart'><i className='fas fa-shopping-basket' /></NavLink>
+              <NavLink onClick={this.closeNav} to='/account'><i className='fas fa-user' /></NavLink>
+              <NavLink to='/TBA'><p>TBA Festival</p></NavLink>
               <NavLink onClick={this.closeNav} to='/events'><p>Events</p></NavLink>
               <NavLink onClick={this.closeNav} to='/artistsandarchive'><p>Artists & Archive</p></NavLink>
               <NavLink onClick={this.closeNav} to='/learn'><p>Learn</p></NavLink>
@@ -103,17 +109,11 @@ class PicaNavBar extends Component {
 }
 
 PicaNavBar.defaultProps = {
-  logo: '',
-  mobileLogo: '',
-  hamburger: '',
-  cross: ''
+
 }
 
 PicaNavBar.propTypes = {
-  logo: PropTypes.string,
-  mobileLogo: PropTypes.string,
-  hamburger: PropTypes.string,
-  cross: PropTypes.string
+
 }
 
 export default PicaNavBar
