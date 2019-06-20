@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { NavLink } from 'react-router-dom'
 import styles from './styles.module.css'
 
 import logo from '../../img/PicaLogo.png'
@@ -67,37 +66,37 @@ class PicaNavBar extends Component {
     return (
       <div className={styles.PicaNavBar}>
         <div className={styles.mainMenu} style={{display: ((window.innerWidth >= 767) ? 'block' : 'none')}}>
-          <NavLink to='/'>
+          <a href='https://www.pica.org/'>
             <img src={logo} alt='logo' id={styles.menuLogo} />
-          </NavLink>
+          </a>
           <div className={styles.menuOptions}>
-            <NavLink onClick={this.closeNav} to='/basket'><i className='fas fa-shopping-basket' /></NavLink>
-            <NavLink onClick={this.closeNav} to='/account'><i className='fas fa-user' /></NavLink>
-            <NavLink to='/TBA'><p>TBA Festival</p></NavLink>
-            {/*<NavLink to='/events'><p>Events</p></NavLink>*/}
-            <NavLink to='/artistsandarchive'><p>Artists & Archive</p></NavLink>
-            {/*<NavLink to='/learn'><p>Learn</p></NavLink>*/}
-            <NavLink to='/precipicefund'><p>Precipice Fund</p></NavLink>
-            <NavLink to='/support'><p>Support</p></NavLink>
+            <a onClick={this.closeNav} href='https://www.pica.org/basket/'><i className='fas fa-shopping-basket' /></a>
+            <a onClick={this.closeNav} href='https://www.pica.org/account/'><i className='fas fa-user' /></a>
+            <a href='https://www.pica.org/tba/'><p>TBA Festival</p></a>
+            {/*<a href='https://www.pica.org/events'><p>Events</p></a>*/}
+            <a href='https://www.pica.org/artists/'><p>Artists & Archive</p></a>
+            {/*<a href='https://www.pica.org/learn'><p>Learn</p></a>*/}
+            <a href='https://www.pica.org/precipice-fund/home/'><p>Precipice Fund</p></a>
+            <a href='https://www.pica.org/support/'><p>Support</p></a>
           </div>
         </div>
         <div className={styles.mobileNav} style={{display: ((window.innerWidth < 767) ? 'block' : 'none')}}>
           <div className={styles.mobileBar} style={{zIndex: '2'}}>
-            <NavLink onClick={this.closeNav} to='/'>
+            <a onClick={this.closeNav} href='https://www.pica.org/'>
               <img src={mobileLogo} alt='mobilelogo' id={styles.mobileLogo} />
-            </NavLink>
+            </a>
             <img onClick={this.toggleNav} src={this.state.isOpen ? cross : hamburger} alt='menuicon' id={styles.menuIcon} />
           </div>
           <div className={this.state.isOpen ? styles.mobileMenuOpen : styles.mobileMenu} style={{zIndex: '1'}}>
             <div className={styles.mobileMenuOptions}>
-              <NavLink onClick={this.closeNav} to='/basket'><i className='fas fa-shopping-basket' /></NavLink>
-              <NavLink onClick={this.closeNav} to='/account'><i className='fas fa-user' /></NavLink>
-              <NavLink to='/TBA'><p>TBA Festival</p></NavLink>
-              {/*<NavLink onClick={this.closeNav} to='/events'><p>Events</p></NavLink>*/}
-              <NavLink onClick={this.closeNav} to='/artistsandarchive'><p>Artists & Archive</p></NavLink>
-              {/*<NavLink onClick={this.closeNav} to='/learn'><p>Learn</p></NavLink>*/}
-              <NavLink onClick={this.closeNav} to='/precipicefund'><p>Precipice Fund</p></NavLink>
-              <NavLink onClick={this.closeNav} to='/support'><p>Support</p></NavLink>
+              <a onClick={this.closeNav} href='https://www.pica.org/basket/'><i className='fas fa-shopping-basket' /></a>
+              <a onClick={this.closeNav} href='https://www.pica.org/account/'><i className='fas fa-user' /></a>
+              <a href='https://www.pica.org/TBA/'><p>TBA Festival</p></a>
+              {/*<a onClick={this.closeNav} href='https://www.pica.org/events'><p>Events</p></a>*/}
+              <a onClick={this.closeNav} href='https://www.pica.org/artists/'><p>Artists & Archive</p></a>
+              {/*<a onClick={this.closeNav} href='https://www.pica.org/learn'><p>Learn</p></a>*/}
+              <a onClick={this.closeNav} href='https://www.pica.org/precipice-fund/home/'><p>Precipice Fund</p></a>
+              <a onClick={this.closeNav} href='https://www.pica.org/support/'><p>Support</p></a>
             </div>
           </div>
         </div>
