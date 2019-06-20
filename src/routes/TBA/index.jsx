@@ -76,7 +76,7 @@ export default function TBA (props) {
                   PICA’s 17th Annual Time-Based Art Festival (TBA) gathers artists and audiences from around the world for ten days of contemporary performance, music, visual art, film, workshops, lectures, food, drink, conversation, and celebration. Immerse yourself in the art and ideas of our time.
                 </h4>
                 <h4>
-                  Festival passes are now on sale! The complete TBA schedule and artist lineup--including performances, late-night shows, screenings, parties, public programs, partnerships, and more--will be announced June 20. To stay up to date (and to purchase tickets as soon as they go on sale) visit our website, follow us on social media, and sign up for our email list at pica.org.
+                  Festival passes are now on sale! The complete TBA schedule and artist lineup--including performances, late-night shows, screenings, parties, public programs, partnerships, and more--will be announced soon! To stay up to date (and to purchase tickets as soon as they go on sale) visit our website, follow us on social media, and sign up for our email list at pica.org.
                 </h4>
               </Col>
               <Col xl='1' style={{padding: '0'}} />
@@ -130,7 +130,7 @@ export default function TBA (props) {
               </Query>
               <Col xl='8'>
                 <h1 style={{color: '#fff100'}}>
-                  COMPLETE 2019 SCHEDULE AND ARTIST LINE-UP WILL BE ANNOUNCED JUNE 20.
+                  COMPLETE 2019 SCHEDULE AND ARTIST LINE-UP WILL BE ANNOUNCED SOON!
                 </h1>
               </Col>
             </Row>
