@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
-import PropTypes from 'prop-types'
-import { Container, Button, Row, Col } from 'reactstrap'
 import styles from './styles.module.css'
 
 import logo from '../../img/PicaLogo.png'
@@ -92,7 +90,7 @@ class PicaNavBar extends Component {
           </div>
           <div className={this.state.isOpen ? styles.mobileMenuOpen : styles.mobileMenu} style={{zIndex: '1'}}>
             <div className={styles.mobileMenuOptions}>
-              <NavLink onClick={this.closeNav} to='/cart'><i className='fas fa-shopping-basket' /></NavLink>
+              <NavLink onClick={this.closeNav} to='/basket'><i className='fas fa-shopping-basket' /></NavLink>
               <NavLink onClick={this.closeNav} to='/account'><i className='fas fa-user' /></NavLink>
               <NavLink to='/TBA'><p>TBA Festival</p></NavLink>
               {/*<NavLink onClick={this.closeNav} to='/events'><p>Events</p></NavLink>*/}

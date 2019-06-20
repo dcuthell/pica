@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
-import PropTypes from 'prop-types'
-import { Container, Button, Row, Col } from 'reactstrap'
 import styles from './styles.module.css'
 
 import logo from '../../img/FooterLogo.png'
@@ -97,9 +95,7 @@ class PicaFooter extends Component {
                 <p>
                   <a href='https://www.pica.org/resource-room'>Resource Room</a>
                 </p>
-                <p>
-                  <a href='https://www.pica.org/merchandise'>Merchandise</a>
-                </p>
+                <NavLink to='/merchandise'><p>Merchandise</p></NavLink>
               </div>
             </div>
           </div>
@@ -128,12 +124,8 @@ class PicaFooter extends Component {
                 <p>
                   <a href='https://www.pica.org/resource-room'>Resource Room</a>
                 </p>
-                <p>
-                  <a href='https://www.pica.org/merchandise'>Merchandise</a>
-                </p>
-                <p>
-                  <a href='https://www.pica.org/'>Home</a>
-                </p>
+                <NavLink onClick={this.closeNav} to='/merchandise'><p>Merchandise</p></NavLink>
+                <NavLink onClick={this.closeNav} to='/'><p>Home</p></NavLink>
               </div>
               <hr style={{width: '90%', margin: 'auto'}} />
               <div style={{width: '50%'}}>

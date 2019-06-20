@@ -96,6 +96,11 @@
 	color: white;
 }
 
+#backButton :hover {
+	cursor: pointer;
+	text-decoration: underline;
+}
+
 @media (max-width: 576px) {
 	.TBAArtistBlock {
 		display: none;
