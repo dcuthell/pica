@@ -42,8 +42,6 @@
 		height: -webkit-calc(100% - 40px); /* google, safari */
 		height: calc(100% - 40px); /* firefox */
 		width: 100vw;
-		overflow-y: scroll;
-		overflow-x: hidden;
 		position: absolute;
 		top: 40px;
 		left: 0px;
