@@ -19,6 +19,7 @@ import Basket from './routes/Basket'
 import Donations from './routes/Donations'
 import Membership from './routes/Membership'
 import Tickets from './routes/Tickets'
+import Merchandise from './routes/Merchandise'
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
         <Route exact path='/basket' component={Basket} />
         <Route exact path='/donations' component={Donations} />
         <Route exact path='/membership' component={Membership} />
+        <Route exact path='/merchandise' component={Merchandise} />
         <Route path='/tickets/:webeventid' component={Tickets} />
       </PicaBody>
     </div>
