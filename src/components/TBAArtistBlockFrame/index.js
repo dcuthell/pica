@@ -29,6 +29,7 @@ class TBAArtistBlockFrame extends Component {
           vimeoVideoId
           imageGallery {
             handle
+            photoCredit
           }
           artists {
             name

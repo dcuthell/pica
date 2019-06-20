@@ -30,6 +30,7 @@ export default function TBA (props) {
             sortNumber
             media {
               handle
+              photoCredit
             }
           }
         }
@@ -44,7 +45,6 @@ export default function TBA (props) {
   return (
     <Container className='TBA' style={{padding: '0', margin: '0px', maxWidth: '100%', height: 'auto'}}>
       <div style={{height: '100vh', width: '100%', backgroundImage: 'url(' + katja + ')', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', position: 'fixed'}} />
-      <TBASprocket />
       <Row style={{margin: '0'}}>
         <Col xl='12' style={{height: '15vh', paddingTop: '5vh'}}>
           <ul style={{display: 'flex', justifyContent: 'space-between', textAlign: 'left', listStyle: 'none', gridColumn: 'col-start/span 12', gridRow: '1', padding: '0px', margin: '0px'}}>
@@ -67,9 +67,9 @@ export default function TBA (props) {
               <Col xl='12' style={{height: '5vh'}} />
               <Col xl='1' style={{padding: '0'}} />
               <Col xl='4'>
-                <h1 style={{fontSize: '2.75rem'}}>IMMERSE YOURSELF IN THE ART AND IDEAS OF OUR TIME</h1>
-                <h2>2019 SEPTEMBER 05-15</h2>
-                <h2>PORTLAND OREGON USA</h2>
+                <h1 style={{fontSize: '3.75rem'}}>IMMERSE YOURSELF IN THE ART AND IDEAS OF OUR TIME</h1>
+                <h2 style={{fontSize: '2.75rem'}}>2019 SEPTEMBER 05-15</h2>
+                <h2 style={{fontSize: '2.75rem'}}>PORTLAND OREGON USA</h2>
               </Col>
               <Col xl='6'>
                 <br style={{lineHeight: '10rem'}} />
