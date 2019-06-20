@@ -153,7 +153,7 @@ export default function TBA (props) {
               <Col xl='1' />
               <Col xl='6' style={{textAlign: 'center'}}>
                 <PicaButton>
-                  <a style={{display: 'inline-flex'}} href='/tickets/tba19/details'><h4 style={{margin: '12px 12px 12px 12px'}}>PURCHASE A PASS</h4><img src={rightArrow} style={{height: '.75rem', margin: 'auto', marginLeft: '.75rem'}} alt='arrow' /></a>
+                  <a style={{display: 'inline-flex'}} href='https://www.pica.org/tickets/tba19/details'><h4 style={{margin: '12px 12px 12px 12px'}}>PURCHASE A PASS</h4><img src={rightArrow} style={{height: '.75rem', margin: 'auto', marginLeft: '.75rem'}} alt='arrow' /></a>
                 </PicaButton>
               </Col>
               <Col xl='5' />
