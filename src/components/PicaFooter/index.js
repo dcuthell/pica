@@ -4,6 +4,8 @@ import PropTypes from 'prop-types'
 import { Container, Button, Row, Col } from 'reactstrap'
 import styles from './styles.module.css'
 
+import logo from '../../img/FooterLogo.png'
+
 class PicaFooter extends Component {
   constructor(props) {
     super(props)
@@ -44,7 +46,7 @@ class PicaFooter extends Component {
           <div style={{display: (this.state.mobile ? 'none' : 'block')}}>
             <div className={styles.PicaFooter + ' d-flex justify-content-center'}>
               <div className={styles.FooterColumnLarge}>
-                <img src={this.props.logo} alt='logo' />
+                <img src={logo} alt='logo' />
                 <div style={{position: 'absolute', bottom: '30%', left: '0'}}>
                   <p style={{fontSize: '12px', paddingLeft: '24px'}}>© 2019 Portland Institute</p>
                   <p style={{fontSize: '12px', paddingLeft: '42px'}}>for Contemporary Art</p>
@@ -159,13 +161,6 @@ class PicaFooter extends Component {
       </div>
     )
   }
-}
-
-PicaFooter.defaultProps = {
-
-}
-
-PicaFooter.propTypes = {
 }
 
 export default PicaFooter
