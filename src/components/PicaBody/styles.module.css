@@ -1,15 +1,14 @@
 .PicaBody{
-	width: -webkit-calc(100% - 240px); /* google, safari */
-	width: calc(100% - 240px); /* firefox */
+	width: -webkit-calc(100vw - 260px); /* google, safari */
+	width: calc(100vw - 260px); /* firefox */
 	height: 100vh;
-	overflow-y: scroll;
-	overflow-x: hidden;
 	-webkit-overflow-scrolling: touch;
 	background-color: #f8f8f8;
 	position: absolute;
 	top: 0;
-	right: 0;
+	left: 240px;
 	z-index: 0;
+	/* padding: 0px 10px 0px 0px; */
 }
 
 .RouterContent {
