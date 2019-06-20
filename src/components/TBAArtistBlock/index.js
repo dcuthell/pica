@@ -88,9 +88,9 @@ class TBAArtistBlock extends Component {
         <div className={'d-flex align-items-center'} style={{height: '400px', minWidth: '296px', margin: 'auto', position: 'relative', textAlign: 'center'}}>
           <div style={{width: '100%', position: 'relative'}}>
             <img src={this.props.YouTubeId ? 'https://i.ytimg.com/vi/' + this.props.YouTubeId + '/mqdefault.jpg' : 'https://www.retirebeforedad.com/wp-content/uploads/2016/07/Banana-Stand-500x372.jpg'} alt='thumbnail' style={{marginTop: '20px', marginBottom: '20px', maxWidth: '100%', maxHeight: '153px', zIndex: 1}} />
-            <a onClick={this.toggle} href='#' className={styles.videoOverlay}>
+            <div onClick={this.toggle} className={styles.videoOverlay}>
               <i className='fas fa-play' style={{fontSize: '64px', paddingTop: '64px', color: '#f8f8f8'}} />
-            </a>
+            </div>
           </div>
         </div>
       )
@@ -100,9 +100,9 @@ class TBAArtistBlock extends Component {
         <div className={'d-flex align-items-center'} style={{height: '400px', minWidth: '296px', margin: 'auto', position: 'relative', textAlign: 'center'}}>
           <div style={{width: '100%', position: 'relative'}}>
             <img src={this.props.VimeoId ? this.state.thumbnailURL : 'https://www.retirebeforedad.com/wp-content/uploads/2016/07/Banana-Stand-500x372.jpg'} alt='thumbnail' style={{marginTop: '20px', marginBottom: '20px', maxWidth: '100%', maxHeight: '153px', zIndex: 1}} />
-            <a onClick={this.toggle} href='#' className={styles.videoOverlay}>
+            <div onClick={this.toggle} className={styles.videoOverlay}>
               <i className='fas fa-play' style={{fontSize: '64px', paddingTop: '64px', color: '#f8f8f8'}} />
-            </a>
+            </div>
           </div>
         </div>
       )
@@ -154,9 +154,9 @@ class TBAArtistBlock extends Component {
         </Modal>
         <div className={styles.artistOverlay} style={{display: (this.state.artistOverlay ? 'block' : 'none')}}>
           <div style={{padding: '5vw', overflowX: 'hidden', overflowY: 'scroll', height: 'auto'}}>
-            <a href='#' onClick={this.toggle2} style={{display: 'inline-flex'}}>
+            <div id={styles.backButton} onClick={this.toggle2} style={{display: 'inline-flex'}}>
               <h1 style={{color: '#fff100', textAlign: 'left'}}>&#x2190; BACK TO TBA</h1>
-            </a>
+            </div>
             <hr style={{margin: '0px', borderTop: 'white solid 5px'}} />
             <div className={styles.imageSlider + ' d-flex flex-row'} style={{height: '400px', width: 'auto', overflowY: 'hidden', overflowX: 'scroll'}}>
               {this.renderVideos()}
