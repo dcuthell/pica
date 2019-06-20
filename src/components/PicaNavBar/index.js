@@ -73,7 +73,7 @@ class PicaNavBar extends Component {
             <img src={logo} alt='logo' id={styles.menuLogo} />
           </NavLink>
           <div className={styles.menuOptions}>
-            <NavLink onClick={this.closeNav} to='/cart'><i className='fas fa-shopping-basket' /></NavLink>
+            <NavLink onClick={this.closeNav} to='/basket'><i className='fas fa-shopping-basket' /></NavLink>
             <NavLink onClick={this.closeNav} to='/account'><i className='fas fa-user' /></NavLink>
             <NavLink to='/TBA'><p>TBA Festival</p></NavLink>
             {/*<NavLink to='/events'><p>Events</p></NavLink>*/}
