@@ -1,6 +1,6 @@
 .PicaBody{
-	width: -webkit-calc(100vw - 260px); /* google, safari */
-	width: calc(100vw - 260px); /* firefox */
+	width: -webkit-calc(100vw - 250px); /* google, safari */
+	width: calc(100vw - 250px); /* firefox */
 	height: 100vh;
 	-webkit-overflow-scrolling: touch;
 	background-color: #f8f8f8;
@@ -39,11 +39,15 @@
 
 @media (max-width: 767.98px) {
 	.PicaBody {
-		height: -webkit-calc(100% - 40px); /* google, safari */
-		height: calc(100% - 40px); /* firefox */
+		height: -webkit-calc(100vh - 40px); /* google, safari */
+		height: calc(100vh - 40px); /* firefox */
 		width: 100vw;
 		position: absolute;
 		top: 40px;
 		left: 0px;
+	}
+	::-webkit-scrollbar {
+	  width: 0px;
+		height: 0px;
 	}
 }
