@@ -42,8 +42,8 @@ export default function TBA (props) {
   `
 
   return (
-    <Container className='TBA' style={{padding: '0', margin: '0px', maxWidth: '100%', height: 'auto'}}>
-      <div style={{height: '100vh', width: '100%', backgroundImage: 'url(' + katja + ')', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', position: 'fixed'}} />
+    <Container className='TBA' style={{padding: '0', margin: '0px', width: '100%', height: 'auto'}}>
+      <div style={{height: '100vh', width: '100vw', backgroundImage: 'url(' + katja + ')', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', position: 'fixed'}} />
       <Row style={{margin: '0'}}>
         <Col xl='12' style={{height: '15vh', paddingTop: '5vh'}}>
           <ul style={{display: 'flex', justifyContent: 'space-between', textAlign: 'left', listStyle: 'none', gridColumn: 'col-start/span 12', gridRow: '1', padding: '0px', margin: '0px'}}>
