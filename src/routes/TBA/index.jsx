@@ -42,9 +42,9 @@ export default function TBA (props) {
   `
 
   return (
-    <Container className='TBA' style={{padding: '0', margin: '0px', width: '100%', height: 'auto'}}>
+    <Container className='TBA' style={{padding: '0', margin: '0px', maxWidth: '100%', height: 'auto'}}>
       <div style={{height: '100vh', width: '100vw', backgroundImage: 'url(' + katja + ')', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', position: 'fixed'}} />
-      <Row style={{margin: '0'}}>
+      <Row style={{margin: '0', overflowX: 'hidden'}}>
         <Col xl='12' style={{height: '15vh', paddingTop: '5vh'}}>
           <ul style={{display: 'flex', justifyContent: 'space-between', textAlign: 'left', listStyle: 'none', gridColumn: 'col-start/span 12', gridRow: '1', padding: '0px', margin: '0px'}}>
             <li><span style={{ width: '60px', display: 'block', textTransform: 'uppercase', lineHeight: '.9', fontSize: '1.5vw', color: 'white' }}>2019</span></li>
@@ -66,14 +66,14 @@ export default function TBA (props) {
               <Col xl='12' style={{height: '5vh'}} />
               <Col xl='1' style={{padding: '0'}} />
               <Col xl='4'>
-                <h1 style={{fontSize: '3.75rem'}}>IMMERSE YOURSELF IN THE ART AND IDEAS OF OUR TIME</h1>
+                <h1 style={{fontSize: '3.75rem'}}>BE PRESENT IN THE MOMENT WHEN ANYTHING CAN HAPPEN</h1>
                 <h2 style={{fontSize: '2.75rem'}}>2019 SEPTEMBER 05-15</h2>
                 <h2 style={{fontSize: '2.75rem'}}>PORTLAND OREGON USA</h2>
               </Col>
               <Col xl='6'>
                 <br style={{lineHeight: '10rem'}} />
                 <h4>
-                  PICA’s 17th Annual Time-Based Art Festival (TBA) gathers artists and audiences from around the world for ten days of contemporary performance, music, visual art, film, workshops, lectures, food, drink, conversation, and celebration. Immerse yourself in the art and ideas of our time.
+                  PICA’s 17th Annual Time-Based Art Festival (TBA) gathers artists and audiences from around the world for ten days of contemporary performance, music, visual art, film, workshops, lectures, food, drink, conversation, and celebration. Be present in the moment when anything can happen.
                 </h4>
                 <h4>
                   Festival passes are now on sale! The complete TBA schedule and artist lineup--including performances, late-night shows, screenings, parties, public programs, partnerships, and more--will be announced soon! To stay up to date (and to purchase tickets as soon as they go on sale) visit our website, follow us on social media, and sign up for our email list at pica.org.
