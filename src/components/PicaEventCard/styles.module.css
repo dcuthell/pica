@@ -72,7 +72,7 @@
 	visibility: hidden;
 }
 
-.contentClosingdUp {
+.contentClosingUp {
 	-webkit-transform: translateY(-75%);
 	-ms-transform: translateY(-75%);
 			transform: translateY(-75%);

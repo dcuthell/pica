@@ -38,21 +38,56 @@ class PicaEventCard extends Component {
     }
   }
 
+  shouldComponentUpdate(nextProps){
+    if(nextProps.isOpen && this.state.isOpen){
+      if(nextProps.activeIndex === nextProps.index) {
+        return false
+      } else {
+        this.setState({
+          isOpen: false
+        })
+        setTimeout(() => {
+          this.setState({
+            isClosed: true
+          })
+        }
+        , 500)
+        return true
+      }
+    } else {
+      return true
+    }
+  }
+
+  componentDidUpdate(){
+    console.log('woooo @' + this.props.index + ' ' + this.props.activeIndex)
+  }
+
+  handlePropsToState(){
+    if(this.props.isOpen && this.state.isOpen){
+      if(this.props.activeIndex === this.props.index) {
+        this.setState({
+          isOpen: true,
+          isClosed: false
+        })
+      }
+    }
+  }
+
   handleStyle(){
     if(this.state.isOpen){
       return styles.contentOpen
-    } else if (!this.state.isClosed) {
-      console.log('opp')
-      if(this.props.activeIndex > this.props.index){
-        return styles.contentClosingUp
-      } else {
-        return styles.contentClosingDown
-      }
-    } else {
+    } else if (this.state.isClosed) {
       if(this.props.activeIndex > this.props.index){
         return styles.contentClosedUp
       } else {
         return styles.contentClosedDown
+      }
+    } else {
+      if(this.props.activeIndex > this.props.index){
+        return styles.contentClosingUp
+      } else {
+        return styles.contentClosingDown
       }
     }
   }
