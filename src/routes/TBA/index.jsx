@@ -42,9 +42,9 @@ export default function TBA (props) {
   `
 
   return (
-    <Container className='TBA' style={{padding: '0', margin: '0px', maxWidth: '100%', height: 'auto'}}>
-      <div style={{height: '100vh', width: '100%', backgroundImage: 'url(' + katja + ')', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', position: 'fixed'}} />
-      <Row style={{margin: '0'}}>
+    <Container className='TBA' style={{padding: '0', margin: '0px', maxWidth: '100%', height: 'auto', overflowX: 'hidden'}}>
+      <div style={{height: '100vh', width: '100vw', backgroundImage: 'url(' + katja + ')', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', position: 'fixed'}} />
+      <Row style={{margin: '0', overflowX: 'hidden'}}>
         <Col xl='12' style={{height: '15vh', paddingTop: '5vh'}}>
           <ul style={{display: 'flex', justifyContent: 'space-between', textAlign: 'left', listStyle: 'none', gridColumn: 'col-start/span 12', gridRow: '1', padding: '0px', margin: '0px'}}>
             <li><span style={{ width: '60px', display: 'block', textTransform: 'uppercase', lineHeight: '.9', fontSize: '1.5vw', color: 'white' }}>2019</span></li>
@@ -153,7 +153,7 @@ export default function TBA (props) {
               <Col xl='1' />
               <Col xl='6' style={{textAlign: 'center'}}>
                 <PicaButton>
-                  <a style={{display: 'inline-flex'}} href='/tickets/tba19/details'><h4 style={{margin: '12px 12px 12px 12px'}}>PURCHASE A PASS</h4><img src={rightArrow} style={{height: '.75rem', margin: 'auto', marginLeft: '.75rem'}} alt='arrow' /></a>
+                  <a style={{display: 'inline-flex'}} href='https://www.pica.org/tickets/tba19/details'><h4 style={{margin: '12px 12px 12px 12px'}}>PURCHASE A PASS</h4><img src={rightArrow} style={{height: '.75rem', margin: 'auto', marginLeft: '.75rem'}} alt='arrow' /></a>
                 </PicaButton>
               </Col>
               <Col xl='5' />

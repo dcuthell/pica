@@ -1,6 +1,6 @@
 .PicaBody{
-	width: -webkit-calc(100vw - 260px); /* google, safari */
-	width: calc(100vw - 260px); /* firefox */
+	width: -webkit-calc(100vw - 250px); /* google, safari */
+	width: calc(100vw - 250px); /* firefox */
 	height: 100vh;
 	-webkit-overflow-scrolling: touch;
 	background-color: #f8f8f8;

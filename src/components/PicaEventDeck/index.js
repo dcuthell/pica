@@ -49,7 +49,7 @@ class PicaEventDeck extends Component {
     const childrenWithProps = React.Children.map(children, child =>
       this.addClicksToProps(child)
     )
-    console.log(this.props.children.length)
+    console.log(this.state.activeIndex)
     return (
       <div className={styles.PicaEventDeck}>
         {childrenWithProps}
