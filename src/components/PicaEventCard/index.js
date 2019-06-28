@@ -10,6 +10,7 @@ class PicaEventCard extends Component {
       isClosed: true
     }
     this.handleClick = this.handleClick.bind(this)
+    this.handleStyle = this.handleStyle.bind(this)
   }
 
   handleClick(e) {
@@ -19,9 +20,41 @@ class PicaEventCard extends Component {
       this.props.setOpen(this.props.index)
     }
 
-    this.setState({
-      isOpen: !this.state.isOpen
-    })
+    if (this.state.isOpen) {
+      this.setState({
+        isOpen: false
+      })
+      setTimeout(() => {
+        this.setState({
+          isClosed: true
+        })
+      }
+      , 500)
+    } else {
+      this.setState({
+        isOpen: true,
+        isClosed : false
+      })
+    }
+  }
+
+  handleStyle(){
+    if(this.state.isOpen){
+      return styles.contentOpen
+    } else if (!this.state.isClosed) {
+      console.log('opp')
+      if(this.props.activeIndex > this.props.index){
+        return styles.contentClosingUp
+      } else {
+        return styles.contentClosingDown
+      }
+    } else {
+      if(this.props.activeIndex > this.props.index){
+        return styles.contentClosedUp
+      } else {
+        return styles.contentClosedDown
+      }
+    }
   }
 
   render() {
@@ -38,7 +71,7 @@ class PicaEventCard extends Component {
         <div className={styles.header + ' ' + (((this.props.activeIndex >= this.props.index) || !this.props.isOpen) ? styles.headerUp : styles.headerDown)}>
           <h1>{this.props.title}</h1>
         </div>
-        <div className={styles.content + ' ' + ((this.props.isOpen && (this.props.activeIndex === this.props.index)) ? styles.contentOpen : ((this.props.activeIndex > this.props.index) ? (styles.contentClosedUp) : (styles.contentClosedDown)))}>
+        <div className={styles.content + ' ' + this.handleStyle()}>
           <div className={styles.cardImage} >
             <h1>CONTENT</h1>
           </div>
