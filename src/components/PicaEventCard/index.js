@@ -6,7 +6,8 @@ class PicaEventCard extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      isOpen: false
+      isOpen: false,
+      isClosed: true
     }
     this.handleClick = this.handleClick.bind(this)
   }
