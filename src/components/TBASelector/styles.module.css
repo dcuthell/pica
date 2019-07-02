@@ -1,0 +1,36 @@
+.TBASelector {
+	width: 300px;
+	height: 40px;
+	border: 1px black solid;
+	background-color: white;
+}
+
+.header {
+	padding: 2px 0px 0px 2px;
+	color:green;
+}
+
+.header :hover {
+	cursor: pointer;
+	color: black;
+}
+
+.options {
+	color: blue;
+	padding: 0px 0px 0px 2px;
+	position: absolute;
+	width: 298px;
+	height: auto;
+	z-index: 1000;
+	background-color: lightgrey;
+	display: none;
+}
+
+.options :hover {
+	cursor: pointer;
+	color: black;
+}
+
+.open {
+	display: block;
+}

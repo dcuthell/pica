@@ -4,6 +4,7 @@ import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 import TBAArtistBlock from '../../components/TBAArtistBlock'
 import PicaButton from '../../components/PicaButton'
+import TBASelector from '../../components/TBASelector'
 
 import katja from '../../img/katja.jpg'
 import TBALogo from '../../img/tba18_t-rhythm.svg'
@@ -102,6 +103,9 @@ export default function TBA (props) {
                   <li><span style={{ width: '200px', display: 'block', textTransform: 'uppercase', lineHeight: '.9', fontSize: '3vw', color: 'white' }}>2019 <br />FESTIVAL LINE-UP</span></li>
                   <li><span style={{ width: '200px', display: 'block', textTransform: 'uppercase', lineHeight: '.9', fontSize: '3vw', color: 'white' }}>2019</span></li>
                 </ul>
+              </Col>
+              <Col xl='12'>
+                <TBASelector />
               </Col>
               <Query query={GET_CONTENT}>
                 {({ loading, error, data }) => {
