@@ -3,6 +3,7 @@ import { Container, Col, Row } from 'reactstrap'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 import TBAArtistBlock from '../../components/TBAArtistBlock'
+import TBAArtistBlockFrame from '../../components/TBAArtistBlockFrame'
 import PicaButton from '../../components/PicaButton'
 import TBASelector from '../../components/TBASelector'
 
@@ -104,39 +105,7 @@ export default function TBA (props) {
                   <li><span style={{ width: '200px', display: 'block', textTransform: 'uppercase', lineHeight: '.9', fontSize: '3vw', color: 'white' }}>2019</span></li>
                 </ul>
               </Col>
-              <Col xl='12'>
-                <TBASelector />
-              </Col>
-              <Query query={GET_CONTENT}>
-                {({ loading, error, data }) => {
-                  if (loading) return 'Loading...'
-                  if (error) return `Error! ${error.message}`
-                  const programs = data.tags[0].programs
-                  console.log(programs)
-                  let list = programs.map((program, index) =>
-                    <Col key={index} xs='6' xl='4' style={{padding: '15px 0px 15px 0px'}}>
-                      <TBAArtistBlock
-                        eventName={program.title}
-                        eventDate={program.dateAndTime[0]}
-                        artistName={(program.artists[0] ? program.artists[0].name : 'No Linked Artist')}
-                        detailsShort={program.shortDescription}
-                        detailsLong={program.longDescription.html}
-                        YouTubeId={program.youTubeVideoId}
-                        VimeoId={program.vimeoVideoId}
-                        galleryItems={program.gallery ? program.gallery.galleryItems : [{media: {handle: 'AKuZYOQsSkugUiFbLM0v'}}]}
-                      />
-                    </Col>
-                  )
-                  return (
-                    list
-                  )
-                }}
-              </Query>
-              <Col xl='8'>
-                <h1 style={{color: '#fff100'}}>
-                  COMPLETE 2019 SCHEDULE AND ARTIST LINE-UP WILL BE ANNOUNCED SOON!
-                </h1>
-              </Col>
+              <TBAArtistBlockFrame />
             </Row>
           </Container>
         </Col>

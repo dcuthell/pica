@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Container, Col, Row } from 'reactstrap'
 import TBAArtistBlock from '../TBAArtistBlock'
+import TBASelector from '../TBASelector'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 
@@ -18,7 +19,8 @@ class TBAArtistBlockFrame extends Component {
     query {
       tags(where: {name : "TBA"}) {
         name
-        programs {
+        programs (orderBy: sortNumber_ASC){
+          sortNumber
           title
           dateAndTime
           shortDescription
@@ -27,9 +29,14 @@ class TBAArtistBlockFrame extends Component {
           }
           youTubeVideoId
           vimeoVideoId
-          imageGallery {
-            handle
-            photoCredit
+          gallery {
+            galleryItems (orderBy: sortNumber_ASC){
+              sortNumber
+              media {
+                handle
+                photoCredit
+              }
+            }
           }
           artists {
             name
@@ -47,21 +54,34 @@ class TBAArtistBlockFrame extends Component {
           const programs = data.tags[0].programs
           console.log(programs)
           let list = programs.map((program, index) =>
-            <Col md='12' lg='6' style={{padding: '15px 0px 15px 0px'}}>
+            <Col key={index} xs='6' xl='4' style={{padding: '15px 0px 15px 0px'}}>
               <TBAArtistBlock
                 eventName={program.title}
                 eventDate={program.dateAndTime[0]}
-                artistName={program.artists[0].name}
+                artistName={(program.artists[0] ? program.artists[0].name : 'No Linked Artist')}
                 detailsShort={program.shortDescription}
                 detailsLong={program.longDescription.html}
                 YouTubeId={program.youTubeVideoId}
                 VimeoId={program.vimeoVideoId}
-                image={(program.imageGallery[0].handle ? program.imageGallery[0].handle : '123')}
+                galleryItems={program.gallery ? program.gallery.galleryItems : [{media: {handle: 'AKuZYOQsSkugUiFbLM0v'}}]}
               />
             </Col>
           )
           return (
-            list
+            <Container>
+              <Row>
+                <Col xl='12'>
+                  <TBASelector />
+                </Col>
+                {list}
+                <Col xl='8'>
+                  <h1 style={{color: '#fff100'}}>
+                    COMPLETE 2019 SCHEDULE AND ARTIST LINE-UP WILL BE ANNOUNCED SOON!
+                  </h1>
+                </Col>
+              </Row>
+            </Container>
+            
           )
         }}
       </Query>
