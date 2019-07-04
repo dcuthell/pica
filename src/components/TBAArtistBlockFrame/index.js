@@ -13,6 +13,7 @@ class TBAArtistBlockFrame extends Component {
       title: 'title',
       tagName: 'TBA'
     }
+    this.setTagName = this.setTagName.bind(this)
   }
 
   setTagName(tagName){
@@ -80,7 +81,7 @@ class TBAArtistBlockFrame extends Component {
             <Container>
               <Row>
                 <Col xl='12'>
-                  <TBASelector />
+                  <TBASelector setTagName={this.setTagName}/>
                 </Col>
                 {list}
                 <Col xl='8'>

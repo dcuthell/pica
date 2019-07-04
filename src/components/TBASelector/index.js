@@ -8,26 +8,32 @@ class TBASelector extends Component {
       open : false,
       selection: 'none'
     }
+    this.toggleMenu = this.toggleMenu.bind(this)
     this.handleClick = this.handleClick.bind(this)
   }
 
-  handleClick(){
+  toggleMenu(){
     this.setState({
       open: !this.state.open
     })
   }
 
+  handleClick(value){
+    this.toggleMenu()
+    this.props.setTagName(value)
+  }
+
   render(){
     return(
       <div className={styles.TBASelector}>
-        <div className={styles.header} onClick={this.handleClick}>
+        <div className={styles.header} onClick={this.toggleMenu}>
           {this.state.open ? <p>Options &#x2191;</p> : <p>Options &#x2193;</p>}
         </div>
         <div className={styles.options + ' ' + (this.state.open ? styles.open : '')} >
-          <p>Option 1</p>
-          <p>Option 2</p>
-          <p>Option 3</p>
-          <p>Option 4</p>
+          <p onClick={()=>(this.handleClick('Performance'))}>Performance</p>
+          <p onClick={()=>(this.handleClick('TBA'))}>Option 2</p>
+          <p onClick={()=>(this.handleClick('TBA'))}>Option 3</p>
+          <p onClick={()=>(this.handleClick('TBA'))}>Option 4</p>
         </div>
       </div>
     )
