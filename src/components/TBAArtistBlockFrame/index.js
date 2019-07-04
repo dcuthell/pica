@@ -10,14 +10,23 @@ class TBAArtistBlockFrame extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      programs: []
+      title: 'title',
+      tagName: 'TBA'
+    }
+  }
+
+  setTagName(tagName){
+    if(tagName !== this.state.tagName){
+      this.setState({
+        tagName
+      })
     }
   }
 
   render() {
     const GET_CONTENT = gql`
-    query {
-      tags(where: {name : "TBA"}) {
+    query TBAEventsWithTags($tagName : String! = "TBA"){
+      tags(where: {name : $tagName}) {
         name
         programs (orderBy: sortNumber_ASC){
           sortNumber
@@ -47,7 +56,7 @@ class TBAArtistBlockFrame extends Component {
     `
 
     return (
-      <Query query={GET_CONTENT}>
+      <Query query={GET_CONTENT} variables={{"tagName" : this.state.tagName}}>
         {({ loading, error, data }) => {
           if (loading) return 'Loading...'
           if (error) return `Error! ${error.message}`

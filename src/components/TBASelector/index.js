@@ -24,13 +24,9 @@ class TBASelector extends Component {
           {this.state.open ? <p>Options &#x2191;</p> : <p>Options &#x2193;</p>}
         </div>
         <div className={styles.options + ' ' + (this.state.open ? styles.open : '')} >
-          <hr />
           <p>Option 1</p>
-          <hr />
           <p>Option 2</p>
-          <hr />
           <p>Option 3</p>
-          <hr />
           <p>Option 4</p>
         </div>
       </div>

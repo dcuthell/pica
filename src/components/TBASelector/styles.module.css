@@ -3,10 +3,12 @@
 	height: 40px;
 	border: 1px black solid;
 	background-color: white;
+	font-size: 28px;
 }
 
 .header {
-	padding: 2px 0px 0px 2px;
+	padding: 0px 0px 0px 10px;
+	margin: 0px 0px 10px 0px;
 	color:green;
 }
 
