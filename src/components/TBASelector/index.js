@@ -31,9 +31,10 @@ class TBASelector extends Component {
         </div>
         <div className={styles.options + ' ' + (this.state.open ? styles.open : '')} >
           <p onClick={()=>(this.handleClick('Performance'))}>Performance</p>
-          <p onClick={()=>(this.handleClick('TBA'))}>Option 2</p>
-          <p onClick={()=>(this.handleClick('TBA'))}>Option 3</p>
-          <p onClick={()=>(this.handleClick('TBA'))}>Option 4</p>
+          <p onClick={()=>(this.handleClick('Late Night'))}>Late Night</p>
+          <p onClick={()=>(this.handleClick('Institute'))}>Institute</p>
+          <p onClick={()=>(this.handleClick('Partner Projects'))}>Partner Projects</p>
+          <p onClick={()=>(this.handleClick('Food'))}>Food</p>
         </div>
       </div>
     )
