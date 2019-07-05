@@ -62,7 +62,6 @@ class TBAArtistBlockFrame extends Component {
           if (loading) return 'Loading...'
           if (error) return `Error! ${error.message}`
           const programs = data.tags[0].programs
-          console.log(programs)
           let list = programs.map((program, index) =>
             <Col key={index} xs='6' xl='4' style={{padding: '15px 0px 15px 0px'}}>
               <TBAArtistBlock
@@ -77,6 +76,14 @@ class TBAArtistBlockFrame extends Component {
               />
             </Col>
           )
+          if (list.length === 0){
+            list = (
+              <Col xs='6' xl='4'>
+                <h1>No events of this type have been scheuled, check back in soon!</h1>
+              </Col>
+            )
+          }
+          console.log(list)
           return (
             <Container>
               <Row>
@@ -91,7 +98,7 @@ class TBAArtistBlockFrame extends Component {
                 </Col>
               </Row>
             </Container>
-            
+
           )
         }}
       </Query>
