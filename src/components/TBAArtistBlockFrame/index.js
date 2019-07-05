@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import { Container, Col, Row } from 'reactstrap'
 import TBAArtistBlock from '../TBAArtistBlock'
 import TBASelector from '../TBASelector'
