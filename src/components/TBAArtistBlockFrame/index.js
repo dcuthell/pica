@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Container, Col, Row } from 'reactstrap'
 import TBAArtistBlock from '../TBAArtistBlock'
 import TBASelector from '../TBASelector'
+import TBADateSelector from '../TBADateSelector'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 
@@ -10,15 +11,25 @@ class TBAArtistBlockFrame extends Component {
     super(props)
     this.state = {
       title: 'title',
-      tagName: 'TBA'
+      tagName: 'TBA',
+      date: ''
     }
     this.setTagName = this.setTagName.bind(this)
+    this.setDate = this.setDate.bind(this)
   }
 
   setTagName(tagName){
     if(tagName !== this.state.tagName){
       this.setState({
         tagName
+      })
+    }
+  }
+
+  setDate(date){
+    if(date !== this.state.date){
+      this.setState({
+        date
       })
     }
   }
@@ -61,12 +72,26 @@ class TBAArtistBlockFrame extends Component {
         {({ loading, error, data }) => {
           if (loading) return 'Loading...'
           if (error) return `Error! ${error.message}`
-          const programs = data.tags[0].programs
+          let programs = data.tags[0].programs
           console.log(programs)
-          let newList = programs.filter((program)=>{
-            return (program.testDateAndTime[0].startsWith("2019-09-13T"))
-          })
-          console.log(newList)
+          if (this.state.date !== '') {
+            let newList = programs.filter((program)=>{
+              let check = false
+              if (program.testDateAndTime.length === 0) {
+                return false
+              }
+              program.testDateAndTime.forEach((dateTime) => {
+                if(dateTime.startsWith(this.state.date)) {
+                  check = true
+                }
+              })
+              console.log(program)
+              return check
+            })
+            console.log(newList)
+            programs = newList
+          }
+          console.log(programs)
           let list = programs.map((program, index) =>
             <Col key={index} xs='6' xl='4' style={{padding: '15px 0px 15px 0px'}}>
               <TBAArtistBlock
@@ -92,8 +117,11 @@ class TBAArtistBlockFrame extends Component {
           return (
             <Container>
               <Row>
-                <Col xl='12'>
+                <Col xl='6'>
                   <TBASelector setTagName={this.setTagName}/>
+                </Col>
+                <Col xl='6'>
+                  <TBADateSelector setDate={this.setDate}/>
                 </Col>
                 {list}
                 <Col xl='8'>
