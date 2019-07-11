@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import { Container, Col, Row } from 'reactstrap'
 import TBAArtistBlock from '../TBAArtistBlock'
 import TBASelector from '../TBASelector'
@@ -82,6 +81,14 @@ class TBAArtistBlockFrame extends Component {
               />
             </Col>
           )
+          if (list.length === 0){
+            list = (
+              <Col xs='6' xl='4'>
+                <h1>No events of this type have been scheuled, check back in soon!</h1>
+              </Col>
+            )
+          }
+          console.log(list)
           return (
             <Container>
               <Row>
@@ -96,7 +103,7 @@ class TBAArtistBlockFrame extends Component {
                 </Col>
               </Row>
             </Container>
-            
+
           )
         }}
       </Query>

@@ -1,48 +1,13 @@
 import React from 'react'
 import { Container, Col, Row } from 'reactstrap'
-import { Query } from 'react-apollo'
-import gql from 'graphql-tag'
-import TBAArtistBlock from '../../components/TBAArtistBlock'
 import TBAArtistBlockFrame from '../../components/TBAArtistBlockFrame'
 import PicaButton from '../../components/PicaButton'
-import TBASelector from '../../components/TBASelector'
 
 import katja from '../../img/katja.jpg'
 import TBALogo from '../../img/tba18_t-rhythm.svg'
 import rightArrow from '../../img/RightArrow.png'
 
 export default function TBA (props) {
-  const GET_CONTENT = gql`
-  query {
-    tags(where: {name : "TBA"}) {
-      name
-      programs (orderBy: sortNumber_ASC){
-      	sortNumber
-        title
-        dateAndTime
-        shortDescription
-        longDescription {
-          html
-        }
-        youTubeVideoId
-        vimeoVideoId
-        gallery {
-          galleryItems (orderBy: sortNumber_ASC){
-            sortNumber
-            media {
-              handle
-              photoCredit
-            }
-          }
-        }
-        artists {
-          name
-        }
-      }
-    }
-  }
-  `
-
   return (
     <Container className='TBA' style={{padding: '0', margin: '0px', maxWidth: '100%', height: 'auto', overflowX: 'hidden'}}>
       <div style={{height: '100vh', width: '100vw', backgroundImage: 'url(' + katja + ')', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', position: 'fixed'}} />
