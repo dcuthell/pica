@@ -72,7 +72,6 @@ class TBAArtistBlockFrame extends Component {
         {({ loading, error, data }) => {
           if (loading) return 'Loading...'
           if (error) return `Error! ${error.message}`
-          console.log(this.state.tagName)
           let programs = data.tags[0].programs
           if (this.state.date !== '') {
             let newList = programs.filter((program)=>{
@@ -110,7 +109,6 @@ class TBAArtistBlockFrame extends Component {
               </Col>
             )
           }
-          console.log(list)
           return (
             <Container>
               <Row>
