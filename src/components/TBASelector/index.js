@@ -6,10 +6,11 @@ class TBASelector extends Component {
     super(props)
     this.state = {
       open : false,
-      selection: 'none'
+      selection: 'All Events'
     }
     this.toggleMenu = this.toggleMenu.bind(this)
     this.handleClick = this.handleClick.bind(this)
+    console.log('Fuuuuuck')
   }
 
   toggleMenu(){
@@ -20,16 +21,25 @@ class TBASelector extends Component {
 
   handleClick(value){
     this.toggleMenu()
-    this.props.setTagName(value)
+    if (value === 'All Events'){
+      this.props.setTagName('TBA')
+    } else {
+      this.props.setTagName(value)
+    }
+    this.setState({
+      selection : value
+    })
+    
   }
 
   render(){
     return(
       <div className={styles.TBASelector}>
         <div className={styles.header} onClick={this.toggleMenu}>
-          {this.state.open ? <p>Options &#x2191;</p> : <p>Options &#x2193;</p>}
+          {this.state.open ? <p>{(this.props.tagName !== 'TBA' ? this.props.tagName : 'All Events')} &#x2191;</p> : <p>{(this.props.tagName !== 'TBA' ? this.props.tagName : 'All Events')} &#x2193;</p>}
         </div>
         <div className={styles.options + ' ' + (this.state.open ? styles.open : '')} >
+          <p onClick={()=>(this.handleClick('All Events'))}>All Events</p>
           <p onClick={()=>(this.handleClick('Performance'))}>Performance</p>
           <p onClick={()=>(this.handleClick('Late Night'))}>Late Night</p>
           <p onClick={()=>(this.handleClick('Institute'))}>Institute</p>

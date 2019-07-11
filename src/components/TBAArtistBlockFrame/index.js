@@ -72,8 +72,8 @@ class TBAArtistBlockFrame extends Component {
         {({ loading, error, data }) => {
           if (loading) return 'Loading...'
           if (error) return `Error! ${error.message}`
+          console.log(this.state.tagName)
           let programs = data.tags[0].programs
-          console.log(programs)
           if (this.state.date !== '') {
             let newList = programs.filter((program)=>{
               let check = false
@@ -85,13 +85,10 @@ class TBAArtistBlockFrame extends Component {
                   check = true
                 }
               })
-              console.log(program)
               return check
             })
-            console.log(newList)
             programs = newList
           }
-          console.log(programs)
           let list = programs.map((program, index) =>
             <Col key={index} xs='6' xl='4' style={{padding: '15px 0px 15px 0px'}}>
               <TBAArtistBlock
@@ -117,10 +114,10 @@ class TBAArtistBlockFrame extends Component {
           return (
             <Container>
               <Row>
-                <Col xl='6'>
-                  <TBASelector setTagName={this.setTagName}/>
+                <Col xs='6'>
+                  <TBASelector setTagName={this.setTagName} tagName={this.state.tagName}/>
                 </Col>
-                <Col xl='6'>
+                <Col xs='6'>
                   <TBADateSelector setDate={this.setDate}/>
                 </Col>
                 {list}
