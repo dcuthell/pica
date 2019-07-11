@@ -33,6 +33,7 @@ class TBAArtistBlockFrame extends Component {
           sortNumber
           title
           dateAndTime
+          testDateAndTime
           shortDescription
           longDescription {
             html
@@ -63,6 +64,10 @@ class TBAArtistBlockFrame extends Component {
           if (error) return `Error! ${error.message}`
           const programs = data.tags[0].programs
           console.log(programs)
+          let newList = programs.filter((program)=>{
+            return (program.testDateAndTime[0].startsWith("2019-09-13T"))
+          })
+          console.log(newList)
           let list = programs.map((program, index) =>
             <Col key={index} xs='6' xl='4' style={{padding: '15px 0px 15px 0px'}}>
               <TBAArtistBlock
