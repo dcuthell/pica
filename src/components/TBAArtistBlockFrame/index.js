@@ -42,10 +42,8 @@ class TBAArtistBlockFrame extends Component {
     const monthVal = parseInt(string.slice(5,7)) - 1
     const month = months[monthVal]
     const hourUTC = parseInt(string.slice(11,13))
-    console.log(hourUTC + 17)
     const day = (hourUTC >= 7) ? parseInt(string.slice(8,10)) : parseInt(string.slice(8,10)) - 1
     const hour24 = (hourUTC + 17) % 24
-    console.log(hour24)
     const ampm = (hour24 > 11) ? 'pm' : 'am'
     const hour12 = hour24 % 12
     const minute = string.slice(14,16)
@@ -114,20 +112,16 @@ class TBAArtistBlockFrame extends Component {
               if (program.testDateAndTime.length === 0) {
                 return false
               }
-              console.log(this.parseDateAndTimeArray(program.testDateAndTime))
               program.testDateAndTime.forEach((dateTime) => {
-                console.log(this.parseDateAndTimeString(dateTime))
-                let cool = Date.parse(dateTime)
-                let myDate = new Date()
-                myDate.setTime(cool)
-                console.log(myDate.toString().slice(4,10) + ' ' + myDate.toString().slice(16,21))
-                datesAndTimes += (myDate.toString().slice(4,10) + ' ' + myDate.toString().slice(16,21))
+                let dateVal = Date.parse(dateTime)
+                let someDate = new Date()
+                someDate.setTime(dateVal)
+                datesAndTimes += (someDate.toString().slice(4,10) + ' ' + someDate.toString().slice(16,21))
                 if(dateTime.startsWith(this.state.date)) {
                   check = true
                 }
               })
               program.datesAndTimes = datesAndTimes
-              console.log(program.datesAndTimes)
               return check
             })
             programs = newList
@@ -136,7 +130,7 @@ class TBAArtistBlockFrame extends Component {
             <Col key={index} xs='6' xl='4' style={{padding: '15px 0px 15px 0px'}}>
               <TBAArtistBlock
                 eventName={program.title}
-                eventDate={program.dateAndTime[0]}
+                eventDate={this.parseDateAndTimeArray(program.testDateAndTime)}
                 artistName={(program.artists[0] ? program.artists[0].name : 'No Linked Artist')}
                 detailsShort={program.shortDescription}
                 detailsLong={program.longDescription.html}
