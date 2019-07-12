@@ -34,6 +34,40 @@ class TBAArtistBlockFrame extends Component {
     }
   }
 
+  /* Takes datetime string like this:
+  2019-09-13T01:30:00.000Z
+  */
+  parseDateAndTimeString(string){
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    const monthVal = parseInt(string.slice(5,7)) - 1
+    const month = months[monthVal]
+    const hourUTC = parseInt(string.slice(11,13))
+    console.log(hourUTC + 17)
+    const day = (hourUTC >= 7) ? parseInt(string.slice(8,10)) : parseInt(string.slice(8,10)) - 1
+    const hour24 = (hourUTC + 17) % 24
+    console.log(hour24)
+    const ampm = (hour24 > 11) ? 'pm' : 'am'
+    const hour12 = hour24 % 12
+    const minute = string.slice(14,16)
+    return month + ' ' + day + ' ' + hour12 + ':' + minute + ampm
+  }
+
+  parseDateAndTimeArray(array){
+    let datesAndTimes = ''
+    if(array.length < 1){
+      datesAndTimes = 'TBD'
+    } else {
+      datesAndTimes = this.parseDateAndTimeString(array[0])
+    }
+    if(array.length > 1){
+      let i
+      for(i=1; i < array.length; i++){
+        datesAndTimes += ' / ' + this.parseDateAndTimeString(array[i])
+      }
+    }
+    return datesAndTimes
+  }
+
   render() {
     const GET_CONTENT = gql`
     query TBAEventsWithTags($tagName : String! = "TBA"){
@@ -76,14 +110,24 @@ class TBAArtistBlockFrame extends Component {
           if (this.state.date !== '') {
             let newList = programs.filter((program)=>{
               let check = false
+              let datesAndTimes = ''
               if (program.testDateAndTime.length === 0) {
                 return false
               }
+              console.log(this.parseDateAndTimeArray(program.testDateAndTime))
               program.testDateAndTime.forEach((dateTime) => {
+                console.log(this.parseDateAndTimeString(dateTime))
+                let cool = Date.parse(dateTime)
+                let myDate = new Date()
+                myDate.setTime(cool)
+                console.log(myDate.toString().slice(4,10) + ' ' + myDate.toString().slice(16,21))
+                datesAndTimes += (myDate.toString().slice(4,10) + ' ' + myDate.toString().slice(16,21))
                 if(dateTime.startsWith(this.state.date)) {
                   check = true
                 }
               })
+              program.datesAndTimes = datesAndTimes
+              console.log(program.datesAndTimes)
               return check
             })
             programs = newList
