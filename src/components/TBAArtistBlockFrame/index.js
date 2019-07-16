@@ -150,10 +150,10 @@ class TBAArtistBlockFrame extends Component {
           return (
             <Container>
               <Row>
-                <Col xs='6'>
+                <Col xs='6' style={{padding: '15px 0px 15px 18px'}}>
                   <TBASelector setTagName={this.setTagName} tagName={this.state.tagName}/>
                 </Col>
-                <Col xs='6'>
+                <Col xs='6' style={{padding: '15px 0px 15px 18px'}}>
                   <TBADateSelector setDate={this.setDate}/>
                 </Col>
                 {list}
