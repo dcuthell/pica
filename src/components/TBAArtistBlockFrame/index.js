@@ -108,7 +108,6 @@ class TBAArtistBlockFrame extends Component {
           if (this.state.date !== '') {
             let newList = programs.filter((program)=>{
               let check = false
-              let datesAndTimes = ''
               if (program.testDateAndTime.length === 0) {
                 return false
               }
@@ -116,12 +115,10 @@ class TBAArtistBlockFrame extends Component {
                 let dateVal = Date.parse(dateTime)
                 let someDate = new Date()
                 someDate.setTime(dateVal)
-                datesAndTimes += (someDate.toString().slice(4,10) + ' ' + someDate.toString().slice(16,21))
-                if(dateTime.startsWith(this.state.date)) {
+                if(someDate.getDate() === this.state.date) {
                   check = true
                 }
               })
-              program.datesAndTimes = datesAndTimes
               return check
             })
             programs = newList
@@ -164,7 +161,6 @@ class TBAArtistBlockFrame extends Component {
                 </Col>
               </Row>
             </Container>
-
           )
         }}
       </Query>
