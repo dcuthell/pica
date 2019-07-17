@@ -14,7 +14,7 @@ export default function TBA (props) {
   query {
     tags(where: {name : "TBA"}) {
       name
-      programs (orderBy: sortNumber_ASC){
+      programs (orderBy: sortNumber_ASC where: {status : PUBLISHED}){
       	sortNumber
         title
         dateAndTime
