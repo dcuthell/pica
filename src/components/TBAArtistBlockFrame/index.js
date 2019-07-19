@@ -71,7 +71,7 @@ class TBAArtistBlockFrame extends Component {
     query TBAEventsWithTags($tagName : String! = "TBA"){
       tags(where: {name : $tagName}) {
         name
-        programs (orderBy: sortNumber_ASC){
+        programs (orderBy: sortNumber_ASC where: {status: PUBLISHED}){
           sortNumber
           title
           dateAndTime
