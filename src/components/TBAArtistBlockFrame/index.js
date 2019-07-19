@@ -140,7 +140,7 @@ class TBAArtistBlockFrame extends Component {
           if (list.length === 0){
             list = (
               <Col xs='6' xl='4'>
-                <h1>No events of this type have been scheuled, check back in soon!</h1>
+                <h1>No events of this type have been scheduled, check back in soon!</h1>
               </Col>
             )
           }
