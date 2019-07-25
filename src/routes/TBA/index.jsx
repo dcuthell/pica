@@ -2,6 +2,7 @@ import React from 'react'
 import { Container, Col, Row } from 'reactstrap'
 import TBAArtistBlockFrame from '../../components/TBAArtistBlockFrame'
 import PicaButton from '../../components/PicaButton'
+import TBATextReveal from '../../components/TBATextReveal'
 
 import katja from '../../img/katja.jpg'
 import TBALogo from '../../img/tba18_t-rhythm.svg'
@@ -55,6 +56,7 @@ export default function TBA (props) {
               </Col>
               <Col xl='2' />
             </Row>
+            <TBATextReveal />
           </Container>
         </Col>
         <Col xl='12' style={{width: '100%', backgroundColor: 'black', color: 'white', padding: '0vh 20px 20vh 20px'}}>
