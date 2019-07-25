@@ -102,7 +102,9 @@ class TBAArtistBlockFrame extends Component {
     return (
       <Query query={GET_CONTENT} variables={{"tagName" : this.state.tagName}}>
         {({ loading, error, data }) => {
-          if (loading) return 'Loading...'
+          if (loading) return (
+            <h1>Loading...</h1>
+          )
           if (error) return `Error! ${error.message}`
           let programs = data.tags[0].programs
           if (this.state.date !== '') {
@@ -154,11 +156,6 @@ class TBAArtistBlockFrame extends Component {
                   <TBADateSelector setDate={this.setDate}/>
                 </Col>
                 {list}
-                <Col xl='8'>
-                  <h1 style={{color: '#fff100'}}>
-                    COMPLETE 2019 SCHEDULE AND ARTIST LINE-UP WILL BE ANNOUNCED SOON!
-                  </h1>
-                </Col>
               </Row>
             </Container>
           )

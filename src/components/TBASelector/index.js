@@ -35,7 +35,15 @@ class TBASelector extends Component {
           <p onClick={()=>(this.handleClick('Institute'))}>Institute</p>
           <p onClick={()=>(this.handleClick('Partner Projects'))}>Partner Projects</p>
           <p onClick={()=>(this.handleClick('Food'))}>Food</p>
-        </div>
+          <p onClick={()=>(this.handleClick('Visual Art'))}>Visual Art</p>
+          <p onClick={()=>(this.handleClick('ASL'))}>ASL</p>
+          <p onClick={()=>(this.handleClick('Workshop'))}>Workshop</p>
+          <p onClick={()=>(this.handleClick('Festival'))}>Festival</p>
+          <p onClick={()=>(this.handleClick('Free'))}>Free</p>
+          <p onClick={()=>(this.handleClick('Conversation'))}>Conversation</p>
+          <p onClick={()=>(this.handleClick('Creative Exchange Lab'))}>Creative Exchange Lab</p>
+          <p onClick={()=>(this.handleClick('All Ages'))}>All Ages</p>
+      </div>
       </div>
     )
   }
