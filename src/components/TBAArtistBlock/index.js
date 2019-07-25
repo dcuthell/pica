@@ -163,7 +163,7 @@ class TBAArtistBlock extends Component {
               {this.renderPhotos()}
             </div>
             <hr style={{margin: '0px', borderTop: 'white solid 5px'}} />
-            <h1>{this.props.artistName ? this.props.artistName : ''}</h1>
+            <h1>{(this.props.artistName !== 'No Linked Artist') ? this.props.artistName : ''}</h1>
             <h1 style={{textTransform: 'uppercase'}}>{this.props.eventName}</h1>
             <hr style={{margin: '0px', borderTop: 'white solid 5px'}} />
             <div style={{display: 'inline-flex'}}>
@@ -173,6 +173,10 @@ class TBAArtistBlock extends Component {
             <hr style={{margin: '0px', borderTop: 'white solid 5px'}} />
             <h4>{this.props.detailsShort}</h4>
             <div dangerouslySetInnerHTML={{ __html: this.props.detailsLong }} />
+            <hr style={{margin: '0px', borderTop: 'white solid 5px'}} />
+            <div id={styles.backButton} onClick={this.toggle2} style={{display: 'inline-flex'}}>
+              <h1 style={{color: '#fff100', textAlign: 'left'}}>&#x2190; BACK TO TBA</h1>
+            </div>
           </div>
         </div>
       </div>
