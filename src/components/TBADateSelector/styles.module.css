@@ -8,7 +8,7 @@
 
 .header {
 	padding: 0px 0px 0px 10px;
-	color:green;
+	color: black;
 }
 
 .header :hover {
@@ -17,19 +17,21 @@
 }
 
 .options {
-	color: blue;
+	color: black;
 	padding: 0px 0px 0px 2px;
 	position: absolute;
 	width: 298px;
-	height: auto;
+	max-height: 60vh;
 	z-index: 1000;
-	background-color: lightgrey;
+	background-color: white;
 	display: none;
+	overflow: hidden scroll;
 }
 
 .options :hover {
 	cursor: pointer;
 	color: black;
+	text-decoration: underline;
 }
 
 .open {

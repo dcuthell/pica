@@ -2,6 +2,7 @@ import React from 'react'
 import { Container, Col, Row } from 'reactstrap'
 import TBAArtistBlockFrame from '../../components/TBAArtistBlockFrame'
 import PicaButton from '../../components/PicaButton'
+import TBATextReveal from '../../components/TBATextReveal'
 
 import katja from '../../img/katja.jpg'
 import TBALogo from '../../img/tba18_t-rhythm.svg'
@@ -55,6 +56,7 @@ export default function TBA (props) {
               </Col>
               <Col xl='2' />
             </Row>
+            <TBATextReveal />
           </Container>
         </Col>
         <Col xl='12' style={{width: '100%', backgroundColor: 'black', color: 'white', padding: '0vh 20px 20vh 20px'}}>
@@ -112,8 +114,15 @@ export default function TBA (props) {
                 <h2>PATRON PASS</h2>
                 <h4>$500 ($250 is tax deductible)</h4>
                 <p>Priority admission to all performances, festival concierge service, and unlimited access to exhibitions, Institute programs, and Late Night.</p>
+                <br />
               </Col>
               <Col xl='1' style={{padding: '0'}} />
+              <Col xl='1' />
+              <Col xl='6' style={{textAlign: 'center'}}>
+                <PicaButton>
+                  <a style={{display: 'inline-flex'}} href='https://www.pica.org/tba/TBA2019Catalog.pdf'><h4 style={{margin: '12px 12px 12px 12px'}}>DOWNLOAD THE CATALOG</h4></a>
+                </PicaButton>
+              </Col>
             </Row>
           </Container>
         </Col>

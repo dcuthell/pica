@@ -71,7 +71,7 @@ class TBAArtistBlockFrame extends Component {
     query TBAEventsWithTags($tagName : String! = "TBA"){
       tags(where: {name : $tagName}) {
         name
-        programs (orderBy: sortNumber_ASC){
+        programs (orderBy: sortNumber_ASC where: {status: PUBLISHED}){
           sortNumber
           title
           dateAndTime
@@ -102,7 +102,9 @@ class TBAArtistBlockFrame extends Component {
     return (
       <Query query={GET_CONTENT} variables={{"tagName" : this.state.tagName}}>
         {({ loading, error, data }) => {
-          if (loading) return 'Loading...'
+          if (loading) return (
+            <h1>Loading...</h1>
+          )
           if (error) return `Error! ${error.message}`
           let programs = data.tags[0].programs
           if (this.state.date !== '') {
@@ -140,7 +142,7 @@ class TBAArtistBlockFrame extends Component {
           if (list.length === 0){
             list = (
               <Col xs='6' xl='4'>
-                <h1>No events of this type have been scheuled, check back in soon!</h1>
+                <h1>No events of this type have been scheduled, check back in soon!</h1>
               </Col>
             )
           }
@@ -154,11 +156,6 @@ class TBAArtistBlockFrame extends Component {
                   <TBADateSelector setDate={this.setDate}/>
                 </Col>
                 {list}
-                <Col xl='8'>
-                  <h1 style={{color: '#fff100'}}>
-                    COMPLETE 2019 SCHEDULE AND ARTIST LINE-UP WILL BE ANNOUNCED SOON!
-                  </h1>
-                </Col>
               </Row>
             </Container>
           )
