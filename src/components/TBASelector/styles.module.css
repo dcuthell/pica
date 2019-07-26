@@ -2,35 +2,35 @@
 	width: 300px;
 	height: 40px;
 	border: 1px black solid;
-	background-color: white;
+	background-color: black;
 	font-size: 28px;
 }
 
 .header {
 	padding: 0px 0px 0px 10px;
-	color: black;
+	color: white;
 }
 
 .header :hover {
 	cursor: pointer;
-	color: black;
+	color: white;
 }
 
 .options {
-	color: black;
+	color: white;
 	padding: 0px 0px 0px 2px;
 	position: absolute;
 	width: 298px;
 	max-height: 60vh;
 	z-index: 1000;
-	background-color: white;
+	background-color: black;
 	display: none;
 	overflow: hidden scroll;
 }
 
 .options :hover {
 	cursor: pointer;
-	color: black;
+	color: white;
 	text-decoration: underline;
 }
 
