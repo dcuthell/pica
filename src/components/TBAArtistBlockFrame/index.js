@@ -45,7 +45,7 @@ class TBAArtistBlockFrame extends Component {
     const day = (hourUTC >= 7) ? parseInt(string.slice(8,10)) : parseInt(string.slice(8,10)) - 1
     const hour24 = (hourUTC + 17) % 24
     const ampm = (hour24 > 11) ? 'pm' : 'am'
-    const hour12 = hour24 % 12
+    const hour12 = (hour24 !== 12) ? (hour24 % 12) : 12
     const minute = string.slice(14,16)
     return month + ' ' + day + ' ' + hour12 + ':' + minute + ampm
   }
@@ -129,7 +129,7 @@ class TBAArtistBlockFrame extends Component {
             <Col key={index} xs='6' xl='4' style={{padding: '15px 0px 15px 0px'}}>
               <TBAArtistBlock
                 eventName={program.title}
-                eventDate={this.parseDateAndTimeArray(program.testDateAndTime)}
+                eventDate={program.dateAndTime}
                 artistName={(program.artists[0] ? program.artists[0].name : 'No Linked Artist')}
                 detailsShort={program.shortDescription}
                 detailsLong={program.longDescription.html}
