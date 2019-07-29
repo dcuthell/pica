@@ -156,6 +156,9 @@ class TBAArtistBlockFrame extends Component {
                   <TBADateSelector setDate={this.setDate}/>
                 </Col>
                 {list}
+                <Col xl='4'>
+                  <h1>Individual Ticket Sales Opening Soon!</h1>
+                </Col>
               </Row>
             </Container>
           )
