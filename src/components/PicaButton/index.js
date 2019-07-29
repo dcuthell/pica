@@ -8,6 +8,7 @@ export default function PicaButton (props) {
         {`
             .PicaButton:hover {
             background-color: #fff100;
+            cursor: pointer;
           }
           .PicaButton a:hover{
             text-decoration: none;

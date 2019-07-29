@@ -58,11 +58,6 @@ export default function Events (props) {
             />
           </PicaEventDeck>
         </Col>
-        <Col xl='12'>
-          <div style={{height: '60vh', overflowY: 'scroll'}}>
-            <iframe src='https://system.spektrix.com/pica/website/EventList.aspx?resize=true' title='SpektrixIFrame' name='SpektrixIFrame' id='SpektrixIFrame' style={{frameBorder: '0', height: '100%', width: '80%', border: 'none'}} onLoad={setTimeout(function() { window.scrollTo(0, 0) }, 100)} />
-          </div>
-        </Col>
       </Row>
     </Container>
   )

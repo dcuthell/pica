@@ -61,6 +61,7 @@
 	-ms-transform: translateY(-75%);
 			transform: translateY(-75%);
 	transition: transform 500ms linear 250ms;
+	visibility: hidden;
 }
 
 .contentClosedDown {
@@ -69,6 +70,20 @@
 			transform: translateY(125%);
 	transition: transform 500ms linear 250ms;
 	visibility: hidden;
+}
+
+.contentClosingUp {
+	-webkit-transform: translateY(-75%);
+	-ms-transform: translateY(-75%);
+			transform: translateY(-75%);
+	transition: transform 500ms linear 250ms;
+}
+
+.contentClosingDown {
+	-webkit-transform: translateY(125%);
+	-ms-transform: translateY(125%);
+			transform: translateY(125%);
+	transition: transform 500ms linear 250ms;
 }
 
 .contentOpen {

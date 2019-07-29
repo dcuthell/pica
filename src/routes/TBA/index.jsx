@@ -1,48 +1,16 @@
 import React from 'react'
 import { Container, Col, Row } from 'reactstrap'
-import { Query } from 'react-apollo'
-import gql from 'graphql-tag'
-import TBAArtistBlock from '../../components/TBAArtistBlock'
+import TBAArtistBlockFrame from '../../components/TBAArtistBlockFrame'
 import PicaButton from '../../components/PicaButton'
+import TBATextReveal from '../../components/TBATextReveal'
 
 import katja from '../../img/katja.jpg'
 import TBALogo from '../../img/tba18_t-rhythm.svg'
 import rightArrow from '../../img/RightArrow.png'
 
 export default function TBA (props) {
-  const GET_CONTENT = gql`
-  query {
-    tags(where: {name : "TBA"}) {
-      name
-      programs (orderBy: sortNumber_ASC where: {status : PUBLISHED}){
-      	sortNumber
-        title
-        dateAndTime
-        shortDescription
-        longDescription {
-          html
-        }
-        youTubeVideoId
-        vimeoVideoId
-        gallery {
-          galleryItems (orderBy: sortNumber_ASC){
-            sortNumber
-            media {
-              handle
-              photoCredit
-            }
-          }
-        }
-        artists {
-          name
-        }
-      }
-    }
-  }
-  `
-
   return (
-    <Container className='TBA' style={{padding: '0', margin: '0px', maxWidth: '100%', height: 'auto'}}>
+    <Container className='TBA' style={{padding: '0', margin: '0px', maxWidth: '100%', height: 'auto', overflowX: 'hidden'}}>
       <div style={{height: '100vh', width: '100vw', backgroundImage: 'url(' + katja + ')', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', position: 'fixed'}} />
       <Row style={{margin: '0', overflowX: 'hidden'}}>
         <Col xl='12' style={{height: '15vh', paddingTop: '5vh'}}>
@@ -88,6 +56,7 @@ export default function TBA (props) {
               </Col>
               <Col xl='2' />
             </Row>
+            <TBATextReveal />
           </Container>
         </Col>
         <Col xl='12' style={{width: '100%', backgroundColor: 'black', color: 'white', padding: '0vh 20px 20vh 20px'}}>
@@ -103,36 +72,7 @@ export default function TBA (props) {
                   <li><span style={{ width: '200px', display: 'block', textTransform: 'uppercase', lineHeight: '.9', fontSize: '3vw', color: 'white' }}>2019</span></li>
                 </ul>
               </Col>
-              <Query query={GET_CONTENT}>
-                {({ loading, error, data }) => {
-                  if (loading) return 'Loading...'
-                  if (error) return `Error! ${error.message}`
-                  const programs = data.tags[0].programs
-                  console.log(programs)
-                  let list = programs.map((program, index) =>
-                    <Col key={index} xs='6' xl='4' style={{padding: '15px 0px 15px 0px'}}>
-                      <TBAArtistBlock
-                        eventName={program.title}
-                        eventDate={program.dateAndTime[0]}
-                        artistName={(program.artists[0] ? program.artists[0].name : 'No Linked Artist')}
-                        detailsShort={program.shortDescription}
-                        detailsLong={program.longDescription.html}
-                        YouTubeId={program.youTubeVideoId}
-                        VimeoId={program.vimeoVideoId}
-                        galleryItems={program.gallery ? program.gallery.galleryItems : [{media: {handle: 'AKuZYOQsSkugUiFbLM0v'}}]}
-                      />
-                    </Col>
-                  )
-                  return (
-                    list
-                  )
-                }}
-              </Query>
-              <Col xl='8'>
-                <h1 style={{color: '#fff100'}}>
-                  COMPLETE 2019 SCHEDULE AND ARTIST LINE-UP WILL BE ANNOUNCED SOON!
-                </h1>
-              </Col>
+              <TBAArtistBlockFrame />
             </Row>
           </Container>
         </Col>
@@ -174,8 +114,15 @@ export default function TBA (props) {
                 <h2>PATRON PASS</h2>
                 <h4>$500 ($250 is tax deductible)</h4>
                 <p>Priority admission to all performances, festival concierge service, and unlimited access to exhibitions, Institute programs, and Late Night.</p>
+                <br />
               </Col>
               <Col xl='1' style={{padding: '0'}} />
+              <Col xl='1' />
+              <Col xl='6' style={{textAlign: 'center'}}>
+                <PicaButton>
+                  <a style={{display: 'inline-flex'}} href='https://www.pica.org/tba/TBA2019Catalog.pdf'><h4 style={{margin: '12px 12px 12px 12px'}}>DOWNLOAD THE CATALOG</h4></a>
+                </PicaButton>
+              </Col>
             </Row>
           </Container>
         </Col>
