@@ -75,6 +75,7 @@ class TBAArtistBlockFrame extends Component {
           sortNumber
           title
           dateAndTime
+          webEventId
           testDateAndTime
           shortDescription
           longDescription {
@@ -133,6 +134,7 @@ class TBAArtistBlockFrame extends Component {
                 artistName={(program.artists[0] ? program.artists[0].name : 'No Linked Artist')}
                 detailsShort={program.shortDescription}
                 detailsLong={program.longDescription.html}
+                webEventId={program.webEventId}
                 YouTubeId={program.youTubeVideoId}
                 VimeoId={program.vimeoVideoId}
                 galleryItems={program.gallery ? program.gallery.galleryItems : [{media: {handle: 'AKuZYOQsSkugUiFbLM0v'}}]}
