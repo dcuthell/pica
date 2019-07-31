@@ -136,7 +136,7 @@ class TBAArtistBlockFrame extends Component {
               <TBAArtistBlock
                 eventName={program.title}
                 eventDate={program.dateAndTime}
-                artistName={(program.artists[0] ? program.artists[0].name : 'No Linked Artist')}
+                artists={program.artists}
                 detailsShort={program.shortDescription}
                 detailsLong={program.longDescription.html}
                 venue={program.venues[0]}

@@ -67,6 +67,22 @@ class TBAArtistBlock extends Component {
     }))
   }
 
+  renderArtistNames(){
+    if (this.props.artists) {
+      let artistNames = ''
+      this.props.artists.forEach((artist, index) => {
+        if(index === 0){
+          artistNames += (artist.name)
+        } else {
+          artistNames += (' & ' + artist.name)
+        }
+      })
+      return(
+        artistNames
+      )
+    }
+  }
+
   renderIFrame() {
     if (this.props.YouTubeId) {
       return (
@@ -148,7 +164,7 @@ class TBAArtistBlock extends Component {
               style={{margin: 'auto', maxWidth: '100%', maxHeight: '100%', zIndex: 1}} />
           </div>
           <div style={{width: '300px', margin: 'auto'}}>
-            <h4 style={{margin: '0px'}}>{(this.props.artistName !== 'No Linked Artist') ? this.props.artistName : ''}</h4>
+            <h4 style={{margin: '0px'}}>{this.renderArtistNames()}</h4>
             <h4 style={{textTransform: 'uppercase'}}>{this.props.eventName}</h4>
           </div>
           <div className={styles.overlay} onClick={this.toggle2} />
@@ -181,7 +197,7 @@ class TBAArtistBlock extends Component {
               {this.renderPhotos()}
             </div>
             <hr style={{margin: '0px', borderTop: 'white solid 5px'}} />
-            <h1>{(this.props.artistName !== 'No Linked Artist') ? this.props.artistName : ''}</h1>
+            <h1>{this.renderArtistNames()}</h1>
             <h1 style={{textTransform: 'uppercase'}}>{this.props.eventName}</h1>
             <hr style={{margin: '0px', borderTop: 'white solid 5px'}} />
             <div style={{display: 'inline-flex'}}>
