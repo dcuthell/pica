@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Modal, ModalHeader, ModalBody } from 'reactstrap'
+import PicaButton from '../PicaButton'
 
 import styles from './styles.module.css'
 
@@ -66,6 +67,22 @@ class TBAArtistBlock extends Component {
     }))
   }
 
+  renderArtistNames(){
+    if (this.props.artists) {
+      let artistNames = ''
+      this.props.artists.forEach((artist, index) => {
+        if(index === 0){
+          artistNames += (artist.name)
+        } else {
+          artistNames += (' & ' + artist.name)
+        }
+      })
+      return(
+        artistNames
+      )
+    }
+  }
+
   renderIFrame() {
     if (this.props.YouTubeId) {
       return (
@@ -120,6 +137,23 @@ class TBAArtistBlock extends Component {
     }
   }
 
+  renderTicketButton(){
+    if(this.props.webEventId){
+      return(
+        <div style={{width: '400px', display: 'inline-flex', textAlign: 'center'}}>
+          <PicaButton style={{margin: '0px'}}>
+            <a style={{display: 'inline-flex'}} href={'https://www.pica.org/tickets/' + this.props.webEventId + '/details'}><h4 style={{margin: '12px 12px 12px 12px'}}>TICKETS &#x2192;</h4></a>
+          </PicaButton>
+        </div>
+      )
+    }
+  }
+  /* The TBAArtistBlock returns in 4 parts.
+  The first is the block as appears on the TBA page on desktop: TBAArtistBlock
+  The second is the block as appears on the TBA page on mobile: TBAArtistBlockMobile
+  The third is the modal that pops up to display youtube or vimeo videos: videoModal
+  The fourth is the artist overlay that appears when clicking the block: artistOverlay
+   */
   render() {
     return (
       <div style={{width: '100%'}}>
@@ -130,7 +164,7 @@ class TBAArtistBlock extends Component {
               style={{margin: 'auto', maxWidth: '100%', maxHeight: '100%', zIndex: 1}} />
           </div>
           <div style={{width: '300px', margin: 'auto'}}>
-            <h4 style={{margin: '0px'}}>{(this.props.artistName !== 'No Linked Artist') ? this.props.artistName : ''}</h4>
+            <h4 style={{margin: '0px'}}>{this.renderArtistNames()}</h4>
             <h4 style={{textTransform: 'uppercase'}}>{this.props.eventName}</h4>
           </div>
           <div className={styles.overlay} onClick={this.toggle2} />
@@ -163,14 +197,34 @@ class TBAArtistBlock extends Component {
               {this.renderPhotos()}
             </div>
             <hr style={{margin: '0px', borderTop: 'white solid 5px'}} />
-            <h1>{(this.props.artistName !== 'No Linked Artist') ? this.props.artistName : ''}</h1>
+            <h1>{this.renderArtistNames()}</h1>
             <h1 style={{textTransform: 'uppercase'}}>{this.props.eventName}</h1>
             <hr style={{margin: '0px', borderTop: 'white solid 5px'}} />
             <div style={{display: 'inline-flex'}}>
-              <h4 style={{color: '#B9B9B9'}}>Date   </h4>
+              <h4 style={{color: '#B9B9B9', marginRight: '12px'}}>
+                Date
+              </h4>
               <h4>{this.props.eventDate}</h4>
             </div>
             <hr style={{margin: '0px', borderTop: 'white solid 5px'}} />
+            <div style={{display: 'inline-flex'}}>
+              <h4 style={{color: '#B9B9B9', marginRight: '12px'}}>
+                Venue
+                <br/>
+                Address
+                <br/>
+                Capacity
+              </h4>
+              <h4>
+                {this.props.venue.name}
+                <br/>
+                {this.props.venue.address}
+                <br/>
+                {this.props.venue.capacity}
+              </h4>
+            </div>
+            <hr style={{margin: '0px', borderTop: 'white solid 5px'}} />
+            {this.renderTicketButton()}
             <h4>{this.props.detailsShort}</h4>
             <div dangerouslySetInnerHTML={{ __html: this.props.detailsLong }} />
             <hr style={{margin: '0px', borderTop: 'white solid 5px'}} />
@@ -199,6 +253,7 @@ TBAArtistBlock.defaultProps = {
 TBAArtistBlock.propTypes = {
   eventName: PropTypes.string,
   eventDate: PropTypes.string,
+  webEventId: PropTypes.string,
   artistName: PropTypes.string,
   detailsShort: PropTypes.string,
   detailsLong: PropTypes.string,
