@@ -6,7 +6,6 @@ import TBATextReveal from '../../components/TBATextReveal'
 
 import katja from '../../img/katja.jpg'
 import TBALogo from '../../img/tba18_t-rhythm.svg'
-import rightArrow from '../../img/RightArrow.png'
 
 export default function TBA (props) {
   return (
@@ -51,7 +50,7 @@ export default function TBA (props) {
               <Col xl='5' />
               <Col xl='5' style={{textAlign: 'center'}}>
                 <PicaButton>
-                  <a style={{display: 'inline-flex'}} href='#passInfo'><h4 style={{margin: '12px 12px 12px 12px'}}>PASS INFORMATION</h4><img src={rightArrow} style={{height: '.75rem', margin: 'auto', marginLeft: '.75rem'}} alt='arrow' /></a>
+                  <a style={{display: 'inline-flex'}} href='#passInfo'><h4 style={{margin: '12px 12px 12px 12px'}}>PASS INFORMATION &#x2192;</h4></a>
                 </PicaButton>
               </Col>
               <Col xl='2' />
@@ -93,7 +92,7 @@ export default function TBA (props) {
               <Col xl='1' />
               <Col xl='6' style={{textAlign: 'center'}}>
                 <PicaButton>
-                  <a style={{display: 'inline-flex'}} href='https://www.pica.org/tickets/tba19/details'><h4 style={{margin: '12px 12px 12px 12px'}}>PURCHASE A PASS</h4><img src={rightArrow} style={{height: '.75rem', margin: 'auto', marginLeft: '.75rem'}} alt='arrow' /></a>
+                  <a style={{display: 'inline-flex'}} href='https://www.pica.org/tickets/tba19/details'><h4 style={{margin: '12px 12px 12px 12px'}}>PURCHASE A PASS &#x2192;</h4></a>
                 </PicaButton>
               </Col>
               <Col xl='5' />

@@ -126,7 +126,7 @@ class TBAArtistBlock extends Component {
       return(
         <div style={{width: '400px', display: 'inline-flex', textAlign: 'center'}}>
           <PicaButton style={{margin: '0px'}}>
-            <a style={{display: 'inline-flex'}} href={'https://www.pica.org/tickets/' + this.props.webEventId + '/details'}><h4 style={{margin: '12px 12px 12px 12px'}}>PURCHASE A PASS &#x2192;</h4></a>
+            <a style={{display: 'inline-flex'}} href={'https://www.pica.org/tickets/' + this.props.webEventId + '/details'}><h4 style={{margin: '12px 12px 12px 12px'}}>TICKETS &#x2192;</h4></a>
           </PicaButton>
         </div>
       )
