@@ -185,13 +185,27 @@ class TBAArtistBlock extends Component {
             <h1 style={{textTransform: 'uppercase'}}>{this.props.eventName}</h1>
             <hr style={{margin: '0px', borderTop: 'white solid 5px'}} />
             <div style={{display: 'inline-flex'}}>
-              <h4 style={{color: '#B9B9B9'}}>Date   </h4>
+              <h4 style={{color: '#B9B9B9', marginRight: '12px'}}>
+                Date
+              </h4>
               <h4>{this.props.eventDate}</h4>
             </div>
             <hr style={{margin: '0px', borderTop: 'white solid 5px'}} />
             <div style={{display: 'inline-flex'}}>
-              <h4 style={{color: '#B9B9B9'}}>webEventId   </h4>
-              <h4>{this.props.webEventId ? this.props.webEventId : 'Coming SOON'}</h4>
+              <h4 style={{color: '#B9B9B9', marginRight: '12px'}}>
+                Venue
+                <br/>
+                Address
+                <br/>
+                Capacity
+              </h4>
+              <h4>
+                {this.props.venue.name}
+                <br/>
+                {this.props.venue.address}
+                <br/>
+                {this.props.venue.capacity}
+              </h4>
             </div>
             <hr style={{margin: '0px', borderTop: 'white solid 5px'}} />
             {this.renderTicketButton()}

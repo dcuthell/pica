@@ -95,6 +95,11 @@ class TBAArtistBlockFrame extends Component {
           artists {
             name
           }
+          venues {
+            name
+            address
+            capacity
+          }
         }
       }
     }
@@ -134,6 +139,7 @@ class TBAArtistBlockFrame extends Component {
                 artistName={(program.artists[0] ? program.artists[0].name : 'No Linked Artist')}
                 detailsShort={program.shortDescription}
                 detailsLong={program.longDescription.html}
+                venue={program.venues[0]}
                 webEventId={program.webEventId}
                 YouTubeId={program.youTubeVideoId}
                 VimeoId={program.vimeoVideoId}
