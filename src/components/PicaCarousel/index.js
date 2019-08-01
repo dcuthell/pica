@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styles from './styles.module.css'
+import { Query } from 'react-apollo'
+import gql from 'graphql-tag'
+
+import PicaCarouselCard from '../PicaCarouselCard'
 
 import leftArrow from '../../img/LeftArrow.png'
 import rightArrow from '../../img/RightArrow.png'
@@ -81,6 +85,22 @@ class PicaCarousel extends Component {
   }
 
   render() {
+    const GET_CONTENT = gql`
+      query {
+        heroSlides (orderBy: sortNumber_ASC){
+          title
+          date
+          image {
+            handle
+            photoCredit
+          }
+          buttonText
+          buttonLink
+          description
+        }
+      }
+    `
+
     console.log('ActiveIndex: ' + this.state.activeIndex)
     const { children } = this.props
     const childrenWithProps = React.Children.map(children, child =>
@@ -108,7 +128,35 @@ class PicaCarousel extends Component {
             onClick={this.clickRight}
           />
         </div>
-        { childrenWithProps }
+        <Query query={GET_CONTENT} variables={{"tagName" : this.state.tagName}}>
+          {({ loading, error, data }) => {
+            if (loading) return (
+              <div>
+                <PicaCarouselCard index={0} title={'Loading...'} />
+                <PicaCarouselCard index={1} title={'Loading...'} />
+                <PicaCarouselCard index={2} title={'Loading...'} />
+              </div>
+            )
+            if (error) return `Error! ${error.message}`
+            let heroSlides = data.heroSlides.map((heroSlide, index) =>
+              <PicaCarouselCard
+                index={index}
+                activeIndex={this.state.activeIndex}
+                cardTotal={this.state.cardTotal}
+                key={index}
+                title={heroSlide.title}
+                date={heroSlide.date}
+                image={'https://media.graphcms.com/' + heroSlide.image.handle}
+                buttonText={heroSlide.buttonText}
+                buttonLink={heroSlide.buttonLink}
+                description={heroSlide.description}
+              />
+            )
+            return (
+              heroSlides
+            )
+          }}
+        </Query>
       </div>
     )
   }
