@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styles from './styles.module.css'
 
+import leftArrow from '../../img/LeftArrow.png'
+import rightArrow from '../../img/RightArrow.png'
+
 class PicaCarousel extends Component {
   constructor(props) {
     super(props)
@@ -95,13 +98,13 @@ class PicaCarousel extends Component {
           <div
             className={styles.arrows}
             id={styles.leftArrow}
-            style={{backgroundImage: 'url(' + this.props.leftArrow + ')'}}
+            style={{backgroundImage: 'url(' + leftArrow + ')'}}
             onClick={this.clickLeft}
           />
           <div
             className={styles.arrows}
             id={styles.rightArrow}
-            style={{backgroundImage: 'url(' + this.props.rightArrow + ')'}}
+            style={{backgroundImage: 'url(' + rightArrow + ')'}}
             onClick={this.clickRight}
           />
         </div>
