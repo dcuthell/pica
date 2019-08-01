@@ -3,18 +3,16 @@ import { Container, Col, Row } from 'reactstrap'
 import PicaCarousel from '../../components/PicaCarousel'
 import PicaCarouselCard from '../../components/PicaCarouselCard'
 import PicaButton from '../../components/PicaButton'
-import leftArrow from '../../img/LeftArrow.png'
-import rightArrow from '../../img/RightArrow.png'
 import collage from '../../img/collage.png'
 import ben from '../../img/ben-01.png'
 
 export default function Home (props) {
   return (
-    <Container style={{padding: '0', margin: '0px', maxWidth: '100%', height: 'auto'}}>
+    <Container style={{padding: '0', margin: '0px', maxWidth: '100%', height: 'auto', overflowX: 'hidden'}}>
       <Row style={{margin: '0px'}}>
         <Col xl='12' style={{height: '100vh', padding: '0px'}}>
           <div style={{height: '100%', backgroundColor: '#F8F8F8'}}>
-            <PicaCarousel leftArrow={leftArrow} rightArrow={rightArrow}>
+            <PicaCarousel>
               <PicaCarouselCard
                 index={0}
                 style={{backgroundColor: '#B0C170'}}

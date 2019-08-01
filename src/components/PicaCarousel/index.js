@@ -1,6 +1,13 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styles from './styles.module.css'
+import { Query } from 'react-apollo'
+import gql from 'graphql-tag'
+
+import PicaCarouselCard from '../PicaCarouselCard'
+
+import leftArrow from '../../img/LeftArrow.png'
+import rightArrow from '../../img/RightArrow.png'
 
 class PicaCarousel extends Component {
   constructor(props) {
@@ -8,12 +15,10 @@ class PicaCarousel extends Component {
     this.state = {
       cards: {},
       activeIndex: 0,
-      cardTotal: 9,
       swipe: 'none'
     }
     this.clickLeft = this.clickLeft.bind(this)
     this.clickRight = this.clickRight.bind(this)
-    this.addStateToProps = this.addStateToProps.bind(this)
   }
 
   handleTouchStart(e) {
@@ -67,22 +72,22 @@ class PicaCarousel extends Component {
     }
   }
 
-  componentWillMount() {
-    this.setState({
-      cardTotal: this.props.children.length
-    })
-  }
-
-  addStateToProps(child) {
-    return React.cloneElement(child, { ...child.props, activeIndex: this.state.activeIndex, cardTotal: this.state.cardTotal })
-  }
-
   render() {
-    console.log('ActiveIndex: ' + this.state.activeIndex)
-    const { children } = this.props
-    const childrenWithProps = React.Children.map(children, child =>
-      this.addStateToProps(child)
-    )
+    const GET_CONTENT = gql`
+      query {
+        heroSlides (orderBy: sortNumber_ASC){
+          title
+          date
+          image {
+            handle
+            photoCredit
+          }
+          buttonText
+          buttonLink
+          description
+        }
+      }
+    `
     return (
       <div className={styles.PicaCarousel}
         onTouchStart={touchStartEvent => this.handleTouchStart(touchStartEvent)}
@@ -95,17 +100,45 @@ class PicaCarousel extends Component {
           <div
             className={styles.arrows}
             id={styles.leftArrow}
-            style={{backgroundImage: 'url(' + this.props.leftArrow + ')'}}
+            style={{backgroundImage: 'url(' + leftArrow + ')'}}
             onClick={this.clickLeft}
           />
           <div
             className={styles.arrows}
             id={styles.rightArrow}
-            style={{backgroundImage: 'url(' + this.props.rightArrow + ')'}}
+            style={{backgroundImage: 'url(' + rightArrow + ')'}}
             onClick={this.clickRight}
           />
         </div>
-        { childrenWithProps }
+        <Query query={GET_CONTENT} variables={{"tagName" : this.state.tagName}}>
+          {({ loading, error, data }) => {
+            if (loading) return (
+              <div>
+                <PicaCarouselCard index={0} title={'Loading...'} date={'Loading...'} buttonText={'Loading...'} description={'Loading...'}/>
+                <PicaCarouselCard index={1}/>
+                <PicaCarouselCard index={2}/>
+              </div>
+            )
+            if (error) return `Error! ${error.message}`
+            let heroSlides = data.heroSlides.map((heroSlide, index) =>
+              <PicaCarouselCard
+                index={index}
+                activeIndex={this.state.activeIndex}
+                cardTotal={data.heroSlides.length}
+                key={index}
+                title={heroSlide.title}
+                date={heroSlide.date}
+                image={'https://media.graphcms.com/' + heroSlide.image.handle}
+                buttonText={heroSlide.buttonText}
+                buttonLink={heroSlide.buttonLink}
+                description={heroSlide.description}
+              />
+            )
+            return (
+              heroSlides
+            )
+          }}
+        </Query>
       </div>
     )
   }
