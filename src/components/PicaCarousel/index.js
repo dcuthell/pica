@@ -132,9 +132,9 @@ class PicaCarousel extends Component {
           {({ loading, error, data }) => {
             if (loading) return (
               <div>
-                <PicaCarouselCard index={0} title={'Loading...'} />
-                <PicaCarouselCard index={1} title={'Loading...'} />
-                <PicaCarouselCard index={2} title={'Loading...'} />
+                <PicaCarouselCard index={0} title={'Loading...'} date={'Loading...'} buttonText={'Loading...'} description={'Loading...'}/>
+                <PicaCarouselCard index={1}/>
+                <PicaCarouselCard index={2}/>
               </div>
             )
             if (error) return `Error! ${error.message}`
