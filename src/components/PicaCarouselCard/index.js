@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styles from './styles.module.css'
+import { NavLink } from 'react-router-dom'
+
+import PicaLogo from '../../img/PicaLogo.png'
 
 class PicaCarouselCard extends Component {
   /*
@@ -48,27 +51,26 @@ class PicaCarouselCard extends Component {
     } else if (((this.props.index - this.props.activeIndex) <= -2) || ((this.props.index - this.props.activeIndex) >= 2)) {
       return styles.unmounted
     } else {
-      console.log('shit')
-      return 'butthole'
+      console.log('error')
+      return 'error'
     }
   }
 
   render() {
     return (
       <div className={styles.PicaCarouselCard + ' ' + this.propsToStyles()} style={this.props.style}>
-        <div className={styles.cardImage}>
+        <div className={styles.cardImage} style={{backgroundImage: 'url(' + this.props.image + ')', backgroundPosition: 'center', backgroundSize: 'contain'}}>
           <h1>{this.props.index}</h1>
-          <img src={this.props.media} alt={this.props.title} />
         </div>
         <div className={styles.cardInfo}>
           <h2>{this.props.title}</h2>
-          <h4>{this.props.dates}</h4>
-          <p>{this.props.categories}</p>
+          <h4>{this.props.date}</h4>
+          <p>{this.props.tags}</p>
         </div>
         <div className={styles.cardContent}>
           <p>{this.props.content}</p>
           <div className={styles.buyButton}>
-            <h4>BUY</h4>
+            <NavLink to={this.props.buttonLink}><h4>{this.props.buttonText}</h4></NavLink>
           </div>
         </div>
       </div>
@@ -81,9 +83,12 @@ PicaCarouselCard.defaultProps = {
   activeIndex: 0,
   cardTotal: 0,
   title: 'An Event Name',
-  dates: 'July 11-13 / 25-27',
-  categories: 'Exhibition, Performance, Visual',
-  content: `This is a short description about what the event is. This should be PICA's voice and description of the event, a quick takeaway for the user to understand...`
+  date: 'July 11-13 / 25-27',
+  image: PicaLogo,
+  tags: 'Exhibition, Performance, Visual',
+  buttonText: 'Click Me',
+  buttonLink: '/tba',
+  description: `This is a short description about what the event is. This should be PICA's voice and description of the event, a quick takeaway for the user to understand...`
 }
 
 PicaCarouselCard.propTypes = {
@@ -91,11 +96,13 @@ PicaCarouselCard.propTypes = {
   activeIndex: PropTypes.number,
   cardTotal: PropTypes.number,
   style: PropTypes.object,
-  media: PropTypes.string,
   title: PropTypes.string,
-  dates: PropTypes.string,
-  categories: PropTypes.string,
-  content: PropTypes.string
+  date: PropTypes.string,
+  image: PropTypes.string,
+  tags: PropTypes.string,
+  buttonText: PropTypes.string,
+  buttonLink: PropTypes.string,
+  description: PropTypes.string
 }
 
 export default PicaCarouselCard
