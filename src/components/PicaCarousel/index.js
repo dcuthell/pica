@@ -15,12 +15,10 @@ class PicaCarousel extends Component {
     this.state = {
       cards: {},
       activeIndex: 0,
-      cardTotal: 9,
       swipe: 'none'
     }
     this.clickLeft = this.clickLeft.bind(this)
     this.clickRight = this.clickRight.bind(this)
-    this.addStateToProps = this.addStateToProps.bind(this)
   }
 
   handleTouchStart(e) {
@@ -74,16 +72,6 @@ class PicaCarousel extends Component {
     }
   }
 
-  componentWillMount() {
-    this.setState({
-      cardTotal: this.props.children.length
-    })
-  }
-
-  addStateToProps(child) {
-    return React.cloneElement(child, { ...child.props, activeIndex: this.state.activeIndex, cardTotal: this.state.cardTotal })
-  }
-
   render() {
     const GET_CONTENT = gql`
       query {
@@ -100,12 +88,6 @@ class PicaCarousel extends Component {
         }
       }
     `
-
-    console.log('ActiveIndex: ' + this.state.activeIndex)
-    const { children } = this.props
-    const childrenWithProps = React.Children.map(children, child =>
-      this.addStateToProps(child)
-    )
     return (
       <div className={styles.PicaCarousel}
         onTouchStart={touchStartEvent => this.handleTouchStart(touchStartEvent)}
@@ -142,7 +124,7 @@ class PicaCarousel extends Component {
               <PicaCarouselCard
                 index={index}
                 activeIndex={this.state.activeIndex}
-                cardTotal={this.state.cardTotal}
+                cardTotal={data.heroSlides.length}
                 key={index}
                 title={heroSlide.title}
                 date={heroSlide.date}
