@@ -1,10 +1,5 @@
 import React from 'react'
 import { Container, Col, Row } from 'reactstrap'
-import PicaCarousel from '../../components/PicaCarousel'
-import PicaCarouselCard from '../../components/PicaCarouselCard'
-import PicaButton from '../../components/PicaButton'
-import collage from '../../img/collage.png'
-import ben from '../../img/ben-01.png'
 
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
