@@ -77,6 +77,8 @@ class TBAArtistBlockFrame extends Component {
           dateAndTime
           webEventId
           testDateAndTime
+          price
+          runTime
           shortDescription
           longDescription {
             html
@@ -140,6 +142,8 @@ class TBAArtistBlockFrame extends Component {
                 detailsShort={program.shortDescription}
                 detailsLong={program.longDescription.html}
                 venue={program.venues[0]}
+                price={program.price}
+                runTime={program.runTime}
                 webEventId={program.webEventId}
                 YouTubeId={program.youTubeVideoId}
                 VimeoId={program.vimeoVideoId}

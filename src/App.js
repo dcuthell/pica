@@ -20,6 +20,7 @@ import Donations from './routes/Donations'
 import Membership from './routes/Membership'
 import Tickets from './routes/Tickets'
 import Merchandise from './routes/Merchandise'
+import Event from './routes/Event'
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
         <Route exact path='/membership' component={Membership} />
         <Route exact path='/merchandise' component={Merchandise} />
         <Route path='/tickets/:webeventid' component={Tickets} />
+        <Route path='/events/:id' component={Event} />
       </PicaBody>
     </div>
   );

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styles from './styles.module.css'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
+import { Route } from 'react-router-dom'
 
 import PicaCarouselCard from '../PicaCarouselCard'
 
@@ -93,6 +94,7 @@ class PicaCarousel extends Component {
         onTouchStart={touchStartEvent => this.handleTouchStart(touchStartEvent)}
         onTouchEnd={touchEndEvent => this.handleTouchEnd(touchEndEvent)}
       >
+        <Route path={'/' + this.state.swipe} component={PicaCarouselCard} />
         <div className={styles.header}>
           <div className={styles.title}>
             <h1>Events</h1>
