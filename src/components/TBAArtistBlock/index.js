@@ -203,8 +203,14 @@ class TBAArtistBlock extends Component {
             <div style={{display: 'inline-flex'}}>
               <h4 style={{color: '#B9B9B9', marginRight: '12px'}}>
                 Date
+                <br/>
+                {this.props.runTime ? 'Duration' : ''}
               </h4>
-              <h4>{this.props.eventDate}</h4>
+              <h4>
+                {this.props.eventDate}
+                <br/>
+                {this.props.runTime ? this.props.runTime : ''}
+              </h4>
             </div>
             <hr style={{margin: '0px', borderTop: 'white solid 5px'}} />
             <div style={{display: 'inline-flex'}}>
@@ -213,18 +219,27 @@ class TBAArtistBlock extends Component {
                 <br/>
                 Address
                 <br/>
-                Capacity
+                {this.props.venue.capacity ? 'Capacity' : ''}
               </h4>
               <h4>
                 {this.props.venue.name}
                 <br/>
                 {this.props.venue.address}
                 <br/>
-                {this.props.venue.capacity}
+                {this.props.venue.capacity ? this.props.venue.capacity : ''}
               </h4>
             </div>
             <hr style={{margin: '0px', borderTop: 'white solid 5px'}} />
-            {this.renderTicketButton()}
+            <div style={{display: 'inline-flex'}}>
+              <h4 style={{color: '#B9B9B9', marginRight: '12px'}}>
+                {this.props.price ? 'Price' : ''}
+              </h4>
+              <h4>
+                {this.props.price ? this.props.price : ''}
+              </h4>
+              {this.renderTicketButton()}
+            </div>
+            <hr style={{margin: '0px', borderTop: 'white solid 5px'}} />
             <h4>{this.props.detailsShort}</h4>
             <div dangerouslySetInnerHTML={{ __html: this.props.detailsLong }} />
             <hr style={{margin: '0px', borderTop: 'white solid 5px'}} />
