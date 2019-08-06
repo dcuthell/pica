@@ -4,7 +4,7 @@ import { Container, Col, Row } from 'reactstrap'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 
-import TBAProgram from '../TBAProgram'
+import TBAProgram from '../../components/TBAProgram'
 
 export default function TBAEvent (props) {
   console.log(props.match.params.id)

@@ -2,10 +2,11 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Modal, ModalHeader, ModalBody } from 'reactstrap'
 import PicaButton from '../PicaButton'
+import { Link } from 'react-router-dom'
 
 import styles from './styles.module.css'
 
-class TBAArtistBlock extends Component {
+class TBAProgram extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -148,7 +149,7 @@ class TBAArtistBlock extends Component {
       )
     }
   }
-  /* The TBAArtistBlock returns in 4 parts.
+  /* The TBAProgram returns in 4 parts.
   The first is the block as appears on the TBA page on desktop: TBAArtistBlock
   The second is the block as appears on the TBA page on mobile: TBAArtistBlockMobile
   The third is the modal that pops up to display youtube or vimeo videos: videoModal
@@ -163,10 +164,10 @@ class TBAArtistBlock extends Component {
             {this.renderIFrame()}
           </ModalBody>
         </Modal>
-        <div className={styles.artistOverlay} style={{display: (this.state.artistOverlay ? 'block' : 'none')}}>
+        <div className={styles.artistOverlay}>
           <div style={{padding: '5vw', overflowX: 'hidden', overflowY: 'scroll', height: 'auto'}}>
-            <div id={styles.backButton} onClick={this.toggle2} style={{display: 'inline-flex'}}>
-              <h1 style={{color: '#fff100', textAlign: 'left'}}>&#x2190; BACK TO TBA</h1>
+            <div id={styles.backButton} style={{display: 'inline-flex'}}>
+              <Link to='/tba'><h1 style={{color: '#fff100', textAlign: 'left'}}>&#x2190; BACK TO TBA</h1></Link>
             </div>
             <hr style={{margin: '0px', borderTop: 'white solid 5px'}} />
             <div className={styles.imageSlider + ' d-flex flex-row'} style={{height: '400px', width: 'auto', overflowY: 'hidden', overflowX: 'scroll'}}>
@@ -201,7 +202,7 @@ class TBAArtistBlock extends Component {
               <h4>
                 {this.props.venue.name}
                 <br/>
-                {this.props.venue.address}
+                <a target='_blank' rel='noopener noreferrer' href={'https://maps.google.com/?q=' + this.props.venue.address + ' Portland, OR'}>{this.props.venue.address}</a>
                 <br/>
                 {this.props.venue.capacity ? this.props.venue.capacity : ''}
               </h4>
@@ -221,7 +222,7 @@ class TBAArtistBlock extends Component {
             <div dangerouslySetInnerHTML={{ __html: this.props.detailsLong }} />
             <hr style={{margin: '0px', borderTop: 'white solid 5px'}} />
             <div id={styles.backButton} onClick={this.toggle2} style={{display: 'inline-flex'}}>
-              <h1 style={{color: '#fff100', textAlign: 'left'}}>&#x2190; BACK TO TBA</h1>
+              <Link to='/tba'><h1 style={{color: '#fff100', textAlign: 'left'}}>&#x2190; BACK TO TBA</h1></Link>
             </div>
           </div>
         </div>
@@ -230,7 +231,7 @@ class TBAArtistBlock extends Component {
   }
 }
 
-TBAArtistBlock.defaultProps = {
+TBAProgram.defaultProps = {
   eventName: 'Event Name',
   eventDate: 'TBD',
   title: 'Rice is dope',
@@ -242,7 +243,7 @@ TBAArtistBlock.defaultProps = {
   galleryItems: []
 }
 
-TBAArtistBlock.propTypes = {
+TBAProgram.propTypes = {
   eventName: PropTypes.string,
   eventDate: PropTypes.string,
   webEventId: PropTypes.string,
@@ -254,4 +255,4 @@ TBAArtistBlock.propTypes = {
   galleryItems: PropTypes.array
 }
 
-export default TBAArtistBlock
+export default TBAProgram
