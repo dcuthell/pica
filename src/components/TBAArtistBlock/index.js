@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Modal, ModalHeader, ModalBody } from 'reactstrap'
-import PicaButton from '../PicaButton'
 
 import styles from './styles.module.css'
 
@@ -67,22 +66,6 @@ class TBAArtistBlock extends Component {
     }))
   }
 
-  renderArtistNames(){
-    if (this.props.artists) {
-      let artistNames = ''
-      this.props.artists.forEach((artist, index) => {
-        if(index === 0){
-          artistNames += (artist.name)
-        } else {
-          artistNames += (' & ' + artist.name)
-        }
-      })
-      return(
-        artistNames
-      )
-    }
-  }
-
   renderIFrame() {
     if (this.props.YouTubeId) {
       return (
@@ -137,37 +120,17 @@ class TBAArtistBlock extends Component {
     }
   }
 
-  renderTicketButton(){
-    if(this.props.webEventId){
-      return(
-        <div style={{width: '400px', display: 'inline-flex', textAlign: 'center'}}>
-          <PicaButton style={{margin: '0px'}}>
-            <a style={{display: 'inline-flex'}} href={'https://www.pica.org/tickets/' + this.props.webEventId + '/details'}><h4 style={{margin: '12px 12px 12px 12px'}}>TICKETS &#x2192;</h4></a>
-          </PicaButton>
-        </div>
-      )
-    }
-  }
-  /* The TBAArtistBlock returns in 4 parts.
-  The first is the block as appears on the TBA page on desktop: TBAArtistBlock
-  The second is the block as appears on the TBA page on mobile: TBAArtistBlockMobile
-  The third is the modal that pops up to display youtube or vimeo videos: videoModal
-  The fourth is the artist overlay that appears when clicking the block: artistOverlay
-   */
   render() {
     return (
-      <div style={{width: '100%'}}>
+      <div style={{width: '100%'}} className={'TBAArtistBlock'} style={{overflow: 'hidden'}}>
         <div className={styles.TBAArtistBlock}>
-          <div className='d-flex align-items-center' style={{textAlign: 'center', height: '300px', width: '300px', border: '2px solid white', margin: 'auto'}}>
-            <img src={this.props.galleryItems[0].media.handle ? 'https://media.graphcms.com/' + this.props.galleryItems[0].media.handle : 'https://www.retirebeforedad.com/wp-content/uploads/2016/07/Banana-Stand-500x372.jpg'}
-              alt='thumbnail'
-              style={{margin: 'auto', maxWidth: '100%', maxHeight: '100%', zIndex: 1}} />
+          <div className='d-flex align-items-center' style={{textAlign: 'center', width: '95%', border: '2px solid white', margin: 'auto', backgroundImage: 'url(https://media.graphcms.com//' + this.props.galleryItems[0].media.handle + ')', backgroundPosition: 'center center', backgroundSize: 'cover'}}>
           </div>
-          <div style={{width: '300px', margin: 'auto'}}>
-            <h4 style={{margin: '0px'}}>{this.renderArtistNames()}</h4>
+          <div style={{width: '95%', margin: '0.25em auto', position: 'relative'}}>
+            <h4 style={{margin: '0px'}}>{(this.props.artistName !== 'No Linked Artist') ? this.props.artistName : ''}</h4>
             <h4 style={{textTransform: 'uppercase'}}>{this.props.eventName}</h4>
           </div>
-          <div className={styles.overlay} onClick={this.toggle2} />
+<div className={styles.overlay} onClick={this.toggle2} />
         </div>
         <div className={styles.TBAArtistBlockMobile}onClick={this.toggle2}>
           <div className='d-flex align-items-center' style={{textAlign: 'center', height: '135px', width: '135px', border: '2px solid white', margin: 'auto'}}>
@@ -197,47 +160,12 @@ class TBAArtistBlock extends Component {
               {this.renderPhotos()}
             </div>
             <hr style={{margin: '0px', borderTop: 'white solid 5px'}} />
-            <h1>{this.renderArtistNames()}</h1>
+            <h1>{(this.props.artistName !== 'No Linked Artist') ? this.props.artistName : ''}</h1>
             <h1 style={{textTransform: 'uppercase'}}>{this.props.eventName}</h1>
             <hr style={{margin: '0px', borderTop: 'white solid 5px'}} />
             <div style={{display: 'inline-flex'}}>
-              <h4 style={{color: '#B9B9B9', marginRight: '12px'}}>
-                Date
-                <br/>
-                {this.props.runTime ? 'Duration' : ''}
-              </h4>
-              <h4>
-                {this.props.eventDate}
-                <br/>
-                {this.props.runTime ? this.props.runTime : ''}
-              </h4>
-            </div>
-            <hr style={{margin: '0px', borderTop: 'white solid 5px'}} />
-            <div style={{display: 'inline-flex'}}>
-              <h4 style={{color: '#B9B9B9', marginRight: '12px'}}>
-                Venue
-                <br/>
-                Address
-                <br/>
-                {this.props.venue.capacity ? 'Capacity' : ''}
-              </h4>
-              <h4>
-                {this.props.venue.name}
-                <br/>
-                {this.props.venue.address}
-                <br/>
-                {this.props.venue.capacity ? this.props.venue.capacity : ''}
-              </h4>
-            </div>
-            <hr style={{margin: '0px', borderTop: 'white solid 5px'}} />
-            <div style={{display: 'inline-flex'}}>
-              <h4 style={{color: '#B9B9B9', marginRight: '12px'}}>
-                {this.props.price ? 'Price' : ''}
-              </h4>
-              <h4>
-                {this.props.price ? this.props.price : ''}
-              </h4>
-              {this.renderTicketButton()}
+              <h4 style={{color: '#B9B9B9'}}>Date   </h4>
+              <h4>{this.props.eventDate}</h4>
             </div>
             <hr style={{margin: '0px', borderTop: 'white solid 5px'}} />
             <h4>{this.props.detailsShort}</h4>
@@ -249,6 +177,7 @@ class TBAArtistBlock extends Component {
           </div>
         </div>
       </div>
+      
     )
   }
 }
@@ -268,7 +197,6 @@ TBAArtistBlock.defaultProps = {
 TBAArtistBlock.propTypes = {
   eventName: PropTypes.string,
   eventDate: PropTypes.string,
-  webEventId: PropTypes.string,
   artistName: PropTypes.string,
   detailsShort: PropTypes.string,
   detailsLong: PropTypes.string,
