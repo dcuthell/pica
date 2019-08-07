@@ -157,7 +157,7 @@ class TBAProgram extends Component {
    */
   render() {
     return (
-      <div style={{width: '100%'}}>
+      <div style={{width: '100%'}} className='TBAProgram'>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={styles.videoModal} style={{backgroundColor: 'black'}}>
           <ModalHeader toggle={this.toggle} style={{backgroundColor: 'black', color: 'white'}}>{this.props.eventName + ' - ' + this.props.artistName}</ModalHeader>
           <ModalBody style={{backgroundColor: 'black'}}>

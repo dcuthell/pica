@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Modal, ModalHeader, ModalBody } from 'reactstrap'
+import { Link } from 'react-router-dom'
 import PicaButton from '../PicaButton'
+
 
 import styles from './styles.module.css'
 
@@ -167,9 +169,9 @@ class TBAArtistBlock extends Component {
             <h4 style={{margin: '0px'}}>{this.renderArtistNames()}</h4>
             <h4 style={{textTransform: 'uppercase'}}>{this.props.eventName}</h4>
           </div>
-          <div className={styles.overlay} onClick={this.toggle2} />
+          <Link to={'/tba/' + this.props.route} className={styles.overlay}/>
         </div>
-        <div className={styles.TBAArtistBlockMobile}onClick={this.toggle2}>
+        <div className={styles.TBAArtistBlockMobile} onClick={this.toggle2}>
           <div className='d-flex align-items-center' style={{textAlign: 'center', height: '135px', width: '135px', border: '2px solid white', margin: 'auto'}}>
             <img src={this.props.galleryItems[0].media.handle ? 'https://media.graphcms.com/' + this.props.galleryItems[0].media.handle : 'https://www.retirebeforedad.com/wp-content/uploads/2016/07/Banana-Stand-500x372.jpg'}
               alt='thumbnail'
