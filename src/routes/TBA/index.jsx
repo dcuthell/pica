@@ -60,7 +60,7 @@ export default function TBA (props) {
               <Col xl='5'></Col>
               <Col xl='5' style={{textAlign: 'center'}}>
                 <PicaButton>
-                  <a style={{display: 'inline-flex'}} href='https://www.pica.org/tba/TBA2019Catalog.pdf'><h4 style={{margin: '12px 12px 12px 12px'}}>DOWNLOAD THE CATALOG</h4></a>
+                  <a style={{display: 'inline-flex'}} href='https://drive.google.com/file/d/18TZ-KhumkqYhZ_yJQQFVZKKVDx4C7sbB/view'><h4 style={{margin: '12px 12px 12px 12px'}}>DOWNLOAD THE CATALOG</h4></a>
                 </PicaButton>
               </Col>
             </Row>
