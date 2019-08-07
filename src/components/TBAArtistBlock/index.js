@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Modal, ModalHeader, ModalBody } from 'reactstrap'
 import { Link } from 'react-router-dom'
 import PicaButton from '../PicaButton'
 
@@ -182,74 +181,6 @@ class TBAArtistBlock extends Component {
             <h3 style={{textTransform: 'uppercase'}}>{this.props.eventName}</h3>
           </div>
         </Link>
-        <Modal isOpen={this.state.modal} toggle={this.toggle} className={styles.videoModal} style={{backgroundColor: 'black'}}>
-          <ModalHeader toggle={this.toggle} style={{backgroundColor: 'black', color: 'white'}}>{this.props.eventName + ' - ' + this.props.artistName}</ModalHeader>
-          <ModalBody style={{backgroundColor: 'black'}}>
-            {this.renderIFrame()}
-          </ModalBody>
-        </Modal>
-        <div className={styles.artistOverlay} style={{display: (this.state.artistOverlay ? 'block' : 'none')}}>
-          <div style={{padding: '5vw', overflowX: 'hidden', overflowY: 'scroll', height: 'auto'}}>
-            <div id={styles.backButton} onClick={this.toggle2} style={{display: 'inline-flex'}}>
-              <h1 style={{color: '#fff100', textAlign: 'left'}}>&#x2190; BACK TO TBA</h1>
-            </div>
-            <hr style={{margin: '0px', borderTop: 'white solid 5px'}} />
-            <div className={styles.imageSlider + ' d-flex flex-row'} style={{height: '400px', width: 'auto', overflowY: 'hidden', overflowX: 'scroll'}}>
-              {this.renderVideos()}
-              {this.renderPhotos()}
-            </div>
-            <hr style={{margin: '0px', borderTop: 'white solid 5px'}} />
-            <h1>{this.renderArtistNames()}</h1>
-            <h1 style={{textTransform: 'uppercase'}}>{this.props.eventName}</h1>
-            <hr style={{margin: '0px', borderTop: 'white solid 5px'}} />
-            <div style={{display: 'inline-flex'}}>
-              <h4 style={{color: '#B9B9B9', marginRight: '12px'}}>
-                Date
-                <br/>
-                {this.props.runTime ? 'Duration' : ''}
-              </h4>
-              <h4>
-                {this.props.eventDate}
-                <br/>
-                {this.props.runTime ? this.props.runTime : ''}
-              </h4>
-            </div>
-            <hr style={{margin: '0px', borderTop: 'white solid 5px'}} />
-            <div style={{display: 'inline-flex'}}>
-              <h4 style={{color: '#B9B9B9', marginRight: '12px'}}>
-                Venue
-                <br/>
-                Address
-                <br/>
-                {this.props.venue.capacity ? 'Capacity' : ''}
-              </h4>
-              <h4>
-                {this.props.venue.name}
-                <br/>
-                {this.props.venue.address}
-                <br/>
-                {this.props.venue.capacity ? this.props.venue.capacity : ''}
-              </h4>
-            </div>
-            <hr style={{margin: '0px', borderTop: 'white solid 5px'}} />
-            <div style={{display: 'inline-flex'}}>
-              <h4 style={{color: '#B9B9B9', marginRight: '12px'}}>
-                {this.props.price ? 'Price' : ''}
-              </h4>
-              <h4>
-                {this.props.price ? this.props.price : ''}
-              </h4>
-              {this.renderTicketButton()}
-            </div>
-            <hr style={{margin: '0px', borderTop: 'white solid 5px'}} />
-            <h4>{this.props.detailsShort}</h4>
-            <div dangerouslySetInnerHTML={{ __html: this.props.detailsLong }} />
-            <hr style={{margin: '0px', borderTop: 'white solid 5px'}} />
-            <div id={styles.backButton} onClick={this.toggle2} style={{display: 'inline-flex'}}>
-              <h1 style={{color: '#fff100', textAlign: 'left'}}>&#x2190; BACK TO TBA</h1>
-            </div>
-          </div>
-        </div>
       </div>
     )
   }
