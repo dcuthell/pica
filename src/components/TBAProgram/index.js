@@ -215,8 +215,9 @@ class TBAProgram extends Component {
               <h4>
                 {this.props.price ? this.props.price : ''}
               </h4>
-              {this.renderTicketButton()}
+              <br/>
             </div>
+            {this.renderTicketButton()}
             <hr style={{margin: '0px', borderTop: 'white solid 5px'}} />
             <h4>{this.props.detailsShort}</h4>
             <div dangerouslySetInnerHTML={{ __html: this.props.detailsLong }} />
