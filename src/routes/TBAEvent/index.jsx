@@ -48,7 +48,7 @@ export default function TBAEvent (props) {
     <Container>
       <Row>
         <Col>
-          <Query query={GET_CONTENT} variables={{"artistName" : props.match.params.id}}>
+          <Query query={GET_CONTENT} variables={{"route" : props.match.params.id}}>
             {({ loading, error, data }) => {
               if (loading) return (
                 <h1>Loading...</h1>

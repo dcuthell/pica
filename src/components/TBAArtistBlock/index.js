@@ -171,17 +171,17 @@ class TBAArtistBlock extends Component {
           </div>
           <Link to={'/tba/' + this.props.route} className={styles.overlay}/>
         </div>
-        <div className={styles.TBAArtistBlockMobile} onClick={this.toggle2}>
+        <Link to={'/tba/' + this.props.route} className={styles.TBAArtistBlockMobile}>
           <div className='d-flex align-items-center' style={{textAlign: 'center', height: '135px', width: '135px', border: '2px solid white', margin: 'auto'}}>
             <img src={this.props.galleryItems[0].media.handle ? 'https://media.graphcms.com/' + this.props.galleryItems[0].media.handle : 'https://www.retirebeforedad.com/wp-content/uploads/2016/07/Banana-Stand-500x372.jpg'}
               alt='thumbnail'
               style={{margin: 'auto', maxWidth: '100%', maxHeight: '100%', zIndex: 1}} />
           </div>
           <div style={{width: '135px', margin: 'auto', backgroundColor: 'black', color: 'white'}}>
-            <h3 style={{margin: '0px'}}>{(this.props.artistName !== 'No Linked Artist') ? this.props.artistName : ''}</h3>
+            <h3 style={{margin: '0px'}}>{this.renderArtistNames()}</h3>
             <h3 style={{textTransform: 'uppercase'}}>{this.props.eventName}</h3>
           </div>
-        </div>
+        </Link>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={styles.videoModal} style={{backgroundColor: 'black'}}>
           <ModalHeader toggle={this.toggle} style={{backgroundColor: 'black', color: 'white'}}>{this.props.eventName + ' - ' + this.props.artistName}</ModalHeader>
           <ModalBody style={{backgroundColor: 'black'}}>
