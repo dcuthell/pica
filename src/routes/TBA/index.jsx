@@ -11,8 +11,8 @@ export default function TBA (props) {
   return (
     <Container className='TBA' style={{padding: '0', margin: '0px', maxWidth: '100%', height: 'auto', overflowX: 'hidden'}}>
       <div style={{height: '100vh', width: '100vw', backgroundImage: 'url(' + katja + ')', backgroundRepeat: 'no-repeat', backgroundSize: 'cover', position: 'fixed'}} />
-      <Row style={{margin: '0', overflowX: 'hidden'}}>
-        <Col xl='12' style={{height: '15vh', paddingTop: '5vh'}}>
+      <Row style={{margin: '0', overflowX: 'hidden', paddingTop: '5vh'}}>
+        <Col xl='12' style={{height: '15vh'}}>
           <ul style={{display: 'flex', justifyContent: 'space-between', textAlign: 'left', listStyle: 'none', gridColumn: 'col-start/span 12', gridRow: '1', padding: '0px', margin: '0px'}}>
             <li><span style={{ width: '60px', display: 'block', textTransform: 'uppercase', lineHeight: '.9', fontSize: '1.5vw', color: 'white' }}>2019</span></li>
             <li><span style={{ width: '60px', display: 'block', textTransform: 'uppercase', lineHeight: '.9', fontSize: '1.5vw', color: 'white' }}>2019 <br />Time Based Art Festival</span></li>
@@ -34,7 +34,7 @@ export default function TBA (props) {
               <Col xl='1' style={{padding: '0'}} />
               <Col xl='4'>
                 <h1 style={{fontSize: '3.75rem'}}>IMMERSE YOURSELF IN THE ART AND IDEAS OF OUR TIME</h1>
-                <h2 style={{fontSize: '2.75rem'}}>2019 SEPTEMBER 05-15</h2>
+                <h2 style={{fontSize: '2.75rem'}}>2019 SEPTEMBER 05&ndash;15</h2>
                 <h2 style={{fontSize: '2.75rem'}}>PORTLAND OREGON USA</h2>
               </Col>
               <Col xl='6'>
@@ -43,14 +43,14 @@ export default function TBA (props) {
                   PICA’s 17th Annual Time-Based Art Festival (TBA) gathers artists and audiences from around the world for ten days of contemporary performance, music, visual art, film, workshops, lectures, food, drink, conversation, and celebration. Immerse yourself in the art and ideas of our time.
                 </h4>
                 <h4>
-                  Festival passes are now on sale! The complete TBA schedule and artist lineup--including performances, late-night shows, screenings, parties, public programs, partnerships, and more--will be announced soon! To stay up to date (and to purchase tickets as soon as they go on sale) visit our website, follow us on social media, and sign up for our email list at pica.org.
+                  Festival passes are now on sale! The complete TBA schedule and artist lineup&mdash;including performances, late-night shows, screenings, parties, public programs, partnerships, and more--will be announced soon! To stay up to date (and to purchase tickets as soon as they go on sale) visit our website, follow us on social media, and sign up for our email list at pica.org.
                 </h4>
               </Col>
               <Col xl='1' style={{padding: '0'}} />
               <Col xl='5' />
               <Col xl='5' style={{textAlign: 'center'}}>
                 <PicaButton>
-                  <a style={{display: 'inline-flex'}} href='#passInfo'><h4 style={{margin: '12px 12px 12px 12px'}}>PASS INFORMATION &#x2192;</h4></a>
+                  <a style={{display: 'inline-flex'}} href='#passInfo'><h4 style={{margin: '12px 12px 12px 12px'}}>PASS INFORMATION &rarr;</h4></a>
                 </PicaButton>
               </Col>
               <Col xl='2' />
@@ -100,7 +100,7 @@ export default function TBA (props) {
               <Col xl='1' />
               <Col xl='6' style={{textAlign: 'center'}}>
                 <PicaButton>
-                  <a style={{display: 'inline-flex'}} href='https://www.pica.org/tickets/tba19/details'><h4 style={{margin: '12px 12px 12px 12px'}}>PURCHASE A PASS &#x2192;</h4></a>
+                  <a style={{display: 'inline-flex'}} href='https://www.pica.org/tickets/tba19/details'><h4 style={{margin: '12px 12px 12px 12px'}}>PURCHASE A PASS &rarr;</h4></a>
                 </PicaButton>
               </Col>
               <Col xl='5' />
@@ -127,13 +127,39 @@ export default function TBA (props) {
               <Col xl='1' />
               <Col xl='6' style={{textAlign: 'center'}}>
                 <PicaButton>
-                  <a style={{display: 'inline-flex'}} href='https://www.pica.org/tickets/tba19/details'><h4 style={{margin: '12px 12px 12px 12px'}}>PURCHASE A PASS &#x2192;</h4></a>
+                  <a style={{display: 'inline-flex'}} href='https://www.pica.org/tickets/tba19/details'><h4 style={{margin: '12px 12px 12px 12px'}}>PURCHASE A PASS &rarr;</h4></a>
                 </PicaButton>
               </Col>
             </Row>
           </Container>
         </Col>
       </Row>
+      <style dangerouslySetInnerHTML={{__html: `
+      .d-flex.align-items-center::before { content: ""; display: block; padding-top: 100%; }
+      .TBAArtistBlock:hover .d-flex.align-items-center {-webkit-filter: url(#duotone_yellow); -moz-filter: url(#duotone_yellow); filter: url(#duotone_yellow);}
+      .TBAArtistBlock:hover { color: #fff100; cursor: pointer; }
+     `}} />
+
+      <span dangerouslySetInnerHTML={{__html:`
+	      <svg xmlns="http://www.w3.org/2000/svg">
+			<defs>
+			<filter id="duotone_yellow">
+			<feColorMatrix type="matrix" result="grayscale" values="1 0 0 0 0
+					                    1 0 0 0 0
+					                    1 0 0 0 0
+					                    0 0 0 1 0">
+			</feColorMatrix>
+			<feComponentTransfer color-interpolation-filters="sRGB" result="duotone">
+			<feFuncR type="table" tableValues="0 1"></feFuncR>
+			<feFuncG type="table" tableValues="0 0.946"></feFuncG>
+			<feFuncB type="table" tableValues="0 0"></feFuncB>
+			<feFuncA type="table" tableValues="1 1"></feFuncA>
+			</feComponentTransfer>
+			</filter>
+			</defs>
+			</svg>
+	      `}} />
+
     </Container>
   )
 }

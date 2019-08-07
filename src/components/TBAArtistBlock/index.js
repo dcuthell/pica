@@ -157,14 +157,12 @@ class TBAArtistBlock extends Component {
    */
   render() {
     return (
-      <div style={{width: '100%'}}>
+      <div style={{width: '100%', overflow: 'hidden'}} className='TBAArtistBlock'>
         <div className={styles.TBAArtistBlock}>
-          <div className='d-flex align-items-center' style={{textAlign: 'center', height: '300px', width: '300px', border: '2px solid white', margin: 'auto'}}>
-            <img src={this.props.galleryItems[0].media.handle ? 'https://media.graphcms.com/' + this.props.galleryItems[0].media.handle : 'https://www.retirebeforedad.com/wp-content/uploads/2016/07/Banana-Stand-500x372.jpg'}
-              alt='thumbnail'
-              style={{margin: 'auto', maxWidth: '100%', maxHeight: '100%', zIndex: 1}} />
+          <div className='d-flex align-items-center' style={{textAlign: 'center', width: '95%', border: '2px solid white', margin: 'auto', backgroundImage: 'url(https://media.graphcms.com//' + this.props.galleryItems[0].media.handle + ')', backgroundPosition: 'center center', backgroundSize: 'cover'}}>
+           
           </div>
-          <div style={{width: '300px', margin: 'auto'}}>
+          <div style={{width: '95%', margin: '0.25em auto', position: 'relative'}}>
             <h4 style={{margin: '0px'}}>{this.renderArtistNames()}</h4>
             <h4 style={{textTransform: 'uppercase'}}>{this.props.eventName}</h4>
           </div>
