@@ -44,6 +44,7 @@ export default function TBAEvent (props) {
       }
     }
   `
+  console.log(props.match.params.id)
   return (
     <Container>
       <Row>
@@ -54,6 +55,7 @@ export default function TBAEvent (props) {
                 <h1>Loading...</h1>
               )
               if (error) return `Error! ${error.message}`
+              console.log(data)
               return (
                 <div>
                   <TBAProgram

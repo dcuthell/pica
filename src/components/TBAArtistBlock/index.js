@@ -160,15 +160,15 @@ class TBAArtistBlock extends Component {
       <div style={{width: '100%', overflow: 'hidden'}} className='TBAArtistBlock'>
         <div className={styles.TBAArtistBlock}>
           <div className='d-flex align-items-center' style={{textAlign: 'center', width: '95%', border: '2px solid white', margin: 'auto', backgroundImage: 'url(https://media.graphcms.com//' + this.props.galleryItems[0].media.handle + ')', backgroundPosition: 'center center', backgroundSize: 'cover'}}>
-           
+
           </div>
           <div style={{width: '95%', margin: '0.25em auto', position: 'relative'}}>
             <h4 style={{margin: '0px'}}>{this.renderArtistNames()}</h4>
             <h4 style={{textTransform: 'uppercase'}}>{this.props.eventName}</h4>
           </div>
-          <Link to={'/tba/' + this.props.route} className={styles.overlay}/>
+          <Link to={'/' + this.props.route} className={styles.overlay}/>
         </div>
-        <Link to={'/tba/' + this.props.route} className={styles.TBAArtistBlockMobile}>
+        <Link to={'/' + this.props.route} className={styles.TBAArtistBlockMobile}>
           <div className='d-flex align-items-center' style={{textAlign: 'center', height: '135px', width: '135px', border: '2px solid white', margin: 'auto'}}>
             <img src={this.props.galleryItems[0].media.handle ? 'https://media.graphcms.com/' + this.props.galleryItems[0].media.handle : 'https://www.retirebeforedad.com/wp-content/uploads/2016/07/Banana-Stand-500x372.jpg'}
               alt='thumbnail'
