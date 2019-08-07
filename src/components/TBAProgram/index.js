@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
+import { Modal, ModalHeader, ModalBody } from 'reactstrap'
 import PicaButton from '../PicaButton'
-
+import { Link } from 'react-router-dom'
 
 import styles from './styles.module.css'
 
-class TBAArtistBlock extends Component {
+class TBAProgram extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -149,7 +149,7 @@ class TBAArtistBlock extends Component {
       )
     }
   }
-  /* The TBAArtistBlock returns in 4 parts.
+  /* The TBAProgram returns in 4 parts.
   The first is the block as appears on the TBA page on desktop: TBAArtistBlock
   The second is the block as appears on the TBA page on mobile: TBAArtistBlockMobile
   The third is the modal that pops up to display youtube or vimeo videos: videoModal
@@ -157,36 +157,81 @@ class TBAArtistBlock extends Component {
    */
   render() {
     return (
-      <div style={{width: '100%'}}>
-        <div className={styles.TBAArtistBlock}>
-          <div className='d-flex align-items-center' style={{textAlign: 'center', height: '300px', width: '300px', border: '2px solid white', margin: 'auto'}}>
-            <img src={this.props.galleryItems[0].media.handle ? 'https://media.graphcms.com/' + this.props.galleryItems[0].media.handle : 'https://www.retirebeforedad.com/wp-content/uploads/2016/07/Banana-Stand-500x372.jpg'}
-              alt='thumbnail'
-              style={{margin: 'auto', maxWidth: '100%', maxHeight: '100%', zIndex: 1}} />
+      <div style={{width: '100%'}} className={styles.TBAProgram}>
+        <Modal isOpen={this.state.modal} toggle={this.toggle} className={styles.videoModal} style={{backgroundColor: 'black'}}>
+          <ModalHeader toggle={this.toggle} style={{backgroundColor: 'black', color: 'white'}}>{this.props.eventName + ' - ' + this.props.artistName}</ModalHeader>
+          <ModalBody style={{backgroundColor: 'black'}}>
+            {this.renderIFrame()}
+          </ModalBody>
+        </Modal>
+        <div className={styles.artistOverlay}>
+          <div style={{padding: '5vw', overflowX: 'hidden', overflowY: 'scroll', height: 'auto'}}>
+            <div id={styles.backButton} style={{display: 'inline-flex'}}>
+              <Link to='/tba'><h1 style={{color: '#fff100', textAlign: 'left'}}>&#x2190; BACK TO TBA</h1></Link>
+            </div>
+            <hr style={{margin: '0px', borderTop: 'white solid 5px'}} />
+            <div className={styles.imageSlider + ' d-flex flex-row'} style={{height: '400px', width: 'auto', overflowY: 'hidden', overflowX: 'scroll'}}>
+              {this.renderVideos()}
+              {this.renderPhotos()}
+            </div>
+            <hr style={{margin: '0px', borderTop: 'white solid 5px'}} />
+            <h1>{this.renderArtistNames()}</h1>
+            <h1 style={{textTransform: 'uppercase'}}>{this.props.eventName}</h1>
+            <hr style={{margin: '0px', borderTop: 'white solid 5px'}} />
+            <div style={{display: 'inline-flex'}}>
+              <h4 style={{color: '#B9B9B9', marginRight: '12px'}}>
+                Date
+                <br/>
+                {this.props.runTime ? 'Duration' : ''}
+              </h4>
+              <h4>
+                {this.props.eventDate}
+                <br/>
+                {this.props.runTime ? this.props.runTime : ''}
+              </h4>
+            </div>
+            <hr style={{margin: '0px', borderTop: 'white solid 5px'}} />
+            <div style={{display: 'inline-flex'}}>
+              <h4 style={{color: '#B9B9B9', marginRight: '12px'}}>
+                Venue
+                <br/>
+                Address
+                <br/>
+                {this.props.venue.capacity ? 'Capacity' : ''}
+              </h4>
+              <h4>
+                {this.props.venue.name}
+                <br/>
+                <a target='_blank' rel='noopener noreferrer' href={'https://maps.google.com/?q=' + this.props.venue.address + ' Portland, OR'}>{this.props.venue.address}</a>
+                <br/>
+                {this.props.venue.capacity ? this.props.venue.capacity : ''}
+              </h4>
+            </div>
+            <hr style={{margin: '0px', borderTop: 'white solid 5px'}} />
+            <div style={{display: 'inline-flex'}}>
+              <h4 style={{color: '#B9B9B9', marginRight: '12px'}}>
+                {this.props.price ? 'Price' : ''}
+              </h4>
+              <h4>
+                {this.props.price ? this.props.price : ''}
+              </h4>
+              {this.renderTicketButton()}
+            </div>
+            <hr style={{margin: '0px', borderTop: 'white solid 5px'}} />
+            <h4>{this.props.detailsShort}</h4>
+            <div dangerouslySetInnerHTML={{ __html: this.props.detailsLong }} />
+            <hr style={{margin: '0px', borderTop: 'white solid 5px'}} />
+            <div id={styles.backButton} onClick={this.toggle2} style={{display: 'inline-flex'}}>
+              <Link to='/tba'><h1 style={{color: '#fff100', textAlign: 'left'}}>&#x2190; BACK TO TBA</h1></Link>
+            </div>
           </div>
-          <div style={{width: '300px', margin: 'auto'}}>
-            <h4 style={{margin: '0px'}}>{this.renderArtistNames()}</h4>
-            <h4 style={{textTransform: 'uppercase'}}>{this.props.eventName}</h4>
-          </div>
-          <Link to={'/tba/' + this.props.route} className={styles.overlay}/>
         </div>
-        <Link to={'/tba/' + this.props.route} className={styles.TBAArtistBlockMobile}>
-          <div className='d-flex align-items-center' style={{textAlign: 'center', height: '135px', width: '135px', border: '2px solid white', margin: 'auto'}}>
-            <img src={this.props.galleryItems[0].media.handle ? 'https://media.graphcms.com/' + this.props.galleryItems[0].media.handle : 'https://www.retirebeforedad.com/wp-content/uploads/2016/07/Banana-Stand-500x372.jpg'}
-              alt='thumbnail'
-              style={{margin: 'auto', maxWidth: '100%', maxHeight: '100%', zIndex: 1}} />
-          </div>
-          <div style={{width: '135px', margin: 'auto', backgroundColor: 'black', color: 'white'}}>
-            <h3 style={{margin: '0px'}}>{this.renderArtistNames()}</h3>
-            <h3 style={{textTransform: 'uppercase'}}>{this.props.eventName}</h3>
-          </div>
-        </Link>
       </div>
     )
   }
 }
 
-TBAArtistBlock.defaultProps = {
+TBAProgram.defaultProps = {
   eventName: 'Event Name',
   eventDate: 'TBD',
   title: 'Rice is dope',
@@ -198,7 +243,7 @@ TBAArtistBlock.defaultProps = {
   galleryItems: []
 }
 
-TBAArtistBlock.propTypes = {
+TBAProgram.propTypes = {
   eventName: PropTypes.string,
   eventDate: PropTypes.string,
   webEventId: PropTypes.string,
@@ -210,4 +255,4 @@ TBAArtistBlock.propTypes = {
   galleryItems: PropTypes.array
 }
 
-export default TBAArtistBlock
+export default TBAProgram

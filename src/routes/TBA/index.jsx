@@ -56,6 +56,14 @@ export default function TBA (props) {
               <Col xl='2' />
             </Row>
             <TBATextReveal />
+            <Row style={{marginTop: '12px'}}>
+              <Col xl='5'></Col>
+              <Col xl='5' style={{textAlign: 'center'}}>
+                <PicaButton>
+                  <a style={{display: 'inline-flex'}} href='https://www.pica.org/tba/TBA2019Catalog.pdf'><h4 style={{margin: '12px 12px 12px 12px'}}>DOWNLOAD THE CATALOG</h4></a>
+                </PicaButton>
+              </Col>
+            </Row>
           </Container>
         </Col>
         <Col xl='12' style={{width: '100%', backgroundColor: 'black', color: 'white', padding: '0vh 20px 20vh 20px'}}>
@@ -119,7 +127,7 @@ export default function TBA (props) {
               <Col xl='1' />
               <Col xl='6' style={{textAlign: 'center'}}>
                 <PicaButton>
-                  <a style={{display: 'inline-flex'}} href='https://www.pica.org/tba/TBA2019Catalog.pdf'><h4 style={{margin: '12px 12px 12px 12px'}}>DOWNLOAD THE CATALOG</h4></a>
+                  <a style={{display: 'inline-flex'}} href='https://www.pica.org/tickets/tba19/details'><h4 style={{margin: '12px 12px 12px 12px'}}>PURCHASE A PASS &#x2192;</h4></a>
                 </PicaButton>
               </Col>
             </Row>
