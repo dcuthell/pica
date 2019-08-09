@@ -6,16 +6,25 @@ import './App.css'
 import PicaNavBar from './components/PicaNavBar'
 import PicaBody from './components/PicaBody'
 
-import TBA from './routes/TBA'
 import TBAEvent from './routes/TBAEvent'
+
+/*
+  All you need to do is change the string here to the program route
+*/
+
+const match = {
+  params : {
+    id : 'block-party19'
+  }
+}
 
 function App() {
   return (
     <div className='App'>
       <PicaNavBar/>
       <PicaBody>
-        <Route exact path='/' component={TBA} />
-        <Route path='/:id' component={TBAEvent} />
+        <Route path='/'
+          render={props => <TBAEvent {...props} match={match} />} />
       </PicaBody>
     </div>
   );
