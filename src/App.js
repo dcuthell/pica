@@ -6,15 +6,15 @@ import './App.css'
 import PicaNavBar from './components/PicaNavBar'
 import PicaBody from './components/PicaBody'
 
-import TBAEvent from './routes/TBAEvent'
+import Tickets from './routes/Tickets'
 
 /*
-  All you need to do is change the string here to the program route
+  All you need to do is change the string here to the Spektrix webeventid
 */
 
 const match = {
   params : {
-    id : 'block-party19'
+    webeventid : 'anthony19'
   }
 }
 
@@ -24,7 +24,7 @@ function App() {
       <PicaNavBar/>
       <PicaBody>
         <Route path='/'
-          render={props => <TBAEvent {...props} match={match} />} />
+          render={props => <Tickets {...props} match={match} />} />
       </PicaBody>
     </div>
   );
