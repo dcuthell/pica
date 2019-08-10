@@ -102,6 +102,7 @@ class TBAArtistBlockFrame extends Component {
             address
             capacity
           }
+          route
         }
       }
     }
@@ -148,6 +149,7 @@ class TBAArtistBlockFrame extends Component {
                 YouTubeId={program.youTubeVideoId}
                 VimeoId={program.vimeoVideoId}
                 galleryItems={program.gallery ? program.gallery.galleryItems : [{media: {handle: 'AKuZYOQsSkugUiFbLM0v'}}]}
+                route={program.route}
               />
             </Col>
           )

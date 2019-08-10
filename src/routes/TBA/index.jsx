@@ -57,6 +57,14 @@ export default function TBA (props) {
               <Col xl='2' />
             </Row>
             <TBATextReveal />
+            <Row style={{marginTop: '12px'}}>
+              <Col xl='5'></Col>
+              <Col xl='5' style={{textAlign: 'center'}}>
+                <PicaButton>
+                  <a style={{display: 'inline-flex'}} href='https://drive.google.com/file/d/18TZ-KhumkqYhZ_yJQQFVZKKVDx4C7sbB/view'><h4 style={{margin: '12px 12px 12px 12px'}}>DOWNLOAD THE CATALOG &rarr;</h4></a>
+                </PicaButton>
+              </Col>
+            </Row>
           </Container>
         </Col>
         <Col xl='12' style={{width: '100%', backgroundColor: 'black', color: 'white', padding: '0vh 20px 20vh 20px'}}>
@@ -120,14 +128,13 @@ export default function TBA (props) {
               <Col xl='1' />
               <Col xl='6' style={{textAlign: 'center'}}>
                 <PicaButton>
-                  <a style={{display: 'inline-flex'}} href='https://www.pica.org/tba/TBA2019Catalog.pdf'><h4 style={{margin: '12px 12px 12px 12px'}}>DOWNLOAD THE CATALOG</h4></a>
+                  <a style={{display: 'inline-flex'}} href='https://www.pica.org/tickets/tba19/details'><h4 style={{margin: '12px 12px 12px 12px'}}>PURCHASE A PASS &rarr;</h4></a>
                 </PicaButton>
               </Col>
             </Row>
           </Container>
         </Col>
       </Row>
-      
       <style dangerouslySetInnerHTML={{__html: `
       .d-flex.align-items-center::before { content: ""; display: block; padding-top: 100%; }
       .TBAArtistBlock:hover .d-flex.align-items-center {-webkit-filter: url(#duotone_yellow); -moz-filter: url(#duotone_yellow); filter: url(#duotone_yellow);}
@@ -153,9 +160,6 @@ export default function TBA (props) {
 			</defs>
 			</svg>
 	      `}} />
-      
-      
-      
     </Container>
     
 
