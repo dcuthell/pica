@@ -22,7 +22,7 @@ import Tickets from './routes/Tickets'
 import Merchandise from './routes/Merchandise'
 import Event from './routes/Event'
 import TBAEvent from './routes/TBAEvent'
-import TBAEventList from './routes/TBAEventList'
+import TBAEventList from './routes/EventList'
 
 function App() {
   return (
