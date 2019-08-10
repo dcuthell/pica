@@ -75,7 +75,7 @@ class TBAProgram extends Component {
         if(index === 0){
           artistNames += (artist.name)
         } else {
-          artistNames += (' & ' + artist.name)
+          artistNames += (' and ' + artist.name)
         }
       })
       return(
@@ -130,7 +130,7 @@ class TBAProgram extends Component {
   renderPhotos() {
     if (this.props.galleryItems[0]) {
       const photos = this.props.galleryItems.map((item, index) =>
-        <img key={index} style={{height: '400px', margin: 'auto'}} src={'https://media.graphcms.com/' + item.media.handle} alt={'image ' + index} title={item.media.photoCredit ? 'Photo Credit: ' + item.media.photoCredit : 'PICA - TBA 2019'} />
+        <img key={index} style={{height: '100%', width: 'auto', margin: 'auto'}} src={'https://media.graphcms.com/' + item.media.handle} alt={'image ' + index} title={item.media.photoCredit ? 'Photo: ' + item.media.photoCredit : 'Courtesy of the artist'} />
       )
       return (
         photos
@@ -141,11 +141,7 @@ class TBAProgram extends Component {
   renderTicketButton(){
     if(this.props.webEventId){
       return(
-        <div style={{width: '400px', display: 'inline-flex', textAlign: 'center'}}>
-          <PicaButton style={{margin: '0px'}}>
-            <a style={{display: 'inline-flex'}} href={'https://www.pica.org/tickets/' + this.props.webEventId + '/details'}><h4 style={{margin: '12px 12px 12px 12px'}}>TICKETS &#x2192;</h4></a>
-          </PicaButton>
-        </div>
+            <a className={styles.ticketButton} href={'https://www.pica.org/tickets/' + this.props.webEventId + '/details'}>Get Tickets &rarr;</a>
       )
     }
   }
@@ -158,72 +154,53 @@ class TBAProgram extends Component {
   render() {
     return (
       <div style={{width: '100%'}} className={styles.TBAProgram}>
-        <Modal isOpen={this.state.modal} toggle={this.toggle} className={styles.videoModal} style={{backgroundColor: 'black'}}>
-          <ModalHeader toggle={this.toggle} style={{backgroundColor: 'black', color: 'white'}}>{this.props.eventName + ' - ' + this.props.artistName}</ModalHeader>
-          <ModalBody style={{backgroundColor: 'black'}}>
+        <Modal isOpen={this.state.modal} toggle={this.toggle} className={styles.videoModal} style={{backgroundColor: '#000'}}>
+          <ModalHeader toggle={this.toggle} style={{backgroundColor: '#000', color: '#fff'}}>{this.props.eventName + ' - ' + this.props.artistName}</ModalHeader>
+          <ModalBody style={{backgroundColor: '#000'}}>
             {this.renderIFrame()}
           </ModalBody>
         </Modal>
         <div className={styles.artistOverlay}>
           <div style={{padding: '5vw', overflowX: 'hidden', overflowY: 'scroll', height: 'auto'}}>
             <div id={styles.backButton} style={{display: 'inline-flex'}}>
-              <Link to='/tba'><h1 style={{color: '#fff100', textAlign: 'left'}}>&#x2190; BACK TO TBA</h1></Link>
+              <Link to='/tba'><h1 style={{color: '#fff100', textAlign: 'left', textTransform: 'uppercase'}}>&larr; Back to TBA</h1></Link>
             </div>
-            <hr style={{margin: '0px', borderTop: 'white solid 5px'}} />
-            <div className={styles.imageSlider + ' d-flex flex-row'} style={{height: '400px', width: 'auto', overflowY: 'hidden', overflowX: 'scroll'}}>
+
+            <div className={styles.imageSlider + ' d-flex flex-row'}>
               {this.renderVideos()}
               {this.renderPhotos()}
             </div>
-            <hr style={{margin: '0px', borderTop: 'white solid 5px'}} />
-            <h1>{this.renderArtistNames()}</h1>
-            <h1 style={{textTransform: 'uppercase'}}>{this.props.eventName}</h1>
-            <hr style={{margin: '0px', borderTop: 'white solid 5px'}} />
-            <div style={{display: 'inline-flex'}}>
-              <h4 style={{color: '#B9B9B9', marginRight: '12px'}}>
-                Date
-                <br/>
-                {this.props.runTime ? 'Duration' : ''}
-              </h4>
-              <h4>
-                {this.props.eventDate}
-                <br/>
-                {this.props.runTime ? this.props.runTime : ''}
-              </h4>
-            </div>
-            <hr style={{margin: '0px', borderTop: 'white solid 5px'}} />
-            <div style={{display: 'inline-flex'}}>
-              <h4 style={{color: '#B9B9B9', marginRight: '12px'}}>
-                Venue
-                <br/>
-                Address
-                <br/>
-                {this.props.venue.capacity ? 'Capacity' : ''}
-              </h4>
-              <h4>
-                {this.props.venue.name}
-                <br/>
-                <a target='_blank' rel='noopener noreferrer' href={'https://maps.google.com/?q=' + this.props.venue.address + ' Portland, OR'}>{this.props.venue.address}</a>
-                <br/>
-                {this.props.venue.capacity ? this.props.venue.capacity : ''}
-              </h4>
-            </div>
-            <hr style={{margin: '0px', borderTop: 'white solid 5px'}} />
-            <div style={{display: 'inline-flex'}}>
-              <h4 style={{color: '#B9B9B9', marginRight: '12px'}}>
-                {this.props.price ? 'Price' : ''}
-              </h4>
-              <h4>
-                {this.props.price ? this.props.price : ''}
-              </h4>
-              <br/>
-            </div>
+
+            <hgroup className={styles.TBAArtistHeds}>
+            	{this.renderArtistNames() ? <h1>{this.renderArtistNames()}</h1> : null}
+				      <h1>{this.props.eventName}</h1>
+			      </hgroup>
+
             {this.renderTicketButton()}
-            <hr style={{margin: '0px', borderTop: 'white solid 5px'}} />
-            <h4>{this.props.detailsShort}</h4>
-            <div dangerouslySetInnerHTML={{ __html: this.props.detailsLong }} />
-            <hr style={{margin: '0px', borderTop: 'white solid 5px'}} />
+
+            <div className={styles.showInfo}>
+              <dl>
+                <dt>Date</dt>
+                <dd>{this.props.eventDate}</dd>
+              </dl>
+              <dl>
+                <dt>Location</dt>
+                <dd>{this.props.venue.name}, <a target='_blank' rel='noopener noreferrer' href={'https://maps.google.com/?q=' + this.props.venue.address + ' Portland, OR'}>{this.props.venue.address}</a></dd>
+              </dl>
+              <dl>{this.props.price ? <dt>Ticket</dt> : <dt>Free</dt> } {this.props.price ? <dd>{this.props.price}</dd> : ''}</dl>
+              <dl>            	
+                <dl>{this.props.runTime ? <dt>Run Time</dt> : null}{this.props.runTime ? <dd>{this.props.runTime}</dd> : null}</dl>
+                <dl>{this.props.venue.capacity ? <dt>Capacity</dt> : null}{this.props.venue.capacity ? <dd>{this.props.venue.capacity}</dd> : null}</dl>
+              </dl>
+            </div>
+
+            <p className={styles.lede}>{this.props.detailsShort}</p>
+            <div className={styles.detailsLong} dangerouslySetInnerHTML={{ __html: this.props.detailsLong }} />
+
+            <hr style={{margin: '3vh 0', borderTop: '2px solid #fff'}} />
+
             <div id={styles.backButton} onClick={this.toggle2} style={{display: 'inline-flex'}}>
-              <Link to='/tba'><h1 style={{color: '#fff100', textAlign: 'left'}}>&#x2190; BACK TO TBA</h1></Link>
+              <Link to='/tba'><h1 style={{color: '#fff100', textAlign: 'left', textTransform: 'uppercase'}}>&larr; Back to TBA</h1></Link>
             </div>
           </div>
         </div>

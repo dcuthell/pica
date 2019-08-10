@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
-import PicaButton from '../PicaButton'
-
 
 import styles from './styles.module.css'
 
@@ -68,6 +66,22 @@ class TBAArtistBlock extends Component {
     }))
   }
 
+  renderArtistNames(){
+    if (this.props.artists) {
+      let artistNames = ''
+      this.props.artists.forEach((artist, index) => {
+        if(index === 0){
+          artistNames += (artist.name)
+        } else {
+          artistNames += (' and ' + artist.name)
+        }
+      })
+      return(
+        artistNames
+      )
+    }
+  }
+
   renderIFrame() {
     if (this.props.YouTubeId) {
       return (
@@ -114,7 +128,7 @@ class TBAArtistBlock extends Component {
   renderPhotos() {
     if (this.props.galleryItems[0]) {
       const photos = this.props.galleryItems.map((item, index) =>
-        <img key={index} style={{height: '400px', margin: 'auto'}} src={'https://media.graphcms.com/' + item.media.handle} alt={'image ' + index} title={item.media.photoCredit ? 'Photo Credit: ' + item.media.photoCredit : 'PICA - TBA 2019'} />
+        <img key={index} style={{height: '100%', width: 'auto', margin: 'auto'}} src={'https://media.graphcms.com/' + item.media.handle} alt={'image ' + index} title={item.media.photoCredit ? 'Photo: ' + item.media.photoCredit : 'Courtesy of the artist'} />
       )
       return (
         photos
@@ -124,15 +138,13 @@ class TBAArtistBlock extends Component {
 
   render() {
     return (
-      <div style={{width: '100%', overflow: 'hidden'}} className='TBAArtistBlock'>
+      <div className={'TBAArtistBlock_wrap'}>
         <div className={styles.TBAArtistBlock}>
-          <div className='d-flex align-items-center' style={{textAlign: 'center', width: '95%', border: '2px solid white', margin: 'auto', backgroundImage: 'url(https://media.graphcms.com//' + this.props.galleryItems[0].media.handle + ')', backgroundPosition: 'center center', backgroundSize: 'cover'}}>
-           
-          </div>
-          <div style={{width: '95%', margin: '0.25em auto', position: 'relative'}}>
-            <h4 style={{margin: '0px'}}>{this.renderArtistNames()}</h4>
-            <h4 style={{textTransform: 'uppercase'}}>{this.props.eventName}</h4>
-          </div>
+          <div className='d-flex align-items-center' style={{backgroundImage: 'url(https://media.graphcms.com//' + this.props.galleryItems[0].media.handle + ')'}} />
+          <dl>
+            <dt>{this.renderArtistNames()}</dt>
+            <dd>{this.props.eventName}</dd>
+          </dl>
           <Link to={'/tba/' + this.props.route} className={styles.overlay}/>
         </div>
         <Link to={'/tba/' + this.props.route} className={styles.TBAArtistBlockMobile}>
