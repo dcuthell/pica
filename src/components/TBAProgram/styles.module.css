@@ -121,3 +121,11 @@
 		padding-bottom: 40px;
 	}
 }
+
+.ticketButton {
+	background-color: yellow;
+}
+
+.ticketButton :hover {
+	background-color: inherit;
+}
