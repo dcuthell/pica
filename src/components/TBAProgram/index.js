@@ -142,8 +142,8 @@ class TBAProgram extends Component {
     if(this.props.webEventId){
       return(
         <div style={{width: '400px', display: 'inline-flex', textAlign: 'center'}}>
-          <PicaButton style={{margin: '0px'}}>
-            <a style={{display: 'inline-flex'}} href={'https://www.pica.org/tickets/' + this.props.webEventId + '/details'}><h4 style={{margin: '12px 12px 12px 12px'}}>TICKETS &#x2192;</h4></a>
+          <PicaButton style={{margin: '0px', backgroundColor: 'yellow'}}>
+            <a style={{display: 'inline-flex'}} href={'https://www.pica.org/tickets/' + this.props.webEventId}><h4 style={{margin: '12px 12px 12px 12px', color: 'black'}}>TICKETS &#x2192;</h4></a>
           </PicaButton>
         </div>
       )

@@ -22,6 +22,7 @@ import Tickets from './routes/Tickets'
 import Merchandise from './routes/Merchandise'
 import Event from './routes/Event'
 import TBAEvent from './routes/TBAEvent'
+import TBAEventList from './routes/TBAEventList'
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
         <Route path='/tickets/:webeventid' component={Tickets} />
         <Route path='/events/:id' component={Event} />
         <Route path='/tba/:id' component={TBAEvent} />
+        <Route path='/tbaevents' component={TBAEventList} />
       </PicaBody>
     </div>
   );
