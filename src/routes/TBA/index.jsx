@@ -50,7 +50,7 @@ export default function TBA (props) {
               <Col xl='5' />
               <Col xl='5' style={{textAlign: 'center'}}>
                 <PicaButton>
-                  <a style={{display: 'inline-flex'}} href='#passInfo'><h4 style={{margin: '12px 12px 12px 12px'}}>BUY PASSES AND TICKETS &rarr;</h4></a>
+                  <a style={{display: 'inline-flex'}} href='#passInfo'><h4 style={{margin: '12px 12px 12px 12px'}}>BUY PASSES & TICKETS &rarr;</h4></a>
                 </PicaButton>
               </Col>
               <Col xl='2' />
