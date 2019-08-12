@@ -8,7 +8,7 @@ import PicaBody from './components/PicaBody'
 
 import TBA from './routes/TBA'
 import TBAEvent from './routes/TBAEvent'
-import TBAEventList from './routes/EventList'
+import EventList from './routes/EventList'
 
 function App() {
   return (
