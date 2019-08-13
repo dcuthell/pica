@@ -47,7 +47,7 @@ export default function TBA (props) {
 			</Col>
 			<Col xs={{size: '10', offset: '1'}}>
 				<ul className="taskList">
-					<li><a href='#bxo'>Get Tickets &amp; Passes &rarr;</a></li>
+					<li><a href='#bxo'>Buy Tickets &amp; Passes &rarr;</a></li>
 					<li><a href="https://drive.google.com/file/d/18TZ-KhumkqYhZ_yJQQFVZKKVDx4C7sbB/view" target="_new">Explore Catalog &rarr;</a></li>
 				</ul>
 			</Col>
@@ -109,14 +109,14 @@ export default function TBA (props) {
 		<Row>
             <Col xs={{size: '10', offset: '1'}}>
 				<ul className="taskList">
-					<li><a href='https://www.pica.org/tickets/tba19/details'>Purchase a Festival Pass &rarr;</a></li>
-					<li><a href="https://system.spektrix.com/pica/website/EventList.aspx?MonthSelect=20199&SortBy=Date" target="_new">Get Tickets &rarr;</a></li>
+					<li><a href='https://www.pica.org/tickets/tba19/details'>Buy a Festival Pass &rarr;</a></li>
+					<li><a href="https://system.spektrix.com/pica/website/EventList.aspx?MonthSelect=20199&SortBy=Date" target="_new">Buy Tickets &rarr;</a></li>
 					<li><a href="#faq">FAQ &rarr;</a></li>
 				</ul>
 			</Col>
 			<Col lg={{size: '7', offset: '4'}} xs={{size:'10', offset:'1'}}>
 				<h2>Late Night Pass</h2>
-                <p><span>$48 Member/$60 General&nbsp;</span> All-access to Late-Night shows.</p>
+                <p><span>$48 Member/$60 General&nbsp;</span> All-access to Late Night shows.</p>
 
                 <h2>Enthusiast Pass</h2>
                 <p><span>$120 Member/$150 General&nbsp;</span> Tickets to six (6) mainstage performances of your choice plus all-access to exhibitions, Institute programs, and Late Night.*</p>
@@ -128,7 +128,7 @@ export default function TBA (props) {
                 <p><span>$500 ($250 tax deductible)&nbsp;</span> Priority admission to all performances, festival concierge service, and unlimited access to exhibitions, Institute programs, and Late Night.</p>
                 
                 <PicaButton>
-                  <a style={{display: 'inline-flex'}} href='https://www.pica.org/tickets/tba19/details'>PURCHASE A FESTIVAL PASS &rarr;</a>
+                  <a style={{display: 'inline-flex'}} href='https://www.pica.org/tickets/tba19/details'>Buy a Festival Pass &rarr;</a>
                 </PicaButton>
                 
                 <p><small><br />* Reservations are strongly recommended to guarantee seating for all performances, including those that are free. Please see the FAQ below for more information or contact the TBA Box Office at 503-&#x2060;244-&#x2060;PICA (7422).</small></p>
