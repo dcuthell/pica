@@ -265,3 +265,11 @@ img[height="25px"] {
 		max-height: 10vh;
 	}
 }
+
+.ticketButton {
+	background-color: yellow;
+}
+
+.ticketButton :hover {
+	background-color: inherit;
+}
