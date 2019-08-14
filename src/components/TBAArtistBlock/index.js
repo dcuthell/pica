@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
-import PicaButton from '../PicaButton'
-
 
 import styles from './styles.module.css'
 
@@ -75,7 +73,7 @@ class TBAArtistBlock extends Component {
         if(index === 0){
           artistNames += (artist.name)
         } else {
-          artistNames += (' & ' + artist.name)
+          artistNames += (' and ' + artist.name)
         }
       })
       return(
@@ -130,7 +128,7 @@ class TBAArtistBlock extends Component {
   renderPhotos() {
     if (this.props.galleryItems[0]) {
       const photos = this.props.galleryItems.map((item, index) =>
-        <img key={index} style={{height: '400px', margin: 'auto'}} src={'https://media.graphcms.com/' + item.media.handle} alt={'image ' + index} title={item.media.photoCredit ? 'Photo Credit: ' + item.media.photoCredit : 'PICA - TBA 2019'} />
+        <img key={index} style={{height: '100%', width: 'auto', margin: 'auto'}} src={'https://media.graphcms.com/' + item.media.handle} alt={'image ' + index} title={item.media.photoCredit ? 'Photo: ' + item.media.photoCredit : 'Courtesy of the artist'} />
       )
       return (
         photos
@@ -138,35 +136,16 @@ class TBAArtistBlock extends Component {
     }
   }
 
-  renderTicketButton(){
-    if(this.props.webEventId){
-      return(
-        <div style={{width: '400px', display: 'inline-flex', textAlign: 'center'}}>
-          <PicaButton style={{margin: '0px'}}>
-            <a style={{display: 'inline-flex'}} href={'https://www.pica.org/tickets/' + this.props.webEventId + '/details'}><h4 style={{margin: '12px 12px 12px 12px'}}>TICKETS &#x2192;</h4></a>
-          </PicaButton>
-        </div>
-      )
-    }
-  }
-  /* The TBAArtistBlock returns in 4 parts.
-  The first is the block as appears on the TBA page on desktop: TBAArtistBlock
-  The second is the block as appears on the TBA page on mobile: TBAArtistBlockMobile
-  The third is the modal that pops up to display youtube or vimeo videos: videoModal
-  The fourth is the artist overlay that appears when clicking the block: artistOverlay
-   */
   render() {
     return (
-      <div style={{width: '100%', overflow: 'hidden'}} className='TBAArtistBlock'>
+      <div className={'TBAArtistBlock_wrap'}>
         <div className={styles.TBAArtistBlock}>
-          <div className='d-flex align-items-center' style={{textAlign: 'center', width: '95%', border: '2px solid white', margin: 'auto', backgroundImage: 'url(https://media.graphcms.com//' + this.props.galleryItems[0].media.handle + ')', backgroundPosition: 'center center', backgroundSize: 'cover'}}>
-
-          </div>
-          <div style={{width: '95%', margin: '0.25em auto', position: 'relative'}}>
-            <h4 style={{margin: '0px'}}>{this.renderArtistNames()}</h4>
-            <h4 style={{textTransform: 'uppercase'}}>{this.props.eventName}</h4>
-          </div>
-          <Link to={'/' + this.props.route} className={styles.overlay}/>
+          <div className='d-flex align-items-center' style={{backgroundImage: 'url(https://media.graphcms.com//' + this.props.galleryItems[0].media.handle + ')'}} />
+          <dl>
+            <dt>{this.renderArtistNames()}</dt>
+            <dd>{this.props.eventName}</dd>
+          </dl>
+          <Link to={'/tba/' + this.props.route} className={styles.overlay}/>
         </div>
         <Link to={'/' + this.props.route} className={styles.TBAArtistBlockMobile}>
           <div className='d-flex align-items-center' style={{textAlign: 'center', height: '135px', width: '135px', border: '2px solid white', margin: 'auto'}}>
@@ -180,6 +159,7 @@ class TBAArtistBlock extends Component {
           </div>
         </Link>
       </div>
+      
     )
   }
 }
@@ -199,7 +179,6 @@ TBAArtistBlock.defaultProps = {
 TBAArtistBlock.propTypes = {
   eventName: PropTypes.string,
   eventDate: PropTypes.string,
-  webEventId: PropTypes.string,
   artistName: PropTypes.string,
   detailsShort: PropTypes.string,
   detailsLong: PropTypes.string,

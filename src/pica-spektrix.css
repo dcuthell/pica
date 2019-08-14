@@ -48,7 +48,7 @@ address,article,big,blockquote,body,button,canvas,caption,cite,dd,div,dl,dt,fiel
 }
 
 .SpektrixPage {
-  padding: 0px 10px 30px 10px;
+  padding: 0 0 30px 0;
 }
 
 .SpektrixFooter {
@@ -226,7 +226,6 @@ h2.EditTicketsHeading .EventName {
   .Progress .Current {
     color: #000;
     font-weight: 500;
-  }
   }
 
   form .Container select {
@@ -1115,7 +1114,9 @@ body .MyAccount .Options ul li a.Selected:hover {
     background-color: #111
 }
 .EventsList .WhatsOnHeading {
-    display: block
+    display: block;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
 }
 .EventsList .MonthList li,
 .EventsCalendar .MonthList li {
@@ -1134,6 +1135,12 @@ body .MyAccount .Options ul li a.Selected:hover {
     vertical-align: middle;
     color: black;
     text-decoration: none;
+    line-height: 1.5em;
+    padding: 0 0.5em;
+    margin-left: -0.5em;
+}
+.EventsList .MonthList li a.Selected {
+    background-color: #fff100;
 }
 .MonthList.LinkList {
 	list-style: none;
@@ -1153,14 +1160,19 @@ body .MyAccount .Options ul li a.Selected:hover {
     display: block;
     padding: 0 0 5px 0;
     margin-bottom: 20px;
-	font-style: italic;
+    font-style: italic;
+    color: #a8abb0;
 }
 .EventsList .Events {
-    clear: both
+    clear: both;
+    display: flex;
+    flex-wrap: wrap;
 }
 .EventsList .Event {
     border-bottom: 1px solid #c0c0c0;
-    margin-bottom: 8px
+    margin-bottom: 8px;
+    display: block;
+    width: 100%;
 }
 .EventsList .Event .Event_Image {
     display: inline-block;
@@ -1176,30 +1188,43 @@ body .MyAccount .Options ul li a.Selected:hover {
     display: inline
 }
 .EventsList .Event .Event_Text {
-    display: inline-block;
+    display: inline-flex;
     padding-bottom: 8px;
     width: 77%;
     vertical-align: middle;
-    margin: 0
+    margin: 0;
+    flex-wrap: wrap;
 }
 * html .EventsList .Event .Event_Text {
     display: inline
 }
 .EventsList .Event .Event_Text .Event_Detail {
-    display: block
+    display: block;
 }
 .EventsList .Event .Event_Text .Event_Name {
     display: block;
-    margin-bottom: 14px;
-    font-size: 130%
+    margin-bottom: 10px;
+    font-size: 175%;
+    width: 100%;
 }
 .EventsList .Event .Event_Text .Event_Description {
-    margin-bottom: 14px
+    margin-bottom: 14px;
+    text-transform: uppercase;
+    color: gray;
+    width: 100%;
+    order: 1;
+    font-size: 14px;
 }
 .EventsList .Event .Event_Text .Event_Dates {
     color: #222222;
     display: block;
-    margin-bottom: 14px
+    margin-bottom: 14px;
+    /*! position: absolute; */
+    /*! top: 0; */
+    width: 100%;
+    font-size: 18px;
+    order: -1;
+    margin-top: 0.25rem;
 }
 .EventsList .Event .Event_Text .Event_Dates .Dates_Heading {
     display: none
@@ -1897,8 +1922,6 @@ body div.Savings {
     padding-left: 20px;
     padding: 16px 20px 18px;
     background: #fafafa;
-	position: absolute;
-	bottom: 60px;
 }
 body div.Savings h2 {
     margin-top: 0;
@@ -2799,4 +2822,37 @@ ul.spx-sublist-summary {
 .spx-section-container__checkout--start-checkout {
 	margin-bottom: 40px;
 	border-bottom: none;
+}
+
+
+
+/* TBA19 Fixes */
+
+[action*="20199&SortBy=Date"] .Events > div:last-child {
+    order: -1;
+}
+
+[action*="20199&SortBy=Date"] .Events > div:last-child .Event_Text .Event_Dates {
+    display:none;
+}
+
+.EventsList .MonthList li a.selected {
+    background-color: #fff100;
+}
+
+.Event a.More_Info.Event_Detail {
+    order: 4;
+    padding: 0.25rem 0.25rem 0.16rem;
+    background-color: #fff100;
+    text-transform: uppercase;
+    margin-left: -0.25rem;
+    opacity: 0;
+}
+
+.Event a.More_Info.Event_Detail::after {
+    content: " ->";
+}
+
+.Event:hover a.More_Info.Event_Detail {
+    opacity: 1;
 }

@@ -24,7 +24,7 @@ class TBATextReveal extends Component {
         <Col xl='5' />
         <Col xl='5' style={{textAlign: 'center'}}>
           <PicaButton >
-            <h4 onClick={this.handleClick} style={{margin: '12px 12px 12px 12px'}}>FAQS</h4>
+            <h4 onClick={this.handleClick} style={{margin: '12px 12px 12px 12px'}}>FAQS &rarr;</h4>
           </PicaButton>
         </Col>
         <Col xl='2' />
