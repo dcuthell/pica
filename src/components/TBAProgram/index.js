@@ -140,7 +140,7 @@ class TBAProgram extends Component {
   renderTicketButton(){
     if(this.props.webEventId){
       return(
-            <a className={styles.ticketButton} href={'https://www.pica.org/tickets/' + this.props.webEventId + '/details'}>Buy Tickets &rarr;</a>
+            <a className={styles.ticketButton} href={'https://www.pica.org/tickets/' + this.props.webEventId}>Buy Tickets &rarr;</a>
       )
     }
   }
