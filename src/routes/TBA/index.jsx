@@ -110,7 +110,7 @@ export default function TBA (props) {
             <Col xs={{size: '10', offset: '1'}}>
 				<ul className="taskList">
 					<li><a href='https://www.pica.org/tickets/tba19'>Buy a Festival Pass &rarr;</a></li>
-					<li><a href="https://www.pica.org/tickets/eventlist" target="_new">Buy Tickets &rarr;</a></li>
+					<li><a href="https://www.pica.org/eventlist" target="_new">Buy Tickets &rarr;</a></li>
 					<li><a href="#faq">FAQ &rarr;</a></li>
 				</ul>
 			</Col>
