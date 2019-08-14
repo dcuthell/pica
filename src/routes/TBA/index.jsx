@@ -109,8 +109,8 @@ export default function TBA (props) {
 		<Row>
             <Col xs={{size: '10', offset: '1'}}>
 				<ul className="taskList">
-					<li><a href='https://www.pica.org/tickets/tba19/details'>Buy a Festival Pass &rarr;</a></li>
-					<li><a href="https://system.spektrix.com/pica/website/EventList.aspx?MonthSelect=20199&SortBy=Date" target="_new">Buy Tickets &rarr;</a></li>
+					<li><a href='https://www.pica.org/tickets/tba19'>Buy a Festival Pass &rarr;</a></li>
+					<li><a href="https://www.pica.org/tickets/eventlist" target="_new">Buy Tickets &rarr;</a></li>
 					<li><a href="#faq">FAQ &rarr;</a></li>
 				</ul>
 			</Col>
@@ -128,7 +128,7 @@ export default function TBA (props) {
                 <p><span>$500 ($250 tax deductible)&nbsp;</span> Priority admission to all performances, festival concierge service, and unlimited access to exhibitions, Institute programs, and Late Night.</p>
                 
                 <PicaButton>
-                  <a style={{display: 'inline-flex'}} href='https://www.pica.org/tickets/tba19/details'>Buy a Festival Pass &rarr;</a>
+                  <a style={{display: 'inline-flex'}} href='https://www.pica.org/tickets/tba19'>Buy a Festival Pass &rarr;</a>
                 </PicaButton>
                 
                 <p><small><br />* Reservations are strongly recommended to guarantee seating for all performances, including those that are free. Please see the FAQ below for more information or contact the TBA Box Office at 503-&#x2060;244-&#x2060;PICA (7422).</small></p>
