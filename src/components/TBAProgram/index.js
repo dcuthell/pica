@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Modal, ModalHeader, ModalBody } from 'reactstrap'
-import PicaButton from '../PicaButton'
 import { Link } from 'react-router-dom'
 
 import styles from './styles.module.css'
