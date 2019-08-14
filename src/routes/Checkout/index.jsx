@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, Col, Row } from 'reactstrap'
 
-export default function Basket (props) {
+export default function Checkout (props) {
   function scrollup() {
     setTimeout(function() { window.scrollTo(0, 0) }, 100)
   }
@@ -10,7 +10,7 @@ export default function Basket (props) {
     <Container style={{padding: '0', margin: '0px', maxWidth: '100%'}}>
       <Row>
         <Col xl='12' style={{height: '10vh'}}>
-          <h1>Basket</h1>
+          <h1>Checkout</h1>
         </Col>
         <Col xl='12'>
           <div style={{height: '90vh', overflowY: 'scroll'}}>
