@@ -6,14 +6,14 @@ import './App.css'
 import PicaNavBar from './components/PicaNavBar'
 import PicaBody from './components/PicaBody'
 
-import Checkout from './routes/Checkout'
+import Cookies from './routes/Cookies'
 
 function App() {
   return (
     <div className='App'>
       <PicaNavBar/>
       <PicaBody>
-        <Route exact path='/' component={Checkout} />
+        <Route exact path='/' component={Cookies} />
       </PicaBody>
     </div>
   );
