@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, Col, Row } from 'reactstrap'
 
-export default function Basket (props) {
+export default function Donations (props) {
   function scrollup() {
     setTimeout(function() { window.scrollTo(0, 0) }, 100)
   }
