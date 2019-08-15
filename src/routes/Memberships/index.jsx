@@ -10,7 +10,7 @@ export default function Memberships (props) {
     <Container style={{padding: '0', margin: '0px', maxWidth: '100%'}}>
       <Row>
         <Col xl='12' style={{height: '10vh'}}>
-          <h1>Membership</h1>
+          <h1>Memberships</h1>
         </Col>
         <Col xl='12'>
           <div style={{height: '90vh', overflowY: 'scroll'}}>
