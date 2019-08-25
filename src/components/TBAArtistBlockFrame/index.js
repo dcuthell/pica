@@ -90,6 +90,8 @@ class TBAArtistBlockFrame extends Component {
               sortNumber
               media {
                 handle
+                height
+                width
                 photoCredit
               }
             }
