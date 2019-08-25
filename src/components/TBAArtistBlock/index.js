@@ -139,14 +139,11 @@ class TBAArtistBlock extends Component {
   resizeMedia(media) {
     if ((media.width > 800) || (media.height > 800)){
       if(media.width >= media.height){
-        console.log('width' +  media.handle)
         return ('resize=width:800/' + media.handle)
       } else {
-        console.log('height' + media.handle)
         return ('resize=height:800/' + media.handle)
       }
     } else {
-      console.log('none')
       return media.handle
     }
   }
@@ -181,7 +178,7 @@ class TBAArtistBlock extends Component {
 
 TBAArtistBlock.defaultProps = {
   eventName: 'Event Name',
-  eventDate: 'Event Name',
+  eventDate: ['Event Name'],
   title: 'Event Name',
   artistName: 'Event Name',
   detailsShort: `Event Name`,
@@ -193,7 +190,7 @@ TBAArtistBlock.defaultProps = {
 
 TBAArtistBlock.propTypes = {
   eventName: PropTypes.string,
-  eventDate: PropTypes.string,
+  eventDate: PropTypes.array,
   artistName: PropTypes.string,
   detailsShort: PropTypes.string,
   detailsLong: PropTypes.string,

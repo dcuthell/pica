@@ -29,6 +29,8 @@ export default function TBAEvent (props) {
             sortNumber
             media {
               handle
+              height
+              width
               photoCredit
             }
           }
