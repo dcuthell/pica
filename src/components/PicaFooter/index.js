@@ -44,9 +44,8 @@ class PicaFooter extends Component {
             <div className={styles.PicaFooter + ' d-flex justify-content-center'}>
               <div className={styles.FooterColumnLarge}>
                 <img src={logo} alt='logo' />
-                <div style={{position: 'absolute', bottom: '30%', left: '0'}}>
-                  <p style={{fontSize: '12px', paddingLeft: '24px'}}>© 2019 Portland Institute</p>
-                  <p style={{fontSize: '12px', paddingLeft: '42px'}}>for Contemporary Art</p>
+                <div style={{position: 'relative', bottom: '-13%', left: '2%'}}>
+                  <p style={{fontSize: '12px', lineHeight: '14px'}}>© 2019 Portland Institute for Contemporary Art</p>
                 </div>
               </div>
               <div className={styles.FooterColumnLarge}>

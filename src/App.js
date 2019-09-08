@@ -7,7 +7,8 @@ import PicaNavBar from './components/PicaNavBar'
 import PicaBody from './components/PicaBody'
 
 import TBAEvent from './routes/TBAEvent'
-import TBAEventList from './routes/EventList'
+import EventList from './routes/EventList'
+import Blog from './routes/Blog'
 
 /*
   All you need to do is change the string here to the program route

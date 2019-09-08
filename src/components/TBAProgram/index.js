@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Modal, ModalHeader, ModalBody } from 'reactstrap'
-import PicaButton from '../PicaButton'
 
 import styles from './styles.module.css'
 
@@ -42,7 +41,7 @@ class TBAProgram extends Component {
       })
     } else {
       this.setState({
-        thumbnailURL: 'https://media.graphcms.com/' + this.props.galleryItems[0].media.handle
+        thumbnailURL: 'https://media.graphcms.com/' + this.resizeMedia(this.props.galleryItems[0].media)
       })
     }
   }
@@ -74,7 +73,7 @@ class TBAProgram extends Component {
         if(index === 0){
           artistNames += (artist.name)
         } else {
-          artistNames += (' & ' + artist.name)
+          artistNames += (' and ' + artist.name)
         }
       })
       return(
@@ -102,7 +101,7 @@ class TBAProgram extends Component {
   renderVideos() {
     if (this.props.YouTubeId) {
       return (
-        <div className={'d-flex align-items-center'} style={{height: '400px', minWidth: '296px', margin: 'auto', position: 'relative', textAlign: 'center'}}>
+        <div className={'d-flex align-items-center'} style={{minWidth: '296px', margin: 'auto', position: 'relative', textAlign: 'center'}}>
           <div style={{width: '100%', position: 'relative'}}>
             <img src={this.props.YouTubeId ? 'https://i.ytimg.com/vi/' + this.props.YouTubeId + '/mqdefault.jpg' : 'https://www.retirebeforedad.com/wp-content/uploads/2016/07/Banana-Stand-500x372.jpg'} alt='thumbnail' style={{marginTop: '20px', marginBottom: '20px', maxWidth: '100%', maxHeight: '153px', zIndex: 1}} />
             <div onClick={this.toggle} className={styles.videoOverlay}>
@@ -114,7 +113,7 @@ class TBAProgram extends Component {
     }
     if (this.props.VimeoId) {
       return (
-        <div className={'d-flex align-items-center'} style={{height: '400px', minWidth: '296px', margin: 'auto', position: 'relative', textAlign: 'center'}}>
+        <div className={'d-flex align-items-center'} style={{minWidth: '296px', margin: 'auto', position: 'relative', textAlign: 'center'}}>
           <div style={{width: '100%', position: 'relative'}}>
             <img src={this.props.VimeoId ? this.state.thumbnailURL : 'https://www.retirebeforedad.com/wp-content/uploads/2016/07/Banana-Stand-500x372.jpg'} alt='thumbnail' style={{marginTop: '20px', marginBottom: '20px', maxWidth: '100%', maxHeight: '153px', zIndex: 1}} />
             <div onClick={this.toggle} className={styles.videoOverlay}>
@@ -129,7 +128,7 @@ class TBAProgram extends Component {
   renderPhotos() {
     if (this.props.galleryItems[0]) {
       const photos = this.props.galleryItems.map((item, index) =>
-        <img key={index} style={{height: '400px', margin: 'auto'}} src={'https://media.graphcms.com/' + item.media.handle} alt={'image ' + index} title={item.media.photoCredit ? 'Photo Credit: ' + item.media.photoCredit : 'PICA - TBA 2019'} />
+        <img key={index} style={{height: '100%', width: 'auto', margin: 'auto'}} src={'https://media.graphcms.com/' + this.resizeMedia(item.media)} alt={'image ' + index} title={item.media.photoCredit ? 'Photo: ' + item.media.photoCredit : 'Courtesy of the artist'} />
       )
       return (
         photos
@@ -137,14 +136,22 @@ class TBAProgram extends Component {
     }
   }
 
+  resizeMedia(media) {
+    if ((media.width > 800) || (media.height > 800)){
+      if(media.width >= media.height){
+        return ('resize=width:800/' + media.handle)
+      } else {
+        return ('resize=height:800/' + media.handle)
+      }
+    } else {
+      return media.handle
+    }
+  }
+
   renderTicketButton(){
     if(this.props.webEventId){
       return(
-        <div style={{width: '400px', display: 'inline-flex', textAlign: 'center'}}>
-          <PicaButton style={{margin: '0px', backgroundColor: 'yellow'}}>
-            <a style={{display: 'inline-flex'}} href={'https://www.pica.org/tickets/' + this.props.webEventId}><h4 style={{margin: '12px 12px 12px 12px', color: 'black'}}>TICKETS &#x2192;</h4></a>
-          </PicaButton>
-        </div>
+            <a className={styles.ticketButton} href={'https://www.pica.org/tickets/' + this.props.webEventId}>Buy Tickets &rarr;</a>
       )
     }
   }
@@ -157,72 +164,53 @@ class TBAProgram extends Component {
   render() {
     return (
       <div style={{width: '100%'}} className={styles.TBAProgram}>
-        <Modal isOpen={this.state.modal} toggle={this.toggle} className={styles.videoModal} style={{backgroundColor: 'black'}}>
-          <ModalHeader toggle={this.toggle} style={{backgroundColor: 'black', color: 'white'}}>{this.props.eventName + ' - ' + this.props.artistName}</ModalHeader>
-          <ModalBody style={{backgroundColor: 'black'}}>
+        <Modal isOpen={this.state.modal} toggle={this.toggle} className={styles.videoModal} style={{backgroundColor: '#000'}}>
+          <ModalHeader toggle={this.toggle} style={{backgroundColor: '#000', color: '#fff'}}>{this.props.eventName + ' - ' + this.props.artistName}</ModalHeader>
+          <ModalBody style={{backgroundColor: '#000'}}>
             {this.renderIFrame()}
           </ModalBody>
         </Modal>
         <div className={styles.artistOverlay}>
           <div style={{padding: '5vw', overflowX: 'hidden', overflowY: 'scroll', height: 'auto'}}>
             <div id={styles.backButton} style={{display: 'inline-flex'}}>
-              <a href='https://www.pica.org/tba'><h1 style={{color: '#fff100', textAlign: 'left'}}>&#x2190; BACK TO TBA</h1></a>
+              <a href='https://www.pica.org/tba'><h1 style={{color: '#fff100', textAlign: 'left', textTransform: 'uppercase'}}>&larr; Back to TBA</h1></a>
             </div>
-            <hr style={{margin: '0px', borderTop: 'white solid 5px'}} />
-            <div className={styles.imageSlider + ' d-flex flex-row'} style={{height: '400px', width: 'auto', overflowY: 'hidden', overflowX: 'scroll'}}>
+
+            <div className={styles.imageSlider + ' d-flex flex-row'}>
               {this.renderVideos()}
               {this.renderPhotos()}
             </div>
-            <hr style={{margin: '0px', borderTop: 'white solid 5px'}} />
-            <h1>{this.renderArtistNames()}</h1>
-            <h1 style={{textTransform: 'uppercase'}}>{this.props.eventName}</h1>
-            <hr style={{margin: '0px', borderTop: 'white solid 5px'}} />
-            <div style={{display: 'inline-flex'}}>
-              <h4 style={{color: '#B9B9B9', marginRight: '12px'}}>
-                Date
-                <br/>
-                {this.props.runTime ? 'Duration' : ''}
-              </h4>
-              <h4>
-                {this.props.eventDate}
-                <br/>
-                {this.props.runTime ? this.props.runTime : ''}
-              </h4>
-            </div>
-            <hr style={{margin: '0px', borderTop: 'white solid 5px'}} />
-            <div style={{display: 'inline-flex'}}>
-              <h4 style={{color: '#B9B9B9', marginRight: '12px'}}>
-                Venue
-                <br/>
-                Address
-                <br/>
-                {this.props.venue.capacity ? 'Capacity' : ''}
-              </h4>
-              <h4>
-                {this.props.venue.name}
-                <br/>
-                <a target='_blank' rel='noopener noreferrer' href={'https://maps.google.com/?q=' + this.props.venue.address + ' Portland, OR'}>{this.props.venue.address}</a>
-                <br/>
-                {this.props.venue.capacity ? this.props.venue.capacity : ''}
-              </h4>
-            </div>
-            <hr style={{margin: '0px', borderTop: 'white solid 5px'}} />
-            <div style={{display: 'inline-flex'}}>
-              <h4 style={{color: '#B9B9B9', marginRight: '12px'}}>
-                {this.props.price ? 'Price' : ''}
-              </h4>
-              <h4>
-                {this.props.price ? this.props.price : ''}
-              </h4>
-              <br/>
-            </div>
+
+            <hgroup className={styles.TBAArtistHeds}>
+            	{this.renderArtistNames() ? <h1>{this.renderArtistNames()}</h1> : null}
+				      <h1>{this.props.eventName}</h1>
+			      </hgroup>
+
             {this.renderTicketButton()}
-            <hr style={{margin: '0px', borderTop: 'white solid 5px'}} />
-            <h4>{this.props.detailsShort}</h4>
-            <div dangerouslySetInnerHTML={{ __html: this.props.detailsLong }} />
-            <hr style={{margin: '0px', borderTop: 'white solid 5px'}} />
+
+            <div className={styles.showInfo}>
+              <dl>
+                <dt>Date</dt>
+                <dd>{this.props.eventDate}</dd>
+              </dl>
+              <dl>
+                <dt>Location</dt>
+                <dd>{this.props.venue.name}, <a target='_blank' rel='noopener noreferrer' href={'https://maps.google.com/?q=' + this.props.venue.address + ' Portland, OR'}>{this.props.venue.address}</a></dd>
+              </dl>
+              <dl>{this.props.price ? <dt>Ticket</dt> : <dt>Free</dt> } {this.props.price ? <dd>{this.props.price}</dd> : ''}</dl>
+              <dl>            	
+                <dl>{this.props.runTime ? <dt>Run Time</dt> : null}{this.props.runTime ? <dd>{this.props.runTime}</dd> : null}</dl>
+                <dl>{this.props.venue.capacity ? <dt>Capacity</dt> : null}{this.props.venue.capacity ? <dd>{this.props.venue.capacity}</dd> : null}</dl>
+              </dl>
+            </div>
+
+            <p className={styles.lede}>{this.props.detailsShort}</p>
+            <div className={styles.detailsLong} dangerouslySetInnerHTML={{ __html: this.props.detailsLong }} />
+
+            <hr style={{margin: '3vh 0', borderTop: '2px solid #fff'}} />
+
             <div id={styles.backButton} onClick={this.toggle2} style={{display: 'inline-flex'}}>
-              <a href='https://www.pica.org/tba'><h1 style={{color: '#fff100', textAlign: 'left'}}>&#x2190; BACK TO TBA</h1></a>
+              <a href='https://www.pica.org/tba'><h1 style={{color: '#fff100', textAlign: 'left', textTransform: 'uppercase'}}>&larr; Back to TBA</h1></a>
             </div>
           </div>
         </div>
@@ -233,11 +221,11 @@ class TBAProgram extends Component {
 
 TBAProgram.defaultProps = {
   eventName: 'Event Name',
-  eventDate: 'TBD',
-  title: 'Rice is dope',
-  artistName: 'Bob Miller',
-  detailsShort: `...resting in the sweet cocoon of knowledge that I'm pretty sure I was her first, and that she would remember this night for a long, loong time...and that eventually, she would have to seek therapy...`,
-  detailsLong: `...resting in the sweet cocoon of knowledge that I'm pretty sure I was her first, and that she would remember this night for a long, loong time...and that eventually, she would have to seek therapy......resting in the sweet cocoon of knowledge that I'm pretty sure I was her first, and that she would remember this night for a long, loong time...and that eventually, she would have to seek therapy......resting in the sweet cocoon of knowledge that I'm pretty sure I was her first, and that she would remember this night for a long, loong time...and that eventually, she would have to seek therapy...`,
+  eventDate: ['Event Name'],
+  title: 'Event Name',
+  artistName: 'Event Name',
+  detailsShort: `Event Name`,
+  detailsLong: `Event Name`,
   YouTubeId: '',
   VimeoId: '',
   galleryItems: []
@@ -245,7 +233,7 @@ TBAProgram.defaultProps = {
 
 TBAProgram.propTypes = {
   eventName: PropTypes.string,
-  eventDate: PropTypes.string,
+  eventDate: PropTypes.array,
   webEventId: PropTypes.string,
   artistName: PropTypes.string,
   detailsShort: PropTypes.string,

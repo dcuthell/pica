@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
-import PicaButton from '../PicaButton'
-
 
 import styles from './styles.module.css'
 
@@ -12,40 +10,11 @@ class TBAArtistBlock extends Component {
     this.state = {
       modal: false,
       artistOverlay: false,
-      thumbnailURL: ''
+      thumbnailURL: 'https://media.graphcms.com/' + this.resizeMedia(this.props.galleryItems[0].media)
     }
     this.toggle = this.toggle.bind(this)
     this.toggle2 = this.toggle2.bind(this)
     this.renderIFrame = this.renderIFrame.bind(this)
-  }
-
-  componentWillMount() {
-    if ((!this.props.YouTubeId) && (this.props.VimeoId)) {
-      fetch('https://vimeo.com/api/oembed.json?url=https://vimeo.com/' + this.props.VimeoId)
-        .then(res => res.json())
-        .then(
-          (result) => {
-            console.log(result)
-            this.setState({thumbnailURL: result.thumbnail_url})
-          },
-          (error) => {
-            if (error) {
-              console.log(error)
-            }
-            this.setState({
-              urls: ['error']
-            })
-          }
-        )
-    } else if (this.props.YouTubeId) {
-      this.setState({
-        thumbnailURL: 'https://i.ytimg.com/vi/' + this.props.YouTubeId + '/mqdefault.jpg'
-      })
-    } else {
-      this.setState({
-        thumbnailURL: 'https://media.graphcms.com/' + this.props.galleryItems[0].media.handle
-      })
-    }
   }
 
   handleShort(string) {
@@ -75,7 +44,7 @@ class TBAArtistBlock extends Component {
         if(index === 0){
           artistNames += (artist.name)
         } else {
-          artistNames += (' & ' + artist.name)
+          artistNames += (' and ' + artist.name)
         }
       })
       return(
@@ -130,47 +99,40 @@ class TBAArtistBlock extends Component {
   renderPhotos() {
     if (this.props.galleryItems[0]) {
       const photos = this.props.galleryItems.map((item, index) =>
-        <img key={index} style={{height: '400px', margin: 'auto'}} src={'https://media.graphcms.com/' + item.media.handle} alt={'image ' + index} title={item.media.photoCredit ? 'Photo Credit: ' + item.media.photoCredit : 'PICA - TBA 2019'} />
+        <img key={index} style={{height: '100%', width: 'auto', margin: 'auto'}} src={'https://media.graphcms.com/' + this.resizeMedia(item.media)} alt={'image ' + index} title={item.media.photoCredit ? 'Photo: ' + item.media.photoCredit : 'Courtesy of the artist'} />
       )
       return (
         photos
       )
     }
   }
-
-  renderTicketButton(){
-    if(this.props.webEventId){
-      return(
-        <div style={{width: '400px', display: 'inline-flex', textAlign: 'center'}}>
-          <PicaButton style={{margin: '0px'}}>
-            <a style={{display: 'inline-flex'}} href={'https://www.pica.org/tickets/' + this.props.webEventId + '/details'}><h4 style={{margin: '12px 12px 12px 12px'}}>TICKETS &#x2192;</h4></a>
-          </PicaButton>
-        </div>
-      )
+  //Resizes image if height or width exceeds 800, returns resize + handle
+  resizeMedia(media) {
+    if ((media.width > 800) || (media.height > 800)){
+      if(media.width >= media.height){
+        return ('resize=width:800/' + media.handle)
+      } else {
+        return ('resize=height:800/' + media.handle)
+      }
+    } else {
+      return media.handle
     }
   }
-  /* The TBAArtistBlock returns in 4 parts.
-  The first is the block as appears on the TBA page on desktop: TBAArtistBlock
-  The second is the block as appears on the TBA page on mobile: TBAArtistBlockMobile
-  The third is the modal that pops up to display youtube or vimeo videos: videoModal
-  The fourth is the artist overlay that appears when clicking the block: artistOverlay
-   */
+
   render() {
     return (
-      <div style={{width: '100%', overflow: 'hidden'}} className='TBAArtistBlock'>
+      <div className={'TBAArtistBlock_wrap'}>
         <div className={styles.TBAArtistBlock}>
-          <div className='d-flex align-items-center' style={{textAlign: 'center', width: '95%', border: '2px solid white', margin: 'auto', backgroundImage: 'url(https://media.graphcms.com//' + this.props.galleryItems[0].media.handle + ')', backgroundPosition: 'center center', backgroundSize: 'cover'}}>
-
-          </div>
-          <div style={{width: '95%', margin: '0.25em auto', position: 'relative'}}>
-            <h4 style={{margin: '0px'}}>{this.renderArtistNames()}</h4>
-            <h4 style={{textTransform: 'uppercase'}}>{this.props.eventName}</h4>
-          </div>
-          <Link to={'/' + this.props.route} className={styles.overlay}/>
+          <div className='d-flex align-items-center' style={{backgroundImage: 'url(https://media.graphcms.com/' + this.resizeMedia(this.props.galleryItems[0].media) + ')'}} />
+          <dl>
+            <dt>{this.renderArtistNames()}</dt>
+            <dd>{this.props.eventName}</dd>
+          </dl>
+          <Link to={'/tba/' + this.props.route} className={styles.overlay}/>
         </div>
         <Link to={'/' + this.props.route} className={styles.TBAArtistBlockMobile}>
           <div className='d-flex align-items-center' style={{textAlign: 'center', height: '135px', width: '135px', border: '2px solid white', margin: 'auto'}}>
-            <img src={this.props.galleryItems[0].media.handle ? 'https://media.graphcms.com/' + this.props.galleryItems[0].media.handle : 'https://www.retirebeforedad.com/wp-content/uploads/2016/07/Banana-Stand-500x372.jpg'}
+            <img src={this.props.galleryItems[0].media.handle ? 'https://media.graphcms.com/' + this.resizeMedia(this.props.galleryItems[0].media) : 'https://www.retirebeforedad.com/wp-content/uploads/2016/07/Banana-Stand-500x372.jpg'}
               alt='thumbnail'
               style={{margin: 'auto', maxWidth: '100%', maxHeight: '100%', zIndex: 1}} />
           </div>
@@ -180,17 +142,18 @@ class TBAArtistBlock extends Component {
           </div>
         </Link>
       </div>
+      
     )
   }
 }
 
 TBAArtistBlock.defaultProps = {
   eventName: 'Event Name',
-  eventDate: 'TBD',
-  title: 'Rice is dope',
-  artistName: 'Bob Miller',
-  detailsShort: `...resting in the sweet cocoon of knowledge that I'm pretty sure I was her first, and that she would remember this night for a long, loong time...and that eventually, she would have to seek therapy...`,
-  detailsLong: `...resting in the sweet cocoon of knowledge that I'm pretty sure I was her first, and that she would remember this night for a long, loong time...and that eventually, she would have to seek therapy......resting in the sweet cocoon of knowledge that I'm pretty sure I was her first, and that she would remember this night for a long, loong time...and that eventually, she would have to seek therapy......resting in the sweet cocoon of knowledge that I'm pretty sure I was her first, and that she would remember this night for a long, loong time...and that eventually, she would have to seek therapy...`,
+  eventDate: ['Event Name'],
+  title: 'Event Name',
+  artistName: 'Event Name',
+  detailsShort: `Event Name`,
+  detailsLong: `Event Name`,
   YouTubeId: '',
   VimeoId: '',
   galleryItems: []
@@ -198,8 +161,7 @@ TBAArtistBlock.defaultProps = {
 
 TBAArtistBlock.propTypes = {
   eventName: PropTypes.string,
-  eventDate: PropTypes.string,
-  webEventId: PropTypes.string,
+  eventDate: PropTypes.array,
   artistName: PropTypes.string,
   detailsShort: PropTypes.string,
   detailsLong: PropTypes.string,

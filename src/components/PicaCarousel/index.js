@@ -130,7 +130,7 @@ class PicaCarousel extends Component {
                 key={index}
                 title={heroSlide.title}
                 date={heroSlide.date}
-                image={'https://media.graphcms.com/' + heroSlide.image.handle}
+                image={'https://media.graphcms.com/resize=width:800/' + heroSlide.image.handle}
                 buttonText={heroSlide.buttonText}
                 buttonLink={heroSlide.buttonLink}
                 description={heroSlide.description}

@@ -7,7 +7,6 @@ import gql from 'graphql-tag'
 import TBAProgram from '../../components/TBAProgram'
 
 export default function TBAEvent (props) {
-  console.log(props.match.params.id)
   const GET_CONTENT = gql`
     query FindProgramByRoute($route : String){
       programs (where: {route: $route}){
@@ -29,6 +28,8 @@ export default function TBAEvent (props) {
             sortNumber
             media {
               handle
+              height
+              width
               photoCredit
             }
           }
