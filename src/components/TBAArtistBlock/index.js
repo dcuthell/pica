@@ -10,40 +10,11 @@ class TBAArtistBlock extends Component {
     this.state = {
       modal: false,
       artistOverlay: false,
-      thumbnailURL: ''
+      thumbnailURL: 'https://media.graphcms.com/' + this.resizeMedia(this.props.galleryItems[0].media)
     }
     this.toggle = this.toggle.bind(this)
     this.toggle2 = this.toggle2.bind(this)
     this.renderIFrame = this.renderIFrame.bind(this)
-  }
-
-  componentWillMount() {
-    if ((!this.props.YouTubeId) && (this.props.VimeoId)) {
-      fetch('https://vimeo.com/api/oembed.json?url=https://vimeo.com/' + this.props.VimeoId)
-        .then(res => res.json())
-        .then(
-          (result) => {
-            console.log(result)
-            this.setState({thumbnailURL: result.thumbnail_url})
-          },
-          (error) => {
-            if (error) {
-              console.log(error)
-            }
-            this.setState({
-              urls: ['error']
-            })
-          }
-        )
-    } else if (this.props.YouTubeId) {
-      this.setState({
-        thumbnailURL: 'https://i.ytimg.com/vi/' + this.props.YouTubeId + '/mqdefault.jpg'
-      })
-    } else {
-      this.setState({
-        thumbnailURL: 'https://media.graphcms.com/' + this.resizeMedia(this.props.galleryItems[0].media)
-      })
-    }
   }
 
   handleShort(string) {

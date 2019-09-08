@@ -23,6 +23,7 @@ import Merchandise from './routes/Merchandise'
 import Event from './routes/Event'
 import TBAEvent from './routes/TBAEvent'
 import EventList from './routes/EventList'
+import Blog from './routes/Blog'
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
         <Route path='/events/:id' component={Event} />
         <Route path='/tba/:id' component={TBAEvent} />
         <Route path='/eventlist' component={EventList} />
+        <Route path='/blog' component={Blog} />
       </PicaBody>
     </div>
   );
