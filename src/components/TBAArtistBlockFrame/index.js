@@ -90,6 +90,8 @@ class TBAArtistBlockFrame extends Component {
               sortNumber
               media {
                 handle
+                height
+                width
                 photoCredit
               }
             }
@@ -112,7 +114,7 @@ class TBAArtistBlockFrame extends Component {
       <Query query={GET_CONTENT} variables={{"tagName" : this.state.tagName}}>
         {({ loading, error, data }) => {
           if (loading) return (
-            <h1>Loading...</h1>
+            <h1 style={{textAlign: 'center', width: '100%', color: '#fff100', lineHeight: '100vh', textTransform: 'uppercase'}}>Loading&hellip;</h1>
           )
           if (error) return `Error! ${error.message}`
           let programs = data.tags[0].programs
@@ -156,7 +158,7 @@ class TBAArtistBlockFrame extends Component {
           if (list.length === 0){
             list = (
               <Col xs='6' xl='4'>
-                <h1>No events of this type have been scheduled, check back in soon!</h1>
+                <h1>No events of this type have been scheduled.</h1>
               </Col>
             )
           }
@@ -170,9 +172,6 @@ class TBAArtistBlockFrame extends Component {
                   <TBADateSelector setDate={this.setDate}/>
                 </Col>
                 {list}
-                <Col xl='4'>
-                  <h1>Individual Ticket Sales Opening Soon!</h1>
-                </Col>
               </Row>
             </Container>
           )

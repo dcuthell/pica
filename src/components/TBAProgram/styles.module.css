@@ -1,5 +1,9 @@
 .TBAProgram {
 	text-align: left;
+	color: #fff;
+}
+a:hover {
+	color: #fff100;
 }
 .overlay {
 	opacity: 0;
@@ -7,7 +11,7 @@
 	top: 0;
 	left: 0;
 	z-index: 2;
-	background-color: purple;
+	background-color: transparent;
 	width: 100%;
 	height: 100%;
 }
@@ -77,6 +81,7 @@
 }
 
 .TBAArtistBlock {
+	overflow: hidden;
 }
 
 .TBAArtistBlockMobile {
@@ -93,39 +98,173 @@
 	left: 240px;
 	overflow-y: scroll;
 	white-space: pre-wrap;
+	cursor: initial;
 }
-
-.artistOverlay h1, .artistOverlay h3, .artistOverlay h4, .artistOverlay p{
+.TBAArtistBlock .artistOverlay:hover, 
+.TBAArtistBlock .artistOverlay:hover dl {
 	color: white;
 }
-
-#backButton :hover {
-	cursor: pointer;
-	text-decoration: underline;
+.artistOverlay p {
+	max-width: 80%;
+	font-size: 1.75rem;
+	line-height: 2rem;
 }
 
-@media (max-width: 576px) {
-	.TBAArtistBlock {
-		display: none;
-	}
+.artistOverlay p.lede {
+	font-size: 2.5rem;
+	line-height: 2.75rem;
+	margin:0 0 1em 0;
+	padding:0;
+}
+hgroup.TBAArtistHeds {
+	margin-bottom: 7vh;
+}
+hgroup.TBAArtistHeds h1:first-child {
+	text-transform: uppercase; 
+	font-size: 3.5rem; 
+	line-height: 3.5rem; 
+	margin-top: 2rem; 
+	max-width: 70vw;
+}
+hgroup.TBAArtistHeds h1:nth-child(2) {
+	font-size: 2.5rem;
+	line-height: 2.5rem;
+	margin-bottom: 6rem;
+}
+.ticketButton,
+.ticketButton:hover {
+	color: #fff100;
+	font-size: 2.5rem;
+}
+.showInfo {
+	margin: 1rem 0 2rem;
+}
+.showInfo dl {
+	color:#fff;
+	border-bottom: 2px solid white;
+	width: 100%;
+	font-size: 1.75rem;
+	line-height: 2rem;
+	min-height:2rem;
+	margin: -0.1rem 0 0.4rem;
+	display: inline-flex;
+}
+.showInfo dl:hover, 
+.showInfo dl a {
+	color:#fff;
+}
+.showInfo dt {
+	opacity: 0.55; 
+	font-weight: normal; 
+	display:inline-block; 
+	margin-right: 0.35em; 
+	line-height: 2rem;
+}
+.showInfo dd {
+	display:inline-block; 
+	padding-right: 2em; 
+	margin:0; 
+	line-height: 2rem;
+}
+.showInfo dl > dl {
+	border-bottom: none;
+	margin:0;
+}
+dl:empty {display:none;}
 
-	.TBAArtistBlockMobile {
-		display: block;
+#backButton:hover {
+	cursor: pointer;
+	text-decoration: underline;
+	color: #fff100;
+}
+.ticketButton, .ticketButton:hover {
+	color: #fff100;
+	font-size: 2.5rem;
+}
+img.css-1pmpp80,
+.detailsLong > img {
+    filter: grayscale(1);
+    max-height: 5vw;
+    width: auto;
+    display: inline-block;
+    margin: 0 1em 0 0;
+    background-color: #fff;
+    padding: 1em;
+}
+img[height="25px"] {
+    filter: none !important;
+    background-color: transparent;
+    padding: 0;
+}
+.detailsLong a {
+	color:#fff100;
+}
+
+.imageSlider {
+	height: 40vh;
+	width: calc(100vw - 240px);
+	overflow-y: hidden;
+	overflow-x: scroll;
+	position: relative;
+	left: -5vw;
+	border-top: 2px solid white;
+	border-bottom: 2px solid white;
+}
+				
+.imageSlider img:last-child {margin-right: 15vw;}
+
+/******** BREAKPOINT-A-PALOOZA *********/
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+	/* breakpoint-lg */
+		html { font-size: 80%; }
 	}
+@media screen and (min-width: 768px) and (max-width: 991px) {
+/* breakpoint-md */
+	html { font-size: 70%; }
+	.collapsible-md {display:none !important;}
+}
+@media screen and (min-width: 576px) and (max-width: 767px) {
+/* breakpoint-sm */
+	html { font-size: 60%; }
+	.collapsible-md {display:none !important;}
+	.TBA_new section#programs .row {margin-left: 0; margin-right: 0;}
+}
+@media screen and (max-width: 575px) {
+/* breakpoint-xs */
+	html { font-size: 60%; }
+	.collapsible-xs, .collapsible-md {display:none !important;}
+	.TBA_new.container {width: 100vw;}
+	
+	.TBA_new header {background-size: cover !important; height: 80vh;}
+	.TBA_new ul.sprockets {margin-right: 5vw;}
+	
+	.TBA_new section#overview, .TBA_new section#programs, .TBA_new section#bxo {padding: 5vh 0;}
+	
+	.TBA_new section#programs .row {margin-left: 0; margin-right: 0;}
+}
+	
+
+
+@media (max-width: 576px) {
+
 	.artistOverlay {
 		height: calc(100vh - 20px);
 		width: 100vw;
 		position: fixed;
 		top: 20px;
-		left: 0px;
-		padding-bottom: 40px;
+		left: 0;
+		padding: 4vh 0 10vh;
 	}
-}
-
-.ticketButton {
-	background-color: yellow;
-}
-
-.ticketButton :hover {
-	background-color: inherit;
+	
+	.artistOverlay p {
+		max-width: 100%;
+	}
+	
+	.imageSlider {
+		width: 100vw;
+	}
+	
+	img.css-1pmpp80 {
+		max-height: 10vh;
+	}
 }
