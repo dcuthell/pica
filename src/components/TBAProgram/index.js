@@ -174,7 +174,7 @@ class TBAProgram extends Component {
         <div className={styles.artistOverlay}>
           <div style={{padding: '5vw', overflowX: 'hidden', overflowY: 'scroll', height: 'auto'}}>
             <div id={styles.backButton} style={{display: 'inline-flex'}}>
-              <Link to='/tba'><h1 style={{color: '#fff100', textAlign: 'left', textTransform: 'uppercase'}}>&larr; Back to TBA</h1></Link>
+              <Link to='/'><h1 style={{color: '#fff100', textAlign: 'left', textTransform: 'uppercase'}}>&larr; Back to TBA</h1></Link>
             </div>
 
             <div className={styles.imageSlider + ' d-flex flex-row'}>
@@ -211,7 +211,7 @@ class TBAProgram extends Component {
             <hr style={{margin: '3vh 0', borderTop: '2px solid #fff'}} />
 
             <div id={styles.backButton} onClick={this.toggle2} style={{display: 'inline-flex'}}>
-              <Link to='/tba'><h1 style={{color: '#fff100', textAlign: 'left', textTransform: 'uppercase'}}>&larr; Back to TBA</h1></Link>
+              <Link to='/'><h1 style={{color: '#fff100', textAlign: 'left', textTransform: 'uppercase'}}>&larr; Back to TBA</h1></Link>
             </div>
           </div>
         </div>

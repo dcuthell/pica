@@ -128,7 +128,7 @@ class TBAArtistBlock extends Component {
             <dt>{this.renderArtistNames()}</dt>
             <dd>{this.props.eventName}</dd>
           </dl>
-          <Link to={'/tba/' + this.props.route} className={styles.overlay}/>
+          <Link to={this.props.route} className={styles.overlay}/>
         </div>
         <Link to={'/' + this.props.route} className={styles.TBAArtistBlockMobile}>
           <div className='d-flex align-items-center' style={{textAlign: 'center', height: '135px', width: '135px', border: '2px solid white', margin: 'auto'}}>
