@@ -27,7 +27,7 @@ export default function Blog (props) {
         </Col>
         <Col xl='12'>
           <h1>STUFF</h1>
-          <spektrix-basket-item-count></spektrix-basket-item-count>
+          <spektrix-logged-in-status show-first-name='true'></spektrix-logged-in-status>
         </Col>
       </Row>
     </Container>
