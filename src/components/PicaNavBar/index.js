@@ -70,8 +70,9 @@ class PicaNavBar extends Component {
             <img src={logo} alt='logo' id={styles.menuLogo} />
           </a>
           <div className={styles.menuOptions}>
-            <a onClick={this.closeNav} href='https://www.pica.org/basket/'><i className='fas fa-shopping-basket' /></a>
-            <a onClick={this.closeNav} href='https://www.pica.org/account/'><i className='fas fa-user' /></a>
+            <a onClick={this.closeNav} href='https://www.pica.org/account/'>Account / Login<i className='fas fa-user' /></a>
+            <br/>
+            <a onClick={this.closeNav} href='https://www.pica.org/basket/'>Cart<i className='fas fa-shopping-basket' /></a>
             <a href='https://www.pica.org/tba/'><p>TBA Festival</p></a>
             {/*<a href='https://www.pica.org/events'><p>Events</p></a>*/}
             <a href='https://www.pica.org/artists/'><p>Artists & Archive</p></a>
