@@ -3,14 +3,22 @@ import { Container, Col, Row } from 'reactstrap'
 
 function importSpektrix() {
   const tag = document.createElement('script')
-  const link = docum
+  const link = document.createElement('link')
+
   tag.async = false
   tag.src = 'https://system.spektrix.com/pica/api/v3/webcomponents/js'
 
+  link.rel = 'import'
+  link.href = 'https://system.spektrix.com/pica/api/v3/webcomponents/html'
+  link.crossOrigin = 'use-credentials'
+
+  document.body.appendChild(tag)
+  document.body.appendChild(link)
 
 }
 
 export default function Blog (props) {
+  importSpektrix()
   return (
     <Container style={{padding: '0', margin: '0px', maxWidth: '100%'}}>
       <Row>
@@ -19,8 +27,8 @@ export default function Blog (props) {
         </Col>
         <Col xl='12'>
           <h1>STUFF</h1>
+          <spektrix-basket-item-count></spektrix-basket-item-count>
         </Col>
-        <spektrix-basket-item-count></spektrix-basket-item-count>
       </Row>
     </Container>
   )
