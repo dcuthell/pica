@@ -1023,6 +1023,7 @@ export default function Support (props) {
           <div style={{height: '100%', backgroundColor: 'white'}}>
             <h1>Support</h1>
             <p>PICA believes everyone should have access to contemporary art. We strive to keep ticket prices low and provide free admission to the majority of our programs. Your investment and involvement allow PICA to present bold, new work by artists representing a broad range of identities and perspectives which might not otherwise be seen in Portland, and to connect audiences to boundary-pushing ideas, experiences, and expressions through direct access to artists.</p>
+            <p>Double your impact! PICA donors are now eligible to participate in the Oregon’s Cultural Tax Credit. Donors who contribute to Oregon cultural nonprofits are eligible to make a matching donation to the <a href='https://culturaltrust.org/get-involved/donate'>Oregon Cultural Trust</a> and receive a 100% tax credit for their Trust donation (up to $500 for an individual, $1,000 for a couple filing jointly and $2,500 for a Class-C Corporation).</p>
           </div>
         </Col>
       </Row>

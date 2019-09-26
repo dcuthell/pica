@@ -41,7 +41,7 @@ class TBAArtistBlock extends Component {
       })
     } else {
       this.setState({
-        thumbnailURL: 'https://media.graphcms.com/' + this.props.galleryItems[0].media.handle
+        thumbnailURL: 'https://media.graphcms.com/' + this.resizeMedia(this.props.galleryItems[0].media)
       })
     }
   }
@@ -128,11 +128,23 @@ class TBAArtistBlock extends Component {
   renderPhotos() {
     if (this.props.galleryItems[0]) {
       const photos = this.props.galleryItems.map((item, index) =>
-        <img key={index} style={{height: '100%', width: 'auto', margin: 'auto'}} src={'https://media.graphcms.com/' + item.media.handle} alt={'image ' + index} title={item.media.photoCredit ? 'Photo: ' + item.media.photoCredit : 'Courtesy of the artist'} />
+        <img key={index} style={{height: '100%', width: 'auto', margin: 'auto'}} src={'https://media.graphcms.com/' + this.resizeMedia(item.media)} alt={'image ' + index} title={item.media.photoCredit ? 'Photo: ' + item.media.photoCredit : 'Courtesy of the artist'} />
       )
       return (
         photos
       )
+    }
+  }
+  //Resizes image if height or width exceeds 800, returns resize + handle
+  resizeMedia(media) {
+    if ((media.width > 800) || (media.height > 800)){
+      if(media.width >= media.height){
+        return ('resize=width:800/' + media.handle)
+      } else {
+        return ('resize=height:800/' + media.handle)
+      }
+    } else {
+      return media.handle
     }
   }
 
@@ -140,7 +152,7 @@ class TBAArtistBlock extends Component {
     return (
       <div className={'TBAArtistBlock_wrap'}>
         <div className={styles.TBAArtistBlock}>
-          <div className='d-flex align-items-center' style={{backgroundImage: 'url(https://media.graphcms.com//' + this.props.galleryItems[0].media.handle + ')'}} />
+          <div className='d-flex align-items-center' style={{backgroundImage: 'url(https://media.graphcms.com/' + this.resizeMedia(this.props.galleryItems[0].media) + ')'}} />
           <dl>
             <dt>{this.renderArtistNames()}</dt>
             <dd>{this.props.eventName}</dd>
@@ -149,7 +161,7 @@ class TBAArtistBlock extends Component {
         </div>
         <Link to={'/' + this.props.route} className={styles.TBAArtistBlockMobile}>
           <div className='d-flex align-items-center' style={{textAlign: 'center', height: '135px', width: '135px', border: '2px solid white', margin: 'auto'}}>
-            <img src={this.props.galleryItems[0].media.handle ? 'https://media.graphcms.com/' + this.props.galleryItems[0].media.handle : 'https://www.retirebeforedad.com/wp-content/uploads/2016/07/Banana-Stand-500x372.jpg'}
+            <img src={this.props.galleryItems[0].media.handle ? 'https://media.graphcms.com/' + this.resizeMedia(this.props.galleryItems[0].media) : 'https://www.retirebeforedad.com/wp-content/uploads/2016/07/Banana-Stand-500x372.jpg'}
               alt='thumbnail'
               style={{margin: 'auto', maxWidth: '100%', maxHeight: '100%', zIndex: 1}} />
           </div>
@@ -166,11 +178,11 @@ class TBAArtistBlock extends Component {
 
 TBAArtistBlock.defaultProps = {
   eventName: 'Event Name',
-  eventDate: 'TBD',
-  title: 'Rice is dope',
-  artistName: 'Bob Miller',
-  detailsShort: `...resting in the sweet cocoon of knowledge that I'm pretty sure I was her first, and that she would remember this night for a long, loong time...and that eventually, she would have to seek therapy...`,
-  detailsLong: `...resting in the sweet cocoon of knowledge that I'm pretty sure I was her first, and that she would remember this night for a long, loong time...and that eventually, she would have to seek therapy......resting in the sweet cocoon of knowledge that I'm pretty sure I was her first, and that she would remember this night for a long, loong time...and that eventually, she would have to seek therapy......resting in the sweet cocoon of knowledge that I'm pretty sure I was her first, and that she would remember this night for a long, loong time...and that eventually, she would have to seek therapy...`,
+  eventDate: ['Event Name'],
+  title: 'Event Name',
+  artistName: 'Event Name',
+  detailsShort: `Event Name`,
+  detailsLong: `Event Name`,
   YouTubeId: '',
   VimeoId: '',
   galleryItems: []
@@ -178,7 +190,7 @@ TBAArtistBlock.defaultProps = {
 
 TBAArtistBlock.propTypes = {
   eventName: PropTypes.string,
-  eventDate: PropTypes.string,
+  eventDate: PropTypes.array,
   artistName: PropTypes.string,
   detailsShort: PropTypes.string,
   detailsLong: PropTypes.string,

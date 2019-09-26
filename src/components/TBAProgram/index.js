@@ -41,7 +41,7 @@ class TBAProgram extends Component {
       })
     } else {
       this.setState({
-        thumbnailURL: 'https://media.graphcms.com/' + this.props.galleryItems[0].media.handle
+        thumbnailURL: 'https://media.graphcms.com/' + this.resizeMedia(this.props.galleryItems[0].media)
       })
     }
   }
@@ -128,11 +128,26 @@ class TBAProgram extends Component {
   renderPhotos() {
     if (this.props.galleryItems[0]) {
       const photos = this.props.galleryItems.map((item, index) =>
-        <img key={index} style={{height: '100%', width: 'auto', margin: 'auto'}} src={'https://media.graphcms.com/' + item.media.handle} alt={'image ' + index} title={item.media.photoCredit ? 'Photo: ' + item.media.photoCredit : 'Courtesy of the artist'} />
+        <img key={index} style={{height: '100%', width: 'auto', margin: 'auto'}} src={'https://media.graphcms.com/' + this.resizeMedia(item.media)} alt={'image ' + index} title={item.media.photoCredit ? 'Photo: ' + item.media.photoCredit : 'Courtesy of the artist'} />
       )
       return (
         photos
       )
+    }
+  }
+
+  resizeMedia(media) {
+    if ((media.width > 800) || (media.height > 800)){
+      if(media.width >= media.height){
+        console.log('width' +  media.handle)
+        return ('resize=width:800/' + media.handle)
+      } else {
+        console.log('height' + media.handle)
+        return ('resize=height:800/' + media.handle)
+      }
+    } else {
+      console.log('none')
+      return media.handle
     }
   }
 
@@ -209,11 +224,11 @@ class TBAProgram extends Component {
 
 TBAProgram.defaultProps = {
   eventName: 'Event Name',
-  eventDate: 'TBD',
-  title: 'Rice is dope',
-  artistName: 'Bob Miller',
-  detailsShort: `...resting in the sweet cocoon of knowledge that I'm pretty sure I was her first, and that she would remember this night for a long, loong time...and that eventually, she would have to seek therapy...`,
-  detailsLong: `...resting in the sweet cocoon of knowledge that I'm pretty sure I was her first, and that she would remember this night for a long, loong time...and that eventually, she would have to seek therapy......resting in the sweet cocoon of knowledge that I'm pretty sure I was her first, and that she would remember this night for a long, loong time...and that eventually, she would have to seek therapy......resting in the sweet cocoon of knowledge that I'm pretty sure I was her first, and that she would remember this night for a long, loong time...and that eventually, she would have to seek therapy...`,
+  eventDate: ['Event Name'],
+  title: 'Event Name',
+  artistName: 'Event Name',
+  detailsShort: `Event Name`,
+  detailsLong: `Event Name`,
   YouTubeId: '',
   VimeoId: '',
   galleryItems: []
@@ -221,7 +236,7 @@ TBAProgram.defaultProps = {
 
 TBAProgram.propTypes = {
   eventName: PropTypes.string,
-  eventDate: PropTypes.string,
+  eventDate: PropTypes.array,
   webEventId: PropTypes.string,
   artistName: PropTypes.string,
   detailsShort: PropTypes.string,
