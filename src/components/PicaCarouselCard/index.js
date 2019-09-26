@@ -32,11 +32,11 @@ class PicaCarouselCard extends Component {
       return styles.inactiveRight2
     } else if (((this.props.index - this.props.activeIndex) === 2) && (this.props.index === 2)) {
       return styles.inactiveRight
-    } else if (((this.props.index - this.props.activeIndex) === -2) && (this.props.cardTotal - this.props.index === 3)) {
+    } else if (((this.props.index - this.props.activeIndex) <= -2) && (this.props.cardTotal - this.props.index === 3)) {
       return styles.inactiveLeft
-    } else if (((this.props.index - this.props.activeIndex) === -1) && (this.props.cardTotal - this.props.index === 2)) {
+    } else if (((this.props.index - this.props.activeIndex) <= -1) && (this.props.cardTotal - this.props.index === 2)) {
       return styles.inactiveLeft2
-    } else if (((this.props.index - this.props.activeIndex) === 0) && (this.props.cardTotal - this.props.index === 1)) {
+    } else if (((this.props.index - this.props.activeIndex) <= 0) && (this.props.cardTotal - this.props.index === 1)) {
       return styles.activeRight
     } else if (((this.props.index - this.props.activeIndex) === -1)) {
       return styles.inactiveLeft
