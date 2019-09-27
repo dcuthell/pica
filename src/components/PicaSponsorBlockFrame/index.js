@@ -22,7 +22,7 @@ class PicaSponsorBlockFrame extends Component {
     `
 
     return (
-      <Query query={GET_CONTENT} variables={{"tagName" : this.state.tagName}}>
+      <Query query={GET_CONTENT}>
         {({ loading, error, data }) => {
           if (loading) return (
             <h1 style={{textAlign: 'center', width: '100%', color: '#fff100', lineHeight: '100vh', textTransform: 'uppercase'}}>Loading&hellip;</h1>
@@ -39,6 +39,7 @@ class PicaSponsorBlockFrame extends Component {
           let advocate = []
           let enthusiast = []
           let contributor = []
+          let sponsorList = []
           sponsors.forEach((sponsor) =>{
             if(sponsor.donorLevel === 'Superhero'){
               superhero.push(sponsor)
@@ -71,62 +72,25 @@ class PicaSponsorBlockFrame extends Component {
               contributor.push(sponsor)
             }
           })
-          if (this.state.date !== '') {
-            let newList = programs.filter((program)=>{
-              let check = false
-              if (program.testDateAndTime.length === 0) {
-                return false
-              }
-              program.testDateAndTime.forEach((dateTime) => {
-                let dateVal = Date.parse(dateTime)
-                let someDate = new Date()
-                someDate.setTime(dateVal)
-                if(someDate.getDate() === this.state.date) {
-                  check = true
-                }
-              })
-              return check
-            })
-            programs = newList
-          }
-          let list = programs.map((program, index) =>
-            <Col key={index} xs='6' xl='4' style={{padding: '15px 0px 15px 0px'}}>
-              <TBAArtistBlock
-                eventName={program.title}
-                eventDate={program.dateAndTime}
-                artists={program.artists}
-                detailsShort={program.shortDescription}
-                detailsLong={program.longDescription.html}
-                venue={program.venues[0]}
-                price={program.price}
-                runTime={program.runTime}
-                webEventId={program.webEventId}
-                YouTubeId={program.youTubeVideoId}
-                VimeoId={program.vimeoVideoId}
-                galleryItems={program.gallery ? program.gallery.galleryItems : [{media: {handle: 'AKuZYOQsSkugUiFbLM0v'}}]}
-                route={program.route}
-              />
+
+          let superheroList = superhero.map((sponsor, index) =>
+            <Col md='4'>
+              <img src={'https://media.graphcms.com/' + sponsor.logo.handle} alt={sponsor.name} style={{maxWidth: '100%', maxHeight: '200px'}} />
             </Col>
           )
-          if (list.length === 0){
-            list = (
-              <Col xs='6' xl='4'>
-                <h1>No events of this type have been scheduled.</h1>
-              </Col>
-            )
-          }
           return (
-            <Container>
-              <Row>
-                <Col xs='6' style={{padding: '15px 0px 15px 18px'}}>
-                  <TBASelector setTagName={this.setTagName} tagName={this.state.tagName}/>
-                </Col>
-                <Col xs='6' style={{padding: '15px 0px 15px 18px'}}>
-                  <TBADateSelector setDate={this.setDate}/>
-                </Col>
-                {list}
-              </Row>
-            </Container>
+            <div style={{width: '100%'}}>
+              <Col xl='12' style={{backgroundColor: '#FFFBF3'}}>
+                <Container style={{height: 'auto'}}>
+                  <Row>
+                    <Col md='12'>
+                      <h3>SUPERHERO $100,000+</h3>
+                    </Col>
+                    {superheroList}
+                  </Row>
+                </Container>
+              </Col>
+            </div>
           )
         }}
       </Query>

@@ -1,6 +1,8 @@
 import React from 'react'
 import { Container, Col, Row } from 'reactstrap'
 import PicaButton from '../../components/PicaButton'
+import PicaSponsorBlockFrame from '../../components/PicaSponsorBlockFrame'
+
 import members from '../../img/memberspic.png'
 import ben from '../../img/ben-01.png'
 import volunteer from '../../img/volunteerpic.png'
@@ -74,42 +76,7 @@ export default function Support (props) {
             PICA warmly thanks our generous sponsors, donors, and members for their commitment to contemporary art. For information on the ways you can become a sponsor, please visit our sponsorship page. To become a PICA member, please visit our membership page to join online today.
           </p>
         </Col>
-        <Col xl='12' style={{backgroundColor: '#FFFBF3'}}>
-          <Container style={{height: 'auto'}}>
-            <Row>
-              <Col md='12'>
-                <h3>SUPERHERO $100,000+</h3>
-              </Col>
-              <Col md='4'>
-                <img src={calligram} alt='calligram foundation for the arts' style={{maxWidth: '100%', maxHeight: '200px'}} />
-              </Col>
-              <Col md='4'>
-                <img src={durst} alt='Leslie B. Durst' style={{maxWidth: '100%', maxHeight: '200px'}} />
-              </Col>
-              <Col md='4'>
-                <img src={holst} alt='ben' style={{maxWidth: '100%', maxHeight: '200px'}} />
-              </Col>
-              <Col md='4'>
-                <img src={mellon} alt='ben' style={{maxWidth: '100%', maxHeight: '200px'}} />
-              </Col>
-              <Col md='4'>
-                <img src={meyer} alt='ben' style={{maxWidth: '100%', maxHeight: '200px'}} />
-              </Col>
-              <Col md='4'>
-                <img src={miller} alt='ben' style={{maxWidth: '100%', maxHeight: '200px'}} />
-              </Col>
-              <Col md='4'>
-                <img src={racc} alt='ben' style={{maxWidth: '100%', maxHeight: '200px'}} />>
-              </Col>
-              <Col md='4'>
-                <img src={workforart} alt='ben' style={{maxWidth: '100%', maxHeight: '200px'}} />
-              </Col>
-              <Col md='4'>
-                <img src={warhol} alt='ben' style={{maxWidth: '100%', maxHeight: '200px'}} />
-              </Col>
-            </Row>
-          </Container>
-        </Col>
+        <PicaSponsorBlockFrame />
         <Col xl='12' style={{backgroundColor: '#e4e4e4'}}>
           <Container style={{height: 'auto'}}>
             <Row>
