@@ -34,7 +34,7 @@ class PicaPost extends React.Component {
     const monthVal = parseInt(string.slice(5,7)) - 1
     const month = months[monthVal]
 		const day = parseInt(string.slice(8,10))
-		const year = parse(string.slice(0,4))
+		const year = parseInt(string.slice(0,4))
     return month + ' ' + day + ', ' + year
   }
 
@@ -43,7 +43,7 @@ class PicaPost extends React.Component {
 			<Container>
 				<Row>
 					<Col xl='12'>
-						<h4>{this.parseDateString(this.props.date) + ' | ' + this.handleTags(this.props.tags)}</h4>  
+						<h4>{this.parseDateString(this.props.date) + this.handleTags(this.props.tags)}</h4>  
 					</Col>
 					<Col xl='12'>
 						<h1>{this.props.title}</h1>
@@ -52,7 +52,7 @@ class PicaPost extends React.Component {
 						<h1>{this.props.author}</h1>
 					</Col>
 					<Col xl='12'>
-						<img src={this.resizeMedia(this.props.image)} alt='test' />
+						<img src={'https://media.graphcms.com/' + this.resizeMedia(this.props.image)} alt='test' />
 					</Col>
 					<Col xl='12'>
 						<div dangerouslySetInnerHTML={{ __html: this.props.body }} />
