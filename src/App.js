@@ -6,14 +6,14 @@ import './App.css'
 import PicaNavBar from './components/PicaNavBar'
 import PicaBody from './components/PicaBody'
 
-import Memberships from './routes/Memberships'
+import Members from './routes/Members'
 
 function App() {
   return (
     <div className='App'>
       <PicaNavBar/>
       <PicaBody>
-        <Route exact path='/' component={Memberships} />
+        <Route exact path='/' component={Members} />
       </PicaBody>
     </div>
   );
