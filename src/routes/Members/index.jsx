@@ -61,7 +61,7 @@ export default function Members (props) {
         </Col>
         <Col xl='12' style={{backgroundColor: '#F8F8F8'}}>
           <PicaButton style={{position: 'absolute', bottom: '10px', left: '10%'}}>
-            <a href='https://system.spektrix.com/pica/website/Memberships.aspx?resize=true'><p style={{margin: '4px 0px 4px 0px'}}>BECOME A MEMBER</p></a>
+            <a href='https://www.pica.org/memberships'><p style={{margin: '4px 0px 4px 0px'}}>BECOME A MEMBER</p></a>
           </PicaButton>
         </Col>
         <Col xl='6' style={{backgroundColor: '#ECDDBB'}}>
@@ -71,7 +71,7 @@ export default function Members (props) {
             PICA is Portland’s leading presenter of contemporary art. Our artistic events, educational activities, and community engagement initiatives would not be possible without the ongoing support and participation of artists, audiences, and art patrons like you.
           </p>
           <PicaButton style={{position: 'absolute', bottom: '10px', left: '10%'}}>
-            <a href='https://system.spektrix.com/pica/website/Donations.aspx?resize=true'><p style={{margin: '4px 0px 4px 0px'}}>DONATE TODAY</p></a>
+            <a href='https://www.pica.org/donations'><p style={{margin: '4px 0px 4px 0px'}}>DONATE TODAY</p></a>
           </PicaButton>
         </Col>
         <Col xl='6' style={{backgroundColor: '#E4E4E4'}}>
@@ -81,7 +81,7 @@ export default function Members (props) {
             Our year-round programs, activities, and special events wouldn’t be possible without volunteers. Help make it all happen by becoming a volunteer! From ushering to fundraising, we’ve got tasks for every interest and skill set.
           </p>
           <PicaButton style={{position: 'absolute', bottom: '10px', left: '10%'}}>
-            <a href='http://www.pica.org/support/volunteer/'><p style={{margin: '4px 0px 4px 0px'}}>BECOME A VOLUNTEER</p></a>
+            <a href='https://www.pica.org/support/volunteer/'><p style={{margin: '4px 0px 4px 0px'}}>BECOME A VOLUNTEER</p></a>
           </PicaButton>
         </Col>
         <Col xl='12' style={{height: '100%'}}>
