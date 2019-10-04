@@ -16,8 +16,8 @@ function App() {
       <PicaNavBar/>
       <PicaBody>
         <Route exact path='/' component={Support} />
-        <Route exact path='/donations' component={Donations} />
-        <Route exact path='/members' component={Members} />
+        <Route path='/donations' component={Donations} />
+        <Route path='/members' component={Members} />
       </PicaBody>
     </div>
   );
