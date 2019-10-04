@@ -1,5 +1,6 @@
 import React from 'react'
 import { Container, Col, Row } from 'reactstrap'
+import { NavLink } from 'react-router-dom'
 import PicaButton from '../../components/PicaButton'
 import members from '../../img/memberspic.png'
 import ben from '../../img/ben-01.png'
@@ -45,7 +46,7 @@ export default function Support (props) {
             As a PICA member, you’ll spend less and do more! Enjoy access to exclusive events and receive generous discounts on TBA passes and tickets, programs, and merchandise.
           </p>
           <PicaButton style={{position: 'absolute', bottom: '10px', left: '10%'}}>
-            <a href='http://www.pica.org/support/members'><p style={{margin: '4px 0px 4px 0px'}}>BECOME A MEMBER</p></a>
+            <NavLink to='/members'><p style={{margin: '4px 0px 4px 0px'}}>BECOME A MEMBER</p></NavLink>
           </PicaButton>
         </Col>
         <Col xl='4' style={{backgroundColor: '#ECDDBB'}}>
@@ -55,7 +56,7 @@ export default function Support (props) {
             PICA is Portland’s leading presenter of contemporary art. Our artistic events, educational activities, and community engagement initiatives would not be possible without the ongoing support and participation of artists, audiences, and art patrons like you.
           </p>
           <PicaButton style={{position: 'absolute', bottom: '10px', left: '10%'}}>
-            <a href='http://www.pica.org/support/donations'><p style={{margin: '4px 0px 4px 0px'}}>DONATE TODAY</p></a>
+            <NavLink to='/donations'><p style={{margin: '4px 0px 4px 0px'}}>DONATE TODAY</p></NavLink>
           </PicaButton>
         </Col>
         <Col xl='4' style={{backgroundColor: '#E4E4E4'}}>
