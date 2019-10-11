@@ -4,7 +4,7 @@ import gql from 'graphql-tag'
 
 class PicaArtistQuery extends React.Component {
   render(){
-    const GET_CONTENT = gql`
+    const SEARCH_CONTAIN = gql`
       query ArtistswithPrograms($artistName : String){
         artists(where: {name_contains: $artistName}){
           name
@@ -13,10 +13,20 @@ class PicaArtistQuery extends React.Component {
           }
         }
       }
-      `
+    `
+    const SEARCH_START = gql`
+      query ArtistswithPrograms($artistName : String){
+        artists(where: {name_starts_with: $artistName}){
+          name
+          programs {
+            title
+          }
+        }
+      }
+    `
     if(this.props.searchTerm !== ''){
       return(
-        <Query query={GET_CONTENT} variables={{"artistName" : this.props.searchTerm}}>
+        <Query query={(this.props.letter === 'letter') ? SEARCH_START : SEARCH_CONTAIN} variables={{"artistName" : this.props.searchTerm}}>
           {({ loading, error, data }) => {
             if (loading) return (
               <h1>Loading&hellip;</h1>
