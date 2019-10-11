@@ -15,6 +15,7 @@ class PicaArtistArchive extends Component {
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleInput = this.handleInput.bind(this)
     this.handleLetterClick = this.handleLetterClick.bind(this)
+    this.handleTagClick = this.handleTagClick.bind(this)
   }
 
   handleInput(event){
@@ -33,6 +34,13 @@ class PicaArtistArchive extends Component {
     this.setState({
       searchTerm: event.target.textContent,
       searchType: 'letter'
+    })
+  }
+
+  handleTagClick(event){
+    this.setState({
+      searchTerm: event.target.textContent,
+      searchType: 'tag'
     })
   }
 
@@ -73,10 +81,16 @@ class PicaArtistArchive extends Component {
             <span className={styles.SearchButton} onClick={this.handleLetterClick}>X</span>
             <span className={styles.SearchButton} onClick={this.handleLetterClick}>Y</span>
             <span className={styles.SearchButton} onClick={this.handleLetterClick}>Z</span>
+            <br/>
+            <hr/>
+            <br/>
+            <span className={styles.SearchButton} onClick={this.handleTagClick}>Performance</span>
+            <span className={styles.SearchButton} onClick={this.handleTagClick}>Late Night</span>
+            <span className={styles.SearchButton} onClick={this.handleTagClick}>Food</span>
           </Col>
           <Col className='Results' md='9'>
             <h1>Search Results</h1>
-            <PicaArtistQuery letter={this.state.searchType} searchTerm={this.state.searchTerm} />
+            <PicaArtistQuery searchType={this.state.searchType} searchTerm={this.state.searchTerm} />
           </Col>
         </Row>
       </Container>
