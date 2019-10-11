@@ -51,7 +51,11 @@ class PicaArtistQuery extends React.Component {
         <Query query={this.getSearchType()} variables={{"searchTerm" : this.props.searchTerm}}>
           {({ loading, error, data }) => {
             if (loading) return (
-              <h1>Loading&hellip;</h1>
+              <div>
+                <h1>Loading&hellip;</h1>
+                <h4>This should only take a moment</h4>
+                <p>If your results don't appear, please resubmit your query</p>
+              </div>
             )
             if (error) return `Error! ${error.message}`
             let artists = data.artists
