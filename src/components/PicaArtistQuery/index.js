@@ -11,8 +11,8 @@ class PicaArtistQuery extends React.Component {
   getSearchType(){
     if (this.props.searchType === 'letter'){
       return gql`
-      query ArtistswithPrograms($artistName : String){
-        artists(where: {name_starts_with: $artistName}){
+      query ArtistswithPrograms($searchTerm : String){
+        artists(where: {name_starts_with: $searchTerm}){
           name
           programs {
             title
@@ -22,22 +22,19 @@ class PicaArtistQuery extends React.Component {
     `
     }else if(this.props.searchType === 'tag'){
       return gql`
-      query ArtistswithProgramswithTag($tagName : String){
-        artists{
+      query ArtistswithProgramswithTag($searchTerm : String){
+        artists(where: {programs_some: {tags_some: {name: $searchTerm}}}){
           name
-          programs {
+          programs(where: {tags_some: {name: $searchTerm}}) {
             title
-            tags(where: {name: $tagName}){
-              name
-            }
           }
         }
       }
     `
     }else {
       return gql`
-      query ArtistswithPrograms($artistName : String){
-        artists(where: {name_contains: $artistName}){
+      query ArtistswithPrograms($searchTerm : String){
+        artists(where: {name_contains: $searchTerm}){
           name
           programs {
             title
@@ -50,35 +47,29 @@ class PicaArtistQuery extends React.Component {
 
   render(){
     if(this.props.searchTerm !== ''){
-      if(this.props.searchType === 'tag'){
-        return(
-          <Query query={this.getSearchType()} variables={{"tagName" : this.props.searchTerm}}>
+      return(
+        <Query query={this.getSearchType()} variables={{"searchTerm" : this.props.searchTerm}}>
           {({ loading, error, data }) => {
             if (loading) return (
               <h1>Loading&hellip;</h1>
             )
             if (error) return `Error! ${error.message}`
-            let artists = []
-            data.artists.forEach((artist, index) => {
-              let performances = []
-              artist.programs.forEach((program, index) => {
-                if(program.tags){
-                  performances.push(
-                    <h3 key={index}>{program.title}</h3>
-                  )
-                }
-              })
-              if(performances){
-                artists.push(
-                  <div key={index}>
-                    <h1>{artist.name}</h1>
-                    {performances}
-                  </div>
-                )
-              }
-            })
-            if (artists.length === 0){
-              artists = (
+            let artists = data.artists
+            let list = artists.map((artist, index) => {
+              let programs = artist.programs.map((program) =>
+                <h3 key={index}>{program.title}</h3>
+              )
+              return(
+                <div key={index}>
+                  <h1>{artist.name}</h1>
+                  {programs}
+                </div>
+              )
+            }
+              
+            )
+            if (list.length === 0){
+              list = (
                 <div xs='6' xl='4'>
                   <h1>Sorry, we couldn't find any results</h1>
                 </div>
@@ -86,51 +77,12 @@ class PicaArtistQuery extends React.Component {
             }
             return (
               <div>
-                {artists}
+                {list}
               </div>
             )
           }}
         </Query>
-        )
-      } else{
-        return(
-          <Query query={this.getSearchType()} variables={{"artistName" : this.props.searchTerm}}>
-            {({ loading, error, data }) => {
-              if (loading) return (
-                <h1>Loading&hellip;</h1>
-              )
-              if (error) return `Error! ${error.message}`
-              let artists = data.artists
-              let list = artists.map((artist, index) => {
-                let programs = artist.programs.map((program) =>
-                  <h3 key={index}>{program.title}</h3>
-                )
-                return(
-                  <div key={index}>
-                    <h1>{artist.name}</h1>
-                    {programs}
-                  </div>
-                )
-              }
-                
-              )
-              if (list.length === 0){
-                list = (
-                  <div xs='6' xl='4'>
-                    <h1>Sorry, we couldn't find any results</h1>
-                  </div>
-                )
-              }
-              return (
-                <div>
-                  {list}
-                </div>
-              )
-            }}
-          </Query>
-        )
-      }
-      
+      )
     } else {
       return(
         <h1>Search away, friend...</h1>
