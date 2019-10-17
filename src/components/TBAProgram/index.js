@@ -102,7 +102,7 @@ class TBAProgram extends Component {
   renderVideos() {
     if (this.props.YouTubeId) {
       return (
-        <div className={'d-flex align-items-center'} style={{height: '400px', minWidth: '296px', margin: 'auto', position: 'relative', textAlign: 'center'}}>
+        <div className={'d-flex align-items-center'} style={{minWidth: '296px', margin: 'auto', position: 'relative', textAlign: 'center'}}>
           <div style={{width: '100%', position: 'relative'}}>
             <img src={this.props.YouTubeId ? 'https://i.ytimg.com/vi/' + this.props.YouTubeId + '/mqdefault.jpg' : 'https://www.retirebeforedad.com/wp-content/uploads/2016/07/Banana-Stand-500x372.jpg'} alt='thumbnail' style={{marginTop: '20px', marginBottom: '20px', maxWidth: '100%', maxHeight: '153px', zIndex: 1}} />
             <div onClick={this.toggle} className={styles.videoOverlay}>
@@ -114,7 +114,7 @@ class TBAProgram extends Component {
     }
     if (this.props.VimeoId) {
       return (
-        <div className={'d-flex align-items-center'} style={{height: '400px', minWidth: '296px', margin: 'auto', position: 'relative', textAlign: 'center'}}>
+        <div className={'d-flex align-items-center'} style={{minWidth: '296px', margin: 'auto', position: 'relative', textAlign: 'center'}}>
           <div style={{width: '100%', position: 'relative'}}>
             <img src={this.props.VimeoId ? this.state.thumbnailURL : 'https://www.retirebeforedad.com/wp-content/uploads/2016/07/Banana-Stand-500x372.jpg'} alt='thumbnail' style={{marginTop: '20px', marginBottom: '20px', maxWidth: '100%', maxHeight: '153px', zIndex: 1}} />
             <div onClick={this.toggle} className={styles.videoOverlay}>
@@ -140,14 +140,11 @@ class TBAProgram extends Component {
   resizeMedia(media) {
     if ((media.width > 800) || (media.height > 800)){
       if(media.width >= media.height){
-        console.log('width' +  media.handle)
         return ('resize=width:800/' + media.handle)
       } else {
-        console.log('height' + media.handle)
         return ('resize=height:800/' + media.handle)
       }
     } else {
-      console.log('none')
       return media.handle
     }
   }

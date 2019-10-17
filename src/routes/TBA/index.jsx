@@ -20,8 +20,8 @@ export default function TBA (props) {
 	            <li><span>2019 September 05&ndash;&#x2060;15</span></li>
 	            <li><span>2019</span></li>
 	            <li><span>2019</span></li>
-	            <li class="collapsible-xs"><span>2019</span></li>
-	            <li class="collapsible-md"><span>2019</span></li>
+	            <li className="collapsible-xs"><span>2019</span></li>
+	            <li className="collapsible-md"><span>2019</span></li>
 	          </ul>
 			</Col>
 			<Col md='12' style={{alignSelf: 'flex-end'}}>
