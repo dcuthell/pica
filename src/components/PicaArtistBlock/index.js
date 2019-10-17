@@ -93,7 +93,6 @@ class PicaArtistBlock extends Component {
   }
 
   render() {
-    console.log(this.props.isOpen)
     if (this.props.blocker) {
       return (
         <div className={styles.header + ' ' + (((this.props.activeIndex >= this.props.index) || !this.props.isOpen) ? styles.headerUp : styles.headerDown)} style={{backgroundColor: 'black', height: '40vh', position: 'relative'}} />
