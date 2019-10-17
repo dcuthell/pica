@@ -6,7 +6,7 @@ import styles from './styles.module.css'
 
 import PicaArtistBlock from '../PicaArtistBlock'
 
-class PicaEventDeck extends Component {
+class PicaArtistBlockFrame extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -53,10 +53,6 @@ class PicaEventDeck extends Component {
         }
       }
     `
-    const { children } = this.props
-    const childrenWithProps = React.Children.map(children, child =>
-      this.addClicksToProps(child)
-    )
     return (
       <Query query={GET_PROGRAMS}>
           {({ loading, error, data }) => {
@@ -74,7 +70,7 @@ class PicaEventDeck extends Component {
               })
               if (display){
                 return(
-                  <PicaArtistBlock title={program.title} artist={program.artists[0] ? program.artists[0].name : 'No Artist'} index={index} activeIndex={this.state.activeIndex} cardTotal={data.programs.length} setOpen={this.setOpen} setClose={this.setClose} image={'https://media.graphcms.com/resize=width:300/' + program.gallery.galleryItems[0].media.handle} />
+                  <PicaArtistBlock title={program.title} artist={program.artists[0] ? program.artists[0].name : 'No Artist'} index={index} activeIndex={this.state.activeIndex} cardTotal={data.programs.length} setOpen={this.setOpen} setClose={this.setClose} isOpen={this.state.isOpen} image={'https://media.graphcms.com/resize=width:300/' + program.gallery.galleryItems[0].media.handle} description={program.shortDescription} />
                 )
               }
             })
@@ -89,4 +85,4 @@ class PicaEventDeck extends Component {
   }
 }
 
-export default PicaEventDeck
+export default PicaArtistBlockFrame
