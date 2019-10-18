@@ -25,6 +25,15 @@
 	z-index: 1;
 }
 
+.button {
+	position: absolute;
+	top: 30%;
+	right: 10%;
+	height: 48px;
+	width: 48px;
+	font-size: 48px;
+}
+
 .cardImage {
 	width: 50%;
 	height: 80%;
@@ -32,11 +41,13 @@
 	position: absolute;
 	left: 5%;
 	top: 5%;
+	background-position: center;
+	background-size: cover;
 }
 .cardContent {
-	width: 30%;
+	width: 38%;
 	height: 80%;
-	background-color: blue;
+	background-color: lightgray;
 	position: absolute;
 	right: 5%;
 	top: 5%;
@@ -87,9 +98,9 @@
 }
 
 .contentOpen {
-	-webkit-transform: translateY(25%);
+	-webkit-transform: translateY(24.95%);
 	-ms-transform: translateY(25%);
-			transform: translateY(25%);
+			transform: translateY(24.95%);
 	transition: transform 500ms linear;
 	z-index: 2;
 }
