@@ -74,12 +74,13 @@ class PicaArtistBlock extends Component {
       )
     }
     return (
-      <div className={styles.PicaArtistBlock}
-        style={{backgroundColor: this.props.background}}
-        onClick={this.handleClick}>
+      <div className={styles.PicaArtistBlock} style={{backgroundColor: this.props.background}}>
         <div className={styles.header + ' ' + (((this.props.activeIndex >= this.props.index || !this.props.cardOpen)) ? styles.headerUp : styles.headerDown)}>
           <h1>{this.props.title}</h1>
           <h3>{this.props.artist}</h3>
+          <div className={styles.button} onClick={this.handleClick}>
+            {this.state.isOpen ? <p>&circ;</p> : <p>&#711;</p>}
+          </div>
         </div>
         <div className={styles.content + ' ' + this.handleStyle()}>
           <div className={styles.cardImage} style={{backgroundImage: 'url(' + this.props.image + ')'}} >
