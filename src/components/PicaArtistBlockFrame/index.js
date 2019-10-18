@@ -20,14 +20,13 @@ class PicaArtistBlockFrame extends Component {
 
   setOpen(index) {
     this.setState({
-      isOpen: true,
+      cardOpen: true,
       activeIndex: index
     })
   }
   setClose(index) {
     this.setState({
-      isOpen: false,
-      activeIndex: 0,
+      cardOpen: false,
       lastIndex: index
     })
   }
@@ -94,7 +93,20 @@ class PicaArtistBlockFrame extends Component {
               if (display){
                 index += 1
                 return(
-                  <PicaArtistBlock title={program.title} artist={program.artists[0] ? program.artists[0].name : 'No Artist'} key={index-1} activeIndex={this.state.activeIndex} cardTotal={data.programs.length} setOpen={this.setOpen} setClose={this.setClose} isOpen={this.state.isOpen} image={'https://media.graphcms.com/resize=width:300/' + program.gallery.galleryItems[0].media.handle} description={program.shortDescription} background={this.setBackgroundColor(index)} />
+                  <PicaArtistBlock
+                    title={program.title}
+                    artist={program.artists[0] ? program.artists[0].name : 'No Artist'}
+                    key={index-1}
+                    index={index-1}
+                    activeIndex={this.state.activeIndex}
+                    cardTotal={data.programs.length}
+                    setOpen={this.setOpen}
+                    setClose={this.setClose}
+                    cardOpen={this.state.cardOpen}
+                    image={'https://media.graphcms.com/resize=width:300/' + program.gallery.galleryItems[0].media.handle}
+                    description={program.shortDescription}
+                    background={this.setBackgroundColor(index)}
+                  />
                 )
               }
             })
