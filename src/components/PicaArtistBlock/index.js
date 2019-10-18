@@ -101,7 +101,7 @@ class PicaArtistBlock extends Component {
     return (
       <div className={styles.PicaArtistBlock}
         style={{backgroundColor: this.props.background}}
-        onClick={this.handleClick}>
+        onClick={this.handleClick} index={this.props.index}>
         <div className={styles.header + ' ' + (((this.props.activeIndex >= this.props.index) || !this.props.isOpen) ? styles.headerUp : styles.headerDown)}>
           <h1>{this.props.title}</h1>
           <h3>{this.props.artist}</h3>
