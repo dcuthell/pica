@@ -32,6 +32,28 @@ class PicaArtistBlockFrame extends Component {
     })
   }
 
+  setBackgroundColor(index){
+    const i = index % 6
+    if(i === 0){
+      return '#B0C170'
+    }
+    if(i === 1){
+      return '#0DAE5D'
+    }
+    if(i === 2){
+      return '#8EA9D5'
+    }
+    if(i === 3){
+      return '#FFC2EB'
+    }
+    if(i === 4){
+      return '#FF5928'
+    }
+    if(i === 5){
+      return '#8A69D4'
+    }
+  }
+
   render() {
     const GET_PROGRAMS = gql`
       query {
@@ -61,7 +83,8 @@ class PicaArtistBlockFrame extends Component {
             )
             if (error) return `Error! ${error.message}`
             const myDate = '2019-09-13T01:30:00.000Z'
-            let list = data.programs.map((program, index) => {
+            let index = 0
+            let list = data.programs.map((program) => {
               let display = false
               program.testDateAndTime.forEach((dateTime) => {
                 if (dateTime >= myDate){
@@ -69,8 +92,9 @@ class PicaArtistBlockFrame extends Component {
                 }
               })
               if (display){
+                index += 1
                 return(
-                  <PicaArtistBlock title={program.title} artist={program.artists[0] ? program.artists[0].name : 'No Artist'} index={index} activeIndex={this.state.activeIndex} cardTotal={data.programs.length} setOpen={this.setOpen} setClose={this.setClose} isOpen={this.state.isOpen} image={'https://media.graphcms.com/resize=width:300/' + program.gallery.galleryItems[0].media.handle} description={program.shortDescription} />
+                  <PicaArtistBlock title={program.title} artist={program.artists[0] ? program.artists[0].name : 'No Artist'} key={index-1} activeIndex={this.state.activeIndex} cardTotal={data.programs.length} setOpen={this.setOpen} setClose={this.setClose} isOpen={this.state.isOpen} image={'https://media.graphcms.com/resize=width:300/' + program.gallery.galleryItems[0].media.handle} description={program.shortDescription} background={this.setBackgroundColor(index)} />
                 )
               }
             })
