@@ -105,7 +105,7 @@ class PicaArtistBlockFrame extends Component {
                     cardOpen={this.state.cardOpen}
                     image={'https://media.graphcms.com/resize=width:300/' + program.gallery.galleryItems[0].media.handle}
                     description={program.shortDescription}
-                    background={this.setBackgroundColor(index)}
+                    background={this.setBackgroundColor(index-1)}
                   />
                 )
               }
