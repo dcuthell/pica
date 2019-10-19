@@ -81,6 +81,19 @@ class PicaArtistBlockFrame extends Component {
               <h1>Loading&hellip;</h1>
             )
             if (error) return `Error! ${error.message}`
+            //Date filtering starts with a date object that takes current Date, then gets the ISOStrings for the beginning of the day, the end of the day, and the end of the week
+            let d = new Date('2019-09-13T01:30:00.000Z')
+            d.setHours(0)
+            d.setMinutes(0)
+            let daystart = d.toISOString()
+            let dayval = d.getDay()
+            d.setDate(d.getDate() + 1)
+            let dayend = d.toISOString()
+            d.setDate(d.getDate() + (7 - ((dayval-1) % 7)))
+            let weekend = d.toISOString()
+            console.log(daystart)
+            console.log(dayend)
+            console.log(weekend)
             const myDate = '2019-09-13T01:30:00.000Z'
             let index = 0
             let list = data.programs.map((program) => {
@@ -105,14 +118,23 @@ class PicaArtistBlockFrame extends Component {
                     cardOpen={this.state.cardOpen}
                     image={'https://media.graphcms.com/resize=width:300/' + program.gallery.galleryItems[0].media.handle}
                     description={program.shortDescription}
-                    background={this.setBackgroundColor(index)}
+                    background={this.setBackgroundColor(index-1)}
                   />
                 )
               }
             })
             return (
               <div style={{height: '80vh', width: '100%'}}>
+                <div style={{width: '100%', height: '50px', position: 'relative', zIndex: '3', background: 'white'}}>
+                  <h1>TODAY</h1>
+                </div>
                 {list}
+                <div style={{width: '100%', height: '50px', position: 'relative', zIndex: '3', background: 'white'}}>
+                  <h1>THIS WEEK</h1>
+                </div>
+                <div style={{width: '100%', height: '50px', position: 'relative', zIndex: '3', background: 'white'}}>
+                  <h1>UPCOMING</h1>
+                </div>
               </div>
             )
           }}
