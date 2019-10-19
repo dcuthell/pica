@@ -1,7 +1,6 @@
 import React from 'react'
 import { Container, Col, Row } from 'reactstrap'
-import PicaCarousel from '../../components/PicaCarousel'
-import PicaCarouselCard from '../../components/PicaCarouselCard'
+import PicaCarouselFrame from '../../components/PicaCarouselFrame'
 import PicaButton from '../../components/PicaButton'
 import collage from '../../img/collage.png'
 import ben from '../../img/ben-01.png'
@@ -12,44 +11,7 @@ export default function Home (props) {
       <Row style={{margin: '0px'}}>
         <Col xl='12' style={{height: '100vh', padding: '0px'}}>
           <div style={{height: '100%', backgroundColor: '#F8F8F8'}}>
-            <PicaCarousel>
-              <PicaCarouselCard
-                index={0}
-                style={{backgroundColor: '#B0C170'}}
-              />
-              <PicaCarouselCard
-                index={1}
-                style={{backgroundColor: '#FFC2EB'}}
-              />
-              <PicaCarouselCard
-                index={2}
-                style={{backgroundColor: '#0DAE5D'}}
-              />
-              <PicaCarouselCard
-                index={3}
-                style={{backgroundColor: '#8EA9D5'}}
-              />
-              <PicaCarouselCard
-                index={4}
-                style={{backgroundColor: '#D8BFD8'}}
-              />
-              <PicaCarouselCard
-                index={5}
-                style={{backgroundColor: '#FF5928'}}
-              />
-              <PicaCarouselCard
-                index={6}
-                style={{backgroundColor: '#8A69D4'}}
-              />
-              <PicaCarouselCard
-                index={7}
-                style={{backgroundColor: '#587CFF'}}
-              />
-              <PicaCarouselCard
-                index={8}
-                style={{backgroundColor: '#D7A200'}}
-              />
-            </PicaCarousel>
+            <PicaCarouselFrame />
           </div>
         </Col>
         <Col xl='12' style={{padding: '0px', backgroundColor: 'white'}}>

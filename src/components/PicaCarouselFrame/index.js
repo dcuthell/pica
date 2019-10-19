@@ -24,7 +24,7 @@ class PicaCarouselFrame extends Component {
       }
     `
     return (
-      <Query query={GET_CONTENT} variables={{"tagName" : this.state.tagName}}>
+      <Query query={GET_CONTENT}>
         {({ loading, error, data }) => {
           if (loading) return (
             <PicaCarousel loading/>
@@ -41,3 +41,5 @@ class PicaCarouselFrame extends Component {
     )
   }
 }
+
+export default PicaCarouselFrame
