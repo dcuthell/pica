@@ -1,0 +1,45 @@
+.PicaCarousel {
+	height: 100%;
+	width: 100%;
+	background-color: lightgrey;
+}
+.header {
+	height: 10%;
+	position: absolute;
+	top: 0;
+	background-color: #F8F8F8;
+	text-align: center;
+	width: 100%;
+}
+
+.title {
+	height: 100%;
+	width: 90%;
+	position: absolute;
+	left: 0;
+}
+
+.arrows {
+	height: 100%;
+	width: 10%;
+	position: absolute;
+	background-size: 75%;
+	background-position: center;
+	background-repeat: no-repeat;
+	cursor: pointer;
+	position: absolute;
+}
+
+#leftArrow {
+	right: 10%;
+	top: 0;
+}
+
+#rightArrow {
+	right: 0;
+	top: 0;
+}
+
+.arrows:hover {
+	background-color: yellow;
+}

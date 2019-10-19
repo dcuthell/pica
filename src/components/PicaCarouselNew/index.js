@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styles from './styles.module.css'
+import { Query } from 'react-apollo'
+import gql from 'graphql-tag'
 import { Route } from 'react-router-dom'
 
 import PicaCarouselCard from '../PicaCarouselCard'
@@ -18,15 +20,6 @@ class PicaCarousel extends Component {
     }
     this.clickLeft = this.clickLeft.bind(this)
     this.clickRight = this.clickRight.bind(this)
-    this.renderCards = this.renderCards.bind(this)
-  }
-  
-  static getDerivedStateFromProps(props, state) {
-    if(props.heroSlideData){
-      return {cardTotal: props.heroSlideData.length}
-    } else {
-      return null
-    }
   }
 
   handleTouchStart(e) {
@@ -80,68 +73,22 @@ class PicaCarousel extends Component {
     }
   }
 
-  setBackgroundColor(index){
-    const i = index % 6
-    if(i === 0){
-      return '#B0C170'
-    }
-    if(i === 1){
-      return '#0DAE5D'
-    }
-    if(i === 2){
-      return '#8EA9D5'
-    }
-    if(i === 3){
-      return '#FFC2EB'
-    }
-    if(i === 4){
-      return '#FF5928'
-    }
-    if(i === 5){
-      return '#8A69D4'
-    }
-  }
-
-  renderCards(){
-    if(this.props.loading){
-      return(
-        <div>
-          <PicaCarouselCard index={0} title={'Loading...'} date={'Loading...'} buttonText={'Loading...'} description={'Loading...'}/>
-          <PicaCarouselCard index={1}/>
-          <PicaCarouselCard index={2}/>
-        </div>
-      )
-    }
-    if(this.props.error){
-      return(
-        <div>
-        <PicaCarouselCard index={0} title={'Uh oh...'} date={'It appears something has gone wrong...'} buttonText={'Error'} description={'Please check your connection'}/>
-        <PicaCarouselCard index={1} title={'Uh oh...'} date={'It appears something has gone wrong...'} buttonText={'Error'} description={'Please check your connection'}/>
-        <PicaCarouselCard index={2} title={'Uh oh...'} date={'It appears something has gone wrong...'} buttonText={'Error'} description={'Please check your connection'}/>
-      </div>
-      )
-    }
-    let heroSlides = this.props.heroSlideData.map((heroSlide, index) =>
-      <PicaCarouselCard
-        index={index}
-        activeIndex={this.state.activeIndex}
-        cardTotal={this.state.cardTotal}
-        key={index}
-        title={heroSlide.title}
-        date={heroSlide.date}
-        image={'https://media.graphcms.com/resize=width:800/' + heroSlide.image.handle}
-        buttonText={heroSlide.buttonText}
-        buttonLink={heroSlide.buttonLink}
-        description={heroSlide.description}
-        background={this.setBackgroundColor(index)}
-      />
-    )
-    return (
-      heroSlides
-    )
-  }
-
   render() {
+    const GET_CONTENT = gql`
+      query {
+        heroSlides (orderBy: sortNumber_ASC){
+          title
+          date
+          image {
+            handle
+            photoCredit
+          }
+          buttonText
+          buttonLink
+          description
+        }
+      }
+    `
     return (
       <div className={styles.PicaCarousel}
         onTouchStart={touchStartEvent => this.handleTouchStart(touchStartEvent)}
@@ -165,7 +112,35 @@ class PicaCarousel extends Component {
             onClick={this.clickRight}
           />
         </div>
-        {this.renderCards()}
+        <Query query={GET_CONTENT} variables={{"tagName" : this.state.tagName}}>
+          {({ loading, error, data }) => {
+            if (loading) return (
+              <div>
+                <PicaCarouselCard index={0} title={'Loading...'} date={'Loading...'} buttonText={'Loading...'} description={'Loading...'}/>
+                <PicaCarouselCard index={1}/>
+                <PicaCarouselCard index={2}/>
+              </div>
+            )
+            if (error) return `Error! ${error.message}`
+            let heroSlides = data.heroSlides.map((heroSlide, index) =>
+              <PicaCarouselCard
+                index={index}
+                activeIndex={this.state.activeIndex}
+                cardTotal={data.heroSlides.length}
+                key={index}
+                title={heroSlide.title}
+                date={heroSlide.date}
+                image={'https://media.graphcms.com/resize=width:800/' + heroSlide.image.handle}
+                buttonText={heroSlide.buttonText}
+                buttonLink={heroSlide.buttonLink}
+                description={heroSlide.description}
+              />
+            )
+            return (
+              heroSlides
+            )
+          }}
+        </Query>
       </div>
     )
   }
@@ -174,9 +149,6 @@ class PicaCarousel extends Component {
 PicaCarousel.propTypes = {
   leftArrow: PropTypes.string,
   rightArrow: PropTypes.string,
-  heroSlideData: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
-  loading: PropTypes.bool,
-  error: PropTypes.bool,
   children: PropTypes.oneOfType([PropTypes.object, PropTypes.array])
 }
 
