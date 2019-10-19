@@ -34,6 +34,14 @@
 	font-size: 48px;
 }
 
+.section {
+	height: 10%;
+	width: 100%;
+	position: relative;
+	background-color: white;
+	z-index: 3;
+}
+
 .cardImage {
 	width: 50%;
 	height: 80%;
@@ -64,6 +72,20 @@
 	-webkit-transform: translateY(400%);
 	-ms-transform: translateY(400%);
 			transform: translateY(400%);
+	transition: transform 500ms linear;
+}
+
+.sectionUp {
+	-webkit-transform: translateY(0%);
+	-ms-transform: translateY(0%);
+			transform: translateY(0%);
+	transition: transform 500ms linear;
+}
+
+.sectionDown {
+	-webkit-transform: translateY(800%);
+	-ms-transform: translateY(800%);
+			transform: translateY(800%);
 	transition: transform 500ms linear;
 }
 

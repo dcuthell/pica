@@ -68,9 +68,12 @@ class PicaArtistBlock extends Component {
   }
 
   render() {
-    if (this.props.blocker) {
+    if (this.props.section) {
       return (
-        <div className={styles.header + ' ' + (((this.props.activeIndex >= this.props.index) || this.state.isOpen) ? styles.headerUp : styles.headerDown)} style={{backgroundColor: 'black', height: '40vh', position: 'relative'}} />
+        <div className={styles.section + ' ' + ((this.props.activeIndex >= this.props.index || !this.props.cardOpen) ? styles.headerUp : styles.headerDown)}
+        style={{backgroundColor: this.props.background}}>
+          {this.props.children}
+        </div>
       )
     }
     return (
@@ -110,7 +113,7 @@ PicaArtistBlock.propTypes = {
   setOpen: PropTypes.func,
   setClose: PropTypes.func,
   cardOpen: PropTypes.bool,
-  blocker: PropTypes.bool
+  section: PropTypes.bool
 }
 
 export default PicaArtistBlock

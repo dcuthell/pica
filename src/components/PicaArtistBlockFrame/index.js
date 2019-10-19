@@ -82,7 +82,7 @@ class PicaArtistBlockFrame extends Component {
             )
             if (error) return `Error! ${error.message}`
             //Date filtering starts with a date object that takes current Date, then gets the ISOStrings for the beginning of the day, the end of the day, and the end of the week
-            let d = new Date('2019-09-13T01:30:00.000Z')
+            let d = new Date('2019-09-14T01:30:00.000Z')
             d.setHours(0)
             d.setMinutes(0)
             let daystart = d.toISOString()
@@ -91,21 +91,78 @@ class PicaArtistBlockFrame extends Component {
             let dayend = d.toISOString()
             d.setDate(d.getDate() + (7 - ((dayval-1) % 7)))
             let weekend = d.toISOString()
-            console.log(daystart)
-            console.log(dayend)
-            console.log(weekend)
-            const myDate = '2019-09-13T01:30:00.000Z'
             let index = 0
-            let list = data.programs.map((program) => {
-              let display = false
-              program.testDateAndTime.forEach((dateTime) => {
-                if (dateTime >= myDate){
-                  display = true
+            let eventsToday = []
+            let eventsThisWeek = []
+            let eventsUpcoming = []
+            for (let i = 0; i < data.programs.length; i++) {
+              let today = false
+              let thisweek = false
+              let upcoming = false
+              for (let j = 0; j < data.programs[i].testDateAndTime.length; j++) {
+                if(data.programs[i].testDateAndTime[j] < daystart){
+                  break;
                 }
-              })
-              if (display){
+                if(data.programs[i].testDateAndTime[j] < dayend){
+                  today = true
+                  break;
+                }
+                if(data.programs[i].testDateAndTime[j] < weekend){
+                  thisweek = true
+                  break;
+                }
+                if(data.programs[i].testDateAndTime[j] > weekend){
+                  upcoming = true
+                }
+              }
+              if ((!today && !thisweek) && !upcoming){
+                continue;
+              }
+              let program = data.programs[i]
+              if(today){
+                console.log(index)
                 index += 1
-                return(
+                eventsToday.push(
+                  <PicaArtistBlock
+                    title={program.title}
+                    artist={program.artists[0] ? program.artists[0].name : 'No Artist'}
+                    key={index-1}
+                    index={index-1}
+                    activeIndex={this.state.activeIndex}
+                    cardTotal={data.programs.length}
+                    setOpen={this.setOpen}
+                    setClose={this.setClose}
+                    cardOpen={this.state.cardOpen}
+                    image={'https://media.graphcms.com/resize=width:300/' + program.gallery.galleryItems[0].media.handle}
+                    description={program.shortDescription}
+                    background={this.setBackgroundColor(index-1)}
+                  />
+                )
+                continue;
+              }
+              if(thisweek){
+                index += 1
+                eventsThisWeek.push(
+                  <PicaArtistBlock
+                    title={program.title}
+                    artist={program.artists[0] ? program.artists[0].name : 'No Artist'}
+                    key={index-1}
+                    index={index-1}
+                    activeIndex={this.state.activeIndex}
+                    cardTotal={data.programs.length}
+                    setOpen={this.setOpen}
+                    setClose={this.setClose}
+                    cardOpen={this.state.cardOpen}
+                    image={'https://media.graphcms.com/resize=width:300/' + program.gallery.galleryItems[0].media.handle}
+                    description={program.shortDescription}
+                    background={this.setBackgroundColor(index-1)}
+                  />
+                )
+                continue;
+              }
+              if(upcoming){
+                index += 1
+                eventsThisWeek.push(
                   <PicaArtistBlock
                     title={program.title}
                     artist={program.artists[0] ? program.artists[0].name : 'No Artist'}
@@ -122,19 +179,22 @@ class PicaArtistBlockFrame extends Component {
                   />
                 )
               }
-            })
+            }
+          
             return (
               <div style={{height: '80vh', width: '100%'}}>
-                <div style={{width: '100%', height: '50px', position: 'relative', zIndex: '3', background: 'white'}}>
+                <PicaArtistBlock section index={0} activeIndex={this.state.activeIndex} cardOpen={this.state.cardOpen}>
                   <h1>TODAY</h1>
-                </div>
-                {list}
-                <div style={{width: '100%', height: '50px', position: 'relative', zIndex: '3', background: 'white'}}>
+                </PicaArtistBlock>
+                {eventsToday}
+                <PicaArtistBlock section index={eventsToday.length} activeIndex={this.state.activeIndex} cardOpen={this.state.cardOpen}>
                   <h1>THIS WEEK</h1>
-                </div>
-                <div style={{width: '100%', height: '50px', position: 'relative', zIndex: '3', background: 'white'}}>
+                </PicaArtistBlock>
+                {eventsThisWeek}
+                <PicaArtistBlock section index={eventsToday.length + eventsThisWeek.length} activeIndex={this.state.activeIndex} cardOpen={this.state.cardOpen}>
                   <h1>UPCOMING</h1>
-                </div>
+                </PicaArtistBlock>
+                {eventsUpcoming}
               </div>
             )
           }}
