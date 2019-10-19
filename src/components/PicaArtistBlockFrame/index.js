@@ -31,6 +31,79 @@ class PicaArtistBlockFrame extends Component {
     })
   }
 
+  importFilterAndSort(programs){
+    //Date filtering starts with a date object that takes current Date, then gets the ISOStrings for the beginning of the day, the end of the day, and the end of the week
+    let d = new Date('2019-09-14T01:30:00.000Z')
+    d.setHours(0)
+    d.setMinutes(0)
+    let daystart = d.toISOString()
+    let dayval = d.getDay()
+    d.setDate(d.getDate() + 1)
+    let dayend = d.toISOString()
+    d.setDate(d.getDate() + (7 - ((dayval-1) % 7)))
+    let weekend = d.toISOString()
+    let eventsTodayData = []
+    let eventsThisWeekData = []
+    let eventsUpcomingData = []
+    for (let i = 0; i < programs.length; i++) {
+      let today = false
+      let thisweek = false
+      let upcoming = false
+      for (let j = 0; j < programs[i].testDateAndTime.length; j++) {
+        if(programs[i].testDateAndTime[j] < daystart){
+          break;
+        }
+        if(programs[i].testDateAndTime[j] < dayend){
+          today = true
+          break;
+        }
+        if(programs[i].testDateAndTime[j] < weekend){
+          thisweek = true
+          break;
+        }
+        if(programs[i].testDateAndTime[j] > weekend){
+          upcoming = true
+        }
+      }
+      if ((!today && !thisweek) && !upcoming){
+        continue;
+      }
+      let program = programs[i]
+      if(today){
+        eventsTodayData.push({
+          title: program.title,
+          artist: program.artists[0] ? program.artists[0].name : 'No Artist',
+          image: 'https://media.graphcms.com/resize=width:300/' + program.gallery.galleryItems[0].media.handle,
+          description: program.shortDescription
+        })
+        continue;
+      }
+      if(thisweek){
+        eventsThisWeekData.push({
+          title: program.title,
+          artist: program.artists[0] ? program.artists[0].name : 'No Artist',
+          image: 'https://media.graphcms.com/resize=width:300/' + program.gallery.galleryItems[0].media.handle,
+          description: program.shortDescription
+        })
+        continue;
+      }
+      if(upcoming){
+        eventsUpcomingData.push({
+          title: program.title,
+          artist: program.artists[0] ? program.artists[0].name : 'No Artist',
+          image: 'https://media.graphcms.com/resize=width:300/' + program.gallery.galleryItems[0].media.handle,
+          description: program.shortDescription
+        })
+      }
+    }
+    let data = {
+      eventsTodayData,
+      eventsThisWeekData,
+      eventsUpcomingData
+    }
+    return data
+  }
+
   setBackgroundColor(index){
     const i = index % 6
     if(i === 0){
@@ -92,95 +165,53 @@ class PicaArtistBlockFrame extends Component {
             d.setDate(d.getDate() + (7 - ((dayval-1) % 7)))
             let weekend = d.toISOString()
             let index = 0
-            let eventsToday = []
-            let eventsThisWeek = []
-            let eventsUpcoming = []
-            for (let i = 0; i < data.programs.length; i++) {
-              let today = false
-              let thisweek = false
-              let upcoming = false
-              for (let j = 0; j < data.programs[i].testDateAndTime.length; j++) {
-                if(data.programs[i].testDateAndTime[j] < daystart){
-                  break;
-                }
-                if(data.programs[i].testDateAndTime[j] < dayend){
-                  today = true
-                  break;
-                }
-                if(data.programs[i].testDateAndTime[j] < weekend){
-                  thisweek = true
-                  break;
-                }
-                if(data.programs[i].testDateAndTime[j] > weekend){
-                  upcoming = true
-                }
-              }
-              if ((!today && !thisweek) && !upcoming){
-                continue;
-              }
-              let program = data.programs[i]
-              if(today){
-                console.log(index)
-                index += 1
-                eventsToday.push(
-                  <PicaArtistBlock
-                    title={program.title}
-                    artist={program.artists[0] ? program.artists[0].name : 'No Artist'}
-                    key={index-1}
-                    index={index-1}
-                    activeIndex={this.state.activeIndex}
-                    cardTotal={data.programs.length}
-                    setOpen={this.setOpen}
-                    setClose={this.setClose}
-                    cardOpen={this.state.cardOpen}
-                    image={'https://media.graphcms.com/resize=width:300/' + program.gallery.galleryItems[0].media.handle}
-                    description={program.shortDescription}
-                    background={this.setBackgroundColor(index-1)}
-                  />
-                )
-                continue;
-              }
-              if(thisweek){
-                index += 1
-                eventsThisWeek.push(
-                  <PicaArtistBlock
-                    title={program.title}
-                    artist={program.artists[0] ? program.artists[0].name : 'No Artist'}
-                    key={index-1}
-                    index={index-1}
-                    activeIndex={this.state.activeIndex}
-                    cardTotal={data.programs.length}
-                    setOpen={this.setOpen}
-                    setClose={this.setClose}
-                    cardOpen={this.state.cardOpen}
-                    image={'https://media.graphcms.com/resize=width:300/' + program.gallery.galleryItems[0].media.handle}
-                    description={program.shortDescription}
-                    background={this.setBackgroundColor(index-1)}
-                  />
-                )
-                continue;
-              }
-              if(upcoming){
-                index += 1
-                eventsThisWeek.push(
-                  <PicaArtistBlock
-                    title={program.title}
-                    artist={program.artists[0] ? program.artists[0].name : 'No Artist'}
-                    key={index-1}
-                    index={index-1}
-                    activeIndex={this.state.activeIndex}
-                    cardTotal={data.programs.length}
-                    setOpen={this.setOpen}
-                    setClose={this.setClose}
-                    cardOpen={this.state.cardOpen}
-                    image={'https://media.graphcms.com/resize=width:300/' + program.gallery.galleryItems[0].media.handle}
-                    description={program.shortDescription}
-                    background={this.setBackgroundColor(index-1)}
-                  />
-                )
-              }
-            }
-          
+            let programData = this.importFilterAndSort(data.programs)
+            console.log(programData)
+            let eventsToday = programData.eventsTodayData.map((program, index) =>
+              <PicaArtistBlock
+                title={program.title}
+                artist={program.artist}
+                key={index}
+                index={index}
+                activeIndex={this.state.activeIndex}
+                setOpen={this.setOpen}
+                setClose={this.setClose}
+                cardOpen={this.state.cardOpen}
+                image={program.image}
+                description={program.description}
+                background={this.setBackgroundColor(index)}
+              />
+            )
+            let eventsThisWeek = programData.eventsThisWeekData.map((program, index) =>
+              <PicaArtistBlock
+                title={program.title}
+                artist={program.artist}
+                key={index + programData.eventsTodayData.length}
+                index={index + programData.eventsTodayData.length}
+                activeIndex={this.state.activeIndex}
+                setOpen={this.setOpen}
+                setClose={this.setClose}
+                cardOpen={this.state.cardOpen}
+                image={program.image}
+                description={program.description}
+                background={this.setBackgroundColor(index + programData.eventsTodayData.length)}
+              />
+            )
+            let eventsUpcoming = programData.eventsUpcomingData.map((program, index) =>
+              <PicaArtistBlock
+                title={program.title}
+                artist={program.artist}
+                key={index + programData.eventsTodayData.length + programData.eventsThisWeekData.length}
+                index={index + programData.eventsTodayData.length + programData.eventsThisWeekData.length}
+                activeIndex={this.state.activeIndex}
+                setOpen={this.setOpen}
+                setClose={this.setClose}
+                cardOpen={this.state.cardOpen}
+                image={program.image}
+                description={program.description}
+                background={this.setBackgroundColor(index + programData.eventsTodayData.length + programData.eventsThisWeekData.length)}
+              />
+            )
             return (
               <div style={{height: '80vh', width: '100%'}}>
                 <PicaArtistBlock section index={0} activeIndex={this.state.activeIndex} cardOpen={this.state.cardOpen}>

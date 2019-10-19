@@ -70,7 +70,7 @@ class PicaArtistBlock extends Component {
   render() {
     if (this.props.section) {
       return (
-        <div className={styles.section + ' ' + ((this.props.activeIndex >= this.props.index || !this.props.cardOpen) ? styles.headerUp : styles.headerDown)}
+        <div className={styles.section + ' ' + ((this.props.activeIndex >= this.props.index || !this.props.cardOpen) ? styles.sectionUp : styles.sectionDown)}
         style={{backgroundColor: this.props.background}}>
           {this.props.children}
         </div>
