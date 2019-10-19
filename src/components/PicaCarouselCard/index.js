@@ -59,7 +59,7 @@ class PicaCarouselCard extends Component {
 
   render() {
     return (
-      <div className={styles.PicaCarouselCard + ' ' + this.propsToStyles()} style={this.props.style}>
+      <div className={styles.PicaCarouselCard + ' ' + this.propsToStyles()} style={{backgroundColor: this.props.background}}>
         <div className={styles.cardImage} style={{backgroundImage: 'url(' + this.props.image + ')'}}>
           <h1>{this.props.index}</h1>
         </div>
@@ -103,7 +103,8 @@ PicaCarouselCard.propTypes = {
   tags: PropTypes.string,
   buttonText: PropTypes.string,
   buttonLink: PropTypes.string,
-  description: PropTypes.string
+  description: PropTypes.string,
+  background: PropTypes.string
 }
 
 export default PicaCarouselCard

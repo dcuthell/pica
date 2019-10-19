@@ -80,6 +80,28 @@ class PicaCarousel extends Component {
     }
   }
 
+  setBackgroundColor(index){
+    const i = index % 6
+    if(i === 0){
+      return '#B0C170'
+    }
+    if(i === 1){
+      return '#0DAE5D'
+    }
+    if(i === 2){
+      return '#8EA9D5'
+    }
+    if(i === 3){
+      return '#FFC2EB'
+    }
+    if(i === 4){
+      return '#FF5928'
+    }
+    if(i === 5){
+      return '#8A69D4'
+    }
+  }
+
   renderCards(){
     if(this.props.loading){
       return(
@@ -111,6 +133,7 @@ class PicaCarousel extends Component {
         buttonText={heroSlide.buttonText}
         buttonLink={heroSlide.buttonLink}
         description={heroSlide.description}
+        background={this.setBackgroundColor(index)}
       />
     )
     return (
