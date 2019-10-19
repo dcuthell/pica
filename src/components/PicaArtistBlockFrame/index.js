@@ -31,9 +31,44 @@ class PicaArtistBlockFrame extends Component {
     })
   }
 
+  addInOrder(programList, program){
+    if(programList.length === 0){
+      programList.push({
+        title: program.title,
+        artist: program.artists[0] ? program.artists[0].name : 'No Artist',
+        image: 'https://media.graphcms.com/resize=width:300/' + program.gallery.galleryItems[0].media.handle,
+        description: program.shortDescription,
+        sortTimeVal: program.sortTimeVal
+      })
+    } else {
+      for(let i = 0; i < programList.length; i++){
+        if(program.sortTimeVal < programList[i].sortTimeVal){
+          programList.splice(i, 0, {
+            title: program.title,
+            artist: program.artists[0] ? program.artists[0].name : 'No Artist',
+            image: 'https://media.graphcms.com/resize=width:300/' + program.gallery.galleryItems[0].media.handle,
+            description: program.shortDescription,
+            sortTimeVal: program.sortTimeVal
+          })
+          break;
+        }
+        if(i === (programList.length - 1)){
+          programList.push({
+            title: program.title,
+            artist: program.artists[0] ? program.artists[0].name : 'No Artist',
+            image: 'https://media.graphcms.com/resize=width:300/' + program.gallery.galleryItems[0].media.handle,
+            description: program.shortDescription,
+            sortTimeVal: program.sortTimeVal
+          })
+          break;
+        }
+      }
+    }
+  }
+
   importFilterAndSort(programs){
     //Date filtering starts with a date object that takes current Date, then gets the ISOStrings for the beginning of the day, the end of the day, and the end of the week
-    let d = new Date('2019-09-14T01:30:00.000Z')
+    let d = new Date('2019-09-06T01:30:00.000Z')
     d.setHours(0)
     d.setMinutes(0)
     let daystart = d.toISOString()
@@ -49,51 +84,41 @@ class PicaArtistBlockFrame extends Component {
       let today = false
       let thisweek = false
       let upcoming = false
+      let sortTimeVal = ''
       for (let j = 0; j < programs[i].testDateAndTime.length; j++) {
         if(programs[i].testDateAndTime[j] < daystart){
           break;
         }
         if(programs[i].testDateAndTime[j] < dayend){
           today = true
+          sortTimeVal = programs[i].testDateAndTime[j]
           break;
         }
         if(programs[i].testDateAndTime[j] < weekend){
           thisweek = true
+          sortTimeVal = programs[i].testDateAndTime[j]
           break;
         }
         if(programs[i].testDateAndTime[j] > weekend){
           upcoming = true
+          sortTimeVal = programs[i].testDateAndTime[j]
         }
       }
       if ((!today && !thisweek) && !upcoming){
         continue;
       }
       let program = programs[i]
+      program.sortTimeVal = sortTimeVal
       if(today){
-        eventsTodayData.push({
-          title: program.title,
-          artist: program.artists[0] ? program.artists[0].name : 'No Artist',
-          image: 'https://media.graphcms.com/resize=width:300/' + program.gallery.galleryItems[0].media.handle,
-          description: program.shortDescription
-        })
+        this.addInOrder(eventsTodayData, program)
         continue;
       }
       if(thisweek){
-        eventsThisWeekData.push({
-          title: program.title,
-          artist: program.artists[0] ? program.artists[0].name : 'No Artist',
-          image: 'https://media.graphcms.com/resize=width:300/' + program.gallery.galleryItems[0].media.handle,
-          description: program.shortDescription
-        })
+        this.addInOrder(eventsThisWeekData, program)
         continue;
       }
       if(upcoming){
-        eventsUpcomingData.push({
-          title: program.title,
-          artist: program.artists[0] ? program.artists[0].name : 'No Artist',
-          image: 'https://media.graphcms.com/resize=width:300/' + program.gallery.galleryItems[0].media.handle,
-          description: program.shortDescription
-        })
+        this.addInOrder(eventsUpcomingData, program)
       }
     }
     let data = {
@@ -154,19 +179,7 @@ class PicaArtistBlockFrame extends Component {
               <h1>Loading&hellip;</h1>
             )
             if (error) return `Error! ${error.message}`
-            //Date filtering starts with a date object that takes current Date, then gets the ISOStrings for the beginning of the day, the end of the day, and the end of the week
-            let d = new Date('2019-09-14T01:30:00.000Z')
-            d.setHours(0)
-            d.setMinutes(0)
-            let daystart = d.toISOString()
-            let dayval = d.getDay()
-            d.setDate(d.getDate() + 1)
-            let dayend = d.toISOString()
-            d.setDate(d.getDate() + (7 - ((dayval-1) % 7)))
-            let weekend = d.toISOString()
-            let index = 0
             let programData = this.importFilterAndSort(data.programs)
-            console.log(programData)
             let eventsToday = programData.eventsTodayData.map((program, index) =>
               <PicaArtistBlock
                 title={program.title}
