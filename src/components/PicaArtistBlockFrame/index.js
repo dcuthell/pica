@@ -32,13 +32,15 @@ class PicaArtistBlockFrame extends Component {
   }
 
   addInOrder(programList, program){
+    console.log(program.dateAndTime[0])
     if(programList.length === 0){
       programList.push({
         title: program.title,
         artist: program.artists[0] ? program.artists[0].name : 'No Artist',
         image: 'https://media.graphcms.com/resize=width:300/' + program.gallery.galleryItems[0].media.handle,
         description: program.shortDescription,
-        sortTimeVal: program.sortTimeVal
+        sortTimeVal: program.sortTimeVal,
+        dateAndTime: program.dateAndTime[0]
       })
     } else {
       for(let i = 0; i < programList.length; i++){
@@ -48,7 +50,8 @@ class PicaArtistBlockFrame extends Component {
             artist: program.artists[0] ? program.artists[0].name : 'No Artist',
             image: 'https://media.graphcms.com/resize=width:300/' + program.gallery.galleryItems[0].media.handle,
             description: program.shortDescription,
-            sortTimeVal: program.sortTimeVal
+            sortTimeVal: program.sortTimeVal,
+            dateAndTime: program.dateAndTime[0]
           })
           break;
         }
@@ -58,7 +61,8 @@ class PicaArtistBlockFrame extends Component {
             artist: program.artists[0] ? program.artists[0].name : 'No Artist',
             image: 'https://media.graphcms.com/resize=width:300/' + program.gallery.galleryItems[0].media.handle,
             description: program.shortDescription,
-            sortTimeVal: program.sortTimeVal
+            sortTimeVal: program.sortTimeVal,
+            dateAndTime: program.dateAndTime
           })
           break;
         }
@@ -160,6 +164,7 @@ class PicaArtistBlockFrame extends Component {
           artists {
             name
           }
+          dateAndTime
           shortDescription
           route
           gallery {
@@ -193,6 +198,7 @@ class PicaArtistBlockFrame extends Component {
                 image={program.image}
                 description={program.description}
                 background={this.setBackgroundColor(index)}
+                time={program.dateAndTime}
               />
             )
             let eventsThisWeek = programData.eventsThisWeekData.map((program, index) =>
@@ -208,6 +214,7 @@ class PicaArtistBlockFrame extends Component {
                 image={program.image}
                 description={program.description}
                 background={this.setBackgroundColor(index + programData.eventsTodayData.length)}
+                time={program.dateAndTime}
               />
             )
             let eventsUpcoming = programData.eventsUpcomingData.map((program, index) =>
@@ -223,6 +230,7 @@ class PicaArtistBlockFrame extends Component {
                 image={program.image}
                 description={program.description}
                 background={this.setBackgroundColor(index + programData.eventsTodayData.length + programData.eventsThisWeekData.length)}
+                time={program.dateAndTime}
               />
             )
             return (
