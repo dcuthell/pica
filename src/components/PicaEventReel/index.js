@@ -1,25 +1,32 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styles from './styles.module.css'
-import { Query } from 'react-apollo'
-import gql from 'graphql-tag'
 import { Route } from 'react-router-dom'
 
-import PicaCarouselCard from '../PicaCarouselCard'
+import PicaEventReelBlock from '../PicaEventReelBlock'
 
 import leftArrow from '../../img/LeftArrow.png'
 import rightArrow from '../../img/RightArrow.png'
 
-class PicaCarousel extends Component {
+class PicaEventReel extends Component {
   constructor(props) {
     super(props)
     this.state = {
       cards: {},
-      activeIndex: 0,
+      activeIndex: 1,
       swipe: 'none'
     }
     this.clickLeft = this.clickLeft.bind(this)
     this.clickRight = this.clickRight.bind(this)
+    this.renderCards = this.renderCards.bind(this)
+  }
+  
+  static getDerivedStateFromProps(props, state) {
+    if(props.heroSlideData){
+      return {cardTotal: props.heroSlideData.length}
+    } else {
+      return null
+    }
   }
 
   handleTouchStart(e) {
@@ -37,7 +44,7 @@ class PicaCarousel extends Component {
   }
 
   clickLeft(e) {
-    const newIndex = ((this.state.activeIndex === 0) ? this.state.activeIndex : (this.state.activeIndex - 1))
+    const newIndex = ((this.state.activeIndex === 1) ? this.state.activeIndex : (this.state.activeIndex - 1))
     this.setState({
       activeIndex: newIndex,
       swipe: 'left'
@@ -45,7 +52,7 @@ class PicaCarousel extends Component {
   }
 
   clickRight(e) {
-    const newIndex = ((this.state.activeIndex === (this.state.cardTotal - 1)) ? this.state.activeIndex : (this.state.activeIndex + 1))
+    const newIndex = ((this.state.activeIndex === (this.state.cardTotal - 2)) ? this.state.activeIndex : (this.state.activeIndex + 1))
     this.setState({
       activeIndex: newIndex,
       swipe: 'right'
@@ -73,28 +80,74 @@ class PicaCarousel extends Component {
     }
   }
 
-  render() {
-    const GET_CONTENT = gql`
-      query {
-        heroSlides (orderBy: sortNumber_ASC){
-          title
-          date
-          image {
-            handle
-            photoCredit
-          }
-          buttonText
-          buttonLink
-          description
-        }
-      }
-    `
+  setBackgroundColor(index){
+    const i = index % 6
+    if(i === 0){
+      return '#B0C170'
+    }
+    if(i === 1){
+      return '#0DAE5D'
+    }
+    if(i === 2){
+      return '#8EA9D5'
+    }
+    if(i === 3){
+      return '#FFC2EB'
+    }
+    if(i === 4){
+      return '#FF5928'
+    }
+    if(i === 5){
+      return '#8A69D4'
+    }
+  }
+
+  renderCards(){
+    if(this.props.loading){
+      return(
+        <div>
+          <PicaEventReelBlock index={0} title={'Loading...'} date={'Loading...'} buttonText={'Loading...'} description={'Loading...'}/>
+          <PicaEventReelBlock index={1}/>
+          <PicaEventReelBlock index={2}/>
+        </div>
+      )
+    }
+    if(this.props.error){
+      return(
+        <div>
+        <PicaEventReelBlock index={0} title={'Uh oh...'} date={'It appears something has gone wrong...'} buttonText={'Error'} description={'Please check your connection'}/>
+        <PicaEventReelBlock index={1} title={'Uh oh...'} date={'It appears something has gone wrong...'} buttonText={'Error'} description={'Please check your connection'}/>
+        <PicaEventReelBlock index={2} title={'Uh oh...'} date={'It appears something has gone wrong...'} buttonText={'Error'} description={'Please check your connection'}/>
+      </div>
+      )
+    }
+    let heroSlides = this.props.heroSlideData.map((heroSlide, index) =>
+      <PicaEventReelBlock
+        index={index}
+        activeIndex={this.state.activeIndex}
+        cardTotal={this.state.cardTotal}
+        key={index}
+        title={heroSlide.title}
+        date={heroSlide.date}
+        image={'https://media.graphcms.com/resize=width:800/' + heroSlide.image.handle}
+        buttonText={heroSlide.buttonText}
+        buttonLink={heroSlide.buttonLink}
+        description={heroSlide.description}
+        background={this.setBackgroundColor(index)}
+      />
+    )
     return (
-      <div className={styles.PicaCarousel}
+      heroSlides
+    )
+  }
+
+  render() {
+    return (
+      <div className={styles.PicaEventReel}
         onTouchStart={touchStartEvent => this.handleTouchStart(touchStartEvent)}
         onTouchEnd={touchEndEvent => this.handleTouchEnd(touchEndEvent)}
       >
-        <Route path={'/' + this.state.swipe} component={PicaCarouselCard} />
+        <Route path={'/' + this.state.swipe} component={PicaEventReelBlock} />
         <div className={styles.header}>
           <div className={styles.title}>
             <h1>Events</h1>
@@ -112,47 +165,22 @@ class PicaCarousel extends Component {
             onClick={this.clickRight}
           />
         </div>
-        <Query query={GET_CONTENT} variables={{"tagName" : this.state.tagName}}>
-          {({ loading, error, data }) => {
-            if (loading) return (
-              <div>
-                <PicaCarouselCard index={0} title={'Loading...'} date={'Loading...'} buttonText={'Loading...'} description={'Loading...'}/>
-                <PicaCarouselCard index={1}/>
-                <PicaCarouselCard index={2}/>
-              </div>
-            )
-            if (error) return `Error! ${error.message}`
-            let heroSlides = data.heroSlides.map((heroSlide, index) =>
-              <PicaCarouselCard
-                index={index}
-                activeIndex={this.state.activeIndex}
-                cardTotal={data.heroSlides.length}
-                key={index}
-                title={heroSlide.title}
-                date={heroSlide.date}
-                image={'https://media.graphcms.com/resize=width:800/' + heroSlide.image.handle}
-                buttonText={heroSlide.buttonText}
-                buttonLink={heroSlide.buttonLink}
-                description={heroSlide.description}
-              />
-            )
-            return (
-              heroSlides
-            )
-          }}
-        </Query>
+        {this.renderCards()}
       </div>
     )
   }
 }
 
-PicaCarousel.propTypes = {
+PicaEventReel.propTypes = {
   leftArrow: PropTypes.string,
   rightArrow: PropTypes.string,
+  heroSlideData: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+  loading: PropTypes.bool,
+  error: PropTypes.bool,
   children: PropTypes.oneOfType([PropTypes.object, PropTypes.array])
 }
 
-export default PicaCarousel
+export default PicaEventReel
 
 /*
 index 0
