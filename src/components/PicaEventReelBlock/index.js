@@ -51,10 +51,10 @@ class PicaEventReelBlock extends Component {
         <div className={styles.cardImage} style={{backgroundImage: 'url(' + this.props.image + ')'}}>
         </div>
         <div className={styles.cardInfo}>
-          <p>{this.props.tags}</p>
+          <p id={styles.tags}>{this.props.tags}</p>
           <p id={styles.date}>{this.props.date}</p>
-          <h4>{this.props.title}</h4>
-          <p>{this.props.description}</p>
+          <h4 id={styles.title}>{this.props.title}</h4>
+          <p id={styles.description}>{this.props.description}</p>
         </div>
       </div>
     )
