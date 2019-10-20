@@ -33,9 +33,15 @@
 	right: 0;
 }
 
+#description {
+	max-height: 75%;
+	overflow: hidden;
+}
+
 .buyButton {
 	border: 1px solid black;
 	width: 70%;
+	overflow: hidden;
 	margin: auto;
 }
 
