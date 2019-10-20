@@ -77,7 +77,7 @@ class PicaNavBar extends Component {
             {/*<NavLink to='/events'><p>Events</p></NavLink>*/}
             <NavLink to='/artistsandarchive'><p>Artists & Archive</p></NavLink>
             {/*<NavLink to='/learn'><p>Learn</p></NavLink>*/}
-            <NavLink to='/precipicefund'><p>Precipice Fund</p></NavLink>
+            <NavLink to='/events'><p>Events</p></NavLink>
             <NavLink to='/support'><p>Support</p></NavLink>
           </div>
         </div>
@@ -96,7 +96,7 @@ class PicaNavBar extends Component {
               {/*<NavLink onClick={this.closeNav} to='/events'><p>Events</p></NavLink>*/}
               <NavLink onClick={this.closeNav} to='/artistsandarchive'><p>Artists & Archive</p></NavLink>
               {/*<NavLink onClick={this.closeNav} to='/learn'><p>Learn</p></NavLink>*/}
-              <NavLink onClick={this.closeNav} to='/precipicefund'><p>Precipice Fund</p></NavLink>
+              <NavLink onClick={this.closeNav} to='/events'><p>Events</p></NavLink>
               <NavLink onClick={this.closeNav} to='/support'><p>Support</p></NavLink>
             </div>
           </div>

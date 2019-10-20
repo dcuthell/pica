@@ -8,7 +8,6 @@ import PicaBody from './components/PicaBody'
 
 import Home from './routes/Home'
 import Events from './routes/Events'
-import Events2 from './routes/Events2'
 import ArtistsAndArchive from './routes/ArtistsAndArchive'
 import Learn from './routes/Learn'
 import PrecipiceFund from './routes/PrecipiceFund'
@@ -34,7 +33,6 @@ function App() {
       <PicaBody>
         <Route exact path='/' component={Home} />
         <Route exact path='/events' component={Events} />
-        <Route exact path='/events2' component={Events2} />
         <Route exact path='/artistsandarchive' component={ArtistsAndArchive} />
         <Route exact path='/learn' component={Learn} />
         <Route exact path='/precipicefund' component={PrecipiceFund} />
