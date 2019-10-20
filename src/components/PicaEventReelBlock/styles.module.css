@@ -19,10 +19,26 @@
 
 .cardInfo {
 	height: 30%;
-	width: 50%;
+	width: 100%;
 	position: absolute;
-	bottom: 0;
+	top: 70%;
 	left: 0;
+	text-align: left;
+	overflow: hidden;
+}
+
+#date {
+	text-align: right;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+#title {
+	text-align: right;
+	position: absolute;
+	top: 0;
+	right: 0;
 }
 
 .cardContent {
