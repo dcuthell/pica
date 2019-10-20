@@ -24,6 +24,7 @@ class PicaCarouselCard extends Component {
   ---UnMountedRight
   ---Not shown
   */
+  
   propsToStyles() {
     console.log((this.props.cardTotal - this.props.index === -1))
     if (((this.props.index - this.props.activeIndex) === 0) && (this.props.index === 0)) {
@@ -58,8 +59,8 @@ class PicaCarouselCard extends Component {
 
   render() {
     return (
-      <div className={styles.PicaCarouselCard + ' ' + this.propsToStyles()} style={this.props.style}>
-        <div className={styles.cardImage} style={{backgroundImage: 'url(' + this.props.image + ')', backgroundPosition: 'center', backgroundSize: 'contain'}}>
+      <div className={styles.PicaCarouselCard + ' ' + this.propsToStyles()} style={{backgroundColor: this.props.background}}>
+        <div className={styles.cardImage} style={{backgroundImage: 'url(' + this.props.image + ')'}}>
           <h1>{this.props.index}</h1>
         </div>
         <div className={styles.cardInfo}>
@@ -70,7 +71,7 @@ class PicaCarouselCard extends Component {
         <div className={styles.cardContent}>
           <p>{this.props.description}</p>
           <div className={styles.buyButton}>
-            <NavLink to={this.props.buttonLink}><h4>{this.props.buttonText}</h4></NavLink>
+            <NavLink to={'/' + this.props.buttonLink}><h4>{this.props.buttonText}</h4></NavLink>
           </div>
         </div>
       </div>
@@ -102,7 +103,8 @@ PicaCarouselCard.propTypes = {
   tags: PropTypes.string,
   buttonText: PropTypes.string,
   buttonLink: PropTypes.string,
-  description: PropTypes.string
+  description: PropTypes.string,
+  background: PropTypes.string
 }
 
 export default PicaCarouselCard
