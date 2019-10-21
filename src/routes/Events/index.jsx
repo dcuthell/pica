@@ -1,6 +1,7 @@
 import React from 'react'
 import { Container, Col, Row, Jumbotron } from 'reactstrap'
 import PicaArtistBlockFrame from '../../components/PicaArtistBlockFrame'
+import PicaEventList from '../../components/PicaEventList'
 
 export default function Events (props) {
   return (
@@ -12,7 +13,7 @@ export default function Events (props) {
           </Jumbotron>
         </Col>
         <Col xl='12' style={{height: '90vh'}}>
-          <PicaArtistBlockFrame />
+          <PicaEventList />
         </Col>
       </Row>
     </Container>
