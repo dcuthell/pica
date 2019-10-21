@@ -53,17 +53,22 @@ class PicaEventList extends Component {
             <form onSubmit={this.handleSubmit}>
               <input type='text' onChange={this.handleInput}></input>
             </form>
-            <span className={styles.SearchButton} onClick={this.resetSearch}>ALL</span>
-            <span className={styles.SearchButton} onClick={this.handleTagClick}>PERFORMANCE</span>
-            <span className={styles.SearchButton} onClick={this.handleTagClick}>VISUAL ART</span>
-            <span className={styles.SearchButton} onClick={this.handleTagClick}>FESTIVAL</span>
-            <span className={styles.SearchButton} onClick={this.handleTagClick}>CONVERSATION</span>
-            <span className={styles.SearchButton} onClick={this.handleTagClick}>PARTNER PROJECTS</span>
+            <h4>Search by Tag</h4>
+            <p className={styles.SearchButton} onClick={this.resetSearch}>ALL</p>
+            <p className={styles.SearchButton} onClick={this.handleTagClick}>PERFORMANCE</p>
+            <p className={styles.SearchButton} onClick={this.handleTagClick}>VISUAL ART</p>
+            <p className={styles.SearchButton} onClick={this.handleTagClick}>FESTIVAL</p>
+            <p className={styles.SearchButton} onClick={this.handleTagClick}>CONVERSATION</p>
+            <p className={styles.SearchButton} onClick={this.handleTagClick}>PARTNER PROJECTS</p>
            
           </Col>
           <Col className='Results' md='9'>
-            <h1>Search Results</h1>
-            <PicaEventQuery searchType={this.state.searchType} searchTerm={this.state.searchTerm} />
+            <div style={{width: '100%', height: '15%'}}>
+              <h1>EVENTS</h1>
+            </div>
+            <div style={{width: '100%', height: '85%', overflow: 'scroll'}}>
+              <PicaEventQuery searchType={this.state.searchType} searchTerm={this.state.searchTerm} />
+            </div>
           </Col>
         </Row>
       </Container>
