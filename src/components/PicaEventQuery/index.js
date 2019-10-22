@@ -2,7 +2,7 @@ import React from 'react'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 
-import PicaArtistBlock from '../PicaArtistBlock'
+import PicaEventListItem from '../PicaEventListItem'
 
 class PicaEventQuery extends React.Component {
   constructor(props) {
@@ -30,7 +30,6 @@ class PicaEventQuery extends React.Component {
   }
 
   addInOrder(programList, program){
-    console.log(program.dateAndTime[0])
     if(programList.length === 0){
       programList.push({
         title: program.title,
@@ -207,7 +206,7 @@ class PicaEventQuery extends React.Component {
           if (error) return `Error! ${error.message}`
           let programData = this.importFilterAndSort(data.programs)
           let eventsToday = programData.eventsTodayData.map((program, index) =>
-            <PicaArtistBlock
+            <PicaEventListItem
               title={program.title}
               artist={program.artist}
               key={index}
@@ -223,7 +222,7 @@ class PicaEventQuery extends React.Component {
             />
           )
           let eventsThisWeek = programData.eventsThisWeekData.map((program, index) =>
-            <PicaArtistBlock
+            <PicaEventListItem
               title={program.title}
               artist={program.artist}
               key={index + programData.eventsTodayData.length}
@@ -239,7 +238,7 @@ class PicaEventQuery extends React.Component {
             />
           )
           let eventsUpcoming = programData.eventsUpcomingData.map((program, index) =>
-            <PicaArtistBlock
+            <PicaEventListItem
               title={program.title}
               artist={program.artist}
               key={index + programData.eventsTodayData.length + programData.eventsThisWeekData.length}
@@ -256,17 +255,17 @@ class PicaEventQuery extends React.Component {
           )
           return (
             <div style={{height: '80vh', width: '100%'}}>
-              <PicaArtistBlock section index={0} activeIndex={this.state.activeIndex} cardOpen={this.state.cardOpen}>
+              <PicaEventListItem section index={0} activeIndex={this.state.activeIndex} cardOpen={this.state.cardOpen}>
                 <h1>TODAY</h1>
-              </PicaArtistBlock>
+              </PicaEventListItem>
               {eventsToday}
-              <PicaArtistBlock section index={eventsToday.length} activeIndex={this.state.activeIndex} cardOpen={this.state.cardOpen}>
+              <PicaEventListItem section index={eventsToday.length} activeIndex={this.state.activeIndex} cardOpen={this.state.cardOpen}>
                 <h1>THIS WEEK</h1>
-              </PicaArtistBlock>
+              </PicaEventListItem>
               {eventsThisWeek}
-              <PicaArtistBlock section index={eventsToday.length + eventsThisWeek.length} activeIndex={this.state.activeIndex} cardOpen={this.state.cardOpen}>
+              <PicaEventListItem section index={eventsToday.length + eventsThisWeek.length} activeIndex={this.state.activeIndex} cardOpen={this.state.cardOpen}>
                 <h1>UPCOMING</h1>
-              </PicaArtistBlock>
+              </PicaEventListItem>
               {eventsUpcoming}
             </div>
           )

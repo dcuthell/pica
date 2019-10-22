@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styles from './styles.module.css'
 
-class PicaArtistBlock extends Component {
+class PicaEventListItem extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -77,7 +77,7 @@ class PicaArtistBlock extends Component {
       )
     }
     return (
-      <div className={styles.PicaArtistBlock} style={{backgroundColor: this.props.background}}>
+      <div className={styles.PicaEventListItem} style={{backgroundColor: this.props.background}}>
         <div className={styles.header + ' ' + (((this.props.activeIndex >= this.props.index || !this.props.cardOpen)) ? styles.headerUp : styles.headerDown)}>
           <h1>{this.props.title}</h1>
           <h3>{this.props.artist}</h3>
@@ -87,7 +87,9 @@ class PicaArtistBlock extends Component {
           </div>
         </div>
         <div className={styles.content + ' ' + this.handleStyle()}>
-          <div className={styles.cardImage} style={{backgroundImage: 'url(' + this.props.image + ')'}} />
+          <div className={styles.cardImage} style={{backgroundImage: 'url(' + this.props.image + ')'}} >
+          
+          </div>
           <div className={styles.cardContent} >
             <p>
               {this.props.description}
@@ -99,17 +101,20 @@ class PicaArtistBlock extends Component {
   }
 }
 
-PicaArtistBlock.propTypes = {
-  name: PropTypes.string,
-  events: PropTypes.string,
+PicaEventListItem.propTypes = {
+  title: PropTypes.string,
+  artist: PropTypes.string,
   description: PropTypes.string,
   image: PropTypes.string,
+  date: PropTypes.string,
+  background: PropTypes.string,
   index: PropTypes.number,
   activeIndex: PropTypes.number,
+  cardTotal: PropTypes.number,
   setOpen: PropTypes.func,
   setClose: PropTypes.func,
   cardOpen: PropTypes.bool,
   section: PropTypes.bool
 }
 
-export default PicaArtistBlock
+export default PicaEventListItem
