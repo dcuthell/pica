@@ -48,7 +48,7 @@ class PicaEventList extends Component {
     return (
       <Container className={styles.PicaEventList} style={{padding: '0', margin: '0px', maxWidth: '100%', height: '100%'}}>
         <Row style={{margin: '0', height: '100%'}}>
-          <Col className={styles.Navigation} md='3' style={{backgroundColor: 'darkgrey'}}>
+          <Col className={styles.Navigation} md='3' style={{backgroundColor: 'darkgrey', height: '100%'}}>
             <p>Search by Event or Artist Name</p>
             <form onSubmit={this.handleSubmit}>
               <input type='text' onChange={this.handleInput}></input>
@@ -62,7 +62,7 @@ class PicaEventList extends Component {
             <p className={styles.SearchButton} onClick={this.handleTagClick}>PARTNER PROJECTS</p>
            
           </Col>
-          <Col className='Results' md='9'>
+          <Col className='Results' md='9' style={{padding: '0', margin: '0'}}>
             <div style={{width: '100%', height: '15%'}}>
               <h1>EVENTS</h1>
             </div>
