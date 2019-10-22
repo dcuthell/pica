@@ -1,4 +1,4 @@
-.PicaArtistBlock {
+.PicaEventListItem {
 	height: 20%;
 	width: 100%;
 	position: relative;
@@ -11,7 +11,7 @@
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background-color: #F8F8F8;
+	background-color: inherit;
 	z-index: 3;
 }
 

@@ -1,0 +1,125 @@
+.PicaEventReelBlock {
+	height: 90%;
+	width: 33.33%;
+	position: absolute;
+	top: 10%;
+	left: 0;
+	background-color: #d3d3d3;
+}
+
+.cardImage {
+	height: 70%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-size: cover;
+	background-position: center;
+}
+
+.cardInfo {
+	height: 30%;
+	width: 100%;
+	position: absolute;
+	top: 70%;
+	left: 0;
+	text-align: left;
+	overflow: hidden;
+	line-height: 1;
+	margin: 0;
+	background-color: #d3d3d3;
+}
+#tags {
+	text-align: left;
+	position: absolute;
+	margin-bottom: 0;
+	top: 0;
+	left: 0;
+	max-width: 50%;
+	max-height: 20%;
+	overflow: hidden;
+}
+#date {
+	text-align: right;
+	position: absolute;
+	top: 0;
+	right: 0;
+	max-width: 50%;
+	max-height: 20%;
+	overflow: hidden;
+}
+
+#title {
+	text-align: left;
+	position: absolute;
+	top: 20%;
+	left: 0;
+}
+
+#description {
+	text-align: left;
+	position: absolute;
+	top: 40%;
+	left: 0;
+	max-height: 50%;
+}
+
+.cardContent {
+	height: 30%;
+	width: 50%;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
+.buyButton {
+	border: 1px solid black;
+	width: 70%;
+	margin: auto;
+}
+
+.buyButton:hover {
+	background-color: yellow;
+	cursor: pointer;
+}
+
+
+
+.activeLeft {
+	-webkit-transform: translateX(0%);
+	-ms-transform: translateX(0%);
+			transform: translateX(0%);
+	transition: transform 500ms linear;
+}
+
+.activeMiddle {
+	-webkit-transform: translateX(100%);
+	-ms-transform: translateX(100%);
+			transform: translateX(100%);
+	transition: transform 500ms linear;
+}
+
+.activeRight {
+	-webkit-transform: translateX(200%);
+	-ms-transform: translateX(200%);
+			transform: translateX(200%);
+	transition: transform 500ms linear;
+}
+
+.inactiveLeft {
+	-webkit-transform: translateX(-100%);
+	-ms-transform: translateX(-100%);
+			transform: translateX(-100%);
+	transition: transform 500ms linear;
+}
+
+.inactiveRight {
+	-webkit-transform: translateX(300%);
+	-ms-transform: translateX(300%);
+			transform: translateX(300%);
+	transition: transform 500ms linear;
+}
+
+.unmounted {
+	display: none;
+}

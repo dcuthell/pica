@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom'
 
 import PicaLogo from '../../img/PicaLogo.png'
 
-class PicaCarouselCard extends Component {
+class PicaEventReelBlock extends Component {
   /*
   Here is how these cases are organized for n cards
   Start
@@ -27,29 +27,17 @@ class PicaCarouselCard extends Component {
   
   propsToStyles() {
     console.log((this.props.cardTotal - this.props.index === -1))
-    if (((this.props.index - this.props.activeIndex) === 0) && (this.props.index === 0)) {
+    if((this.props.index - this.props.activeIndex) === -2){
+      return styles.inactiveLeft
+    } else if((this.props.index - this.props.activeIndex) === -1){
       return styles.activeLeft
-    } else if (((this.props.index - this.props.activeIndex) === 1) && (this.props.index === 1)) {
-      return styles.inactiveRight2
-    } else if (((this.props.index - this.props.activeIndex) === 2) && (this.props.index === 2)) {
-      return styles.inactiveRight
-    } else if (((this.props.index - this.props.activeIndex) <= -2) && (this.props.cardTotal - this.props.index === 3)) {
-      return styles.inactiveLeft
-    } else if (((this.props.index - this.props.activeIndex) <= -1) && (this.props.cardTotal - this.props.index === 2)) {
-      return styles.inactiveLeft2
-    } else if (((this.props.index - this.props.activeIndex) <= 0) && (this.props.cardTotal - this.props.index === 1)) {
+    } else if((this.props.index - this.props.activeIndex) === 0){
+      return styles.activeMiddle
+    } else if((this.props.index - this.props.activeIndex) === 1){
       return styles.activeRight
-    } else if (((this.props.index - this.props.activeIndex) === -1)) {
-      return styles.inactiveLeft
-    } else if (((this.props.index - this.props.activeIndex) === 0)) {
-      return styles.active
-    } else if (((this.props.index - this.props.activeIndex) === 1)) {
+    } else if((this.props.index - this.props.activeIndex) === 2){
       return styles.inactiveRight
-    } else if (((this.props.index - this.props.activeIndex) === -2)) {
-      return styles.unmountedLeft
-    } else if (((this.props.index - this.props.activeIndex) === 2)) {
-      return styles.unmountedRight
-    } else if (((this.props.index - this.props.activeIndex) <= -2) || ((this.props.index - this.props.activeIndex) >= 2)) {
+    } else if(((this.props.index - this.props.activeIndex) < -2) || ((this.props.index - this.props.activeIndex) > 2)){
       return styles.unmounted
     } else {
       console.log('error')
@@ -59,27 +47,21 @@ class PicaCarouselCard extends Component {
 
   render() {
     return (
-      <div className={styles.PicaCarouselCard + ' ' + this.propsToStyles()} style={{backgroundColor: this.props.background}}>
+      <div className={styles.PicaEventReelBlock + ' ' + this.propsToStyles()} style={{backgroundColor: this.props.background}}>
         <div className={styles.cardImage} style={{backgroundImage: 'url(' + this.props.image + ')'}}>
-          <h1>{this.props.index}</h1>
         </div>
         <div className={styles.cardInfo}>
-          <h2>{this.props.title}</h2>
-          <h4>{this.props.date}</h4>
-          <p>{this.props.tags}</p>
-        </div>
-        <div className={styles.cardContent}>
+          <p id={styles.tags}>{this.props.tags}</p>
+          <p id={styles.date}>{this.props.date}</p>
+          <h4 id={styles.title}>{this.props.title}</h4>
           <p id={styles.description}>{this.props.description}</p>
-          <div className={styles.buyButton}>
-            <NavLink to={'/' + this.props.buttonLink}><h4>{this.props.buttonText}</h4></NavLink>
-          </div>
         </div>
       </div>
     )
   }
 }
 
-PicaCarouselCard.defaultProps = {
+PicaEventReelBlock.defaultProps = {
   index: 0,
   activeIndex: 0,
   cardTotal: 0,
@@ -92,7 +74,7 @@ PicaCarouselCard.defaultProps = {
   description: `This is a short description about what the event is. This should be PICA's voice and description of the event, a quick takeaway for the user to understand...`
 }
 
-PicaCarouselCard.propTypes = {
+PicaEventReelBlock.propTypes = {
   index: PropTypes.number,
   activeIndex: PropTypes.number,
   cardTotal: PropTypes.number,
@@ -107,7 +89,7 @@ PicaCarouselCard.propTypes = {
   background: PropTypes.string
 }
 
-export default PicaCarouselCard
+export default PicaEventReelBlock
 
 /*
 index 0

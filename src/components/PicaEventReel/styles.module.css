@@ -1,13 +1,13 @@
-.PicaCarousel {
+.PicaEventReel {
 	height: 100%;
 	width: 100%;
-	background-color: lightgrey;
+	background-color: #d3d3d3;
 }
 .header {
 	height: 10%;
 	position: absolute;
 	top: 0;
-	background-color: #F8F8F8;
+	background-color: #d3d3d3;
 	text-align: center;
 	width: 100%;
 }

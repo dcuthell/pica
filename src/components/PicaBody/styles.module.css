@@ -3,6 +3,7 @@
 	width: calc(100vw - 250px); /* firefox */
 	height: 100vh;
 	-webkit-overflow-scrolling: touch;
+	overflow: scroll;
 	background-color: #f8f8f8;
 	position: absolute;
 	top: 0;

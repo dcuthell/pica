@@ -1,0 +1,8 @@
+.SearchButton {
+	margin: .75rem;
+	text-align: left;
+}
+
+.SearchButton:hover{
+	cursor: pointer;
+}

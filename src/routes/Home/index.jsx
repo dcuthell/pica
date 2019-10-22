@@ -1,6 +1,7 @@
 import React from 'react'
 import { Container, Col, Row } from 'reactstrap'
 import PicaCarouselFrame from '../../components/PicaCarouselFrame'
+import PicaEventReelFrame from '../../components/PicaEventReelFrame'
 import PicaButton from '../../components/PicaButton'
 import collage from '../../img/collage.png'
 import ben from '../../img/ben-01.png'
@@ -37,6 +38,11 @@ export default function Home (props) {
           <p>
             Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
           </p>
+        </Col>
+        <Col xl='12' style={{height: '60vh', padding: '0px'}}>
+          <div style={{height: '100%', backgroundColor: '#F8F8F8'}}>
+            <PicaEventReelFrame />
+          </div>
         </Col>
       </Row>
     </Container>
