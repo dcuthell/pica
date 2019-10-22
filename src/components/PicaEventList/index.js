@@ -62,7 +62,7 @@ class PicaEventList extends Component {
             <p className={styles.SearchButton} onClick={this.handleTagClick}>PARTNER PROJECTS</p>
            
           </Col>
-          <Col className='Results' md='9' style={{padding: '0', margin: '0'}}>
+          <Col md='9' style={{padding: '0', margin: '0'}}>
             <div style={{width: '100%', height: '15%'}}>
               <h1>EVENTS</h1>
             </div>

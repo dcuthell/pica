@@ -43,6 +43,12 @@ class PicaArtistQuery extends React.Component {
           body {
             html
           }
+          media {
+            handle
+            height
+            width
+            photoCredit
+          }
           route
         }
       }
@@ -58,6 +64,12 @@ class PicaArtistQuery extends React.Component {
           }
           body {
             html
+          }
+          media {
+            handle
+            height
+            width
+            photoCredit
           }
           route
         }
@@ -75,10 +87,28 @@ class PicaArtistQuery extends React.Component {
           body {
             html
           }
+          media {
+            handle
+            height
+            width
+            photoCredit
+          }
           route
         }
       }
     `
+    }
+  }
+
+  resizeMedia(media) {
+    if ((media.width > 800) || (media.height > 800)){
+      if(media.width >= media.height){
+        return ('resize=width:800/' + media.handle)
+      } else {
+        return ('resize=height:800/' + media.handle)
+      }
+    } else {
+      return media.handle
     }
   }
 
@@ -101,6 +131,8 @@ class PicaArtistQuery extends React.Component {
                 name={artist.name}
                 events={artist.programs}
                 description={artist.body.html}
+                route={artist.route}
+                image={artist.media[0] ? 'https://media.graphcms.com/' + this.resizeMedia(artist.media[0]) : ''}
                 key={index}
                 index={index}
                 activeIndex={this.state.activeIndex}

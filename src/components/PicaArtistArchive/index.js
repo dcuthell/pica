@@ -46,7 +46,7 @@ class PicaArtistArchive extends Component {
 
   render() {
     return (
-      <Container className='styles.PicaArtistArchive' style={{padding: '0', margin: '0px', maxWidth: '100%', height: '100%'}}>
+      <Container className={styles.PicaArtistArchive} style={{padding: '0', margin: '0px', maxWidth: '100%', height: '100%'}}>
         <Row style={{margin: '0', height: '100%'}}>
           <Col className='styles.Navigation' md='3' style={{backgroundColor: 'darkgrey'}}>
             <p>Enter an artist name</p>
@@ -88,9 +88,13 @@ class PicaArtistArchive extends Component {
             <span className={styles.SearchButton} onClick={this.handleTagClick}>Late Night</span>
             <span className={styles.SearchButton} onClick={this.handleTagClick}>Food</span>
           </Col>
-          <Col className='Results' md='9' style={{overflow: 'scroll', height: '100%'}}>
-            <h1>Search Results</h1>
-            <PicaArtistQuery searchType={this.state.searchType} searchTerm={this.state.searchTerm} />
+          <Col className='Results' md='9' style={{overflow: 'scroll', height: '100%', padding: '0'}}>
+            <div style={{width: '100%', height: '15%', backgroundColor: 'white', zIndex: '3', position: 'relative'}}>
+              <h1>ARTISTS ARCHIVE</h1>
+            </div>
+            <div style={{width: '100%', height: '85%'}}>
+              <PicaArtistQuery searchType={this.state.searchType} searchTerm={this.state.searchTerm} />
+            </div>
           </Col>
         </Row>
       </Container>
