@@ -9,8 +9,8 @@ class PicaArtistArchive extends Component {
     super(props)
     this.state = {
       searchInput: '',
-      searchTerm: '',
-      searchType: ''
+      searchTerm: 'a',
+      searchType: 'letter'
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleInput = this.handleInput.bind(this)
@@ -88,7 +88,7 @@ class PicaArtistArchive extends Component {
             <span className={styles.SearchButton} onClick={this.handleTagClick}>Late Night</span>
             <span className={styles.SearchButton} onClick={this.handleTagClick}>Food</span>
           </Col>
-          <Col className='Results' md='9'>
+          <Col className='Results' md='9' style={{overflow: 'scroll', height: '100%'}}>
             <h1>Search Results</h1>
             <PicaArtistQuery searchType={this.state.searchType} searchTerm={this.state.searchTerm} />
           </Col>

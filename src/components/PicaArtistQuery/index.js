@@ -11,12 +11,17 @@ class PicaArtistQuery extends React.Component {
   getSearchType(){
     if (this.props.searchType === 'letter'){
       return gql`
-      query ArtistswithPrograms($searchTerm : String){
-        artists(where: {name_starts_with: $searchTerm}){
+      query ArtistswithPrograms($searchTerm : String, $sTerm : String){
+        artists(where: {OR: [{name_starts_with: $searchTerm}, {name_contains: $sTerm}]}, orderBy: name_ASC){
           name
           programs {
             title
+            route
           }
+          body {
+            html
+          }
+          route
         }
       }
     `
@@ -27,7 +32,12 @@ class PicaArtistQuery extends React.Component {
           name
           programs(where: {tags_some: {name: $searchTerm}}) {
             title
+            route
           }
+          body {
+            html
+          }
+          route
         }
       }
     `
@@ -38,7 +48,12 @@ class PicaArtistQuery extends React.Component {
           name
           programs {
             title
+            route
           }
+          body {
+            html
+          }
+          route
         }
       }
     `
@@ -48,7 +63,7 @@ class PicaArtistQuery extends React.Component {
   render(){
     if(this.props.searchTerm !== ''){
       return(
-        <Query query={this.getSearchType()} variables={{"searchTerm" : this.props.searchTerm}}>
+        <Query query={this.getSearchType()} variables={{"searchTerm" : this.props.searchTerm, "sTerm": ' ' + this.props.searchTerm}}>
           {({ loading, error, data }) => {
             if (loading) return (
               <div>
