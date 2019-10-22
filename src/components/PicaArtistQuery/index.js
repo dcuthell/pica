@@ -2,12 +2,34 @@ import React from 'react'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 
+import PicaArtistBlock from '../PicaArtistBlock'
+
 class PicaArtistQuery extends React.Component {
   constructor(props){
     super(props)
-
+    this.state = {
+      activeIndex: 100,
+      lastIndex: 0,
+      cardOpen: false
+    }
+    this.setOpen = this.setOpen.bind(this)
+    this.setClose = this.setClose.bind(this)
     this.getSearchType = this.getSearchType.bind(this)
   }
+
+  setOpen(index) {
+    this.setState({
+      cardOpen: true,
+      activeIndex: index
+    })
+  }
+  setClose(index) {
+    this.setState({
+      cardOpen: false,
+      lastIndex: index
+    })
+  }
+
   getSearchType(){
     if (this.props.searchType === 'letter'){
       return gql`
@@ -74,18 +96,17 @@ class PicaArtistQuery extends React.Component {
             )
             if (error) return `Error! ${error.message}`
             let artists = data.artists
-            let list = artists.map((artist, index) => {
-              let programs = artist.programs.map((program) =>
-                <h3 key={index}>{program.title}</h3>
-              )
-              return(
-                <div key={index}>
-                  <h1>{artist.name}</h1>
-                  {programs}
-                </div>
-              )
-            }
-              
+            let list = artists.map((artist, index) =>
+              <PicaArtistBlock
+                name={artist.name}
+                events={artist.programs}
+                description={artist.body.html}
+                key={index}
+                index={index}
+                activeIndex={this.state.activeIndex}
+                setOpen={this.setOpen}
+                setClose={this.setClose}
+                cardOpen={this.state.cardOpen} />
             )
             if (list.length === 0){
               list = (
@@ -95,7 +116,7 @@ class PicaArtistQuery extends React.Component {
               )
             }
             return (
-              <div>
+              <div style={{width: '100%', height: '100%'}}>
                 {list}
               </div>
             )

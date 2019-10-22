@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styles from './styles.module.css'
+import { Link } from 'react-router-dom'
+import PicaButton from '../PicaButton'
+import PicaArtistQuery from '../PicaArtistQuery'
 
 class PicaArtistBlock extends Component {
   constructor(props) {
@@ -78,10 +81,9 @@ class PicaArtistBlock extends Component {
     }
     return (
       <div className={styles.PicaArtistBlock} style={{backgroundColor: this.props.background}}>
-        <div className={styles.header + ' ' + (((this.props.activeIndex >= this.props.index || !this.props.cardOpen)) ? styles.headerUp : styles.headerDown)}>
-          <h1>{this.props.title}</h1>
-          <h3>{this.props.artist}</h3>
-          <p>{this.props.time}</p>
+        <div className={((this.props.activeIndex === this.props.index && this.props.cardOpen) ? styles.headerActive : styles.header) + ' ' + (((this.props.activeIndex >= this.props.index || !this.props.cardOpen)) ? styles.headerUp : styles.headerDown)}>
+          <h3>{this.props.name}</h3>
+          <p>{this.props.events.length + ' Events'}</p>
           <div className={styles.button} onClick={this.handleClick}>
             {this.state.isOpen ? <p>&circ;</p> : <p>&#711;</p>}
           </div>
@@ -89,9 +91,10 @@ class PicaArtistBlock extends Component {
         <div className={styles.content + ' ' + this.handleStyle()}>
           <div className={styles.cardImage} style={{backgroundImage: 'url(' + this.props.image + ')'}} />
           <div className={styles.cardContent} >
-            <p>
-              {this.props.description}
-            </p>
+            <div style={{height: '90%', overflow: 'hidden'}} className={styles.details} dangerouslySetInnerHTML={{ __html: this.props.description }} />
+            <PicaButton styles={{height: '10%'}}>
+              <Link to={'/artists/' + this.props.route}>Learn More</Link>
+            </PicaButton>
           </div>
         </div>
       </div>
@@ -101,7 +104,7 @@ class PicaArtistBlock extends Component {
 
 PicaArtistBlock.propTypes = {
   name: PropTypes.string,
-  events: PropTypes.string,
+  events: PropTypes.array,
   description: PropTypes.string,
   image: PropTypes.string,
   index: PropTypes.number,
@@ -110,6 +113,14 @@ PicaArtistBlock.propTypes = {
   setClose: PropTypes.func,
   cardOpen: PropTypes.bool,
   section: PropTypes.bool
+}
+
+PicaArtistBlock.defaultProps = {
+  name: 'Mike Jones',
+  events: ['Tons'],
+  description: '<h1>None needed</h1>',
+  image: 'https://thesource.com/wp-content/uploads/2018/07/1024x1024.jpg',
+  route: 'no-route'
 }
 
 export default PicaArtistBlock
