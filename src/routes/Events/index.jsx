@@ -7,6 +7,7 @@ export default function Events (props) {
   let tag = ''
   if(props.location.search !== ''){
     tag = props.location.search.slice(5)
+    tag = tag.replace("%20", " ")
   }
   console.log(tag)
   return (

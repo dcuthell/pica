@@ -9,8 +9,8 @@ class PicaEventList extends Component {
     super(props)
     this.state = {
       searchInput: '',
-      searchTerm: (props.tag !== '') ? props.tag : '',
-      searchType: (props.tag !== '') ? 'tag' : ''
+      searchTerm: '',
+      searchType: ''
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleInput = this.handleInput.bind(this)
@@ -43,6 +43,18 @@ class PicaEventList extends Component {
       searchType: 'tag'
     })
   }
+
+  static getDerivedStateFromProps(props, state) {
+    if(props.tag){
+      return {
+        searchTerm: props.tag,
+        searchType: 'tag'
+      }
+    } else {
+      return null
+    }
+  }
+  
 
   render() {
     return (

@@ -36,6 +36,7 @@ class PicaEventQuery extends React.Component {
         artist: program.artists[0] ? program.artists[0].name : 'No Artist',
         image: 'https://media.graphcms.com/resize=width:300/' + program.gallery.galleryItems[0].media.handle,
         description: program.shortDescription,
+        tags: program.tags,
         sortTimeVal: program.sortTimeVal,
         dateAndTime: program.dateAndTime[0]
       })
@@ -46,6 +47,7 @@ class PicaEventQuery extends React.Component {
             title: program.title,
             artist: program.artists[0] ? program.artists[0].name : 'No Artist',
             image: 'https://media.graphcms.com/resize=width:300/' + program.gallery.galleryItems[0].media.handle,
+            tags: program.tags,
             description: program.shortDescription,
             sortTimeVal: program.sortTimeVal,
             dateAndTime: program.dateAndTime[0]
@@ -57,6 +59,7 @@ class PicaEventQuery extends React.Component {
             title: program.title,
             artist: program.artists[0] ? program.artists[0].name : 'No Artist',
             image: 'https://media.graphcms.com/resize=width:300/' + program.gallery.galleryItems[0].media.handle,
+            tags: program.tags,
             description: program.shortDescription,
             sortTimeVal: program.sortTimeVal,
             dateAndTime: program.dateAndTime
@@ -152,6 +155,16 @@ class PicaEventQuery extends React.Component {
     }
   }
 
+  shouldComponentUpdate(prevProps){
+    if(this.props.searchTerm !== prevProps.searchTerm){
+      this.setState({
+        cardOpen: false
+      })
+      return true
+    }
+    return true
+  }
+
   render(){
     const SEARCH_CONTAIN = gql`
       query EventSearchByTitleandArtist($searchTerm : String){
@@ -172,6 +185,9 @@ class PicaEventQuery extends React.Component {
                 handle
               }
             }
+          }
+          tags {
+            name
           }
         }
       }
@@ -194,9 +210,13 @@ class PicaEventQuery extends React.Component {
               }
             }
           }
+          tags {
+            name
+          }
         }
       }
     `
+    console.log('render')
     return(
       <Query query={(this.props.searchType === 'tag') ? SEARCH_TAG : SEARCH_CONTAIN} variables={{"searchTerm" : this.props.searchTerm}}>
         {({ loading, error, data }) => {
@@ -209,6 +229,7 @@ class PicaEventQuery extends React.Component {
             <PicaEventListItem
               title={program.title}
               artist={program.artist}
+              tags={program.tags}
               key={index}
               index={index}
               activeIndex={this.state.activeIndex}
@@ -225,6 +246,7 @@ class PicaEventQuery extends React.Component {
             <PicaEventListItem
               title={program.title}
               artist={program.artist}
+              tags={program.tags}
               key={index + programData.eventsTodayData.length}
               index={index + programData.eventsTodayData.length}
               activeIndex={this.state.activeIndex}
@@ -241,6 +263,7 @@ class PicaEventQuery extends React.Component {
             <PicaEventListItem
               title={program.title}
               artist={program.artist}
+              tags={program.tags}
               key={index + programData.eventsTodayData.length + programData.eventsThisWeekData.length}
               index={index + programData.eventsTodayData.length + programData.eventsThisWeekData.length}
               activeIndex={this.state.activeIndex}
@@ -253,6 +276,7 @@ class PicaEventQuery extends React.Component {
               time={program.dateAndTime}
             />
           )
+          
           return (
             <div style={{height: '80vh', width: '100%'}}>
               <PicaEventListItem section index={0} activeIndex={this.state.activeIndex} cardOpen={this.state.cardOpen}>
