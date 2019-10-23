@@ -79,7 +79,10 @@ class PicaEventListItem extends Component {
       for(let i=0; i < this.props.tags.length; i++){
         if(i + 1 === this.props.tags.length){
           tags.push(
-            <Link to={'events?tag=' + this.props.tags[i].name}>{this.props.tags[i].name}</Link>
+            <Link to={{
+              pathname: '/events',
+              search: '?tag=' + this.props.tags[i].name
+            }}>{this.props.tags[i].name}</Link>
           )
         } else {
           tags.push(
