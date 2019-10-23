@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styles from './styles.module.css'
-import { Container, Row, Col } from 'reactstrap'
 import { Link } from 'react-router-dom'
 import PicaButton from '../PicaButton'
 
-class PicaPrecipiceListItem extends Component {
+class PicaEventListItem extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -70,37 +69,32 @@ class PicaPrecipiceListItem extends Component {
     }
   }
 
-  renderGrantees(){
-    if(this.props.grantees.length === 0){
+  renderTags(){
+    if(this.props.tags.length === 0){
       return(
-        <h2>No Grantees</h2>
+        <p>Pica Event</p>
+      )
+    } else {
+      let tags = []
+      for(let i=0; i < this.props.tags.length; i++){
+        if(i + 1 === this.props.tags.length){
+          tags.push(
+            <Link to={{
+              pathname: '/events',
+              search: '?tag=' + this.props.tags[i].name
+            }}>{this.props.tags[i].name}</Link>
+          )
+        } else {
+          tags.push(
+            <Link to={'events?tag=' + this.props.tags[i].name}>{this.props.tags[i].name}</Link>
+          )
+          tags.push(', ')
+        }
+      }
+      return(
+        <p>Tags: {tags}</p>
       )
     }
-    let col1 = []
-    let col2 = []
-    this.props.grantees.forEach((grantee, index) => {
-      if(index % 2 === 0){
-        col1.push(
-          <Link to={'/artists/' + grantee.route}>{grantee.name}</Link>
-        )
-      } else {
-        col2.push(
-          <Link to={'/artists/' + grantee.route}>{grantee.name}</Link>
-        )
-      }
-    })
-    return(
-      <Container>
-        <Row>
-          <Col md='6'>
-            {col1}
-          </Col>
-          <Col md='6'>
-            {col2}
-          </Col>
-        </Row>
-      </Container>
-    )
   }
 
   render() {
@@ -113,20 +107,31 @@ class PicaPrecipiceListItem extends Component {
       )
     }
     return (
-      <div className={styles.PicaPrecipiceListItem} style={{backgroundColor: this.props.background}}>
+      <div className={styles.PicaEventListItem} style={{backgroundColor: this.props.background}}>
         <div className={styles.header + ' ' + (((this.props.activeIndex >= this.props.index || !this.props.cardOpen)) ? styles.headerUp : styles.headerDown)}>
-          <h3>{this.props.year}</h3>
-          <p>{this.props.number}</p>
+          <h1>{this.props.title}</h1>
+          <h3>{this.props.artist}</h3>
+          <p>{this.props.time}</p>
           <div className={styles.button} onClick={this.handleClick}>
             {this.state.isOpen ? <p>&circ;</p> : <p>&#711;</p>}
           </div>
         </div>
         <div className={styles.content + ' ' + this.handleStyle()}>
-          <div className={styles.cardImage} style={{backgroundImage: 'url(' + this.props.image + ')'}}>
-            {this.renderGrantees}
+          <div className={styles.cardImage} style={{backgroundImage: 'url(' + this.props.image + ')'}} >
+          
           </div>
           <div className={styles.cardContent} >
-           <div dangerouslySetInnerHTML={{ __html: this.props.details }} />
+            <div style={{height: '60%', overflow: 'hidden'}}>
+              <p>{this.props.description}</p>
+            </div>
+            <div style={{height: '20%', overflow: 'hidden'}}>
+              {this.renderTags()}
+            </div>
+            <div style={{height: '20%', overflow: 'hidden'}}>
+              <PicaButton>
+                <Link to={'/events/' + this.props.route}>BUY TICKETS</Link>
+              </PicaButton>
+            </div>
           </div>
         </div>
       </div>
@@ -134,21 +139,25 @@ class PicaPrecipiceListItem extends Component {
   }
 }
 
-PicaPrecipiceListItem.propTypes = {
-  year: PropTypes.string,
-  number: PropTypes.string,
-  grantees: PropTypes.array,
-  body: PropTypes.string,
+PicaEventListItem.propTypes = {
+  title: PropTypes.string,
+  artist: PropTypes.string,
+  description: PropTypes.string,
+  image: PropTypes.string,
+  date: PropTypes.string,
+  background: PropTypes.string,
   index: PropTypes.number,
   activeIndex: PropTypes.number,
+  cardTotal: PropTypes.number,
   setOpen: PropTypes.func,
   setClose: PropTypes.func,
   cardOpen: PropTypes.bool,
   section: PropTypes.bool
 }
 
-PicaPrecipiceListItem.defaultProps = {
+PicaEventListItem.defaultProps = {
   tags: []
 }
 
-export default PicaPrecipiceListItem
+export default PicaEventListItem
+

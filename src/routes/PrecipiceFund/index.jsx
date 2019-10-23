@@ -1,7 +1,6 @@
 import React from 'react'
 import { Container, Col, Row } from 'reactstrap'
-import { Query } from 'react-apollo'
-import gql from 'graphql-tag'
+import PicaPrecipiceList from '../../components/PicaPrecipiceList'
 
 export default function PrecipiceFund (props) {
   return (
@@ -17,7 +16,7 @@ export default function PrecipiceFund (props) {
           </h2>
         </Col>
         <Col xl='12'>
-          
+          <PicaPrecipiceList />
         </Col>
       </Row>
     </Container>

@@ -1,4 +1,4 @@
-.PicaPrecipiceListItem {
+.PicaEventListItem {
 	height: 20%;
 	width: 100%;
 	position: relative;
@@ -45,6 +45,7 @@
 .cardImage {
 	width: 50%;
 	height: 80%;
+	background-color: red;
 	position: absolute;
 	left: 5%;
 	top: 5%;
@@ -52,8 +53,9 @@
 	background-size: cover;
 }
 .cardContent {
-	width: 50%;
+	width: 38%;
 	height: 80%;
+	background-color: lightgray;
 	position: absolute;
 	right: 5%;
 	top: 5%;

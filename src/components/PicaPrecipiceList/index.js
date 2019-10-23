@@ -2,7 +2,7 @@ import React from 'react'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 
-import PicaEventListItem from '../PicaEventListItem'
+import PicaPrecipiceListItem from '../PicaPrecipiceListItem'
 
 class PicaPrecipiceList extends React.Component {
   constructor(props) {
@@ -57,7 +57,7 @@ class PicaPrecipiceList extends React.Component {
               year={round.roundYear}
               number={round.roundNumber}
               grantees={round.grantees}
-              details={round.details.body}
+              details={round.details.html}
               key={index}
               index={index}
               activeIndex={this.state.activeIndex}
@@ -67,8 +67,8 @@ class PicaPrecipiceList extends React.Component {
             />
           )
           return (
-            <div style={{height: '80vh', width: '100%'}}>
-              {list}}
+            <div style={{height: '80vh', width: '100%', overflow: 'scroll'}}>
+              {list}
             </div>
           )
         }}
