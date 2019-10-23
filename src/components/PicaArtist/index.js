@@ -36,6 +36,9 @@ class PicaArtist extends Component {
       let events = []
       this.props.events.forEach((event, index) => {
         events.push(
+          <h4>{event.title}</h4>
+        )
+        events.push(
           <PicaButton>
             <Link to={'/events/' + event.route}>Learn More</Link>
           </PicaButton>
@@ -50,8 +53,13 @@ class PicaArtist extends Component {
         <Row>
           <Col>
             <h1>{this.props.name}</h1>
-            <img style={{width: '100%', height: 'auto', margin: 'auto'}} src={'https://media.graphcms.com/' + this.resizeMedia(this.props.media[0])} alt={'Photo: ' + this.props.galleryItems[0].media.photoCredit} title={this.props.galleryItems[0].media.photoCredit ? 'Photo: ' + this.props.galleryItems[0].media.photoCredit : 'Courtesy of the artist'} />
-            <div className={styles.description} dangerouslySetInnerHTML={{ __html: this.props.detailsLong }} />
+            <img
+              style={{width: '100%', height: 'auto', margin: 'auto'}}
+              src={this.props.media ? 'https://media.graphcms.com/' + this.resizeMedia(this.props.media[0]) : 'https://thesource.com/wp-content/uploads/2018/07/1024x1024.jpg'}
+              alt='Pica Pic'
+              title='Some text' />
+            <div className={styles.description} dangerouslySetInnerHTML={{ __html: this.props.description }} />
+            <h3>Events</h3>
             {this.renderEvents()}
           </Col>
         </Row>
@@ -62,26 +70,13 @@ class PicaArtist extends Component {
 
 PicaArtist.defaultProps = {
   name: 'Event Name',
-  events: ['Event Name'],
-  title: 'Event Name',
-  artistName: 'Event Name',
-  detailsShort: `Event Name`,
-  detailsLong: `Event Name`,
-  YouTubeId: '',
-  VimeoId: '',
-  galleryItems: []
+  events: [],
+  description: 'Event Name',
+  media: ['Event Name'],
 }
 
 PicaArtist.propTypes = {
-  eventName: PropTypes.string,
-  eventDate: PropTypes.array,
-  webEventId: PropTypes.string,
-  artistName: PropTypes.string,
-  detailsShort: PropTypes.string,
-  detailsLong: PropTypes.string,
-  YouTubeId: PropTypes.string,
-  VimeoId: PropTypes.string,
-  galleryItems: PropTypes.array
+ 
 }
 
 export default PicaArtist
