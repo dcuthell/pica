@@ -4,67 +4,20 @@ import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 
 export default function PrecipiceFund (props) {
-  const GET_CONTENT = gql`
-    query content($first: Int, $skip: Int, $where: ContentWhereInput, $orderBy: ContentOrderByInput) {
-      contents: contentsConnection(first: $first, skip: $skip, where: $where, orderBy: $orderBy) {
-        edges {
-          node {
-            status
-            updatedAt
-            createdAt
-            id
-            title
-            caption
-            body
-            media {
-              status
-              updatedAt
-              createdAt
-              id
-              handle
-              fileName
-              height
-              width
-              size
-              mimeType
-            }
-            event {
-              id
-            }
-            artist {
-              id
-            }
-            richBody {
-              html
-            }
-          }
-        }
-      }
-    }
-  `
-
   return (
     <Container style={{padding: '0', margin: '0px', maxWidth: '100%', height: 'auto'}}>
       <Row>
-        <Col xl='12'>
-          <div style={{backgroundColor: 'grey'}}>
-            <Query query={GET_CONTENT}>
-              {({ loading, error, data }) => {
-                if (loading) return 'Loading...'
-                if (error) return `Error! ${error.message}`
-                console.log(data.contents.edges[1].node.media[0].handle)
-                return (
-                  <div>
-                    <div dangerouslySetInnerHTML={{ __html: data.contents.edges[0].node.richBody.html }} />
-                    <img src={'https://media.graphcms.com/' + data.contents.edges[1].node.media[0].handle} alt='somepic' />
-                  </div>
-                )
-              }}
-            </Query>
-          </div>
+      <Col xl='12' style={{height: '50vh'}}>
+          <h1 style={{fontSize: '8rem', textAlign: 'left'}}>PRECIPICE</h1>
+          <h1 style={{fontSize: '8rem', textAlign: 'left'}}>FUND</h1>
         </Col>
-        <Col>
-          <h1>Precipice Fund</h1>
+        <Col xl='12' style={{height: '50vh'}}> 
+          <h2 style={{textAlign: 'left'}}>
+            The Precipice Fund provides critical support for artist-driven organizations, projects, initiatives, and publications that exist on the edge of new practice. These projects operate outside of traditional forms of support, galvanize communities, promote critical dialogue, and encourage generative and expansive artistic process while driving culture forward regionally and nationally. These often informal, anti-institutional, serious, intentionally nebulous, and innovative projects are an integral part of the greater Portland region’s vital art ecology and are emulative of the pioneering spirit of the Pacific Northwest.
+          </h2>
+        </Col>
+        <Col xl='12'>
+          
         </Col>
       </Row>
     </Container>

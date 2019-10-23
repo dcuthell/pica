@@ -52,19 +52,28 @@ class PicaEvent extends Component {
         <p>Pica Event</p>
       )
     } else {
-      let tags = ''
+      let tags = []
       for(let i=0; i < this.props.tags.length; i++){
         if(i + 1 === this.props.tags.length){
-          tags += this.props.tags[i].name
+          tags.push(
+            <Link to={{
+              pathname: '/events',
+              search: '?tag=' + this.props.tags[i].name
+            }}>{this.props.tags[i].name}</Link>
+          )
         } else {
-          tags+= (this.props.tags[i].name + ', ')
+          tags.push(
+            <Link to={'events?tag=' + this.props.tags[i].name}>{this.props.tags[i].name}</Link>
+          )
+          tags.push(', ')
         }
       }
       return(
-        <p>{tags}</p>
+        <p>Tags: {tags}</p>
       )
     }
   }
+
   /* The PicaEvent returns in 4 parts.
   The first is the block as appears on the TBA page on desktop: TBAArtistBlock
   The second is the block as appears on the TBA page on mobile: TBAArtistBlockMobile
