@@ -25,6 +25,7 @@ import TBAEvent from './routes/TBAEvent'
 import EventList from './routes/EventList'
 import Blog from './routes/Blog'
 import BlogPost from './routes/BlogPost'
+import Artist from './routes/Artist'
 
 function App() {
   return (
@@ -50,6 +51,7 @@ function App() {
         <Route path='/tba/:id' component={TBAEvent} />
         <Route path='/eventlist' component={EventList} />
         <Route path='/blog/:id' component={BlogPost} />
+        <Route path='/artists/:id' component={Artist} />
       </PicaBody>
     </div>
   );
