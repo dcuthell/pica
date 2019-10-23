@@ -121,10 +121,10 @@ class PicaEventListItem extends Component {
             <div style={{height: '60%', overflow: 'hidden'}}>
               <p>{this.props.description}</p>
             </div>
-            <div style={{height: '60%', overflow: 'hidden'}}>
+            <div style={{height: '20%', overflow: 'hidden'}}>
               {this.renderTags()}
             </div>
-            <div style={{height: '60%', overflow: 'hidden'}}>
+            <div style={{height: '20%', overflow: 'hidden'}}>
               <PicaButton>
                 <Link to={'/events/' + this.props.route}>BUY TICKETS</Link>
               </PicaButton>

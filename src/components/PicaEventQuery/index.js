@@ -37,6 +37,7 @@ class PicaEventQuery extends React.Component {
         image: 'https://media.graphcms.com/resize=width:300/' + program.gallery.galleryItems[0].media.handle,
         description: program.shortDescription,
         tags: program.tags,
+        route: program.route,
         sortTimeVal: program.sortTimeVal,
         dateAndTime: program.dateAndTime[0]
       })
@@ -48,6 +49,7 @@ class PicaEventQuery extends React.Component {
             artist: program.artists[0] ? program.artists[0].name : 'No Artist',
             image: 'https://media.graphcms.com/resize=width:300/' + program.gallery.galleryItems[0].media.handle,
             tags: program.tags,
+            route: program.route,
             description: program.shortDescription,
             sortTimeVal: program.sortTimeVal,
             dateAndTime: program.dateAndTime[0]
@@ -60,6 +62,7 @@ class PicaEventQuery extends React.Component {
             artist: program.artists[0] ? program.artists[0].name : 'No Artist',
             image: 'https://media.graphcms.com/resize=width:300/' + program.gallery.galleryItems[0].media.handle,
             tags: program.tags,
+            route: program.route,
             description: program.shortDescription,
             sortTimeVal: program.sortTimeVal,
             dateAndTime: program.dateAndTime
@@ -230,6 +233,7 @@ class PicaEventQuery extends React.Component {
               title={program.title}
               artist={program.artist}
               tags={program.tags}
+              route={program.route}
               key={index}
               index={index}
               activeIndex={this.state.activeIndex}
@@ -247,6 +251,7 @@ class PicaEventQuery extends React.Component {
               title={program.title}
               artist={program.artist}
               tags={program.tags}
+              route={program.route}
               key={index + programData.eventsTodayData.length}
               index={index + programData.eventsTodayData.length}
               activeIndex={this.state.activeIndex}
@@ -264,6 +269,7 @@ class PicaEventQuery extends React.Component {
               title={program.title}
               artist={program.artist}
               tags={program.tags}
+              route={program.route}
               key={index + programData.eventsTodayData.length + programData.eventsThisWeekData.length}
               index={index + programData.eventsTodayData.length + programData.eventsThisWeekData.length}
               activeIndex={this.state.activeIndex}
