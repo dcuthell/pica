@@ -18,6 +18,24 @@ export default function PrecipiceFund (props) {
         <Col xl='12'>
           <PicaPrecipiceList />
         </Col>
+        <Col xl='12'>
+          <Container>
+            <Row>
+              <Col xl='12'>
+                <h1>Our Supporters</h1>
+                <p>Precipice Fund is administered with lead support from the Andy Warhol Foundation for the Visual Arts as part of the Regional Regranting Program of the Andy Warhol Foundation for the Visual Arts. Additional support has been provided by the Calligram Foundation/Allie Furlotti and the Oregon Community Foundation.</p>
+              </Col>
+            </Row>
+            <Row>
+              <Col md='6'>
+                <a href='https://warholfoundation.org/'><img style={{width: '75%'}} src='https://pica.org/wp-content/uploads/2013/03/Warhol-Foundatin-new.png' alt='Warhol' /></a>
+              </Col>
+              <Col md='6'>
+                <img style={{width: '75%'}} src='https://pica.org/wp-content/uploads/2013/03/calligram_foundation@2x-300x200.png' alt='Calligram' />
+              </Col>
+            </Row>
+          </Container>
+        </Col>
       </Row>
     </Container>
   )

@@ -109,6 +109,14 @@ class PicaPrecipiceListItem extends Component {
     )
   }
 
+  setColor(){
+    if(this.props.index % 2 === 0){
+      return '#ECDDBB'
+    }else {
+      return '#F4ECD9'
+    }
+  }
+
   render() {
     if (this.props.section) {
       return (
@@ -119,7 +127,7 @@ class PicaPrecipiceListItem extends Component {
       )
     }
     return (
-      <div className={styles.PicaPrecipiceListItem} style={{backgroundColor: this.props.background}}>
+      <div className={styles.PicaPrecipiceListItem} style={{backgroundColor: this.setColor(), textAlign: 'left'}}>
         <div className={styles.header + ' ' + (((this.props.activeIndex >= this.props.index || !this.props.cardOpen)) ? styles.headerUp : styles.headerDown)}>
           <h3>{this.props.year}</h3>
           <p>{this.props.number}</p>
