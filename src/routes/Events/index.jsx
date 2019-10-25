@@ -1,6 +1,5 @@
 import React from 'react'
-import { Container, Col, Row, Jumbotron } from 'reactstrap'
-import PicaArtistBlockFrame from '../../components/PicaArtistBlockFrame'
+import { Container, Col, Row } from 'reactstrap'
 import PicaEventList from '../../components/PicaEventList'
 
 export default function Events (props) {

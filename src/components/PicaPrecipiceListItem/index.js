@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import styles from './styles.module.css'
 import { Container, Row, Col } from 'reactstrap'
 import { Link } from 'react-router-dom'
-import PicaButton from '../PicaButton'
 
 class PicaPrecipiceListItem extends Component {
   constructor(props) {

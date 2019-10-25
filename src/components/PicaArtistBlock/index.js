@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import styles from './styles.module.css'
 import { Link } from 'react-router-dom'
 import PicaButton from '../PicaButton'
-import PicaArtistQuery from '../PicaArtistQuery'
 
 class PicaArtistBlock extends Component {
   constructor(props) {

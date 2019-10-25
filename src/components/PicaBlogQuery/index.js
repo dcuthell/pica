@@ -83,7 +83,6 @@ class PicaBlogQuery extends React.Component {
             </div>
           )
           if (error) return `Error! ${error.message}`
-          let artists = data.artists
           let list = data.posts.map((post, index) =>
             <PicaPostBlock
               title={post.title}
