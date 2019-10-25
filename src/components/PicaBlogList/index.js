@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Container, Col, Row } from 'reactstrap'
 import styles from './styles.module.css'
 
-import PicaArtistQuery from '../PicaArtistQuery'
+import PicaBlogQuery from '../PicaBlogQuery'
 
 class PicaBlogList extends Component {
   constructor(props) {
@@ -66,7 +66,7 @@ class PicaBlogList extends Component {
               <h1>LATEST</h1>
             </div>
             <div style={{width: '100%', height: '85%'}}>
-              <PicaArtistQuery searchType={this.state.searchType} searchTerm={this.state.searchTerm} />
+              <PicaBlogQuery searchType={this.state.searchType} searchTerm={this.state.searchTerm} />
             </div>
           </Col>
         </Row>
