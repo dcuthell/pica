@@ -26,6 +26,7 @@ import EventList from './routes/EventList'
 import Blog from './routes/Blog'
 import BlogPost from './routes/BlogPost'
 import Artist from './routes/Artist'
+import Volunteer from './routes/Volunteer'
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
         <Route exact path='/membership' component={Membership} />
         <Route exact path='/merchandise' component={Merchandise} />
         <Route exact path='/blog' component={Blog} />
+        <Route exact path='/support/volunteer' component={Volunteer} />
         <Route path='/tickets/:webeventid' component={Tickets} />
         <Route path='/events/:id' component={Event} />
         <Route path='/tba/:id' component={TBAEvent} />
