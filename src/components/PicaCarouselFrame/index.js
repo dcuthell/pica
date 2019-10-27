@@ -20,6 +20,9 @@ class PicaCarouselFrame extends Component {
           buttonText
           buttonLink
           description
+          tags { 
+            name
+          }
           program {
             title
             dateAndTime
@@ -36,6 +39,9 @@ class PicaCarouselFrame extends Component {
             }
             route
             shortDescription
+            tags { 
+              name
+            }
           }
         }
       }
@@ -50,6 +56,7 @@ class PicaCarouselFrame extends Component {
             <PicaCarousel error/>
           )
           let heroSlides = data.heroSlides
+          console.log(heroSlides)
           return (
             <PicaCarousel heroSlideData={heroSlides}/>
           )

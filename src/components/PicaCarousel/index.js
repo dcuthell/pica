@@ -102,6 +102,15 @@ class PicaCarousel extends Component {
     }
   }
 
+  handleTags(heroSlide){
+    console.log(heroSlide.tags.length)
+    if((heroSlide.tags.length === 0) && heroSlide.program){
+      return heroSlide.program.tags
+    } else {
+      return heroSlide.tags
+    }
+  }
+
   renderCards(){
     if(this.props.loading){
       return(
@@ -133,6 +142,7 @@ class PicaCarousel extends Component {
         buttonText={heroSlide.buttonText ? heroSlide.buttonText : 'GO TO EVENT'}
         buttonLink={heroSlide.buttonLink ? heroSlide.buttonLink : '/events/' + heroSlide.program.route}
         description={heroSlide.description ? heroSlide.description : heroSlide.program.shortDescription}
+        tags={this.handleTags(heroSlide)}
         background={this.setBackgroundColor(index)}
       />
     )
