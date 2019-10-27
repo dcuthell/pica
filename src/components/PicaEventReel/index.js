@@ -121,18 +121,18 @@ class PicaEventReel extends Component {
       </div>
       )
     }
-    let heroSlides = this.props.heroSlideData.map((heroSlide, index) =>
+    let heroSlides = this.props.heroSlideData.map((heroSlide, index) => 
       <PicaEventReelBlock
         index={index}
         activeIndex={this.state.activeIndex}
         cardTotal={this.state.cardTotal}
         key={index}
-        title={heroSlide.title}
-        date={heroSlide.date}
-        image={'https://media.graphcms.com/resize=width:800/' + heroSlide.image.handle}
-        buttonText={heroSlide.buttonText}
-        buttonLink={heroSlide.buttonLink}
-        description={heroSlide.description}
+        title={heroSlide.title ? heroSlide.title : heroSlide.program.title}
+        date={heroSlide.date  ? heroSlide.date : heroSlide.program.dateAndTime[0]}
+        image={'https://media.graphcms.com/resize=width:800/' + (heroSlide.image ? heroSlide.image.handle : heroSlide.program.gallery.galleryItems[0].media.handle)}
+        buttonText={heroSlide.buttonText ? heroSlide.buttonText : 'GO TO EVENT'}
+        buttonLink={heroSlide.buttonLink ? heroSlide.buttonLink : '/events' + heroSlide.program.route}
+        description={heroSlide.description ? heroSlide.description : heroSlide.program.shortDescription}
         background={this.setBackgroundColor(index)}
       />
     )

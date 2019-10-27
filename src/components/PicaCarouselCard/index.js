@@ -26,7 +26,6 @@ class PicaCarouselCard extends Component {
   */
   
   propsToStyles() {
-    console.log((this.props.cardTotal - this.props.index === -1))
     if (((this.props.index - this.props.activeIndex) === 0) && (this.props.index === 0)) {
       return styles.activeLeft
     } else if (((this.props.index - this.props.activeIndex) === 1) && (this.props.index === 1)) {

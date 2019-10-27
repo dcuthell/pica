@@ -20,6 +20,23 @@ class PicaCarouselFrame extends Component {
           buttonText
           buttonLink
           description
+          program {
+            title
+            dateAndTime
+            testDateAndTime
+            gallery {
+              galleryItems {
+                media {
+                  photoCredit
+                  handle
+                  height
+                  width
+                }
+              }
+            }
+            route
+            shortDescription
+          }
         }
       }
     `
