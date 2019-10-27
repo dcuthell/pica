@@ -66,14 +66,14 @@ class PicaCarouselCard extends Component {
       for(let i=0; i < this.props.tags.length; i++){
         if(i + 1 === this.props.tags.length){
           tags.push(
-            <Link to={{
+            <Link key={i} to={{
               pathname: '/events',
               search: '?tag=' + this.props.tags[i].name
             }}>{this.props.tags[i].name}</Link>
           )
         } else {
           tags.push(
-            <Link to={'events?tag=' + this.props.tags[i].name}>{this.props.tags[i].name}</Link>
+            <Link key={i} to={'events?tag=' + this.props.tags[i].name}>{this.props.tags[i].name}</Link>
           )
           tags.push(', ')
         }
@@ -93,7 +93,7 @@ class PicaCarouselCard extends Component {
         <div className={styles.cardInfo}>
           <h2>{this.props.title}</h2>
           <h4>{this.props.date}</h4>
-          <p>{this.renderTags()}</p>
+          {this.renderTags()}
         </div>
         <div className={styles.cardContent}>
           <p id={styles.description}>{this.props.description}</p>

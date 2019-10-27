@@ -103,7 +103,6 @@ class PicaCarousel extends Component {
   }
 
   handleTags(heroSlide){
-    console.log(heroSlide.tags.length)
     if((heroSlide.tags.length === 0) && heroSlide.program){
       return heroSlide.program.tags
     } else {

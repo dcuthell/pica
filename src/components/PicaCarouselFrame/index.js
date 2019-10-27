@@ -56,7 +56,6 @@ class PicaCarouselFrame extends Component {
             <PicaCarousel error/>
           )
           let heroSlides = data.heroSlides
-          console.log(heroSlides)
           return (
             <PicaCarousel heroSlideData={heroSlides}/>
           )
