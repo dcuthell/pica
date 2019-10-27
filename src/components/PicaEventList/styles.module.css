@@ -7,3 +7,21 @@
 .SearchButton:hover{
 	cursor: pointer;
 }
+
+.search {
+	position: absolute;
+	left: 10%;
+	bottom: 10%;
+}
+
+#search {
+	background-color: inherit;
+	border: solid black;
+	border-width: 0px 0px 1px 0px;	
+}
+
+#search:focus {
+	border: solid black;
+	border-width: 0px 0px 1px 0px;
+	outline: white;
+}
