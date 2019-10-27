@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styles from './styles.module.css'
+import { Link } from 'react-router-dom'
 
 import PicaLogo from '../../img/PicaLogo.png'
 
@@ -43,18 +44,27 @@ class PicaEventReelBlock extends Component {
     }
   }
 
+  parseDateString(string){
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    const monthVal = parseInt(string.slice(5,7)) - 1
+    const month = months[monthVal]
+		const day = parseInt(string.slice(8,10))
+		const year = parseInt(string.slice(0,4))
+    return month + ' ' + day + ', ' + year
+  }
+
   render() {
     return (
-      <div className={styles.PicaEventReelBlock + ' ' + this.propsToStyles()} style={{backgroundColor: this.props.background}}>
+      <Link to={'/blog/' + this.props.route}className={styles.PicaEventReelBlock + ' ' + this.propsToStyles()} style={{backgroundColor: this.props.background}}>
         <div className={styles.cardImage} style={{backgroundImage: 'url(' + this.props.image + ')'}}>
         </div>
         <div className={styles.cardInfo}>
-          <p id={styles.tags}>{this.props.tags}</p>
-          <p id={styles.date}>{this.props.date}</p>
+          <p id={styles.tags}>BLOG</p>
+          <p id={styles.date}>{this.parseDateString(this.props.date)}</p>
           <h4 id={styles.title}>{this.props.title}</h4>
-          <p id={styles.description}>{this.props.description}</p>
+          <div id={styles.description} dangerouslySetInnerHTML={{ __html: this.props.description }} />
         </div>
-      </div>
+      </Link>
     )
   }
 }
@@ -68,7 +78,7 @@ PicaEventReelBlock.defaultProps = {
   image: PicaLogo,
   tags: 'Exhibition, Performance, Visual',
   buttonText: 'Click Me',
-  buttonLink: '/tba',
+  route: '/tba',
   description: `This is a short description about what the event is. This should be PICA's voice and description of the event, a quick takeaway for the user to understand...`
 }
 

@@ -5,23 +5,29 @@
 	top: 10%;
 	left: 0;
 	background-color: #d3d3d3;
+	color: black;
+	padding: 10px;
+}
+
+.PicaEventReelBlock:hover {
+	color: black;
 }
 
 .cardImage {
-	height: 70%;
+	height: 50%;
 	width: 100%;
 	position: absolute;
-	top: 0;
+	top: 5%;
 	left: 0;
 	background-size: cover;
 	background-position: center;
 }
 
 .cardInfo {
-	height: 30%;
+	height: 40%;
 	width: 100%;
 	position: absolute;
-	top: 70%;
+	top: 55%;
 	left: 0;
 	text-align: left;
 	overflow: hidden;
@@ -36,7 +42,7 @@
 	top: 0;
 	left: 0;
 	max-width: 50%;
-	max-height: 20%;
+	max-height: 10%;
 	overflow: hidden;
 }
 #date {
@@ -45,23 +51,26 @@
 	top: 0;
 	right: 0;
 	max-width: 50%;
-	max-height: 20%;
+	max-height: 10%;
 	overflow: hidden;
 }
 
 #title {
 	text-align: left;
 	position: absolute;
-	top: 20%;
+	top: 10%;
 	left: 0;
+	max-height: 20%;
+	overflow: hidden;
 }
 
 #description {
 	text-align: left;
 	position: absolute;
-	top: 40%;
+	top: 30%;
 	left: 0;
-	max-height: 50%;
+	max-height: 60%;
+	overflow: hidden;
 }
 
 .cardContent {

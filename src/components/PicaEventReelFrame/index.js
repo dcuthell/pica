@@ -9,40 +9,23 @@ class PicaEventReelFrame extends Component {
 
   render() {
     const GET_CONTENT = gql`
-      query {
-        heroSlides (orderBy: sortNumber_ASC){
+      query Posts{
+        posts(orderBy: date_ASC){
           title
+          author
           date
-          image {
-            handle
-            photoCredit
+          body {
+            html
           }
-          buttonText
-          buttonLink
-          description
-          tags { 
+          tags{
             name
           }
-          program {
-            title
-            dateAndTime
-            testDateAndTime
-            gallery {
-              galleryItems {
-                media {
-                  photoCredit
-                  handle
-                  height
-                  width
-                }
-              }
-            }
-            route
-            shortDescription
-            tags { 
-              name
-            }
+          image{
+            handle
+            height
+            width
           }
+          route
         }
       }
     `
@@ -55,9 +38,8 @@ class PicaEventReelFrame extends Component {
           if (error) return (
             <PicaEventReel error/>
           )
-          let heroSlides = data.heroSlides
           return (
-            <PicaEventReel heroSlideData={heroSlides}/>
+            <PicaEventReel postData={data.posts}/>
           )
         }}
       </Query>
