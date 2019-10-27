@@ -1,65 +1,79 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
-
 import styles from './styles.module.css'
+import { Link } from 'react-router-dom'
+import PicaButton from '../PicaButton'
 
-class TBAArtistBlock extends Component {
+class PicaPostBlock extends Component {
   constructor(props) {
     super(props)
+    this.state = {
+      isOpen: false,
+      isClosed: true
+    }
   }
 
-  
+  renderDate(){
+    let d = new Date(this.props.date)
+    let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+    return (months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear())
+  }
+
+  renderTags(){
+    let tags= ''
+    this.props.tags.forEach((tag,index) => {
+      if(index === 0){
+        tags += tag.name
+      } else {
+        tags += ' | ' + tag.name
+      }
+    })
+    return tags
+  }
 
   render() {
     return (
-      <div className={'TBAArtistBlock_wrap'}>
-        <div className={styles.TBAArtistBlock}>
-          <div className='d-flex align-items-center' style={{backgroundImage: 'url(https://media.graphcms.com/' + this.resizeMedia(this.props.galleryItems[0].media) + ')'}} />
-          <dl>
-            <dt>{this.renderArtistNames()}</dt>
-            <dd>{this.props.eventName}</dd>
-          </dl>
-          <Link to={'/tba/' + this.props.route} className={styles.overlay}/>
+      <div className={styles.PicaPostBlock}>
+        <div className={styles.content}>
+          <div className={styles.info}>
+            <div className={styles.dateAndTags}>
+             <p>{this.renderDate() + ' ' + this.renderTags()}</p>
+            </div>
+            <div className={styles.titleAndAuthor}>
+              <h4>{this.props.title}</h4>
+              <p>{'by ' + this.props.author}</p>
+            </div>
+            <div className={styles.content} dangerouslySetInnerHTML={{ __html: this.props.content }} />
+            <PicaButton styles={{height: '10%'}}>
+              <Link to={'/blog/' + this.props.route}>Read More</Link>
+            </PicaButton>
+          </div>
+          <div className={styles.image} style={{backgroundImage: 'url(' + this.props.image + ')'}} />
         </div>
-        <Link to={'/tba/' + this.props.route} className={styles.TBAArtistBlockMobile}>
-          <div className='d-flex align-items-center' style={{textAlign: 'center', height: '135px', width: '135px', border: '2px solid white', margin: 'auto'}}>
-            <img src={this.props.galleryItems[0].media.handle ? 'https://media.graphcms.com/' + this.resizeMedia(this.props.galleryItems[0].media) : 'https://www.retirebeforedad.com/wp-content/uploads/2016/07/Banana-Stand-500x372.jpg'}
-              alt='thumbnail'
-              style={{margin: 'auto', maxWidth: '100%', maxHeight: '100%', zIndex: 1}} />
-          </div>
-          <div style={{width: '135px', margin: 'auto', backgroundColor: 'black', color: 'white'}}>
-            <h3 style={{margin: '0px'}}>{this.renderArtistNames()}</h3>
-            <h3 style={{textTransform: 'uppercase'}}>{this.props.eventName}</h3>
-          </div>
-        </Link>
       </div>
-      
     )
   }
 }
 
-TBAArtistBlock.defaultProps = {
-  eventName: 'Event Name',
-  eventDate: ['Event Name'],
-  title: 'Event Name',
-  artistName: 'Event Name',
-  detailsShort: `Event Name`,
-  detailsLong: `Event Name`,
-  YouTubeId: '',
-  VimeoId: '',
-  galleryItems: []
+PicaPostBlock.propTypes = {
+  name: PropTypes.string,
+  events: PropTypes.array,
+  description: PropTypes.string,
+  image: PropTypes.string,
+  index: PropTypes.number,
+  activeIndex: PropTypes.number,
+  setOpen: PropTypes.func,
+  setClose: PropTypes.func,
+  cardOpen: PropTypes.bool,
+  section: PropTypes.bool
 }
 
-TBAArtistBlock.propTypes = {
-  eventName: PropTypes.string,
-  eventDate: PropTypes.array,
-  artistName: PropTypes.string,
-  detailsShort: PropTypes.string,
-  detailsLong: PropTypes.string,
-  YouTubeId: PropTypes.string,
-  VimeoId: PropTypes.string,
-  galleryItems: PropTypes.array
+PicaPostBlock.defaultProps = {
+  name: 'Mike Jones',
+  events: ['Tons'],
+  description: '<h1>None needed</h1>',
+  image: 'https://thesource.com/wp-content/uploads/2018/07/1024x1024.jpg',
+  route: 'no-route'
 }
 
-export default TBAArtistBlock
+export default PicaPostBlock

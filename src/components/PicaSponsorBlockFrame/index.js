@@ -4,10 +4,7 @@ import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 
 class PicaSponsorBlockFrame extends Component {
-  constructor(props) {
-    super(props)
-  }
-
+ 
   render() {
     const GET_CONTENT = gql`
     query {
@@ -39,7 +36,6 @@ class PicaSponsorBlockFrame extends Component {
           let advocate = []
           let enthusiast = []
           let contributor = []
-          let sponsorList = []
           sponsors.forEach((sponsor) =>{
             if(sponsor.donorLevel === 'Superhero'){
               superhero.push(

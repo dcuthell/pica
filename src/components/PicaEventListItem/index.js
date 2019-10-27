@@ -4,7 +4,7 @@ import styles from './styles.module.css'
 import { Link } from 'react-router-dom'
 import PicaButton from '../PicaButton'
 
-class PicaArtistBlock extends Component {
+class PicaEventListItem extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -69,6 +69,34 @@ class PicaArtistBlock extends Component {
     }
   }
 
+  renderTags(){
+    if(this.props.tags.length === 0){
+      return(
+        <p>Pica Event</p>
+      )
+    } else {
+      let tags = []
+      for(let i=0; i < this.props.tags.length; i++){
+        if(i + 1 === this.props.tags.length){
+          tags.push(
+            <Link to={{
+              pathname: '/events',
+              search: '?tag=' + this.props.tags[i].name
+            }}>{this.props.tags[i].name}</Link>
+          )
+        } else {
+          tags.push(
+            <Link to={'events?tag=' + this.props.tags[i].name}>{this.props.tags[i].name}</Link>
+          )
+          tags.push(', ')
+        }
+      }
+      return(
+        <p>Tags: {tags}</p>
+      )
+    }
+  }
+
   render() {
     if (this.props.section) {
       return (
@@ -79,21 +107,31 @@ class PicaArtistBlock extends Component {
       )
     }
     return (
-      <div className={styles.PicaArtistBlock} style={{backgroundColor: this.props.background}}>
-        <div className={((this.props.activeIndex === this.props.index && this.props.cardOpen) ? styles.headerActive : styles.header) + ' ' + (((this.props.activeIndex >= this.props.index || !this.props.cardOpen)) ? styles.headerUp : styles.headerDown)}>
-          <h3>{this.props.name}</h3>
-          <p>{this.props.events.length + ' Events'}</p>
+      <div className={styles.PicaEventListItem} style={{backgroundColor: this.props.background}}>
+        <div className={styles.header + ' ' + (((this.props.activeIndex >= this.props.index || !this.props.cardOpen)) ? styles.headerUp : styles.headerDown)}>
+          <h1>{this.props.title}</h1>
+          <h3>{this.props.artist}</h3>
+          <p>{this.props.time}</p>
           <div className={styles.button} onClick={this.handleClick}>
             {this.state.isOpen ? <p>&circ;</p> : <p>&#711;</p>}
           </div>
         </div>
         <div className={styles.content + ' ' + this.handleStyle()}>
-          <div className={styles.cardImage} style={{backgroundImage: 'url(' + this.props.image + ')'}} />
+          <div className={styles.cardImage} style={{backgroundImage: 'url(' + this.props.image + ')'}} >
+          
+          </div>
           <div className={styles.cardContent} >
-            <div style={{height: '90%', overflow: 'hidden'}} className={styles.details} dangerouslySetInnerHTML={{ __html: this.props.description }} />
-            <PicaButton styles={{height: '10%'}}>
-              <Link to={'/artists/' + this.props.route}>Learn More</Link>
-            </PicaButton>
+            <div style={{height: '60%', overflow: 'hidden'}}>
+              <p>{this.props.description}</p>
+            </div>
+            <div style={{height: '20%', overflow: 'hidden'}}>
+              {this.renderTags()}
+            </div>
+            <div style={{height: '20%', overflow: 'hidden'}}>
+              <PicaButton>
+                <Link to={'/events/' + this.props.route}>BUY TICKETS</Link>
+              </PicaButton>
+            </div>
           </div>
         </div>
       </div>
@@ -101,25 +139,25 @@ class PicaArtistBlock extends Component {
   }
 }
 
-PicaArtistBlock.propTypes = {
-  name: PropTypes.string,
-  events: PropTypes.array,
+PicaEventListItem.propTypes = {
+  title: PropTypes.string,
+  artist: PropTypes.string,
   description: PropTypes.string,
   image: PropTypes.string,
+  date: PropTypes.string,
+  background: PropTypes.string,
   index: PropTypes.number,
   activeIndex: PropTypes.number,
+  cardTotal: PropTypes.number,
   setOpen: PropTypes.func,
   setClose: PropTypes.func,
   cardOpen: PropTypes.bool,
   section: PropTypes.bool
 }
 
-PicaArtistBlock.defaultProps = {
-  name: 'Mike Jones',
-  events: ['Tons'],
-  description: '<h1>None needed</h1>',
-  image: 'https://thesource.com/wp-content/uploads/2018/07/1024x1024.jpg',
-  route: 'no-route'
+PicaEventListItem.defaultProps = {
+  tags: []
 }
 
-export default PicaArtistBlock
+export default PicaEventListItem
+

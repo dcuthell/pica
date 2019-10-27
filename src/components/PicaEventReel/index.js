@@ -22,8 +22,8 @@ class PicaEventReel extends Component {
   }
   
   static getDerivedStateFromProps(props, state) {
-    if(props.heroSlideData){
-      return {cardTotal: props.heroSlideData.length}
+    if(props.postData){
+      return {cardTotal: props.postData.length}
     } else {
       return null
     }
@@ -80,28 +80,6 @@ class PicaEventReel extends Component {
     }
   }
 
-  setBackgroundColor(index){
-    const i = index % 6
-    if(i === 0){
-      return '#B0C170'
-    }
-    if(i === 1){
-      return '#0DAE5D'
-    }
-    if(i === 2){
-      return '#8EA9D5'
-    }
-    if(i === 3){
-      return '#FFC2EB'
-    }
-    if(i === 4){
-      return '#FF5928'
-    }
-    if(i === 5){
-      return '#8A69D4'
-    }
-  }
-
   renderCards(){
     if(this.props.loading){
       return(
@@ -121,23 +99,21 @@ class PicaEventReel extends Component {
       </div>
       )
     }
-    let heroSlides = this.props.heroSlideData.map((heroSlide, index) =>
+    let posts = this.props.postData.map((post, index) => 
       <PicaEventReelBlock
         index={index}
         activeIndex={this.state.activeIndex}
         cardTotal={this.state.cardTotal}
         key={index}
-        title={heroSlide.title}
-        date={heroSlide.date}
-        image={'https://media.graphcms.com/resize=width:800/' + heroSlide.image.handle}
-        buttonText={heroSlide.buttonText}
-        buttonLink={heroSlide.buttonLink}
-        description={heroSlide.description}
-        background={this.setBackgroundColor(index)}
+        title={post.title}
+        date={post.date}
+        image={'https://media.graphcms.com/resize=width:800/' + (post.image.handle)}
+        route={post.route}
+        description={post.body.html}
       />
     )
     return (
-      heroSlides
+      posts
     )
   }
 
@@ -150,7 +126,7 @@ class PicaEventReel extends Component {
         <Route path={'/' + this.state.swipe} component={PicaEventReelBlock} />
         <div className={styles.header}>
           <div className={styles.title}>
-            <h1>Events</h1>
+            <h1>NEWS</h1>
           </div>
           <div
             className={styles.arrows}
@@ -174,7 +150,7 @@ class PicaEventReel extends Component {
 PicaEventReel.propTypes = {
   leftArrow: PropTypes.string,
   rightArrow: PropTypes.string,
-  heroSlideData: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+  postData: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   loading: PropTypes.bool,
   error: PropTypes.bool,
   children: PropTypes.oneOfType([PropTypes.object, PropTypes.array])

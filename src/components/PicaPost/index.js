@@ -5,9 +5,6 @@ import PropTypes from 'prop-types'
 import styles from './styles.module.css'
 
 class PicaPost extends React.Component {
-	constructor(props) {
-		super(props)
-	}
 
 	resizeMedia(media) {
     if ((media.width > 800) || (media.height > 800)){
@@ -40,7 +37,7 @@ class PicaPost extends React.Component {
 
 	render(){
 		return(
-			<Container>
+			<Container className={styles.PicaPost}>
 				<Row>
 					<Col xl='12'>
 						<h4>{this.parseDateString(this.props.date) + this.handleTags(this.props.tags)}</h4>  

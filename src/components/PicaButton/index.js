@@ -3,7 +3,7 @@ import styles from './styles.module.css'
 
 export default function PicaButton (props) {
   return (
-    <div className={styles.PicaButton + ' PicaButton'} style={props.style}>
+    <div className={styles.PicaButton + ' PicaButton'} style={props.styles}>
       <style>
         {`
             .PicaButton:hover {

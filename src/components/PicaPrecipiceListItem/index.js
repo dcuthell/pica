@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styles from './styles.module.css'
+import { Container, Row, Col } from 'reactstrap'
 import { Link } from 'react-router-dom'
-import PicaButton from '../PicaButton'
 
-class PicaArtistBlock extends Component {
+class PicaPrecipiceListItem extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -69,6 +69,53 @@ class PicaArtistBlock extends Component {
     }
   }
 
+  renderGrantees(){
+    if(this.props.grantees.length === 0){
+      return(
+        <h2>No Grantees</h2>
+      )
+    }
+    let col1 = []
+    let col2 = []
+    this.props.grantees.forEach((grantee, index) => {
+      if(index % 2 === 0){
+        col1.push(
+          <Link to={'/artists/' + grantee.route}>{grantee.name}</Link>
+        )
+        col1.push(
+          <br />
+        )
+      } else {
+        col2.push(
+          <Link to={'/artists/' + grantee.route}>{grantee.name}</Link>
+        )
+        col2.push(
+          <br />
+        )
+      }
+    })
+    return(
+      <Container>
+        <Row>
+          <Col md='6'>
+            {col1}
+          </Col>
+          <Col md='6'>
+            {col2}
+          </Col>
+        </Row>
+      </Container>
+    )
+  }
+
+  setColor(){
+    if(this.props.index % 2 === 0){
+      return '#ECDDBB'
+    }else {
+      return '#F4ECD9'
+    }
+  }
+
   render() {
     if (this.props.section) {
       return (
@@ -79,21 +126,21 @@ class PicaArtistBlock extends Component {
       )
     }
     return (
-      <div className={styles.PicaArtistBlock} style={{backgroundColor: this.props.background}}>
-        <div className={((this.props.activeIndex === this.props.index && this.props.cardOpen) ? styles.headerActive : styles.header) + ' ' + (((this.props.activeIndex >= this.props.index || !this.props.cardOpen)) ? styles.headerUp : styles.headerDown)}>
-          <h3>{this.props.name}</h3>
-          <p>{this.props.events.length + ' Events'}</p>
+      <div className={styles.PicaPrecipiceListItem} style={{backgroundColor: this.setColor(), textAlign: 'left'}}>
+        <div className={styles.header + ' ' + (((this.props.activeIndex >= this.props.index || !this.props.cardOpen)) ? styles.headerUp : styles.headerDown)}>
+          <h3>{this.props.year}</h3>
+          <p>{this.props.number}</p>
           <div className={styles.button} onClick={this.handleClick}>
             {this.state.isOpen ? <p>&circ;</p> : <p>&#711;</p>}
           </div>
         </div>
         <div className={styles.content + ' ' + this.handleStyle()}>
-          <div className={styles.cardImage} style={{backgroundImage: 'url(' + this.props.image + ')'}} />
+          <div className={styles.cardImage}>
+            <h1>GRANTEES</h1>
+            {this.renderGrantees()}
+          </div>
           <div className={styles.cardContent} >
-            <div style={{height: '90%', overflow: 'hidden'}} className={styles.details} dangerouslySetInnerHTML={{ __html: this.props.description }} />
-            <PicaButton styles={{height: '10%'}}>
-              <Link to={'/artists/' + this.props.route}>Learn More</Link>
-            </PicaButton>
+           <div dangerouslySetInnerHTML={{ __html: this.props.details }} />
           </div>
         </div>
       </div>
@@ -101,11 +148,11 @@ class PicaArtistBlock extends Component {
   }
 }
 
-PicaArtistBlock.propTypes = {
-  name: PropTypes.string,
-  events: PropTypes.array,
-  description: PropTypes.string,
-  image: PropTypes.string,
+PicaPrecipiceListItem.propTypes = {
+  year: PropTypes.string,
+  number: PropTypes.string,
+  grantees: PropTypes.array,
+  body: PropTypes.string,
   index: PropTypes.number,
   activeIndex: PropTypes.number,
   setOpen: PropTypes.func,
@@ -114,12 +161,8 @@ PicaArtistBlock.propTypes = {
   section: PropTypes.bool
 }
 
-PicaArtistBlock.defaultProps = {
-  name: 'Mike Jones',
-  events: ['Tons'],
-  description: '<h1>None needed</h1>',
-  image: 'https://thesource.com/wp-content/uploads/2018/07/1024x1024.jpg',
-  route: 'no-route'
+PicaPrecipiceListItem.defaultProps = {
+  tags: []
 }
 
-export default PicaArtistBlock
+export default PicaPrecipiceListItem

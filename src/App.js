@@ -25,6 +25,9 @@ import TBAEvent from './routes/TBAEvent'
 import EventList from './routes/EventList'
 import Blog from './routes/Blog'
 import BlogPost from './routes/BlogPost'
+import Artist from './routes/Artist'
+import Volunteer from './routes/Volunteer'
+import ResourceRoom from './routes/ResourceRoom'
 
 function App() {
   return (
@@ -41,15 +44,18 @@ function App() {
         <Route exact path='/tba' component={TBA} />
         <Route exact path='/account' component={Account} />
         <Route exact path='/basket' component={Basket} />
-        <Route exact path='/donations' component={Donations} />
+        <Route exact path='/support/donations' component={Donations} />
         <Route exact path='/membership' component={Membership} />
         <Route exact path='/merchandise' component={Merchandise} />
         <Route exact path='/blog' component={Blog} />
+        <Route exact path='/support/volunteer' component={Volunteer} />
+        <Route exact path='/resource-room' component={ResourceRoom} />
         <Route path='/tickets/:webeventid' component={Tickets} />
         <Route path='/events/:id' component={Event} />
         <Route path='/tba/:id' component={TBAEvent} />
         <Route path='/eventlist' component={EventList} />
         <Route path='/blog/:id' component={BlogPost} />
+        <Route path='/artists/:id' component={Artist} />
       </PicaBody>
     </div>
   );

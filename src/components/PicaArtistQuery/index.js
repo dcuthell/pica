@@ -2,49 +2,143 @@ import React from 'react'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 
+import PicaArtistBlock from '../PicaArtistBlock'
+
 class PicaArtistQuery extends React.Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      activeIndex: 100,
+      lastIndex: 0,
+      cardOpen: false
+    }
+    this.setOpen = this.setOpen.bind(this)
+    this.setClose = this.setClose.bind(this)
+    this.getSearchType = this.getSearchType.bind(this)
+  }
+
+  setOpen(index) {
+    this.setState({
+      cardOpen: true,
+      activeIndex: index
+    })
+  }
+  setClose(index) {
+    this.setState({
+      cardOpen: false,
+      lastIndex: index
+    })
+  }
+
+  getSearchType(){
+    if (this.props.searchType === 'letter'){
+      return gql`
+      query ArtistswithPrograms($searchTerm : String, $sTerm : String){
+        artists(where: {OR: [{name_starts_with: $searchTerm}, {name_contains: $sTerm}]}, orderBy: name_ASC){
+          name
+          programs {
+            title
+            route
+          }
+          body {
+            html
+          }
+          media {
+            handle
+            height
+            width
+            photoCredit
+          }
+          route
+        }
+      }
+    `
+    }else if(this.props.searchType === 'tag'){
+      return gql`
+      query ArtistswithProgramswithTag($searchTerm : String){
+        artists(where: {programs_some: {tags_some: {name: $searchTerm}}}){
+          name
+          programs(where: {tags_some: {name: $searchTerm}}) {
+            title
+            route
+          }
+          body {
+            html
+          }
+          media {
+            handle
+            height
+            width
+            photoCredit
+          }
+          route
+        }
+      }
+    `
+    }else {
+      return gql`
+      query ArtistswithPrograms($searchTerm : String){
+        artists(where: {name_contains: $searchTerm}){
+          name
+          programs {
+            title
+            route
+          }
+          body {
+            html
+          }
+          media {
+            handle
+            height
+            width
+            photoCredit
+          }
+          route
+        }
+      }
+    `
+    }
+  }
+
+  resizeMedia(media) {
+    if ((media.width > 800) || (media.height > 800)){
+      if(media.width >= media.height){
+        return ('resize=width:800/' + media.handle)
+      } else {
+        return ('resize=height:800/' + media.handle)
+      }
+    } else {
+      return media.handle
+    }
+  }
+
   render(){
-    const SEARCH_CONTAIN = gql`
-      query ArtistswithPrograms($artistName : String){
-        artists(where: {name_contains: $artistName}){
-          name
-          programs {
-            title
-          }
-        }
-      }
-    `
-    const SEARCH_START = gql`
-      query ArtistswithPrograms($artistName : String){
-        artists(where: {name_starts_with: $artistName}){
-          name
-          programs {
-            title
-          }
-        }
-      }
-    `
     if(this.props.searchTerm !== ''){
       return(
-        <Query query={(this.props.letter === 'letter') ? SEARCH_START : SEARCH_CONTAIN} variables={{"artistName" : this.props.searchTerm}}>
+        <Query query={this.getSearchType()} variables={{"searchTerm" : this.props.searchTerm, "sTerm": ' ' + this.props.searchTerm}}>
           {({ loading, error, data }) => {
             if (loading) return (
-              <h1>Loading&hellip;</h1>
+              <div>
+                <h1>Loading&hellip;</h1>
+                <h4>This should only take a moment</h4>
+                <p>If your results don't appear, please resubmit your query</p>
+              </div>
             )
             if (error) return `Error! ${error.message}`
             let artists = data.artists
-            let list = artists.map((artist, index) => {
-              let programs = artist.programs.map((program) =>
-                <h3 key={index}>{program.title}</h3>
-              )
-              return(
-                <div key={index}>
-                  <h1>{artist.name}</h1>
-                  {programs}
-                </div>
-              )
-            }
-              
+            let list = artists.map((artist, index) =>
+              <PicaArtistBlock
+                name={artist.name}
+                events={artist.programs}
+                description={artist.body.html}
+                route={artist.route}
+                image={artist.media[0] ? 'https://media.graphcms.com/' + this.resizeMedia(artist.media[0]) : ''}
+                key={index}
+                index={index}
+                activeIndex={this.state.activeIndex}
+                setOpen={this.setOpen}
+                setClose={this.setClose}
+                cardOpen={this.state.cardOpen} />
             )
             if (list.length === 0){
               list = (
@@ -54,7 +148,7 @@ class PicaArtistQuery extends React.Component {
               )
             }
             return (
-              <div>
+              <div style={{width: '100%', height: '100%'}}>
                 {list}
               </div>
             )

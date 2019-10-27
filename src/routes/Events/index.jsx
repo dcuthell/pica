@@ -1,18 +1,19 @@
 import React from 'react'
-import { Container, Col, Row, Jumbotron } from 'reactstrap'
-import PicaArtistBlockFrame from '../../components/PicaArtistBlockFrame'
+import { Container, Col, Row } from 'reactstrap'
+import PicaEventList from '../../components/PicaEventList'
 
 export default function Events (props) {
+  let tag = ''
+  if(props.location.search !== ''){
+    tag = props.location.search.slice(5)
+    tag = tag.replace("%20", " ")
+  }
+  console.log(tag)
   return (
-    <Container className='Events' style={{padding: '0', margin: '0px', maxWidth: '100%', height: 'auto'}}>
+    <Container style={{padding: '0', margin: '0px', maxWidth: '100%', height: 'auto'}}>
       <Row style={{height: '100%'}}>
-        <Col xl='12' style={{height: '20vh', zIndex: '100'}}>
-          <Jumbotron style={{height: '100%'}}>
-            <h1>EVENTS</h1>
-          </Jumbotron>
-        </Col>
-        <Col xl='12' style={{height: '90vh'}}>
-          <PicaArtistBlockFrame />
+        <Col xl='12' style={{height: '100vh'}}>
+          <PicaEventList tag={tag}/>
         </Col>
       </Row>
     </Container>

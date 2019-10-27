@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styles from './styles.module.css'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 
 import PicaLogo from '../../img/PicaLogo.png'
 
@@ -26,7 +26,6 @@ class PicaCarouselCard extends Component {
   */
   
   propsToStyles() {
-    console.log((this.props.cardTotal - this.props.index === -1))
     if (((this.props.index - this.props.activeIndex) === 0) && (this.props.index === 0)) {
       return styles.activeLeft
     } else if (((this.props.index - this.props.activeIndex) === 1) && (this.props.index === 1)) {
@@ -57,6 +56,34 @@ class PicaCarouselCard extends Component {
     }
   }
 
+  renderTags(){
+    if(this.props.tags.length === 0){
+      return(
+        <p>Pica Event</p>
+      )
+    } else {
+      let tags = []
+      for(let i=0; i < this.props.tags.length; i++){
+        if(i + 1 === this.props.tags.length){
+          tags.push(
+            <Link key={i} to={{
+              pathname: '/events',
+              search: '?tag=' + this.props.tags[i].name
+            }}>{this.props.tags[i].name}</Link>
+          )
+        } else {
+          tags.push(
+            <Link key={i} to={'events?tag=' + this.props.tags[i].name}>{this.props.tags[i].name}</Link>
+          )
+          tags.push(', ')
+        }
+      }
+      return(
+        <p>{tags}</p>
+      )
+    }
+  }
+
   render() {
     return (
       <div className={styles.PicaCarouselCard + ' ' + this.propsToStyles()} style={{backgroundColor: this.props.background}}>
@@ -66,7 +93,7 @@ class PicaCarouselCard extends Component {
         <div className={styles.cardInfo}>
           <h2>{this.props.title}</h2>
           <h4>{this.props.date}</h4>
-          <p>{this.props.tags}</p>
+          {this.renderTags()}
         </div>
         <div className={styles.cardContent}>
           <p id={styles.description}>{this.props.description}</p>
@@ -86,7 +113,7 @@ PicaCarouselCard.defaultProps = {
   title: 'An Event Name',
   date: 'July 11-13 / 25-27',
   image: PicaLogo,
-  tags: 'Exhibition, Performance, Visual',
+  tags: ['Exhibition, Performance, Visual'],
   buttonText: 'Click Me',
   buttonLink: '/tba',
   description: `This is a short description about what the event is. This should be PICA's voice and description of the event, a quick takeaway for the user to understand...`
@@ -100,7 +127,7 @@ PicaCarouselCard.propTypes = {
   title: PropTypes.string,
   date: PropTypes.string,
   image: PropTypes.string,
-  tags: PropTypes.string,
+  tags: PropTypes.array,
   buttonText: PropTypes.string,
   buttonLink: PropTypes.string,
   description: PropTypes.string,

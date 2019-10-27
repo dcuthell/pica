@@ -1,0 +1,13 @@
+.NavBar {
+	background-color: #FFFFFF;
+}
+
+.Content {
+	background-color: #F8F8F8;
+	color: blue;
+}
+
+.ticketButton,
+.ticketButton:hover {
+	color: black;
+}

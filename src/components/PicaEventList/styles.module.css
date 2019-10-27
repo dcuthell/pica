@@ -1,8 +1,7 @@
-.PicaArtistArchive{
-	position: relative;
-}
 .SearchButton {
-	margin: .5rem;
+	margin: .75rem;
+	text-align: left;
+	color: black;
 }
 
 .SearchButton:hover{
