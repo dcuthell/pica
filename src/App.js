@@ -43,7 +43,7 @@ function App() {
         <Route exact path='/tba' component={TBA} />
         <Route exact path='/account' component={Account} />
         <Route exact path='/basket' component={Basket} />
-        <Route exact path='/donations' component={Donations} />
+        <Route exact path='/support/donations' component={Donations} />
         <Route exact path='/membership' component={Membership} />
         <Route exact path='/merchandise' component={Merchandise} />
         <Route exact path='/blog' component={Blog} />

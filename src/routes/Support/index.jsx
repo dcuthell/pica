@@ -1,5 +1,6 @@
 import React from 'react'
 import { Container, Col, Row } from 'reactstrap'
+import { Link } from 'react-router-dom'
 import PicaButton from '../../components/PicaButton'
 import PicaSponsorBlockFrame from '../../components/PicaSponsorBlockFrame'
 
@@ -26,7 +27,7 @@ export default function Support (props) {
             As a PICA member, you’ll spend less and do more! Enjoy access to exclusive events and receive generous discounts on TBA passes and tickets, programs, and merchandise.
           </p>
           <PicaButton style={{position: 'absolute', bottom: '10px', left: '10%'}}>
-            <a href='http://www.pica.org/support/members'><p style={{margin: '4px 0px 4px 0px'}}>BECOME A MEMBER</p></a>
+            <Link to='/support/members'><p style={{margin: '4px 0px 4px 0px'}}>BECOME A MEMBER</p></Link>
           </PicaButton>
         </Col>
         <Col xl='4' style={{backgroundColor: '#ECDDBB'}}>
@@ -36,7 +37,7 @@ export default function Support (props) {
             PICA is Portland’s leading presenter of contemporary art. Our artistic events, educational activities, and community engagement initiatives would not be possible without the ongoing support and participation of artists, audiences, and art patrons like you.
           </p>
           <PicaButton style={{position: 'absolute', bottom: '10px', left: '10%'}}>
-            <a href='http://www.pica.org/support/donations'><p style={{margin: '4px 0px 4px 0px'}}>DONATE TODAY</p></a>
+            <Link to='/support/donations'><p style={{margin: '4px 0px 4px 0px'}}>DONATE TODAY</p></Link>
           </PicaButton>
         </Col>
         <Col xl='4' style={{backgroundColor: '#E4E4E4'}}>
@@ -46,7 +47,7 @@ export default function Support (props) {
             Our year-round programs, activities, and special events wouldn’t be possible without volunteers. Help make it all happen by becoming a volunteer! From ushering to fundraising, we’ve got tasks for every interest and skill set.
           </p>
           <PicaButton style={{position: 'absolute', bottom: '10px', left: '10%'}}>
-            <a href='http://www.pica.org/support/volunteer/'><p style={{margin: '4px 0px 4px 0px'}}>BECOME A VOLUNTEER</p></a>
+            <Link to='/support/volunteer'><p style={{margin: '4px 0px 4px 0px'}}>BECOME A VOLUNTEER</p></Link>
           </PicaButton>
         </Col>
         <Col xl='12' style={{padding: '40px 10% 40px 10%'}}>
