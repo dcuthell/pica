@@ -22,12 +22,23 @@ class PicaEvent extends Component {
 
   renderArtistNames(){
     if (this.props.artists) {
-      let artistNames = ''
+      let artistNames = []
       this.props.artists.forEach((artist, index) => {
         if(index === 0){
-          artistNames += (artist.name)
+          artistNames.push(
+            <Link to={'/artists/' + artist.route}>
+              {artist.name}
+            </Link>
+          )
         } else {
-          artistNames += (' and ' + artist.name)
+          artistNames.push(
+            ' and '
+          )
+          artistNames.push(
+            <Link to={'/artists/' + artist.route}>
+              {artist.name}
+            </Link>
+          )
         }
       })
       return(

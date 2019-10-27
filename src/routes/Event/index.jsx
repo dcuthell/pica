@@ -34,6 +34,7 @@ export default function Event (props) {
         }
         artists {
           name
+          route
         }
         venues {
           name
