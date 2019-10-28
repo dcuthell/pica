@@ -15,7 +15,7 @@ export default function Volunteer (props) {
           <h1>PICA’s world-renowned TBA Festival—along with our many year-round programs, activities, and special events—could never happen without hundreds of volunteers and thousands of hours. Join our community and help make it all happen! From ushering to fundraising, construction to administration, exhibitions to special events, we've got tasks for every interest and skill set. Sign up for volunteer announcements today and join us for the next big thing!</h1>
         </Col>
         <Col xl='12' style={{backgroundColor: '#ECDDBB'}}>
-          <iframe width='510' height='500' frameborder='0' src='https://app.e2ma.net/app2/audience/signup/1420688/33182/?v=a'></iframe>
+          <iframe title='volunteer-form' width='510' height='500' frameborder='0' src='https://app.e2ma.net/app2/audience/signup/1420688/33182/?v=a'></iframe>
         </Col>
       </Row>
     </Container>
