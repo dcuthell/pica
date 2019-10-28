@@ -141,7 +141,9 @@ class PicaEventReel extends Component {
             onClick={this.clickRight}
           />
         </div>
-        {this.renderCards()}
+        <div className={styles.reel}>
+          {this.renderCards()}
+        </div>
       </div>
     )
   }

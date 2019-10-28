@@ -4,7 +4,7 @@
 	background-color: #d3d3d3;
 }
 .header {
-	height: 10%;
+	height: 15%;
 	position: absolute;
 	top: 0;
 	background-color: #d3d3d3;
@@ -13,34 +13,41 @@
 }
 
 .title {
-	height: 100%;
-	width: 90%;
+	height: 50%;
+	width: 80%;
 	position: absolute;
-	left: 0;
+	left: 1.25%;
+	top: 25%;
 	text-align: left;
 }
 
 .arrows {
-	height: 100%;
+	height: 50%;
 	width: 10%;
 	position: absolute;
-	background-size: 75%;
+	top: 25%;
+	background-size: 50%;
 	background-position: center;
 	background-repeat: no-repeat;
 	cursor: pointer;
-	position: absolute;
 }
 
 #leftArrow {
 	right: 10%;
-	top: 0;
 }
 
 #rightArrow {
 	right: 0;
-	top: 0;
 }
 
 .arrows:hover {
-	background-color: yellow;
+	background-color: inherit;
+}
+
+.reel {
+	width: 97.5%;
+	position: absolute;
+	top: 15%;
+	left: 1.25%;
+	height: 85%;
 }

@@ -1,12 +1,12 @@
 .PicaEventReelBlock {
-	height: 90%;
+	height: 100%;
 	width: 33.33%;
 	position: absolute;
-	top: 10%;
+	top: 0;
 	left: 0;
 	background-color: #d3d3d3;
 	color: black;
-	padding: 10px;
+	padding: 40px;
 }
 
 .PicaEventReelBlock:hover {
@@ -15,20 +15,20 @@
 
 .cardImage {
 	height: 50%;
-	width: 100%;
+	width: 92.3%;
 	position: absolute;
-	top: 5%;
-	left: 0;
+	top: 0;
+	left: 3.85%;
 	background-size: cover;
 	background-position: center;
 }
 
 .cardInfo {
 	height: 40%;
-	width: 100%;
+	width: 92.3%;
 	position: absolute;
-	top: 55%;
-	left: 0;
+	top: 50%;
+	left: 3.85%;
 	text-align: left;
 	overflow: hidden;
 	line-height: 1;
@@ -41,7 +41,7 @@
 	margin-bottom: 0;
 	top: 0;
 	left: 0;
-	max-width: 50%;
+	max-width: 46.15%;
 	max-height: 10%;
 	overflow: hidden;
 }
@@ -50,7 +50,7 @@
 	position: absolute;
 	top: 0;
 	right: 0;
-	max-width: 50%;
+	max-width: 46.15%;
 	max-height: 10%;
 	overflow: hidden;
 }
@@ -60,16 +60,17 @@
 	position: absolute;
 	top: 10%;
 	left: 0;
-	max-height: 20%;
+	max-height: 25%;
 	overflow: hidden;
 }
 
 #description {
 	text-align: left;
 	position: absolute;
-	top: 30%;
+	top: 35%;
 	left: 0;
-	max-height: 60%;
+	width: 100%;
+	max-height: 65%;
 	overflow: hidden;
 }
 
