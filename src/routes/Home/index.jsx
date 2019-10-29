@@ -10,7 +10,7 @@ export default function Home (props) {
   return (
     <Container style={{padding: '0', margin: '0px', maxWidth: '100%', height: 'auto', overflowX: 'hidden'}}>
       <Row style={{margin: '0px'}}>
-        <Col xl='12' style={{height: '100vh', padding: '0px'}}>
+        <Col xl='12' style={{padding: '0px'}}>
           <div style={{height: '100%', backgroundColor: '#F8F8F8'}}>
             <PicaCarouselFrame />
           </div>
