@@ -1,3 +1,29 @@
+.PicaEventList{
+	height: 100vh;
+	width: 100%;
+}
+
+.Navigation{
+	background-color: #d3d3d3;
+	height: 100%;
+	width: 240px;
+	align-content: left;
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 32px;
+}
+
+.Results {
+	background-color: darkgray;
+	height: 100%;
+	width: calc(100% - 240px);
+	align-content: left;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
 .SearchButton {
 	margin: .75rem;
 	text-align: left;
@@ -10,7 +36,7 @@
 
 .search {
 	position: absolute;
-	left: 10%;
+	left: 32px;
 	bottom: 10%;
 }
 
