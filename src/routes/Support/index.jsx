@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Container, Col, Row } from 'reactstrap'
 import { Link } from 'react-router-dom'
 import PicaButton from '../../components/PicaButton'
@@ -9,8 +9,12 @@ import ben from '../../img/ben-01.png'
 import volunteer from '../../img/volunteerpic.png'
 
 export default function Support (props) {
+  useEffect(() => {
+    document.getElementById('Support').scrollIntoView()
+  })
+
   return (
-    <Container style={{padding: '0', margin: '0px', maxWidth: '100%', height: 'auto', backgroundColor: 'white'}}>
+    <Container id='Support' style={{padding: '0', margin: '0px', maxWidth: '100%', height: 'auto', backgroundColor: 'white'}}>
       <Row style={{margin: '0px'}}>
         <Col xl='12'>
           <h1 style={{fontSize: '8rem', textAlign: 'left'}}>SUPPORT</h1>

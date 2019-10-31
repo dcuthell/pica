@@ -47,8 +47,8 @@ class PicaBlogList extends Component {
   render() {
     return (
       <Container className={styles.PicaBlogList} style={{padding: '0', margin: '0px', maxWidth: '100%', height: '100%'}}>
-        <Row style={{margin: '0', height: '100%'}}>
-          <Col className='styles.Navigation' md='3' style={{backgroundColor: 'darkgrey'}}>
+        <Row className={styles.Navigation}>
+          <Col md='3'>
             <p>Search by Post Title</p>
             <form onSubmit={this.handleSubmit}>
               <input type='text' onChange={this.handleInput}></input>
@@ -62,8 +62,8 @@ class PicaBlogList extends Component {
             <span className={styles.SearchButton} onClick={this.handleTagClick}>TBA</span>
           </Col>
           <Col className='Results' md='9' style={{overflow: 'scroll', height: '100%', padding: '0'}}>
-            <div style={{width: '100%', height: '15%', backgroundColor: 'white', zIndex: '3', position: 'relative'}}>
-              <h1>LATEST</h1>
+            <div style={{width: '100%', height: '20%', backgroundColor: 'white', zIndex: '3', position: 'relative'}}>
+              <h1 style={{fontSize: '8rem'}}>LATEST</h1>
             </div>
             <div style={{width: '100%', height: '85%'}}>
               <PicaBlogQuery searchType={this.state.searchType} searchTerm={this.state.searchTerm} />

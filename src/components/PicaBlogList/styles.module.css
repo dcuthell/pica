@@ -8,3 +8,9 @@
 .SearchButton:hover{
 	cursor: pointer;
 }
+
+.Navigation {
+	background-color: #E4E4E4;
+	margin: 0px;
+	height: 100%;
+}

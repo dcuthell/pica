@@ -39,70 +39,70 @@ class PicaSponsorBlockFrame extends Component {
           sponsors.forEach((sponsor) =>{
             if(sponsor.donorLevel === 'Superhero'){
               superhero.push(
-                <Col md='4'>
+                <Col md='4' key={superhero.length}>
                   <img src={'https://media.graphcms.com/' + sponsor.logo.handle} alt={sponsor.name} style={{maxWidth: '100%', maxHeight: '200px'}} />
                 </Col>
               )
             }
             if(sponsor.donorLevel === 'Presenting'){
               presenting.push(
-                <Col md='4'>
+                <Col md='4' key={presenting.length}>
                   <img src={'https://media.graphcms.com/' + sponsor.logo.handle} alt={sponsor.name} style={{maxWidth: '100%', maxHeight: '200px'}} />
                 </Col>
               )
             }
             if(sponsor.donorLevel === 'Major'){
               major.push(
-                <Col md='4'>
+                <Col md='4' key={major.length}>
                   <img src={'https://media.graphcms.com/' + sponsor.logo.handle} alt={sponsor.name} style={{maxWidth: '100%', maxHeight: '200px'}} />
                 </Col>
               )
             }
             if(sponsor.donorLevel === 'Underwriter'){
               underwriter.push(
-                <Col md='4'>
+                <Col md='4' key={underwriter.length}>
                   <p>{sponsor.name}</p>
                 </Col>
               )
             }
             if(sponsor.donorLevel === 'Champion'){
               champion.push(
-                <Col md='4'>
+                <Col md='4' key={champion.length}>
                   <p>{sponsor.name}</p>
                 </Col>
               )
             }
             if(sponsor.donorLevel === 'Patron'){
               patron.push(
-                <Col md='4'>
+                <Col md='4' key={patron.length}>
                   <p>{sponsor.name}</p>
                 </Col>
               )
             }
             if(sponsor.donorLevel === 'Supporter'){
               supporter.push(
-                <Col md='4'>
+                <Col md='4' key={supporter.length}>
                   <p>{sponsor.name}</p>
                 </Col>
               )
             }
             if(sponsor.donorLevel === 'Advocate'){
               advocate.push(
-                <Col md='4'>
+                <Col md='4' key={advocate.length}>
                   <p>{sponsor.name}</p>
                 </Col>
               )
             }
             if(sponsor.donorLevel === 'Enthusiast'){
               enthusiast.push(
-                <Col md='4'>
+                <Col md='4' key={enthusiast.length}>
                   <p>{sponsor.name}</p>
                 </Col>
               )
             }
             if(sponsor.donorLevel === 'Contributor'){
               contributor.push(
-                <Col md='4'>
+                <Col md='4' key={contributor.length}>
                   <p>{sponsor.name}</p>
                 </Col>
               )

@@ -219,7 +219,6 @@ class PicaEventQuery extends React.Component {
         }
       }
     `
-    console.log('render')
     return(
       <Query query={(this.props.searchType === 'tag') ? SEARCH_TAG : SEARCH_CONTAIN} variables={{"searchTerm" : this.props.searchTerm}}>
         {({ loading, error, data }) => {

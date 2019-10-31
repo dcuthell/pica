@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { Container, Col, Row } from 'reactstrap'
 import PicaCarouselFrame from '../../components/PicaCarouselFrame'
 import PicaEventReelFrame from '../../components/PicaEventReelFrame'
@@ -7,8 +8,13 @@ import collage from '../../img/collage.png'
 import ben from '../../img/ben-01.png'
 
 export default function Home (props) {
+
+  useEffect(() => {
+    document.getElementById('Home').scrollIntoView()
+  })
+
   return (
-    <Container style={{padding: '0', margin: '0px', maxWidth: '100%', height: 'auto', overflowX: 'hidden'}}>
+    <Container id='Home' style={{padding: '0', margin: '0px', maxWidth: '100%', height: 'auto', overflowX: 'hidden'}}>
       <Row style={{margin: '0px'}}>
         <Col xl='12' style={{padding: '0px'}}>
           <div style={{height: '100%', backgroundColor: '#F8F8F8'}}>
@@ -27,7 +33,7 @@ export default function Home (props) {
           <h3>Like what you see? Help us grow our archive of</h3>
           <h3 style={{paddingBottom: '60px'}}>contemporary art by becoming a donor!</h3>
           <PicaButton style={{position: 'absolute', bottom: '10px', left: '20%', width: '60%'}}>
-            <a href='https://system.spektrix.com/pica/website/Donations.aspx?resize=true'><p style={{margin: '4px 0px 4px 0px'}}>DONATE</p></a>
+            <Link to='/support/donations'><p style={{margin: '4px 0px 4px 0px'}}>DONATE</p></Link>
           </PicaButton>
         </Col>
         <Col xl='12' style={{padding: '0px', backgroundColor: '#FFFBF3'}}>

@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Container, Col, Row } from 'reactstrap'
 
 import volunteerpic from '../../img/support_volunteer_700.jpg'
 
 export default function Volunteer (props) {
+  useEffect(() => {
+    document.getElementById('Volunteer').scrollIntoView()
+  })
+
   return (
-    <Container style={{padding: '0', margin: '0px', maxWidth: '100%', height: 'auto', backgroundColor: 'white'}}>
+    <Container id='Volunteer' style={{padding: '0', margin: '0px', maxWidth: '100%', height: 'auto', backgroundColor: 'white'}}>
       <Row style={{margin: '0px'}}>
         <Col xl='12'>
           <h1 style={{fontSize: '8rem', textAlign: 'left'}}>VOLUNTEER</h1>

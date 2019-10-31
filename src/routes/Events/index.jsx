@@ -8,7 +8,6 @@ export default function Events (props) {
     tag = props.location.search.slice(5)
     tag = tag.replace("%20", " ")
   }
-  console.log(tag)
   return (
     <Container style={{padding: '0', margin: '0px', maxWidth: '100%', height: 'auto'}}>
       <Row style={{height: '100%'}}>
