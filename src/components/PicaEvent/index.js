@@ -1,12 +1,24 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Container, Row, Col } from 'reactstrap'
 import { Link } from 'react-router-dom'
 import PicaButton from '../PicaButton'
 
 import styles from './styles.module.css'
 
 class PicaEvent extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      isOpen: false
+    }
+    this.toggleNav = this.toggleNav.bind(this)
+  }
+
+  toggleNav() {
+    this.setState({
+      isOpen: !this.state.isOpen
+    })
+  }
 
   resizeMedia(media) {
     if ((media.width > 800) || (media.height > 800)){
@@ -80,43 +92,78 @@ class PicaEvent extends Component {
         }
       }
       return(
-        <p>Tags: {tags}</p>
+        <p>{tags}</p>
       )
     }
   }
 
-  /* The PicaEvent returns in 4 parts.
-  The first is the block as appears on the TBA page on desktop: TBAArtistBlock
-  The second is the block as appears on the TBA page on mobile: TBAArtistBlockMobile
-  The third is the modal that pops up to display youtube or vimeo videos: videoModal
-  The fourth is the artist overlay that appears when clicking the block: artistOverlay
-   */
-  render() {
-    return (
-      <Container>
-        <Row>
-          <Col className={styles.NavBar} md='3'>
-            <h4>Event</h4>
-            <p>{this.props.eventName}</p>
-            <h4>Tags</h4>
-            {this.renderTags()}
-            <h4>Artist</h4>
-            <p>{this.renderArtistNames()}</p>
-            <h4>Date</h4>
-            <p>{this.props.eventDate}</p>
-            <h4>Price</h4>
-            <p>{this.props.price}</p>
-            {this.renderTicketButton()}
-          </Col>
-          <Col className={styles.Content} md='9'>
-            <h1>{this.props.eventName}</h1>
-            <img style={{width: '100%', height: 'auto', margin: 'auto'}} src={'https://media.graphcms.com/' + this.resizeMedia(this.props.galleryItems[0].media)} alt={'Photo: ' + this.props.galleryItems[0].media.photoCredit} title={this.props.galleryItems[0].media.photoCredit ? 'Photo: ' + this.props.galleryItems[0].media.photoCredit : 'Courtesy of the artist'} />
-            <p className={styles.lede}>{this.props.detailsShort}</p>
-            <div className={styles.detailsLong} dangerouslySetInnerHTML={{ __html: this.props.detailsLong }} />
-          </Col>
-        </Row>
-      </Container>
+  renderDesktop(){
+    return(
+      <div className={styles.PicaEvent}>
+        <div className={styles.Details}>
+        <h4>Event</h4>
+          <p>{this.props.eventName}</p>
+          <h4>Tags</h4>
+          {this.renderTags()}
+          <h4>Artist</h4>
+          <p>{this.renderArtistNames()}</p>
+          <h4>Date</h4>
+          <p>{this.props.eventDate}</p>
+          <h4>Price</h4>
+          <p>{this.props.price}</p>
+          {this.renderTicketButton()}
+        </div>
+        <div className={styles.Content}>
+         <h1>{this.props.eventName}</h1>
+          <img style={{width: '100%', height: 'auto', margin: 'auto'}} src={'https://media.graphcms.com/' + this.resizeMedia(this.props.galleryItems[0].media)} alt={'Photo: ' + this.props.galleryItems[0].media.photoCredit} title={this.props.galleryItems[0].media.photoCredit ? 'Photo: ' + this.props.galleryItems[0].media.photoCredit : 'Courtesy of the artist'} />
+          <p className={styles.lede}>{this.props.detailsShort}</p>
+          <div className={styles.detailsLong} dangerouslySetInnerHTML={{ __html: this.props.detailsLong }} />
+        </div>
+      </div>
     )
+  }
+
+  renderMobile(){
+    return(
+      <div className={styles.PicaEvent}>
+        <div className={styles.MobileDetailsHeader} onClick={this.toggleNav}>
+          <p>EVENT DETAILS</p>
+          <div className={styles.button}>
+            {this.state.isOpen ? <p>&circ;</p> : <p>&#711;</p>}
+          </div>
+        </div>
+        <div className={this.state.isOpen ? styles.MobileDetailsOpen : styles.MobileDetailsClosed}>
+          <h4>Event</h4>
+          <p>{this.props.eventName}</p>
+          <h4>Tags</h4>
+          {this.renderTags()}
+          <h4>Artist</h4>
+          <p>{this.renderArtistNames()}</p>
+          <h4>Date</h4>
+          <p>{this.props.eventDate}</p>
+          <h4>Price</h4>
+          <p>{this.props.price}</p>
+          {this.renderTicketButton()}
+        </div>
+        <div className={this.state.isOpen ? styles.MobileContentOpen : styles.MobileContentClosed}>
+         <h1>{this.props.eventName}</h1>
+          <img style={{width: '100%', height: 'auto', margin: 'auto'}} src={'https://media.graphcms.com/' + this.resizeMedia(this.props.galleryItems[0].media)} alt={'Photo: ' + this.props.galleryItems[0].media.photoCredit} title={this.props.galleryItems[0].media.photoCredit ? 'Photo: ' + this.props.galleryItems[0].media.photoCredit : 'Courtesy of the artist'} />
+          <p className={styles.lede}>{this.props.detailsShort}</p>
+          <div className={styles.detailsLong} dangerouslySetInnerHTML={{ __html: this.props.detailsLong }} />
+        </div>
+      </div>
+    )
+  }
+  render() {
+    if(window.innerWidth > 767){
+      return(
+        this.renderDesktop()
+      )
+    } else{
+      return (
+        this.renderMobile()
+      )
+    }
   }
 }
 
