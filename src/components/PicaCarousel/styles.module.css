@@ -1,7 +1,17 @@
 .PicaCarousel {
-	height: 100%;
+	height: 100vh;
 	width: 100%;
 	background-color: lightgrey;
+}
+
+.PicaCarousel h2 {
+	font-size: 40px;
+}
+.PicaCarousel h4 {
+	font-size: 20px;
+}
+.PicaCarousel p {
+	font-size: 14px;
 }
 .header {
 	height: 10%;
@@ -14,9 +24,10 @@
 
 .title {
 	height: 100%;
-	width: 90%;
+	width: 100%;
 	position: absolute;
-	left: 0;
+	left: 15px;
+	top: 15px;
 	text-align: left;
 }
 

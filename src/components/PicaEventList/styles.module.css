@@ -1,3 +1,125 @@
+.PicaEventList{
+	height: 100%;
+	width: 100%;
+	text-align: left;
+}
+
+.Navigation{
+	background-color: #e4e4e4;
+	height: 100%;
+	width: 240px;
+	align-content: left;
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 32px;
+}
+
+.Results {
+	background-color: white;
+	height: 100%;
+	width: calc(100% - 240px);
+	align-content: left;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.PicaMobileEventList{
+	height: 100%;
+	width: 100%;
+}
+
+.MobileTitle {
+	width: 100%;
+	height: 15%;
+	z-index: 3;
+	position: relative;
+	background: white;
+}
+
+.MobileNavigationHeader{
+	background-color: #e4e4e4;
+	height: 28px;
+	width: 100%;
+	text-align: left;
+	position: absolute;
+	top: 15%;
+	left: 0;
+	z-index: 3;
+	padding-left: 32px;
+}
+
+.MobileNavigationContentClosed{
+	background-color: #e4e4e4;
+	height: 280px;
+	width: 100%;
+	align-content: left;
+	position: absolute;
+	top: calc(15% + 28px);
+	left: 0;
+	z-index: 2;
+	padding: 32px;
+	-webkit-transform: translateY(-280px);
+	-ms-transform: translateY(-280px);
+			transform: translateY(-280px);
+	transition: transform 500ms linear;
+}
+
+.MobileNavigationContentOpen{
+	background-color: #e4e4e4;
+	height: 280px;
+	width: 100%;
+	align-content: left;
+	position: absolute;
+	top: calc(15% + 28px);
+	left: 0;
+	z-index: 2;
+	padding: 32px;
+	-webkit-transform: translateY(0%);
+	-ms-transform: translateY(0%);
+			transform: translateY(0%);
+	transition: transform 500ms linear;
+}
+
+.MobileResultsClosed {
+	background-color: white;
+	height: 100%;
+	width: 100%;
+	align-content: left;
+	position: absolute;
+	top: calc(15% + 28px);
+	left: 0;
+	-webkit-transform: translateY(0%);
+	-ms-transform: translateY(0%);
+			transform: translateY(0%);
+	transition: transform 500ms linear;
+}
+
+.MobileResultsOpen {
+	background-color: white;
+	height: 100%;
+	width: 100%;
+	align-content: left;
+	position: absolute;
+	top: calc(15% + 28px);
+	left: 0;
+	-webkit-transform: translateY(280px);
+	-ms-transform: translateY(280px);
+			transform: translateY(280px);
+	transition: transform 500ms linear;
+}
+
+.button {
+	position: absolute;
+	top: 0;
+	right: 32px;
+	line-height: 1;
+	height: 48px;
+	width: 48px;
+	font-size: 48px;
+}
+
 .SearchButton {
 	margin: .75rem;
 	text-align: left;
@@ -10,7 +132,7 @@
 
 .search {
 	position: absolute;
-	left: 10%;
+	left: 32px;
 	bottom: 10%;
 }
 

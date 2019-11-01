@@ -159,7 +159,7 @@ class PicaCarousel extends Component {
         <Route path={'/' + this.state.swipe} component={PicaCarouselCard} />
         <div className={styles.header}>
           <div className={styles.title}>
-            <h1 style={{fontSize: '4rem'}}>UPCOMING EVENTS</h1>
+            <h2>UPCOMING EVENTS</h2>
           </div>
           <div
             className={styles.arrows}

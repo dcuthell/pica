@@ -11,12 +11,50 @@ class PicaEventList extends Component {
     this.state = {
       searchInput: '',
       searchTerm: '',
-      searchType: ''
+      searchType: '',
+      isOpen: false
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleInput = this.handleInput.bind(this)
     this.resetSearch = this.resetSearch.bind(this)
     this.handleTagClick = this.handleTagClick.bind(this)
+    this.toggleNav = this.toggleNav.bind(this)
+    this.closeNav = this.closeNav.bind(this)
+    this.openNav = this.openNav.bind(this)
+  }
+
+  toggleNav() {
+    this.setState({
+      isOpen: !this.state.isOpen
+    })
+  }
+
+  openNav() {
+    this.setState({
+      isOpen: true
+    })
+  }
+
+  closeNav() {
+    this.setState({
+      isOpen: false
+    })
+  }
+
+  updateDimensions(e) {
+    if (window.innerWidth > 767) {
+      if (this.state.mobile) {
+        this.setState({
+          mobile: false
+        })
+      }
+    } else {
+      if (!this.state.mobile) {
+        this.setState({
+          mobile: true
+        })
+      }
+    }
   }
 
   handleInput(event){
@@ -29,6 +67,9 @@ class PicaEventList extends Component {
       searchType: ''
     })
     event.preventDefault()
+    if(this.state.mobile){
+      this.closeNav()
+    }
   }
 
   resetSearch(){
@@ -43,6 +84,9 @@ class PicaEventList extends Component {
       searchTerm: event.target.textContent,
       searchType: 'tag'
     })
+    if(this.state.mobile){
+      this.closeNav()
+    }
   }
 
   static getDerivedStateFromProps(props, state) {
@@ -55,14 +99,68 @@ class PicaEventList extends Component {
       return null
     }
   }
-  
 
-  render() {
-    return (
-      <Container className={styles.PicaEventList} style={{padding: '0', margin: '0px', maxWidth: '100%', height: '100%'}}>
-        <Row style={{margin: '0', height: '100%'}}>
-          <Col className={styles.Navigation} md='3' style={{backgroundColor: 'darkgrey', height: '100%', alignContent: 'left'}}>
-            <p>BROWSE EVENTS BY CATEGORY</p>
+  componentDidMount() {
+    this.updateDimensions()
+    window.addEventListener('resize', this.updateDimensions.bind(this))
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateDimensions.bind(this))
+  }
+
+  renderMobile(){
+    return(
+      <div className={styles.PicaMobileEventList}>
+        <div className={styles.MobileTitle}>
+          <h1 style={{fontSize: '60px'}}>EVENTS</h1>
+        </div>
+        <div className={styles.MobileNavigationHeader} onClick={this.toggleNav}>
+          <p>BROWSE BY CATEGORY</p>
+          <div className={styles.button} onClick={this.handleClick}>
+            {this.state.isOpen ? <p>&circ;</p> : <p>&#711;</p>}
+          </div>
+        </div>
+        <div className={this.state.isOpen ? styles.MobileNavigationContentOpen : styles.MobileNavigationContentClosed}>
+          <Link to='/events'>
+            <p className={styles.SearchButton} onClick={this.resetSearch}>ALL</p>
+          </Link>
+          <Link to='/events'>
+            <p className={styles.SearchButton} onClick={this.handleTagClick}>PERFORMANCE</p>
+          </Link>
+          <Link to='/events'>
+            <p className={styles.SearchButton} onClick={this.handleTagClick}>VISUAL ART</p>
+          </Link>
+          <Link to='/events'>
+            <p className={styles.SearchButton} onClick={this.handleTagClick}>FESTIVAL</p>
+          </Link>
+          <Link to='/events'>
+            <p className={styles.SearchButton} onClick={this.handleTagClick}>CONVERSATION</p>
+          </Link>
+          <Link to='/events'>
+            <p className={styles.SearchButton} onClick={this.handleTagClick}>PARTNER PROJECTS</p>
+          </Link>
+          <div className={styles.search}>
+            <p>Search by Event or Artist Name</p>
+            <form onSubmit={this.handleSubmit}>
+              <input id={styles.search} type='text' onChange={this.handleInput}></input>
+            </form>
+          </div>
+        </div>
+        <div className={this.state.isOpen ? styles.MobileResultsOpen : styles.MobileResultsClosed}>
+          <div style={{width: '100%', height: '85%', overflow: 'scroll'}}>
+            <PicaEventQuery searchType={this.state.searchType} searchTerm={this.state.searchTerm} />
+          </div>
+        </div>
+      </div>
+    )
+  }
+  
+  renderDesktop(){
+    return(
+      <div className={styles.PicaEventList}>
+        <div className={styles.Navigation}>
+        <p>BROWSE EVENTS BY CATEGORY</p>
             <Link to='/events'>
               <p className={styles.SearchButton} onClick={this.resetSearch}>ALL</p>
             </Link>
@@ -87,18 +185,28 @@ class PicaEventList extends Component {
                 <input id={styles.search} type='text' onChange={this.handleInput}></input>
               </form>
             </div>
-          </Col>
-          <Col md='9' style={{padding: '0', margin: '0'}}>
-            <div style={{width: '100%', height: '15%'}}>
-              <h1 style={{fontSize: '6rem'}}>EVENTS</h1>
-            </div>
-            <div style={{width: '100%', height: '85%', overflow: 'scroll'}}>
-              <PicaEventQuery searchType={this.state.searchType} searchTerm={this.state.searchTerm} />
-            </div>
-          </Col>
-        </Row>
-      </Container>
+        </div>
+        <div className={styles.Results}>
+          <div style={{width: '100%', height: '25%'}}>
+            <h1 style={{fontSize: '160px'}}>EVENTS</h1>
+          </div>
+          <div style={{width: '100%', height: '75%', overflow: 'scroll'}}>
+            <PicaEventQuery searchType={this.state.searchType} searchTerm={this.state.searchTerm} />
+          </div>
+        </div>
+      </div>
     )
+  }
+  render() {
+    if(window.innerWidth > 767){
+      return(
+        this.renderDesktop()
+      )
+    } else{
+      return (
+        this.renderMobile()
+      )
+    }
   }
 }
 

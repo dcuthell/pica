@@ -1,5 +1,6 @@
 import React from 'react'
 import { Container, Row, Col } from 'reactstrap'
+import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 import styles from './styles.module.css'
@@ -38,6 +39,7 @@ class PicaPost extends React.Component {
 	render(){
 		return(
 			<Container className={styles.PicaPost}>
+				<Link to='/blog'><h4 style={{color: 'black', textAlign: 'left', textTransform: 'uppercase'}}>&larr; Back to Latest</h4></Link>
 				<Row>
 					<Col xl='12'>
 						<h4>{this.parseDateString(this.props.date) + this.handleTags(this.props.tags)}</h4>  

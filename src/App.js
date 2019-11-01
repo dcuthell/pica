@@ -38,7 +38,7 @@ function App() {
         <Route exact path='/events' component={Events} />
         <Route exact path='/artistsandarchive' component={ArtistsAndArchive} />
         <Route exact path='/learn' component={Learn} />
-        <Route exact path='/precipicefund' component={PrecipiceFund} />
+        <Route exact path='/precipice-fund' component={PrecipiceFund} />
         <Route exact path='/support' component={Support} />
         <Route exact path='/support/members' component={Members} />
         <Route exact path='/tba' component={TBA} />

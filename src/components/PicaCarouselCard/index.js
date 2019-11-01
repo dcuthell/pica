@@ -59,7 +59,7 @@ class PicaCarouselCard extends Component {
   renderTags(){
     if(this.props.tags.length === 0){
       return(
-        <p>Pica Event</p>
+        <p id={styles.tags}>Pica Event</p>
       )
     } else {
       let tags = []
@@ -79,7 +79,7 @@ class PicaCarouselCard extends Component {
         }
       }
       return(
-        <p>{tags}</p>
+        <p id={styles.tags}>{tags}</p>
       )
     }
   }
@@ -87,18 +87,14 @@ class PicaCarouselCard extends Component {
   render() {
     return (
       <div className={styles.PicaCarouselCard + ' ' + this.propsToStyles()} style={{backgroundColor: this.props.background}}>
-        <div className={styles.cardImage} style={{backgroundImage: 'url(' + this.props.image + ')'}}>
-          <h1>{this.props.index}</h1>
-        </div>
-        <div className={styles.cardInfo}>
-          <h2>{this.props.title}</h2>
-          <h4>{this.props.date}</h4>
+        <div className={styles.cardImage} style={{backgroundImage: 'url(' + this.props.image + ')'}} />
+        <div className={styles.card}>
+          <h2 id={styles.title}>{this.props.title}</h2>
+          <h4 id={styles.date}>{this.props.date}</h4>
           {this.renderTags()}
-        </div>
-        <div className={styles.cardContent}>
-          <p id={styles.description}>{this.props.description}</p>
+          <h4 id={styles.description}>{this.props.description}</h4>
           <div className={styles.buyButton}>
-            <NavLink to={'/' + this.props.buttonLink}><h4>{this.props.buttonText}</h4></NavLink>
+            <NavLink to={'/' + this.props.buttonLink}>{this.props.buttonText}</NavLink>
           </div>
         </div>
       </div>

@@ -1,10 +1,96 @@
-.NavBar {
+.PicaEvent {
+	width: 100%;
+	height: 100vh;
+}
+
+.Details {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 240px;
 	background-color: #FFFFFF;
 }
 
+.Details a {
+	color: black;
+}
+
 .Content {
-	background-color: #F8F8F8;
-	color: blue;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: calc(100% - 240px);
+	height: 100%;
+	overflow: scroll;
+}
+
+.MobileDetailsHeader {
+	height: 28px;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.MobileDetailsOpen {
+	height: 392px;
+	width: 100%;
+	position: absolute;
+	top: 28px;
+	left: 0;
+	-webkit-transform: translateY(0%);
+	-ms-transform: translateY(0%);
+			transform: translateY(0%);
+	transition: transform 500ms linear;
+}
+
+.MobileDetailsClosed {
+	height: 392px;
+	width: 100%;
+	position: absolute;
+	top: 28px;
+	left: 0;
+	-webkit-transform: translateY(-420px);
+	-ms-transform: translateY(-420px);
+			transform: translateY(-420px);
+	transition: transform 500ms linear;
+}
+
+.MobileContentClosed {
+	position: absolute;
+	top: 28px;
+	right: 0;
+	width: 100%;
+	height: calc(100% - 28px);
+	overflow: scroll;
+	-webkit-transform: translateY(0%);
+	-ms-transform: translateY(0%);
+			transform: translateY(0%);
+	transition: transform 500ms linear;
+}
+
+.MobileContentOpen {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 100%;
+	height: calc(100% - 28px);
+	overflow: scroll;
+	-webkit-transform: translateY(420px);
+	-ms-transform: translateY(420px);
+			transform: translateY(420px);
+	transition: transform 500ms linear;
+}
+
+.button {
+	position: absolute;
+	top: 0;
+	right: 32px;
+	line-height: 1;
+	height: 48px;
+	width: 48px;
+	font-size: 48px;
 }
 
 .ticketButton,

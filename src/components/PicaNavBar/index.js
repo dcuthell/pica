@@ -71,14 +71,15 @@ class PicaNavBar extends Component {
             <img src={logo} alt='logo' id={styles.menuLogo} />
           </NavLink>
           <div className={styles.menuOptions}>
-            <NavLink onClick={this.closeNav} to='/basket'><i className='fas fa-shopping-basket' /></NavLink>
-            <NavLink onClick={this.closeNav} to='/account'><i className='fas fa-user' /></NavLink>
+            <NavLink onClick={this.closeNav} to='/basket'><i className='fas fa-shopping-basket' />Cart</NavLink>
+            <br/>
+            <NavLink onClick={this.closeNav} to='/account'><i className='fas fa-user' />My Account</NavLink>
             <NavLink to='/TBA'><p>TBA Festival</p></NavLink>
-            {/*<NavLink to='/events'><p>Events</p></NavLink>*/}
             <NavLink to='/artistsandarchive'><p>Artists & Archive</p></NavLink>
-            {/*<NavLink to='/learn'><p>Learn</p></NavLink>*/}
+            <NavLink to='/blog'><p>Latest</p></NavLink>
             <NavLink to='/events'><p>Events</p></NavLink>
             <NavLink to='/support'><p>Support</p></NavLink>
+            <NavLink to='/precipice-fund'><p>Precipice Fund</p></NavLink>
           </div>
         </div>
         <div className={styles.mobileNav} style={{display: ((window.innerWidth < 767) ? 'block' : 'none')}}>
@@ -90,14 +91,15 @@ class PicaNavBar extends Component {
           </div>
           <div className={this.state.isOpen ? styles.mobileMenuOpen : styles.mobileMenu} style={{zIndex: '1'}}>
             <div className={styles.mobileMenuOptions}>
-              <NavLink onClick={this.closeNav} to='/basket'><i className='fas fa-shopping-basket' /></NavLink>
-              <NavLink onClick={this.closeNav} to='/account'><i className='fas fa-user' /></NavLink>
+              <NavLink onClick={this.closeNav} to='/basket'><i className='fas fa-shopping-basket' />Cart</NavLink>
+              <br/>
+              <NavLink onClick={this.closeNav} to='/account'><i className='fas fa-user' />My Account</NavLink>
               <NavLink to='/TBA'><p>TBA Festival</p></NavLink>
-              {/*<NavLink onClick={this.closeNav} to='/events'><p>Events</p></NavLink>*/}
               <NavLink onClick={this.closeNav} to='/artistsandarchive'><p>Artists & Archive</p></NavLink>
-              {/*<NavLink onClick={this.closeNav} to='/learn'><p>Learn</p></NavLink>*/}
+              <NavLink onClick={this.closeNav} to='/blog'><p>Latest</p></NavLink>
               <NavLink onClick={this.closeNav} to='/events'><p>Events</p></NavLink>
               <NavLink onClick={this.closeNav} to='/support'><p>Support</p></NavLink>
+              <NavLink onClick={this.closeNav} to='/precipice-fund'><p>Precipice Fund</p></NavLink>
             </div>
           </div>
         </div>

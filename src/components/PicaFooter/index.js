@@ -81,9 +81,7 @@ class PicaFooter extends Component {
                 <p>
                   <a href='https://www.pica.org/press'>Press</a>
                 </p>
-                <p>
-                  <a href='https://www.pica.org/latest'>Latest</a>
-                </p>
+                <NavLink to='/blog'><p>Latest</p></NavLink>
                 <div className={styles.socialIcons}>
                   <a href='https://twitter.com/P_I_C_A' target='_blank' rel='noreferrer noopener'><i className='fab fa-twitter' /></a>
                   <a href='https://www.facebook.com/PICAPDX/' target='_blank' rel='noreferrer noopener'><i className='fab fa-facebook' /></a>
@@ -91,9 +89,7 @@ class PicaFooter extends Component {
                 </div>
               </div>
               <div className={styles.FooterColumn}>
-                <p>
-                  <a href='https://www.pica.org/resource-room'>Resource Room</a>
-                </p>
+                <NavLink to='/resource-room'><p>Resource Room</p></NavLink>
                 <NavLink to='/merchandise'><p>Merchandise</p></NavLink>
               </div>
             </div>
@@ -117,12 +113,8 @@ class PicaFooter extends Component {
                 </p>
               </div>
               <div style={{width: '50%'}}>
-                <p>
-                  <a href='https://www.pica.org/latest'>Latest</a>
-                </p>
-                <p>
-                  <a href='https://www.pica.org/resource-room'>Resource Room</a>
-                </p>
+                <NavLink onClick={this.closeNav} to='/blog'><p>Latest</p></NavLink>
+                <NavLink onClick={this.closeNav} to='/resource-room'><p>Resource Room</p></NavLink>
                 <NavLink onClick={this.closeNav} to='/merchandise'><p>Merchandise</p></NavLink>
                 <NavLink onClick={this.closeNav} to='/'><p>Home</p></NavLink>
               </div>

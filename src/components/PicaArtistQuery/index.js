@@ -125,22 +125,30 @@ class PicaArtistQuery extends React.Component {
               </div>
             )
             if (error) return `Error! ${error.message}`
-            let artists = data.artists
-            let list = artists.map((artist, index) =>
-              <PicaArtistBlock
+            let list = []
+            if(this.props.searchType === 'letter'){
+              list.push(
+                <PicaArtistBlock section key={0}>
+                <h3>{this.props.searchTerm.toUpperCase()}</h3></PicaArtistBlock>
+              )
+            }
+            data.artists.forEach((artist, index) => {
+              list.push(
+                <PicaArtistBlock
                 name={artist.name}
                 events={artist.programs}
                 description={artist.body.html}
                 route={artist.route}
                 image={artist.media[0] ? 'https://media.graphcms.com/' + this.resizeMedia(artist.media[0]) : ''}
-                key={index}
+                key={index + list.length}
                 index={index}
                 activeIndex={this.state.activeIndex}
                 setOpen={this.setOpen}
                 setClose={this.setClose}
                 cardOpen={this.state.cardOpen} />
-            )
-            if (list.length === 0){
+              )
+            })
+            if ((this.props.searchType === 'letter' &&list.length === 1) || (this.props.searchType !== 'letter' && list.length === 0)){
               list = (
                 <div xs='6' xl='4'>
                   <h1>Sorry, we couldn't find any results</h1>

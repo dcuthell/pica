@@ -1,5 +1,8 @@
 import React from 'react'
 import { Container, Col, Row } from 'reactstrap'
+import PicaButton from '../../components/PicaButton'
+
+import resourceroompic from '../../img/programs_resourceroom_700.jpg'
 
 export default function ResourceRoom (props) {
   return (
@@ -9,7 +12,7 @@ export default function ResourceRoom (props) {
           <h1 style={{fontSize: '6rem', textAlign: 'left'}}>RESOURCE ROOM</h1>
         </Col>
         <Col xl='12'>
-          <img src='http://pica.org/wp-content/uploads/2013/02/programs_resourceroom_700.jpg' alt='resourceroom' style={{maxWidth: '90%', maxHeight: '100%'}} />
+          <img src={resourceroompic} alt='resourceroom' style={{maxWidth: '90%', maxHeight: '100%'}} />
         </Col>
         <Col xl='12' style={{backgroundColor: '#F8F8F8'}}>
           <h3>
@@ -24,7 +27,9 @@ export default function ResourceRoom (props) {
           <p>
             The Resource Room is open to the public during public hours at PICA's West End offices.
           </p>
-          <p><a href='https://picarr.libib.com/'>Search the Resource Room catalog</a></p>
+          <PicaButton>
+            <p><a href='https://picarr.libib.com/'>Search the Resource Room catalog</a></p>
+          </PicaButton>
         </Col>
         <Col xl='12' style={{backgroundColor: '#ECDDBB'}}>
           <h2>RESOURCE ROOM RESIDENCIES</h2>
