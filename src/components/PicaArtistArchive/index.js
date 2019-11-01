@@ -10,7 +10,8 @@ class PicaArtistArchive extends Component {
       searchInput: '',
       searchTerm: 'a',
       searchType: 'letter',
-      isOpen: false
+      isOpen: false,
+      mobile: false
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleInput = this.handleInput.bind(this)
@@ -65,6 +66,9 @@ class PicaArtistArchive extends Component {
       searchType: ''
     })
     event.preventDefault()
+    if(this.state.mobile){
+      this.closeNav()
+    }
   }
 
   handleLetterClick(event){
@@ -72,6 +76,9 @@ class PicaArtistArchive extends Component {
       searchTerm: event.target.textContent,
       searchType: 'letter'
     })
+    if(this.state.mobile){
+      this.closeNav()
+    }
   }
 
   handleTagClick(event){
@@ -79,6 +86,9 @@ class PicaArtistArchive extends Component {
       searchTerm: event.target.textContent,
       searchType: 'tag'
     })
+    if(this.state.mobile){
+      this.closeNav()
+    }
   }
 
   componentDidMount() {

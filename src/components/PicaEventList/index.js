@@ -67,6 +67,9 @@ class PicaEventList extends Component {
       searchType: ''
     })
     event.preventDefault()
+    if(this.state.mobile){
+      this.closeNav()
+    }
   }
 
   resetSearch(){
@@ -81,6 +84,9 @@ class PicaEventList extends Component {
       searchTerm: event.target.textContent,
       searchType: 'tag'
     })
+    if(this.state.mobile){
+      this.closeNav()
+    }
   }
 
   static getDerivedStateFromProps(props, state) {
