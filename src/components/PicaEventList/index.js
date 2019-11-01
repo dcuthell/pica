@@ -111,6 +111,9 @@ class PicaEventList extends Component {
         </div>
         <div className={styles.MobileNavigationHeader} onClick={this.toggleNav}>
           <p>BROWSE BY CATEGORY</p>
+          <div className={styles.button} onClick={this.handleClick}>
+            {this.state.isOpen ? <p>&circ;</p> : <p>&#711;</p>}
+          </div>
         </div>
         <div className={this.state.isOpen ? styles.MobileNavigationContentOpen : styles.MobileNavigationContentClosed}>
           <Link to='/events'>

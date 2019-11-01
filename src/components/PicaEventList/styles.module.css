@@ -108,7 +108,15 @@
 	transition: transform 500ms linear;
 }
 
-
+.button {
+	position: absolute;
+	top: 0;
+	right: 32px;
+	line-height: 1;
+	height: 48px;
+	width: 48px;
+	font-size: 48px;
+}
 
 .SearchButton {
 	margin: .75rem;
