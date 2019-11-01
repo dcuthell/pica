@@ -1,10 +1,10 @@
 .PicaEventList{
-	height: 100vh;
+	height: 100%;
 	width: 100%;
 }
 
 .Navigation{
-	background-color: #d3d3d3;
+	background-color: #e4e4e4;
 	height: 100%;
 	width: 240px;
 	align-content: left;
@@ -15,7 +15,7 @@
 }
 
 .Results {
-	background-color: darkgray;
+	background-color: white;
 	height: 100%;
 	width: calc(100% - 240px);
 	align-content: left;
@@ -23,6 +23,74 @@
 	top: 0;
 	right: 0;
 }
+
+.PicaMobileEventList{
+	height: 100%;
+	width: 100%;
+}
+
+.MobileNavigationHeader{
+	background-color: #e4e4e4;
+	height: 28px;
+	width: 100%;
+	align-content: left;
+	position: absolute;
+	top: 15%;
+	left: 0;
+	z-index: 2;
+}
+
+.MobileNavigationContentClosed{
+	background-color: #e4e4e4;
+	height: 280px;
+	width: 100%;
+	align-content: left;
+	position: absolute;
+	top: calc(15% + 28px);
+	left: 0;
+	z-index: 3;
+	-webkit-transform: translateY(-308px);
+	-ms-transform: translateY(-308px);
+			transform: translateY(-308px);
+	transition: transform 500ms linear;
+}
+
+.MobileNavigationContentOpen{
+	background-color: #e4e4e4;
+	height: 280px;
+	width: 100%;
+	align-content: left;
+	position: absolute;
+	top: calc(15% + 28px);
+	left: 0;
+	z-index: 3;
+	-webkit-transform: translateY(0%);
+	-ms-transform: translateY(0%);
+			transform: translateY(0%);
+	transition: transform 500ms linear;
+}
+
+.MobileResultsClosed {
+	background-color: white;
+	height: 100%;
+	width: calc(100% - 240px);
+	align-content: left;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.MobileResultsOpen {
+	background-color: white;
+	height: 100%;
+	width: calc(100% - 240px);
+	align-content: left;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+
 
 .SearchButton {
 	margin: .75rem;
