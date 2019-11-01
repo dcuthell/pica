@@ -1,5 +1,6 @@
 import React from 'react'
 import { Container, Col, Row } from 'reactstrap'
+import PicaButton from '../../components/PicaButton'
 
 import resourceroompic from '../../img/programs_resourceroom_700.jpg'
 
@@ -26,7 +27,9 @@ export default function ResourceRoom (props) {
           <p>
             The Resource Room is open to the public during public hours at PICA's West End offices.
           </p>
-          <p><a href='https://picarr.libib.com/'>Search the Resource Room catalog</a></p>
+          <PicaButton>
+            <p><a href='https://picarr.libib.com/'>Search the Resource Room catalog</a></p>
+          </PicaButton>
         </Col>
         <Col xl='12' style={{backgroundColor: '#ECDDBB'}}>
           <h2>RESOURCE ROOM RESIDENCIES</h2>
