@@ -181,10 +181,10 @@ class PicaEventList extends Component {
             </div>
         </div>
         <div className={styles.Results}>
-          <div style={{width: '100%', height: '15%'}}>
-            <h1 style={{fontSize: '6rem'}}>EVENTS</h1>
+          <div style={{width: '100%', height: '25%'}}>
+            <h1 style={{fontSize: '160px'}}>EVENTS</h1>
           </div>
-          <div style={{width: '100%', height: '85%', overflow: 'scroll'}}>
+          <div style={{width: '100%', height: '75%', overflow: 'scroll'}}>
             <PicaEventQuery searchType={this.state.searchType} searchTerm={this.state.searchTerm} />
           </div>
         </div>

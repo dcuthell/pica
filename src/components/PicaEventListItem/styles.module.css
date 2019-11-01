@@ -42,6 +42,8 @@
 	position: relative;
 	background-color: #F8F8F8;
 	z-index: 3;
+	padding: 5px 32px 5px 32px;
+	text-align: left;
 }
 
 .cardImage {

@@ -1,8 +1,45 @@
 .PicaArtistArchive{
-	position: relative;
+	height: 100%;
+	width: 100%;
+	text-align: left;
 }
+
+.Navigation{
+	background-color: #e4e4e4;
+	height: 100%;
+	width: 240px;
+	align-content: left;
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 32px;
+}
+
+.Results {
+	background-color: white;
+	height: 100%;
+	width: calc(100% - 240px);
+	align-content: left;
+	position: absolute;
+	top: 0;
+	right: 0;
+	overflow: scroll;
+}
+
+.button {
+	position: absolute;
+	top: 0;
+	right: 32px;
+	line-height: 1;
+	height: 48px;
+	width: 48px;
+	font-size: 48px;
+}
+
 .SearchButton {
-	margin: .5rem;
+	margin: .25rem;
+	text-align: left;
+	color: black;
 }
 
 .SearchButton:hover{
@@ -11,7 +48,7 @@
 
 .search {
 	position: absolute;
-	left: 10%;
+	left: 32px;
 	bottom: 10%;
 }
 
