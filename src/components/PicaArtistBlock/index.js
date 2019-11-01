@@ -90,8 +90,8 @@ class PicaArtistBlock extends Component {
         <div className={styles.content + ' ' + this.handleStyle()}>
           <div className={styles.cardImage} style={{backgroundImage: 'url(' + this.props.image + ')'}} />
           <div className={styles.cardContent} >
-            <div style={{height: '90%', overflow: 'hidden'}} className={styles.details} dangerouslySetInnerHTML={{ __html: this.props.description }} />
-            <PicaButton styles={{height: '10%'}}>
+            <div style={{height: '85%', overflow: 'hidden'}} className={styles.details} dangerouslySetInnerHTML={{ __html: this.props.description }} />
+            <PicaButton styles={{height: '15%', textAlign: 'center', paddingTop: '8px'}}>
               <Link to={'/artists/' + this.props.route}>Learn More</Link>
             </PicaButton>
           </div>

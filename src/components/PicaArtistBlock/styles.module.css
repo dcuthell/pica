@@ -21,7 +21,7 @@
 	background-color: #ECDDBB;
 	top: 0;
 	left: 0;
-	height: 400%;
+	height: 500%;
 	width: 100%;
 	z-index: 1;
 }
@@ -47,7 +47,6 @@
 .cardImage {
 	width: 50%;
 	height: 80%;
-	background-color: red;
 	position: absolute;
 	left: 5%;
 	top: 5%;
@@ -57,7 +56,6 @@
 .cardContent {
 	width: 38%;
 	height: 80%;
-	background-color: lightgray;
 	position: absolute;
 	right: 5%;
 	top: 5%;
@@ -82,60 +80,46 @@
 }
 
 .headerDown {
-	-webkit-transform: translateY(400%);
-	-ms-transform: translateY(400%);
-			transform: translateY(400%);
-	transition: transform 500ms linear;
-}
-
-.sectionUp {
-	-webkit-transform: translateY(0%);
-	-ms-transform: translateY(0%);
-			transform: translateY(0%);
-	transition: transform 500ms linear;
-}
-
-.sectionDown {
-	-webkit-transform: translateY(800%);
-	-ms-transform: translateY(800%);
-			transform: translateY(800%);
+	-webkit-transform: translateY(500%);
+	-ms-transform: translateY(500%);
+			transform: translateY(500%);
 	transition: transform 500ms linear;
 }
 
 .contentClosedUp {
-	-webkit-transform: translateY(-75%);
-	-ms-transform: translateY(-75%);
-			transform: translateY(-75%);
+	-webkit-transform: translateY(-80%);
+	-ms-transform: translateY(-80%);
+			transform: translateY(-80%);
 	transition: transform 500ms linear 250ms;
 	visibility: hidden;
 }
 
 .contentClosedDown {
-	-webkit-transform: translateY(125%);
-	-ms-transform: translateY(125%);
-			transform: translateY(125%);
+	-webkit-transform: translateY(120%);
+	-ms-transform: translateY(120%);
+			transform: translateY(120%);
 	transition: transform 500ms linear 250ms;
 	visibility: hidden;
 }
 
 .contentClosingUp {
-	-webkit-transform: translateY(-75%);
-	-ms-transform: translateY(-75%);
-			transform: translateY(-75%);
+	-webkit-transform: translateY(-80%);
+	-ms-transform: translateY(-80%);
+			transform: translateY(-80%);
 	transition: transform 500ms linear 250ms;
 }
 
 .contentClosingDown {
-	-webkit-transform: translateY(125%);
-	-ms-transform: translateY(125%);
-			transform: translateY(125%);
+	-webkit-transform: translateY(120%);
+	-ms-transform: translateY(120%);
+			transform: translateY(120%);
 	transition: transform 500ms linear 250ms;
 }
 
 .contentOpen {
-	-webkit-transform: translateY(24.95%);
-	-ms-transform: translateY(25%);
-			transform: translateY(24.95%);
+	-webkit-transform: translateY(20%);
+	-ms-transform: translateY(20%);
+			transform: translateY(20%);
 	transition: transform 500ms linear;
 	z-index: 2;
 }

@@ -38,11 +38,12 @@
 	background-color: #e4e4e4;
 	height: 28px;
 	width: 100%;
-	align-content: left;
+	text-align: left;
 	position: absolute;
 	top: 15%;
 	left: 0;
 	z-index: 3;
+	padding-left: 32px;
 }
 
 .MobileNavigationContentClosed{

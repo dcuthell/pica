@@ -128,7 +128,7 @@ class PicaArtistQuery extends React.Component {
             let list = []
             if(this.props.searchType === 'letter'){
               list.push(
-                <PicaArtistBlock section>
+                <PicaArtistBlock section key={0}>
                 <h3>{this.props.searchTerm.toUpperCase()}</h3></PicaArtistBlock>
               )
             }
