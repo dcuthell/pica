@@ -29,6 +29,14 @@
 	width: 100%;
 }
 
+.MobileTitle {
+	width: 100%;
+	height: 15%;
+	z-index: 3;
+	position: relative;
+	background: white;
+}
+
 .MobileNavigationHeader{
 	background-color: #e4e4e4;
 	height: 28px;
@@ -37,7 +45,7 @@
 	position: absolute;
 	top: 15%;
 	left: 0;
-	z-index: 2;
+	z-index: 3;
 }
 
 .MobileNavigationContentClosed{
@@ -48,10 +56,11 @@
 	position: absolute;
 	top: calc(15% + 28px);
 	left: 0;
-	z-index: 3;
-	-webkit-transform: translateY(-308px);
-	-ms-transform: translateY(-308px);
-			transform: translateY(-308px);
+	z-index: 2;
+	padding: 32px;
+	-webkit-transform: translateY(-280px);
+	-ms-transform: translateY(-280px);
+			transform: translateY(-280px);
 	transition: transform 500ms linear;
 }
 
@@ -63,7 +72,8 @@
 	position: absolute;
 	top: calc(15% + 28px);
 	left: 0;
-	z-index: 3;
+	z-index: 2;
+	padding: 32px;
 	-webkit-transform: translateY(0%);
 	-ms-transform: translateY(0%);
 			transform: translateY(0%);
@@ -73,21 +83,29 @@
 .MobileResultsClosed {
 	background-color: white;
 	height: 100%;
-	width: calc(100% - 240px);
+	width: 100%;
 	align-content: left;
 	position: absolute;
-	top: 0;
-	right: 0;
+	top: calc(15% + 28px);
+	left: 0;
+	-webkit-transform: translateY(0%);
+	-ms-transform: translateY(0%);
+			transform: translateY(0%);
+	transition: transform 500ms linear;
 }
 
 .MobileResultsOpen {
 	background-color: white;
 	height: 100%;
-	width: calc(100% - 240px);
+	width: 100%;
 	align-content: left;
 	position: absolute;
-	top: 0;
-	right: 0;
+	top: calc(15% + 28px);
+	left: 0;
+	-webkit-transform: translateY(280px);
+	-ms-transform: translateY(280px);
+			transform: translateY(280px);
+	transition: transform 500ms linear;
 }
 
 
