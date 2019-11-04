@@ -145,9 +145,9 @@ class PicaArtistArchive extends Component {
           <hr/>
           <br/>
           <div className={styles.search}>
-            <p>SEARCH</p>
             <form onSubmit={this.handleSubmit}>
-              <input id={styles.search} type='text' onChange={this.handleInput}></input>
+              <input id={styles.search} type='text' placeholder='Search' onChange={this.handleInput}></input>
+              <i className='fas fa-search' />
             </form>
           </div>
         </div>
@@ -217,10 +217,8 @@ class PicaArtistArchive extends Component {
           <hr/>
           <br/>
           <div className={styles.search}>
-            <p>SEARCH</p>
-            <form onSubmit={this.handleSubmit}>
-              <input id={styles.search} type='text' onChange={this.handleInput}></input>
-            </form>
+            <input id={styles.search} type='text' placeholder='Search' onChange={this.handleInput}></input>
+            <i className='fas fa-search' />
           </div>
         </div>
         <div className={this.state.isOpen ? styles.MobileResultsOpen : styles.MobileResultsClosed}>

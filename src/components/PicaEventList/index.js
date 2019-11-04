@@ -142,8 +142,8 @@ class PicaEventList extends Component {
           <div className={styles.search}>
             <p>Search by Event or Artist Name</p>
             <form onSubmit={this.handleSubmit}>
-              <input id={styles.search} type='text' placeholder='Search' onChange={this.handleInput}></input>
-            </form>
+              <input id={styles.searchInput} type='text' placeholder='Search' onChange={this.handleInput}></input>
+              <i className='fas fa-search' />
           </div>
         </div>
         <div className={this.state.isOpen ? styles.MobileResultsOpen : styles.MobileResultsClosed}>
