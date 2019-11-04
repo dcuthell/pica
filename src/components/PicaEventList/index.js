@@ -112,7 +112,7 @@ class PicaEventList extends Component {
     return(
       <div className={styles.PicaMobileEventList}>
         <div className={styles.MobileTitle}>
-          <h1 style={{fontSize: '60px'}}>EVENTS</h1>
+          <h1 style={{fontSize: '4rem'}}>EVENTS</h1>
         </div>
         <div className={styles.MobileNavigationHeader} onClick={this.toggleNav}>
           <p>BROWSE BY CATEGORY</p>

@@ -22,7 +22,7 @@ export default function Home (props) {
           </div>
         </Col>
         <Col xl='12' style={{padding: '12px 10vw 12px 10vw', backgroundColor: 'white'}}>
-          <h1 style={{fontSize: '4rem', fontFamily: 'BiancoSerif'}}>Visit</h1>
+          <h1 style={{fontSize: '4rem', fontFamily: 'BiancoSerif'}}>Visit Us</h1>
           <h4>We're open to the public Tuesday through Friday, 11am-6pm</h4>
           <img src={collage} style={{width: '80%'}} alt='collage' />
           <h4>We've moved! Stop by and check</h4>

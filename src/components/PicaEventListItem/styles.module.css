@@ -19,6 +19,7 @@
 	background-color: inherit;
 	z-index: 3;
 	padding: 5px 32px 5px 32px;
+	overflow: hidden;
 }
 
 .content {
@@ -65,6 +66,21 @@
 	position: absolute;
 	right: 5%;
 	top: 5%;
+}
+
+#title {
+	max-height: 40%;
+	overflow: hidden;
+}
+
+#date {
+	max-height: 20%;
+	overflow: hidden;
+}
+
+#artist {
+	max-height: 30%;
+	overflow: hidden;
 }
 
 .headerUp {

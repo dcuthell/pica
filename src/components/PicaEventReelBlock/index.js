@@ -27,17 +27,17 @@ class PicaEventReelBlock extends Component {
   
   propsToStyles() {
     if(window.innerWidth > 767){
-      if((this.props.index - this.props.activeIndex) === -2){
+      if((this.props.index - this.props.activeIndex) === -1){
         return styles.inactiveLeft
-      } else if((this.props.index - this.props.activeIndex) === -1){
-        return styles.activeLeft
       } else if((this.props.index - this.props.activeIndex) === 0){
-        return styles.activeMiddle
+        return styles.activeLeft
       } else if((this.props.index - this.props.activeIndex) === 1){
-        return styles.activeRight
+        return styles.activeMiddle
       } else if((this.props.index - this.props.activeIndex) === 2){
+        return styles.activeRight
+      } else if((this.props.index - this.props.activeIndex) === 3){
         return styles.inactiveRight
-      } else if(((this.props.index - this.props.activeIndex) < -2) || ((this.props.index - this.props.activeIndex) > 2)){
+      } else if(((this.props.index - this.props.activeIndex) < -1) || ((this.props.index - this.props.activeIndex) > 3)){
         return styles.unmounted
       } else {
         console.log('error')
