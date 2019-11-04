@@ -12,6 +12,7 @@
 	top: 0;
 	left: 0;
 	padding: 32px;
+	text-align: left;
 }
 
 .Results {
@@ -136,12 +137,14 @@
 	position: absolute;
 	left: 32px;
 	bottom: 10%;
+	border: solid black;
+	border-width: 0px 0px 1px 0px;
 }
 
-#search {
+#searchInput {
 	background-color: inherit;
 	border: solid black;
-	border-width: 0px 0px 1px 0px;	
+	border-width: 0px 0px 0px 0px;	
 }
 
 #search:focus {
