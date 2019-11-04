@@ -1,4 +1,4 @@
-.PicaEventListItem {
+.PicaListItem {
 	height: 20%;
 	width: 100%;
 	position: relative;
@@ -6,7 +6,7 @@
 	text-align: left;
 }
 
-.PicaEventListItem a {
+.PicaListItem a {
 	color: black;
 }
 

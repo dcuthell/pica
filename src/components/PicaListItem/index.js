@@ -12,7 +12,6 @@ class PicaListItem extends Component {
       isClosed: true
     }
     this.handleClick = this.handleClick.bind(this)
-    this.handleStyle = this.handleStyle.bind(this)
   }
 
   handleClick(e) {
@@ -42,58 +41,12 @@ class PicaListItem extends Component {
       })
     }
   }
-  
-  handleStyle(){
-    if(this.state.isOpen){
-      return styles.contentOpen
-    } else if (this.state.isClosed) {
-      if(this.props.activeIndex >= this.props.index || !this.props.cardOpen){
-        return styles.contentClosedUp
-      } else {
-        return styles.contentClosedDown
-      }
-    } else {
-      if(this.props.activeIndex >= this.props.index){
-        return styles.contentClosingUp
-      } else {
-        return styles.contentClosingDown
-      }
-    }
-  }
 
   static getDerivedStateFromProps(props, state) {
     if((props.cardOpen && state.isOpen) && (props.activeIndex !== props.index)){
       return {isOpen: false}
     } else {
       return null
-    }
-  }
-
-  renderTags(){
-    if(this.props.tags.length === 0){
-      return(
-        <p>Pica Event</p>
-      )
-    } else {
-      let tags = []
-      for(let i=0; i < this.props.tags.length; i++){
-        if(i + 1 === this.props.tags.length){
-          tags.push(
-            <Link key={i} to={{
-              pathname: '/events',
-              search: '?tag=' + this.props.tags[i].name
-            }}>{this.props.tags[i].name}</Link>
-          )
-        } else {
-          tags.push(
-            <Link key={i} to={'events?tag=' + this.props.tags[i].name}>{this.props.tags[i].name}</Link>
-          )
-          tags.push(', ')
-        }
-      }
-      return(
-        <p>Tags: {tags}</p>
-      )
     }
   }
 
@@ -105,12 +58,25 @@ class PicaListItem extends Component {
           {this.props.children}
         </div>
       )
+    } else {
+      return (
+        <div className={styles.PicaEventListItem} style={{backgroundColor: this.props.background}}>
+          <div className={styles.header + ' ' + (((this.props.activeIndex >= this.props.index || !this.props.cardOpen)) ? styles.headerUp : styles.headerDown)}>
+            <div className={styles.headerText}>
+              {this.props.header}
+            </div>
+            {this.props.header}
+            <div className={styles.button} onClick={this.handleClick}>
+              {this.state.isOpen ? <p>&circ;</p> : <p>&#711;</p>}
+            </div>
+          </div>
+          <div className={styles.content + ' ' + this.handleStyle()}>
+            {this.props.content}
+          </div>
+        </div>
+      )
     }
-    return (
-      <div className={styles.PicaListItem} style={{backgroundColor: this.props.background}}>
-        {this.props.children}
-      </div>
-    )
+    
   }
 }
 
@@ -121,7 +87,9 @@ PicaListItem.propTypes = {
   setClose: PropTypes.func,
   cardOpen: PropTypes.bool,
   section: PropTypes.bool,
-  background: PropTypes.string
+  background: PropTypes.string,
+  header: PropTypes.node,
+  content: PropTypes.node
 }
 
 PicaListItem.defaultProps = {
