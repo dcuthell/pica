@@ -142,7 +142,7 @@ class PicaEventList extends Component {
           <div className={styles.search}>
             <p>Search by Event or Artist Name</p>
             <form onSubmit={this.handleSubmit}>
-              <input id={styles.search} type='text' onChange={this.handleInput}></input>
+              <input id={styles.search} type='text' placeholder='Search' onChange={this.handleInput}></input>
             </form>
           </div>
         </div>
@@ -179,9 +179,9 @@ class PicaEventList extends Component {
               <p className={styles.SearchButton} onClick={this.handleTagClick}>PARTNER PROJECTS</p>
             </Link>
             <div className={styles.search}>
-              <p>Search by Event or Artist Name</p>
               <form onSubmit={this.handleSubmit}>
-                <input id={styles.search} type='text' onChange={this.handleInput}></input>
+                <input id={styles.searchInput} type='text' placeholder='Search' onChange={this.handleInput}></input>
+                <i className='fas fa-search' />
               </form>
             </div>
         </div>
