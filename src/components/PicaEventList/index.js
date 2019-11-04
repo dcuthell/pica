@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Container, Col, Row } from 'reactstrap'
 import styles from './styles.module.css'
 import { Link } from 'react-router-dom'
 

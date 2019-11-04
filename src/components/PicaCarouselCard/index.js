@@ -94,7 +94,7 @@ class PicaCarouselCard extends Component {
           {this.renderTags()}
           <h4 id={styles.description}>{this.props.description}</h4>
           <div className={styles.buyButton}>
-            <NavLink to={'/' + this.props.buttonLink}>{this.props.buttonText}</NavLink>
+            <NavLink to={this.props.buttonLink}>{this.props.buttonText}</NavLink>
           </div>
         </div>
       </div>
