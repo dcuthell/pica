@@ -16,3 +16,8 @@ code {
   font-family: 'MabryPro';
   src: url('fonts/MabryPro-Medium.ttf') format('truetype');
 }
+
+@font-face {
+  font-family: 'BiancoSerif';
+  src: url('fonts/Bianco_Serif_New.otf') format('opentype');
+}
