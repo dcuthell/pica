@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styles from './styles.module.css'
 import { Link } from 'react-router-dom'
-import PicaButton from '../PicaButton'
 
 class PicaPostBlock extends Component {
   constructor(props) {
