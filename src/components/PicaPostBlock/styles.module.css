@@ -25,16 +25,19 @@
 
 .dateAndTags {
 	height: 10%;
-	font-size: .75rem;
+	font-size: 14px;
+	overflow: hidden;
 }
 
 .titleAndAuthor {
 	height: 30%;
+	overflow: hidden;
 }
 
 .content {
 	height: 50%;
 	overflow: hidden;
+	font-size: 24px;
 }
 
 .button {
@@ -73,4 +76,45 @@
 	left: 5%;
 	top: 10%;
 	overflow: hidden;
+}
+
+#title {
+	font-size: 44px;
+	height: 60%;
+	overflow: hidden;
+	line-height: 1.1;
+	margin: 0;
+}
+
+#author {
+	font-size: 24px;
+	overflow: hidden;
+	height: 40%;
+}
+
+#link {
+	font-size: 20px;
+	color: black;
+	text-decoration: underline solid black;
+}
+
+@media (max-width: 767px){
+	#title {
+		font-size: 24px;
+		line-height: 1;
+		height: 70%;
+	}
+	
+	#author {
+		font-size: 14px;
+		height: 30%;
+	}
+	
+	#link {
+		font-size: 10px;
+	}
+
+	.content{
+		font-size: 14px;
+	}
 }

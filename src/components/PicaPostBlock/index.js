@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styles from './styles.module.css'
 import { Link } from 'react-router-dom'
-import PicaButton from '../PicaButton'
 
 class PicaPostBlock extends Component {
   constructor(props) {
@@ -34,22 +33,18 @@ class PicaPostBlock extends Component {
   render() {
     return (
       <div className={styles.PicaPostBlock}>
-        <div className={styles.content}>
-          <div className={styles.info}>
-            <div className={styles.dateAndTags}>
-             <p>{this.renderDate() + ' ' + this.renderTags()}</p>
-            </div>
-            <div className={styles.titleAndAuthor}>
-              <h4>{this.props.title}</h4>
-              <p>{'by ' + this.props.author}</p>
-            </div>
-            <div className={styles.content} dangerouslySetInnerHTML={{ __html: this.props.content }} />
-            <PicaButton styles={{height: '10%'}}>
-              <Link to={'/blog/' + this.props.route}>Read More</Link>
-            </PicaButton>
+        <div className={styles.info}>
+          <div className={styles.dateAndTags}>
+            <p>{this.renderDate() + ' ' + this.renderTags()}</p>
           </div>
-          <div className={styles.image} style={{backgroundImage: 'url(' + this.props.image + ')'}} />
+          <div className={styles.titleAndAuthor}>
+            <h4 id={styles.title}>{this.props.title}</h4>
+            <p id={styles.author}>{'by ' + this.props.author}</p>
+          </div>
+          <div className={styles.content} dangerouslySetInnerHTML={{ __html: this.props.content }} />
+          <Link id={styles.link} to={'/blog/' + this.props.route}>Read More &rarr;</Link>
         </div>
+        <div className={styles.image} style={{backgroundImage: 'url(' + this.props.image + ')'}} />
       </div>
     )
   }

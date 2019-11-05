@@ -130,12 +130,15 @@
 	position: absolute;
 	left: 32px;
 	bottom: 10%;
+	background-color: inherit;
+	border: solid black;
+	border-width: 0px 0px 1px 0px;
 }
 
 #search {
 	background-color: inherit;
 	border: solid black;
-	border-width: 0px 0px 1px 0px;	
+	border-width: 0px 0px 0px 0px;	
 }
 
 #search:focus {

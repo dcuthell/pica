@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Container, Col, Row } from 'reactstrap'
 import styles from './styles.module.css'
 
 import PicaBlogQuery from '../PicaBlogQuery'
@@ -85,17 +84,18 @@ class PicaBlogList extends Component {
     return(
       <div className={styles.PicaBlogList}>
         <div className={styles.Navigation}>
-          <p>Search by Post Title</p>
-          <form onSubmit={this.handleSubmit}>
-            <input type='text' onChange={this.handleInput}></input>
-          </form>
+          <p>BROWSE EVENTS BY CATEGORY</p>
           <br/>
-          <hr/>
-          <br/>
-          <span className={styles.SearchButton} onClick={this.handleTagClick}>Performance</span>
-          <span className={styles.SearchButton} onClick={this.handleTagClick}>Late Night</span>
-          <span className={styles.SearchButton} onClick={this.handleTagClick}>Institute</span>
-          <span className={styles.SearchButton} onClick={this.handleTagClick}>TBA</span>
+          <p className={styles.SearchButton} onClick={this.handleTagClick}>Performance</p>
+          <p className={styles.SearchButton} onClick={this.handleTagClick}>Late Night</p>
+          <p className={styles.SearchButton} onClick={this.handleTagClick}>Institute</p>
+          <p className={styles.SearchButton} onClick={this.handleTagClick}>TBA</p>
+          <div className={styles.search}>
+            <form onSubmit={this.handleSubmit}>
+              <input id={styles.searchInput} type='text' placeholder='Search' onChange={this.handleInput}></input>
+              <i className='fas fa-search' />
+            </form>
+          </div>
         </div>
         <div className={styles.Results}>
          <div style={{width: '100%', height: '20%', backgroundColor: 'white', zIndex: '3', position: 'relative'}}>

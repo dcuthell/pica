@@ -37,7 +37,7 @@
 }
 
 #rightArrow {
-	right: 0;
+	right: 0%;
 }
 
 .arrows:hover {
@@ -50,4 +50,46 @@
 	top: 15%;
 	left: 1.25%;
 	height: 85%;
+}
+
+@media (max-width: 767px){
+	.title {
+		height: 50%;
+		width: 60%;
+		position: absolute;
+		left: 1.25%;
+		top: 25%;
+		text-align: left;
+	}
+	
+	.arrows {
+		height: 50%;
+		width: 20%;
+		position: absolute;
+		top: 25%;
+		background-size: 50%;
+		background-position: center;
+		background-repeat: no-repeat;
+		cursor: pointer;
+	}
+	
+	#leftArrow {
+		right: 20%;
+	}
+	
+	#rightArrow {
+		right: 0;
+	}
+	
+	.arrows:hover {
+		background-color: inherit;
+	}
+	
+	.reel {
+		width: 97.5%;
+		position: absolute;
+		top: 15%;
+		left: 1.25%;
+		height: 85%;
+	}
 }

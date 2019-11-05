@@ -24,7 +24,7 @@
 
 .title {
 	height: 100%;
-	width: 100%;
+	width: 86%;
 	position: absolute;
 	left: 15px;
 	top: 15px;
@@ -33,7 +33,7 @@
 
 .arrows {
 	height: 100%;
-	width: 10%;
+	width: 7%;
 	position: absolute;
 	background-size: 75%;
 	background-position: center;
@@ -43,7 +43,7 @@
 }
 
 #leftArrow {
-	right: 10%;
+	right: 7%;
 	top: 0;
 }
 
@@ -54,4 +54,33 @@
 
 .arrows:hover {
 	background-color: yellow;
+}
+
+@media (max-width: 767px) {
+	.PicaCarousel {
+		height: 70vh;
+	}
+	
+	.PicaCarousel h2 {
+		font-size: 24px;
+	}
+	.PicaCarousel h4 {
+		font-size: 14px;
+	}
+	.PicaCarousel p {
+		font-size: 12px;
+	}
+	.header {
+		height: 10%;
+	}
+	
+	.title {
+		width: 100%;
+		top: 20%;
+		left: 12px;
+	}
+	
+	.arrows {
+		display: none;
+	}
 }

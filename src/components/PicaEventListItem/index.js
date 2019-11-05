@@ -109,9 +109,9 @@ class PicaEventListItem extends Component {
     return (
       <div className={styles.PicaEventListItem} style={{backgroundColor: this.props.background}}>
         <div className={styles.header + ' ' + (((this.props.activeIndex >= this.props.index || !this.props.cardOpen)) ? styles.headerUp : styles.headerDown)}>
-          <h1>{this.props.title}</h1>
-          <h3>{this.props.artist}</h3>
-          <p>{this.props.time}</p>
+          <h1 id={styles.title}>{this.props.title}</h1>
+          <h3 id={styles.artist}>{this.props.artist}</h3>
+          <p id={styles.date}>{this.props.time}</p>
           <div className={styles.button} onClick={this.handleClick}>
             {this.state.isOpen ? <p>&circ;</p> : <p>&#711;</p>}
           </div>

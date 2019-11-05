@@ -26,24 +26,55 @@ class PicaEventReelBlock extends Component {
   */
   
   propsToStyles() {
-    if((this.props.index - this.props.activeIndex) === -2){
-      return styles.inactiveLeft
-    } else if((this.props.index - this.props.activeIndex) === -1){
-      return styles.activeLeft
-    } else if((this.props.index - this.props.activeIndex) === 0){
-      return styles.activeMiddle
-    } else if((this.props.index - this.props.activeIndex) === 1){
-      return styles.activeRight
-    } else if((this.props.index - this.props.activeIndex) === 2){
-      return styles.inactiveRight
-    } else if(((this.props.index - this.props.activeIndex) < -2) || ((this.props.index - this.props.activeIndex) > 2)){
-      return styles.unmounted
+    if(window.innerWidth > 767){
+      if((this.props.index - this.props.activeIndex) === -1){
+        return styles.inactiveLeft
+      } else if((this.props.index - this.props.activeIndex) === 0){
+        return styles.activeLeft
+      } else if((this.props.index - this.props.activeIndex) === 1){
+        return styles.activeMiddle
+      } else if((this.props.index - this.props.activeIndex) === 2){
+        return styles.activeRight
+      } else if((this.props.index - this.props.activeIndex) === 3){
+        return styles.inactiveRight
+      } else if(((this.props.index - this.props.activeIndex) < -1) || ((this.props.index - this.props.activeIndex) > 3)){
+        return styles.unmounted
+      } else {
+        console.log('error')
+        return 'error'
+      }
     } else {
-      console.log('error')
-      return 'error'
+      if (((this.props.index - this.props.activeIndex) === 0) && (this.props.index === 0)) {
+        return styles.activeLeft
+      } else if (((this.props.index - this.props.activeIndex) === 1) && (this.props.index === 1)) {
+        return styles.inactiveRight2
+      } else if (((this.props.index - this.props.activeIndex) === 2) && (this.props.index === 2)) {
+        return styles.inactiveRight
+      } else if (((this.props.index - this.props.activeIndex) <= -2) && (this.props.cardTotal - this.props.index === 3)) {
+        return styles.inactiveLeft
+      } else if (((this.props.index - this.props.activeIndex) <= -1) && (this.props.cardTotal - this.props.index === 2)) {
+        return styles.inactiveLeft2
+      } else if (((this.props.index - this.props.activeIndex) <= 0) && (this.props.cardTotal - this.props.index === 1)) {
+        return styles.activeRight
+      } else if (((this.props.index - this.props.activeIndex) === -1)) {
+        return styles.inactiveLeft
+      } else if (((this.props.index - this.props.activeIndex) === 0)) {
+        return styles.active
+      } else if (((this.props.index - this.props.activeIndex) === 1)) {
+        return styles.inactiveRight
+      } else if (((this.props.index - this.props.activeIndex) === -2)) {
+        return styles.unmountedLeft
+      } else if (((this.props.index - this.props.activeIndex) === 2)) {
+        return styles.unmountedRight
+      } else if (((this.props.index - this.props.activeIndex) <= -2) || ((this.props.index - this.props.activeIndex) >= 2)) {
+        return styles.unmounted
+      } else {
+        console.log('error')
+        return 'error'
+      }
     }
   }
-
+  
   parseDateString(string){
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
     const monthVal = parseInt(string.slice(5,7)) - 1

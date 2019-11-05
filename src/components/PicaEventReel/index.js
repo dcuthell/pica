@@ -13,8 +13,9 @@ class PicaEventReel extends Component {
     super(props)
     this.state = {
       cards: {},
-      activeIndex: 1,
-      swipe: 'none'
+      activeIndex: 0,
+      swipe: 'none',
+      mobile: (window.innerWidth > 767) ? false : true
     }
     this.clickLeft = this.clickLeft.bind(this)
     this.clickRight = this.clickRight.bind(this)
@@ -44,7 +45,7 @@ class PicaEventReel extends Component {
   }
 
   clickLeft(e) {
-    const newIndex = ((this.state.activeIndex === 1) ? this.state.activeIndex : (this.state.activeIndex - 1))
+    const newIndex = ((this.state.activeIndex === 0) ? this.state.activeIndex : (this.state.activeIndex - 1))
     this.setState({
       activeIndex: newIndex,
       swipe: 'left'
@@ -52,7 +53,12 @@ class PicaEventReel extends Component {
   }
 
   clickRight(e) {
-    const newIndex = ((this.state.activeIndex === (this.state.cardTotal - 2)) ? this.state.activeIndex : (this.state.activeIndex + 1))
+    let newIndex = 0
+    if(this.state.mobile){
+      newIndex = ((this.state.activeIndex === (this.state.cardTotal - 1)) ? this.state.activeIndex : (this.state.activeIndex + 1))
+    } else {
+      newIndex = ((this.state.activeIndex === (this.state.cardTotal - 3)) ? this.state.activeIndex : (this.state.activeIndex + 1))
+    }
     this.setState({
       activeIndex: newIndex,
       swipe: 'right'
