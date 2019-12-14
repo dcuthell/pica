@@ -12,7 +12,7 @@ import './index.css'
 import App from './App'
 
 const client = new ApolloClient({
-  uri: 'https://api-uswest.graphcms.com/v1/cjtcw3ydc3u2f01b95ofcpmee/master'
+  uri: 'https://api-uswest.graphcms.com/v1/ck43iw7hj0ls901f799qoey0a/master'
 })
 
 ReactDOM.render(
