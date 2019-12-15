@@ -30,6 +30,7 @@ import Volunteer from './routes/Volunteer'
 import ResourceRoom from './routes/ResourceRoom'
 import OldArtist from './routes/OldArtist'
 import OldEvent from './routes/OldEvent'
+import OldPost from './routes/OldPost'
 
 function App() {
   return (
@@ -60,6 +61,7 @@ function App() {
         <Route path='/artists/:id' component={Artist} />
         <Route path='/oldartists/:id' component={OldArtist} />
         <Route path='/oldevents/:id' component={OldEvent} />
+        <Route path='/oldposts/:id' component={OldPost} />
       </PicaBody>
     </div>
   );
