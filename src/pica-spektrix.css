@@ -6,17 +6,115 @@
   src: url('//system.spektrix.com/pica/resources/MabryPro-Medium.ttf') format('truetype');
 }
 
-address,article,big,blockquote,body,button,canvas,caption,cite,dd,div,dl,dt,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,hr,input,label,li,nav,ol,optgroup,option,p,section,select,small,span,table,tbody,td,textarea,tfoot,th,thead,time,tr,ul { margin: 0; border: none; outline: none; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; }
+address,article,big,blockquote,body,button,canvas,caption,cite,dd,div,dl,dt,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,hr,input,label,li,nav,ol,optgroup,option,p,section,select,small,span,table,tbody,td,textarea,tfoot,th,thead,time,tr,ul { margin-bottom: 10px; outline: none; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; }
 
-.SeatingArea {
-    width: 100%;
-  height: auto;
+/* Checkout */
+
+section.spx-section-container.spx-section-container__checkout.spx-section-container__checkout--personal-details.spx-state-editable {
+    border-width: thin;
+    border-style: outset;
+    padding: 1em;
 }
 
+section.spx-section-container.spx-section-container__checkout.spx-section-container__checkout--personal-details.spx-state-read-only{
+    border-width: thin;
+    border-style: outset;
+    padding: 1em;
+}
+
+section.spx-section-container.spx-section-container__checkout.spx-section-container__checkout--order-summary.spx-state-read-only {
+    border-width: thin;
+    border-style: outset;
+    padding: 1em;
+}
+
+section.spx-section-container.spx-section-container__checkout.spx-section-container__checkout--order-summary.spx-state-editable {
+    border-width: thin;
+    border-style: outset;
+    padding: 1em;
+}
+
+
+section.spx-section-container.spx-section-container__checkout.spx-section-container__checkout--billing-details.spx-state-read-only {
+    border-width: thin;
+    border-style: outset;
+    padding: 1em;
+}
+
+section.spx-section-container.spx-section-container__checkout.spx-section-container__checkout--billing-details.spx-state-editable {
+    border-width: thin;
+    border-style: outset;
+    padding: 1em;
+}
+
+section.spx-section-container.spx-section-container__checkout.spx-section-container__checkout--billing-details.spx-state-empty {
+    border-width: thin;
+    border-style: outset;
+    padding: 1em;
+}
+
+section.spx-section-container.spx-section-container__checkout.spx-section-container__checkout--payment.spx-state-read-only {
+    width: -webkit-fill-available;
+    border-width: thin;
+    border-style: outset;
+    padding: 1em;
+}
+
+section.spx-section-container.spx-section-container__checkout.spx-section-container__checkout--payment.spx-state-editable {
+    width: -webkit-fill-available;
+    border-width: thin;
+    border-style: outset;
+    padding: 1em;
+}
+
+section.spx-section-container.spx-section-container__checkout.spx-section-container__checkout--payment.spx-state-empty {
+    width: -webkit-fill-available;
+    border-width: thin;
+    border-style: outset;
+    padding: 1em;
+}
+
+section.spx-section-container.spx-section-container__checkout.spx-section-container__checkout--personal-details > div {
+    display: flex;
+    margin-top: 10px;
+	flex-direction: column;
+}
+
+.spx-data-first-name {
+    order: -3;
+}
+
+.spx-data-last-name {
+    order: -2;
+}
+
+.spx-data-email {
+    order: -1;
+}
+
+.spx-validation-field-valid {
+    margin-bottom: 15px;
+}
+
+.spx-intent-continue {
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.spx-field-container.spx-field-container__checkout.spx-field-container__checkout--start-checkout.spx-state-required {
+    margin-bottom: 15px;
+}
+
+.spx-heading-sub-headline.spx-heading-sub-headline__checkout {
+    margin-top: 10px;
+    padding-top: 10px;
+}
 
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
+  /* display: none; */
 }
 
 /* Track */
@@ -67,7 +165,7 @@ address,article,big,blockquote,body,button,canvas,caption,cite,dd,div,dl,dt,fiel
 button, .ButtonStyle {
     line-height: 1;
 	background: white;
-
+    margin-bottom: 10px;
 	color: black;
 	text-align: center;
 	font-weight: normal;
@@ -96,9 +194,8 @@ body {
     background-color: #f8f8f8;
     font-family: 'MabryPro', 'Roboto', 'Montserrat', Helvetica, Arial, sans-serif;
     font-size: 14px;
-    line-height: 1.5;
+    line-height: 2;
     color: #000;
-    margin: 0;
     -webkit-font-smoothing: antialiased;
 }
 a {
@@ -256,7 +353,7 @@ h2.EditTicketsHeading .EventName {
   }
 
   .PaymentOptions .Buttons {
-    margin-bottom: -4px;
+    margin-bottom: 4px;
   }
 
   .PaymentOptions .Buttons .Button {
@@ -388,7 +485,6 @@ h2.EditTicketsHeading .EventName {
   /* My Account Page */
 
 h1.MyAccountHeading {
-	background: url(https://www.ccocincinnati.org/wp-content/uploads/line.png) left repeat-x;
 	text-align: center;
 	margin-bottom: 0;
 }
@@ -417,7 +513,6 @@ h6 {
     text-transform: none;
     letter-spacing: normal;
     line-height: normal;
-    margin: 0 0 16px 0;
     padding: 0
 }
 h2 {
@@ -504,10 +599,12 @@ h6 {
     margin-bottom: 35px;
 }
 
-label,
 input,
 li {
     line-height: normal
+}
+label {
+	line-height: 2em;
 }
 form .Container {
     clear: left;
@@ -539,7 +636,8 @@ input{
   outline: none;
 }
 input[type='text'], input[type='number'], input[type='email'], input[type='password'], select, form .Container input {
-    margin: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
     padding: 10px;
     width: auto;
     font-size: 14px;
@@ -643,6 +741,7 @@ button.Button {
 	display: inline-block;
 	width: auto;
 	padding: 10px 30px;
+	margin: 20px;
 	border: none;
 	-webkit-border-radius: 0px;
 	-moz-border-radius: 0px;
@@ -1025,6 +1124,7 @@ body .MyAccount .Options ul li a.Selected:hover {
 .Checkout input.Button {
     /*font-size: 14px;
     padding: 7px 12px;*/
+    margin-top: 15px;
 }
 .Checkout .SummaryView .Buttons {
     border-top: 0;
@@ -1041,7 +1141,7 @@ body .MyAccount .Options ul li a.Selected:hover {
     clear: both
 }
 .Checkout .Buttons input.Button {
-    margin: 0
+    margin: 20px;
 }
 .Checkout .Buttons input.ContinueButton {
     font-size: 16px
@@ -1248,7 +1348,7 @@ select.EventDatesList {
   }
 
   .DeliveryOptions > div {
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     overflow: hidden;
   }
 
@@ -1278,7 +1378,7 @@ body .EditAddress .AddressEdit .Container .ValidationError {
 }
 body .EditAddress .AddressOptions .Option .Checkbox {
     display: block;
-    margin-bottom: 8px
+    margin-bottom: 10px
 }
 body .EditAddress .AddressOptions .Option .Checkbox label {
     margin: 0 0 0 8px;
@@ -1828,7 +1928,7 @@ body .BillingView .AddressList li label {
   }
 body .Checkout .SummarySection h3 {
     border-bottom: 1px solid #e3e3e3;
-    margin-bottom: 6px;
+    margin-bottom: 10px;
     margin-top: 26px;
     font-size: 15px;
     padding-bottom: 10px;
@@ -2105,7 +2205,7 @@ body .Basket2 .Savings:after {
 }
 * html .Merchandise .MerchandiseRow .Merchandise {
     width: 390px;
-    margin-bottom: 0
+    margin-bottom: 10px;
 }
 .Merchandise .MerchandiseRow .Merchandise .WikiText {
     padding-left: 130px
@@ -2344,7 +2444,7 @@ body .SpektrixPage .View {
     display: block;
     height: 22px;
     margin-left: 1px;
-    margin-bottom: 7px;
+    margin-bottom: 10px;
 }
 .AddGiftVoucher .Container .MoneyTextBox {
     width: 184px
@@ -2420,6 +2520,7 @@ body .AddGiftVoucher .SendTo:after {
 	display: inline-block;
 	width: auto;
 	padding: 5px 10px;
+	margin: 20px;
 	border: none;
 	-webkit-border-radius: 0px;
 	-moz-border-radius: 0px;
@@ -2589,6 +2690,9 @@ Semantically they are not buttons but contextually styling them this way works w
     .Multibuypage .Event {
         width: 33.333%;
     }
+    input.Button, body .MyAccount .NewAddress, body .MyAccount .ChangePassword {
+	margin: 20px;
+    }
 }
 
 /* Mobile styling - Fully stacked and centered */
@@ -2638,6 +2742,7 @@ Semantically they are not buttons but contextually styling them this way works w
   input.Button,
   body .MyAccount .NewAddress, body .MyAccount .ChangePassword {
     padding: 5px 10px;
+    margin: 20px;
   }
   body .MyAccount .Options ul li a {
     padding: 15px 11px;
@@ -2662,6 +2767,9 @@ Semantically they are not buttons but contextually styling them this way works w
     text-align: center;
     border-bottom: 1px solid #ddd;
   }
+  input.Button, body .MyAccount .NewAddress, body .MyAccount .ChangePassword {
+    margin: 20px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -2673,6 +2781,9 @@ Semantically they are not buttons but contextually styling them this way works w
         width: 100%;
         padding: 0;
         margin-bottom: 64px;
+    }
+    input.Button, body .MyAccount .NewAddress, body .MyAccount .ChangePassword {
+	margin: 20px;
     }
     body .SpektrixPage table.PriceListTable td {
       font-size: 16px;
@@ -2741,7 +2852,7 @@ Semantically they are not buttons but contextually styling them this way works w
 
     body div.Savings input.Input_Text {
       max-width: 100%;
-      margin-bottom: 4px;
+      margin-bottom: 10px;
     }
 
 
@@ -2777,12 +2888,90 @@ Semantically they are not buttons but contextually styling them this way works w
     color: #000;
   }
 
-/* DOnations */
+.Period {
+  display: none;
+  visibility: hidden;
+}
+
+/* Donations */
+
+.DonationsBlurb::before{
+  visibility: visible;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "One-Time Donation";
+  font-size: 2em;
+  padding-bottom: 20px;
+}
+
+.DonationsBlurb {
+  visibility: hidden;
+  position: relative;
+}
+
+.FundHeading {
+  visibility: hidden;
+  position: relative;
+}
+
+.FundHeading::after{
+  visibility: visible;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-style: italic;
+  content: "All donors of $35+ will receive a PICA membership";
+  font-size: .7em;
+  padding-bottom: 20px;
+}
 
 .FundContainer h3 {
   font-size: 24px;
 }
 
+.FundContainer	{
+	display: flex;
+	flex-direction: column;
+
+}
+
+.FundDescription {
+	order: -3;
+}
+
+.FundHeading {
+	order: -5;
+}
+
+.DonationAmount {
+	order: -4;
+}
+
+#ctl00_ContentPlaceHolder_Funds_ctl00_RecognitionNameDiv {
+	order: 1;
+}
+
+#ctl00_ContentPlaceHolder_Funds_ctl00_IsAnonymousDiv {
+	order: 2;
+
+#ctl00_ContentPlaceHolder_Funds_ctl00_AddTributeDiv {
+	order: 3;
+}
+
+#ctl00_ContentPlaceHolder_Funds_ctl00_TributeDiv {
+	order: 4;
+}
+
+#ctl00_ContentPlaceHolder_DonationsContinueButton {
+	margin-bottom: 40px;
+	margin: 20px;
+}
+
+.Buttons {
+	padding-bottom: 40px;
+        margin: 20px;
+}
 /* Memberships */
 
 .SpektrixPage.Memberships #ctl00_ContentPlaceHolder_HeaderWikiText {
@@ -2855,4 +3044,93 @@ ul.spx-sublist-summary {
 
 .Event:hover a.More_Info.Event_Detail {
     opacity: 1;
+}
+
+/* Checkout */
+
+section.spx-section-container.spx-section-container__checkout.spx-section-container__checkout--personal-details.spx-state-editable {
+    border-width: thin;
+    border-style: outset;
+    padding: 1em;
+}
+
+section.spx-section-container.spx-section-container__checkout.spx-section-container__checkout--personal-details.spx-state-read-only{
+    border-width: thin;
+    border-style: outset;
+    padding: 1em;
+}
+
+section.spx-section-container.spx-section-container__checkout.spx-section-container__checkout--order-summary.spx-state-read-only {
+    border-width: thin;
+    border-style: outset;
+    padding: 1em;
+}
+
+section.spx-section-container.spx-section-container__checkout.spx-section-container__checkout--order-summary.spx-state-editable {
+    border-width: thin;
+    border-style: outset;
+    padding: 1em;
+}
+
+
+section.spx-section-container.spx-section-container__checkout.spx-section-container__checkout--billing-details.spx-state-read-only {
+    border-width: thin;
+    border-style: outset;
+    padding: 1em;
+}
+
+section.spx-section-container.spx-section-container__checkout.spx-section-container__checkout--billing-details.spx-state-editable {
+    border-width: thin;
+    border-style: outset;
+    padding: 1em;
+}
+
+section.spx-section-container.spx-section-container__checkout.spx-section-container__checkout--payment.spx-state-read-only {
+    width: -webkit-fill-available;
+    border-width: thin;
+    border-style: outset;
+    padding: 1em;
+}
+
+section.spx-section-container.spx-section-container__checkout.spx-section-container__checkout--payment.spx-state-editable {
+    width: -webkit-fill-available;
+    border-width: thin;
+    border-style: outset;
+    padding: 1em;
+}
+section.spx-section-container.spx-section-container__checkout.spx-section-container__checkout--personal-details > div {
+    display: flex;
+    margin-top: 10px;
+	flex-direction: column;
+}
+
+.spx-data-first-name {
+    order: -3;
+}
+
+.spx-data-last-name {
+    order: -2;
+}
+
+.spx-data-email {
+    order: -1;
+}
+
+.spx-validation-field-valid {
+    margin-bottom: 15px;
+}
+
+.spx-intent-continue {
+
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.spx-field-container.spx-field-container__checkout.spx-field-container__checkout--start-checkout.spx-state-required {
+    margin-bottom: 15px;
+}
+
+.spx-heading-sub-headline.spx-heading-sub-headline__checkout {
+    margin-top: 10px;
+    padding-top: 10px;
 }
